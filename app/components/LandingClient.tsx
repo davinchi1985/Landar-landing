@@ -13,7 +13,9 @@ export default function LandingClient() {
       v.addEventListener("play", setRate);
     }
 
-    // Character animation — words wrapped in white-space:nowrap to prevent mid-word breaks
+    // Character animation
+    // Each word is wrapped in inline-block + white-space:nowrap so the browser
+    // never breaks mid-word. Space between words = margin-right on the word wrapper.
     const el = document.getElementById("heading");
     if (el) {
       const text = el.dataset.text?.replace(/\\n/g, "\n") ?? "";
@@ -28,7 +30,8 @@ export default function LandingClient() {
         const words = line.split(" ");
         words.forEach((word, wordIdx) => {
           const wordEl = document.createElement("span");
-          wordEl.style.cssText = "display:inline-block; white-space:nowrap;";
+          const isLast = wordIdx === words.length - 1;
+          wordEl.style.cssText = `display:inline-block; white-space:nowrap;${isLast ? "" : " margin-right:0.28em;"}`;
           [...word].forEach((ch) => {
             const span = document.createElement("span");
             span.className = "char";
@@ -38,14 +41,6 @@ export default function LandingClient() {
             wordEl.appendChild(span);
           });
           lineEl.appendChild(wordEl);
-          if (wordIdx < words.length - 1) {
-            const space = document.createElement("span");
-            space.className = "char";
-            space.textContent = " ";
-            space.style.transitionDelay = (initialDelay + globalCharIdx * charDelay) + "ms";
-            globalCharIdx++;
-            lineEl.appendChild(space);
-          }
         });
         el.appendChild(lineEl);
       });

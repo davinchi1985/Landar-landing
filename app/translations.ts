@@ -1,0 +1,217 @@
+export type Lang = "EN" | "ES" | "PT" | "DE" | "ZH" | "JA";
+
+export const t = {
+  EN: {
+    calendly: "https://calendly.com/landar/15min",
+    nav: {
+      approach: "Approach",
+      services: "Services",
+      process: "Process",
+      why: "Why us",
+      cta: "Book a 15-min call",
+    },
+    hero: {
+      heading: "Land your\noperation in Argentina.",
+      lead: "One point of contact for entity setup, banking, accounting, and hiring — handled from day one by a team on the ground.",
+      ctaPrimary: "Book a 15-min call",
+      ctaSecondary: "Explore Now",
+      badge: "Now onboarding pilot clients",
+      locations: "Buenos Aires · Mendoza · Neuquén",
+      tag: ["Entity.", "Banking.", "Hiring."],
+    },
+    problem: {
+      label: "01 — The problem",
+      body: "Operating in Argentina means juggling five different vendors before you can issue a single invoice — entity setup, banking, accountants, payroll, and compliance. Each on its own timeline, in its own language.",
+      frags: [
+        { num: "01", name: "Entity setup", vendor: "law firm" },
+        { num: "02", name: "Local banking", vendor: "bank relationship" },
+        { num: "03", name: "Accounting & tax", vendor: "estudio contable" },
+        { num: "04", name: "Hiring & payroll", vendor: "HR consultant" },
+      ],
+    },
+    what: {
+      label: "02 — What we do",
+      h2: "A single point of contact for everything you need on the ground.",
+      body: "We replace the chain of vendors with one team. You get one project lead, one timeline, one bill — and a clear path from incorporation to your first local hire.",
+      features: [
+        {
+          title: "Entity & legal setup",
+          desc: "SRL or SA formation, IGJ registration, statutes, CUIT, beneficial-ownership filings. Operating-ready, not just on paper.",
+        },
+        {
+          title: "Banking & treasury",
+          desc: "Local ARS and USD accounts with banks that actually answer. FX guidance, cross-border flows, and treasury structuring.",
+        },
+        {
+          title: "Accounting, tax & compliance",
+          desc: "Monthly closings, AFIP filings, transfer-pricing reviews, and audit-ready books from month one. No surprises.",
+        },
+        {
+          title: "Hiring & payroll",
+          desc: "Employer of Record for early hires, then transition to your own entity. Compliant contracts, payroll, benefits, onboarding.",
+        },
+      ],
+    },
+    how: {
+      label: "03 — How it works",
+      h2: "Three steps. No theatrics.",
+      steps: [
+        {
+          title: "Discovery call",
+          desc: "A 15-minute conversation to map your operation: timeline, headcount plan, sector specifics, and how funds will move in and out. You leave with a clear scope and price.",
+          meta: "15 minutes",
+        },
+        {
+          title: "We assemble your stack",
+          desc: "Legal, banking, accounting, and HR — coordinated by one project lead at Landar. You approve milestones; we handle execution and paperwork.",
+          meta: "~ 30 to 60 days",
+        },
+        {
+          title: "You operate",
+          desc: "Hire, pay, invoice, and report through a single contact and a shared dashboard. We stay on as your operating partner for as long as it makes sense.",
+          meta: "Ongoing",
+        },
+      ],
+    },
+    why: {
+      label: "04 — Why us",
+      h2: "Built on operating infrastructure — not slide decks.",
+      pill: "On the ground in Argentina",
+      cardTitle: "Operating teams already in market.",
+      cardBody: "We work with legal, banking, accounting, and HR teams across Buenos Aires, Mendoza, and Neuquén — the same partners used by foreign operators already in country. You inherit the relationships, not the cold-outreach roadmap.",
+      facts: [
+        { k: "1", l: "Project lead — every workstream, one accountable contact." },
+        { k: "3", l: "Operating regions across Buenos Aires, Mendoza & Neuquén." },
+        { k: "45d", l: "Typical time from kickoff to operating-ready entity." },
+        { k: "EN / ES", l: "Bilingual delivery — no friction between HQ and local teams." },
+      ],
+      sectorsIntro: "Built for the operations actually moving into Argentina right now:",
+      sectors: [
+        { tag: "Energy", bold: "Lithium, renewables, and Vaca Muerta", rest: " — entity structures designed for project finance, JVs, and long-cycle capex." },
+        { tag: "Tech", bold: "Nearshoring teams", rest: " — fast EOR hiring while we stand up your local entity, then a clean transition." },
+        { tag: "Regional", bold: "LATAM HQs & expansion", rest: " — use Argentina as a base for engineering, shared services, or regional sales." },
+      ],
+    },
+    cta: {
+      label: "05 — Get started",
+      h2: "Ready to land in Argentina?",
+      body: "A 15-minute call. No pitch deck, no obligation. You leave with a clear scope, timeline, and price — or with a useful map of what setting up in Argentina actually takes.",
+      ctaPrimary: "Book a 15-min call",
+    },
+    footer: {
+      tagline: "Landar · Operating partner for foreign companies in Argentina",
+      copy: "© 2026 · Buenos Aires, AR",
+    },
+  },
+
+  ES: {
+    calendly: "https://calendly.com/landar/15min",
+    nav: {
+      approach: "Enfoque",
+      services: "Servicios",
+      process: "Proceso",
+      why: "Por qué nosotros",
+      cta: "Reservar llamada",
+    },
+    hero: {
+      heading: "Aterrizá tu\noperación en Argentina.",
+      lead: "Un solo punto de contacto para constitución de empresa, banca, contabilidad y RRHH — operativo desde el día uno con equipo local.",
+      ctaPrimary: "Reservar llamada de 15 min",
+      ctaSecondary: "Explorar",
+      badge: "Aceptando primeros clientes piloto",
+      locations: "Buenos Aires · Mendoza · Neuquén",
+      tag: ["Empresa.", "Banca.", "Equipo."],
+    },
+    problem: {
+      label: "01 — El problema",
+      body: "Operar en Argentina significa coordinar cinco proveedores distintos antes de poder emitir una sola factura — constitución legal, banca, contabilidad, nómina y compliance. Cada uno con su propio cronograma y su propio idioma.",
+      frags: [
+        { num: "01", name: "Constitución legal", vendor: "estudio jurídico" },
+        { num: "02", name: "Banca local", vendor: "relación bancaria" },
+        { num: "03", name: "Contabilidad e impuestos", vendor: "estudio contable" },
+        { num: "04", name: "RRHH y nómina", vendor: "consultor de RRHH" },
+      ],
+    },
+    what: {
+      label: "02 — Qué hacemos",
+      h2: "Un solo punto de contacto para todo lo que necesitás en Argentina.",
+      body: "Reemplazamos la cadena de proveedores con un equipo. Tenés un project lead, un cronograma, una factura — y un camino claro desde la constitución hasta tu primera contratación local.",
+      features: [
+        {
+          title: "Constitución y armado legal",
+          desc: "Formación de SRL o SA, inscripción en IGJ, estatutos, CUIT, declaraciones de beneficiarios finales. Listo para operar, no solo en el papel.",
+        },
+        {
+          title: "Banca y tesorería",
+          desc: "Cuentas locales en ARS y USD con bancos que realmente responden. Asesoría FX, flujos internacionales y estructuración de tesorería.",
+        },
+        {
+          title: "Contabilidad, impuestos y compliance",
+          desc: "Cierres mensuales, presentaciones ante AFIP, revisiones de precios de transferencia y libros listos para auditoría desde el mes uno. Sin sorpresas.",
+        },
+        {
+          title: "RRHH y nómina",
+          desc: "Employer of Record para las primeras contrataciones, luego transición a tu propia entidad. Contratos conformes, nómina, beneficios y onboarding.",
+        },
+      ],
+    },
+    how: {
+      label: "03 — Cómo funciona",
+      h2: "Tres pasos. Sin vueltas.",
+      steps: [
+        {
+          title: "Llamada de diagnóstico",
+          desc: "Una conversación de 15 minutos para mapear tu operación: cronograma, plan de contrataciones, especificidades del sector y cómo van a moverse los fondos. Salís con un alcance y precio claros.",
+          meta: "15 minutos",
+        },
+        {
+          title: "Armamos tu estructura",
+          desc: "Legal, banca, contabilidad y RRHH — coordinados por un solo project lead en Landar. Vos aprobás los hitos; nosotros manejamos la ejecución y el papeleo.",
+          meta: "~ 30 a 60 días",
+        },
+        {
+          title: "Vos operás",
+          desc: "Contratá, pagá, facturá y reportá a través de un solo contacto y un dashboard compartido. Seguimos como tu socio operativo el tiempo que tenga sentido.",
+          meta: "Ongoing",
+        },
+      ],
+    },
+    why: {
+      label: "04 — Por qué nosotros",
+      h2: "Construido sobre infraestructura operativa real — no en PowerPoints.",
+      pill: "Con equipo en Argentina",
+      cardTitle: "Equipos operativos ya en el mercado.",
+      cardBody: "Trabajamos con equipos legales, bancarios, contables y de RRHH en Buenos Aires, Mendoza y Neuquén — los mismos partners que usan operadores extranjeros ya instalados en el país. Heredás las relaciones, no el roadmap de cold outreach.",
+      facts: [
+        { k: "1", l: "Project lead — cada workstream con un solo responsable." },
+        { k: "3", l: "Regiones operativas: Buenos Aires, Mendoza y Neuquén." },
+        { k: "45d", l: "Tiempo típico desde el inicio hasta empresa lista para operar." },
+        { k: "EN / ES", l: "Entrega bilingüe — sin fricción entre la casa matriz y el equipo local." },
+      ],
+      sectorsIntro: "Diseñado para las operaciones que están entrando a Argentina ahora:",
+      sectors: [
+        { tag: "Energía", bold: "Litio, renovables y Vaca Muerta", rest: " — estructuras legales diseñadas para project finance, JVs y capex de ciclo largo." },
+        { tag: "Tech", bold: "Equipos de nearshoring", rest: " — contratación rápida vía EOR mientras constituimos tu entidad local, luego transición limpia." },
+        { tag: "Regional", bold: "HQs y expansión en LATAM", rest: " — usá Argentina como base para ingeniería, servicios compartidos o ventas regionales." },
+      ],
+    },
+    cta: {
+      label: "05 — Empezar",
+      h2: "¿Listo para aterrizar en Argentina?",
+      body: "Una llamada de 15 minutos. Sin pitch deck, sin compromiso. Salís con un alcance, cronograma y precio claros — o con un mapa útil de lo que implica realmente instalarse en Argentina.",
+      ctaPrimary: "Reservar llamada de 15 min",
+    },
+    footer: {
+      tagline: "Landar · Socio operativo para empresas extranjeras en Argentina",
+      copy: "© 2026 · Buenos Aires, AR",
+    },
+  },
+
+  PT: { calendly: "https://calendly.com/landar/15min", nav: { approach: "Abordagem", services: "Serviços", process: "Processo", why: "Por que nós", cta: "Agendar chamada" }, hero: { heading: "Aterrise sua\noperação na Argentina.", lead: "Um ponto de contato para abertura de empresa, banco, contabilidade e RH — operacional desde o dia um com equipe local.", ctaPrimary: "Agendar chamada de 15 min", ctaSecondary: "Explorar", badge: "Aceitando primeiros clientes piloto", locations: "Buenos Aires · Mendoza · Neuquén", tag: ["Empresa.", "Banco.", "Equipe."] }, problem: { label: "01 — O problema", body: "Operar na Argentina significa coordenar cinco fornecedores diferentes antes de emitir uma única fatura. Cada um com seu cronograma e idioma.", frags: [{ num: "01", name: "Abertura de empresa", vendor: "escritório jurídico" }, { num: "02", name: "Conta bancária local", vendor: "relacionamento bancário" }, { num: "03", name: "Contabilidade e impostos", vendor: "estudio contable" }, { num: "04", name: "RH e folha de pagamento", vendor: "consultor de RH" }] }, what: { label: "02 — O que fazemos", h2: "Um único ponto de contato para tudo que você precisa no terreno.", body: "Substituímos a cadeia de fornecedores por uma equipe. Um project lead, um cronograma, uma fatura.", features: [{ title: "Constituição e armado legal", desc: "Formação de SRL ou SA, inscrição no IGJ, estatutos, CUIT. Pronto para operar." }, { title: "Banco e tesouraria", desc: "Contas locais em ARS e USD com bancos que respondem. Orientação FX e fluxos internacionais." }, { title: "Contabilidade, impostos e compliance", desc: "Fechamentos mensais, declarações AFIP e livros prontos para auditoria desde o mês um." }, { title: "RH e folha de pagamento", desc: "Employer of Record para primeiras contratações, depois transição para sua entidade." }] }, how: { label: "03 — Como funciona", h2: "Três passos. Sem complicação.", steps: [{ title: "Chamada de diagnóstico", desc: "15 minutos para mapear sua operação. Você sai com escopo e preço claros.", meta: "15 minutos" }, { title: "Montamos sua estrutura", desc: "Jurídico, banco, contabilidade e RH — coordenados por um project lead da Landar.", meta: "~ 30 a 60 dias" }, { title: "Você opera", desc: "Contrate, pague, fature e reporte por um único contato e dashboard compartilhado.", meta: "Contínuo" }] }, why: { label: "04 — Por que nós", h2: "Construído sobre infraestrutura operacional real.", pill: "Com equipe na Argentina", cardTitle: "Equipes já no mercado.", cardBody: "Trabalhamos com equipes jurídicas, bancárias, contábeis e de RH em Buenos Aires, Mendoza e Neuquén.", facts: [{ k: "1", l: "Project lead para todos os workstreams." }, { k: "3", l: "Regiões operacionais: Buenos Aires, Mendoza e Neuquén." }, { k: "45d", l: "Tempo típico do início até empresa pronta para operar." }, { k: "EN / ES", l: "Entrega bilíngue — sem fricção entre matriz e equipe local." }], sectorsIntro: "Desenhado para as operações entrando na Argentina agora:", sectors: [{ tag: "Energia", bold: "Lítio, renováveis e Vaca Muerta", rest: " — estruturas para project finance e JVs." }, { tag: "Tech", bold: "Equipes de nearshoring", rest: " — contratação rápida via EOR, depois transição limpa." }, { tag: "Regional", bold: "HQs e expansão na LATAM", rest: " — use a Argentina como base para engenharia ou vendas regionais." }] }, cta: { label: "05 — Começar", h2: "Pronto para aterrissar na Argentina?", body: "Uma chamada de 15 minutos. Sem pitch deck, sem compromisso.", ctaPrimary: "Agendar chamada de 15 min" }, footer: { tagline: "Landar · Parceiro operacional para empresas estrangeiras na Argentina", copy: "© 2026 · Buenos Aires, AR" } },
+
+  DE: { calendly: "https://calendly.com/landar/15min", nav: { approach: "Ansatz", services: "Leistungen", process: "Prozess", why: "Warum wir", cta: "Gespräch buchen" }, hero: { heading: "Ihr Markteintritt\nin Argentinien.", lead: "Ein Ansprechpartner für Firmengründung, Bankverbindung, Buchhaltung und HR — vom ersten Tag an durch ein Team vor Ort.", ctaPrimary: "15-min-Gespräch buchen", ctaSecondary: "Mehr erfahren", badge: "Jetzt Pilotprojekte aufnehmen", locations: "Buenos Aires · Mendoza · Neuquén", tag: ["Firma.", "Banking.", "Team."] }, problem: { label: "01 — Das Problem", body: "Der Aufbau einer Operation in Argentinien bedeutet: fünf verschiedene Anbieter koordinieren, bevor Sie eine einzige Rechnung stellen können.", frags: [{ num: "01", name: "Firmengründung", vendor: "Anwaltskanzlei" }, { num: "02", name: "Lokales Banking", vendor: "Bankbeziehung" }, { num: "03", name: "Buchhaltung & Steuern", vendor: "Steuerberater" }, { num: "04", name: "HR & Gehaltsabrechnung", vendor: "HR-Berater" }] }, what: { label: "02 — Was wir tun", h2: "Ein einziger Ansprechpartner für alles, was Sie vor Ort brauchen.", body: "Wir ersetzen die Anbieterkette durch ein Team. Ein Projektleiter, ein Zeitplan, eine Rechnung.", features: [{ title: "Firmengründung & Recht", desc: "SRL- oder SA-Gründung, IGJ-Registrierung, Satzungen, CUIT. Betriebsbereit, nicht nur auf dem Papier." }, { title: "Banking & Treasury", desc: "Lokale ARS- und USD-Konten bei reaktionsfähigen Banken. Devisenberatung und grenzüberschreitende Zahlungsströme." }, { title: "Buchhaltung, Steuern & Compliance", desc: "Monatliche Abschlüsse, AFIP-Meldungen und prüfungsbereite Bücher ab dem ersten Monat." }, { title: "HR & Gehaltsabrechnung", desc: "Employer of Record für frühe Einstellungen, dann Übergang zur eigenen Einheit." }] }, how: { label: "03 — So funktioniert es", h2: "Drei Schritte. Ohne Umwege.", steps: [{ title: "Erstgespräch", desc: "15 Minuten, um Ihre Operation zu kartieren. Sie verlassen das Gespräch mit einem klaren Umfang und Preis.", meta: "15 Minuten" }, { title: "Wir bauen Ihre Struktur auf", desc: "Recht, Banking, Buchhaltung und HR — koordiniert von einem Projektleiter bei Landar.", meta: "~ 30 bis 60 Tage" }, { title: "Sie operieren", desc: "Einstellen, bezahlen, fakturieren und reporten — über einen einzigen Kontakt.", meta: "Laufend" }] }, why: { label: "04 — Warum wir", h2: "Aufgebaut auf echter Betriebsinfrastruktur.", pill: "Team vor Ort in Argentinien", cardTitle: "Operative Teams bereits im Markt.", cardBody: "Wir arbeiten mit Rechts-, Banken-, Buchhaltungs- und HR-Teams in Buenos Aires, Mendoza und Neuquén.", facts: [{ k: "1", l: "Projektleiter — ein verantwortlicher Kontakt für alle Workstreams." }, { k: "3", l: "Operative Regionen: Buenos Aires, Mendoza und Neuquén." }, { k: "45T", l: "Typische Zeit vom Start bis zur betriebsbereiten Einheit." }, { k: "DE / ES", l: "Zweisprachige Abwicklung — keine Reibung zwischen HQ und lokalem Team." }], sectorsIntro: "Für die Operationen, die jetzt nach Argentinien kommen:", sectors: [{ tag: "Energie", bold: "Lithium, Erneuerbare & Vaca Muerta", rest: " — Strukturen für Projektfinanzierung und Joint Ventures." }, { tag: "Tech", bold: "Nearshoring-Teams", rest: " — schnelle EOR-Einstellung, dann sauberer Übergang." }, { tag: "Regional", bold: "LATAM-Zentrale & Expansion", rest: " — Argentinien als Basis für Engineering oder regionalen Vertrieb." }] }, cta: { label: "05 — Loslegen", h2: "Bereit für den Markteintritt in Argentinien?", body: "Ein 15-minütiges Gespräch. Kein Pitch Deck, keine Verpflichtung.", ctaPrimary: "15-min-Gespräch buchen" }, footer: { tagline: "Landar · Operativer Partner für ausländische Unternehmen in Argentinien", copy: "© 2026 · Buenos Aires, AR" } },
+
+  ZH: { calendly: "https://calendly.com/landar/15min", nav: { approach: "方案", services: "服务", process: "流程", why: "为什么选我们", cta: "预约通话" }, hero: { heading: "在阿根廷\n开展您的业务。", lead: "一个联络点，搞定公司注册、银行开户、财务合规和人力资源——从第一天起，由本地团队全程跟进。", ctaPrimary: "预约15分钟通话", ctaSecondary: "了解更多", badge: "现接受首批试点客户", locations: "布宜诺斯艾利斯 · 门多萨 · 内乌肯", tag: ["注册.", "银行.", "团队."] }, problem: { label: "01 — 痛点", body: "在阿根廷运营，意味着在开出第一张发票之前，需要协调五个不同的服务商——公司注册、银行、会计、薪资和合规。每一项都有自己的时间表和语言。", frags: [{ num: "01", name: "公司注册", vendor: "律师事务所" }, { num: "02", name: "本地银行开户", vendor: "银行关系" }, { num: "03", name: "会计与税务", vendor: "会计事务所" }, { num: "04", name: "人力资源与薪资", vendor: "HR顾问" }] }, what: { label: "02 — 我们做什么", h2: "在阿根廷所需的一切，只需一个联络点。", body: "我们用一个团队取代整条服务商链。一个项目负责人、一个时间表、一张账单。", features: [{ title: "公司注册与法律架构", desc: "SRL或SA公司设立、IGJ注册、章程、CUIT、受益所有权申报。真正具备运营条件。" }, { title: "银行与资金管理", desc: "在真正响应的银行开立ARS和USD账户。外汇指导、跨境资金流动和资金结构安排。" }, { title: "会计、税务与合规", desc: "每月结账、AFIP申报、转让定价审查，以及从第一个月起即可应对审计的账簿。" }, { title: "人力资源与薪资", desc: "早期员工通过雇主记录方式入职，之后过渡到您自己的实体。合规合同、薪资、福利、入职培训。" }] }, how: { label: "03 — 如何运作", h2: "三步到位。简单直接。", steps: [{ title: "初步咨询", desc: "15分钟对话，梳理您的运营需求：时间表、招聘计划、行业特点及资金流向。您将获得清晰的方案和报价。", meta: "15分钟" }, { title: "搭建您的架构", desc: "法律、银行、会计和人力资源——由Landar一名项目负责人统筹协调。您审批里程碑，我们负责执行和文件处理。", meta: "约30至60天" }, { title: "您开始运营", desc: "通过一个联络点和共享仪表板完成招聘、支付、开票和报告。我们作为您的运营合作伙伴持续支持。", meta: "持续跟进" }] }, why: { label: "04 — 为什么选我们", h2: "建立在真实运营基础设施上——而非PPT。", pill: "扎根阿根廷本地", cardTitle: "已在市场运营的团队。", cardBody: "我们与布宜诺斯艾利斯、门多萨和内乌肯的法律、银行、会计和人力资源团队合作，这些正是已在阿根廷运营的外资企业所使用的合作伙伴。", facts: [{ k: "1", l: "项目负责人——所有工作流，一个问责联络人。" }, { k: "3", l: "运营区域：布宜诺斯艾利斯、门多萨和内乌肯。" }, { k: "45天", l: "从启动到具备运营条件的典型周期。" }, { k: "中/英", l: "双语交付——总部与本地团队之间无障碍沟通。" }], sectorsIntro: "专为正在进入阿根廷的业务而设计：", sectors: [{ tag: "能源", bold: "锂、可再生能源与Vaca Muerta油田", rest: "——专为项目融资、合资企业和长周期资本支出设计的实体结构。" }, { tag: "科技", bold: "近岸外包团队", rest: "——通过雇主记录方式快速招聘，同时搭建本地实体，之后顺畅过渡。" }, { tag: "区域总部", bold: "拉美总部与区域扩张", rest: "——以阿根廷为工程、共享服务或区域销售的基地。" }] }, cta: { label: "05 — 开始", h2: "准备好在阿根廷落地了吗？", body: "一次15分钟的通话。无需幻灯片，无需承诺。您将获得清晰的方案、时间表和报价。", ctaPrimary: "预约15分钟通话" }, footer: { tagline: "Landar · 外资企业在阿根廷的运营合作伙伴", copy: "© 2026 · 布宜诺斯艾利斯，阿根廷" } },
+
+  JA: { calendly: "https://calendly.com/landar/15min", nav: { approach: "アプローチ", services: "サービス", process: "プロセス", why: "選ばれる理由", cta: "相談を予約" }, hero: { heading: "アルゼンチンで\n事業を立ち上げる。", lead: "法人設立、銀行口座開設、会計、採用まで、すべてを一つの窓口で。現地チームが初日から対応します。", ctaPrimary: "15分間の相談を予約", ctaSecondary: "詳しく見る", badge: "パイロットクライアント募集中", locations: "ブエノスアイレス · メンドーサ · ネウケン", tag: ["法人.", "銀行.", "採用."] }, problem: { label: "01 — 課題", body: "アルゼンチンで事業を運営するには、最初の請求書を発行する前に、5つの異なるベンダーを調整する必要があります。それぞれが独自のスケジュールと言語を持っています。", frags: [{ num: "01", name: "法人設立", vendor: "法律事務所" }, { num: "02", name: "現地銀行口座", vendor: "銀行との関係構築" }, { num: "03", name: "会計・税務", vendor: "会計事務所" }, { num: "04", name: "人事・給与", vendor: "HRコンサルタント" }] }, what: { label: "02 — 私たちのサービス", h2: "現地で必要なすべてを、一つの窓口で。", body: "ベンダーの連鎖を一つのチームに置き換えます。一人のプロジェクトリーダー、一つのスケジュール、一つの請求書。", features: [{ title: "法人設立・法務", desc: "SRLまたはSAの設立、IGJ登録、定款、CUIT、受益者申告。書類上だけでなく、実際に運営可能な状態に。" }, { title: "銀行・資金管理", desc: "実際に対応してくれる銀行でのARS・USD口座開設。為替ガイダンス、国際送金、資金構造の最適化。" }, { title: "会計・税務・コンプライアンス", desc: "月次決算、AFIP申告、移転価格審査。初月から監査対応可能な帳簿。" }, { title: "人事・給与", desc: "初期採用はEOR（雇用代行）で迅速に対応し、自社エンティティへスムーズに移行。" }] }, how: { label: "03 — 進め方", h2: "3ステップ。シンプルに。", steps: [{ title: "初回ヒアリング", desc: "15分間で事業計画を整理します。スケジュール、採用計画、業界特性、資金の流れを確認し、明確なスコープと価格をご提示します。", meta: "15分" }, { title: "体制を整える", desc: "法務、銀行、会計、人事をLandarの一人のプロジェクトリーダーが統括。マイルストーンの承認はお客様、実行と書類対応は私たちが担当。", meta: "約30〜60日" }, { title: "事業を開始する", desc: "採用、支払い、請求、レポートをすべて一つの窓口と共有ダッシュボードで管理。必要な限り、運営パートナーとして伴走します。", meta: "継続サポート" }] }, why: { label: "04 — 選ばれる理由", h2: "スライドではなく、実際の運営インフラに基づいています。", pill: "アルゼンチン現地チーム", cardTitle: "すでに市場で稼働しているチーム。", cardBody: "ブエノスアイレス、メンドーサ、ネウケンの法律、銀行、会計、HRチームと連携しています。既存の外資系企業が利用しているのと同じパートナーです。", facts: [{ k: "1", l: "プロジェクトリーダー — すべての業務を一人が担当。" }, { k: "3", l: "対応地域：ブエノスアイレス、メンドーサ、ネウケン。" }, { k: "45日", l: "キックオフから運営可能な法人設立までの標準期間。" }, { k: "日/英", l: "バイリンガル対応 — 本社と現地チーム間の摩擦をゼロに。" }], sectorsIntro: "今アルゼンチンに進出している事業向けに設計：", sectors: [{ tag: "エネルギー", bold: "リチウム、再生可能エネルギー、バカムエルタ", rest: "— プロジェクトファイナンス、JV、長期設備投資に対応した法人構造。" }, { tag: "テック", bold: "ニアショアチーム", rest: "— EORで迅速採用しながら現地法人を設立、その後クリーンに移行。" }, { tag: "地域展開", bold: "LATAM本部・地域拡大", rest: "— アルゼンチンをエンジニアリング、共有サービス、または地域営業の拠点に。" }] }, cta: { label: "05 — はじめる", h2: "アルゼンチンへの着地準備はできていますか？", body: "15分間の通話。ピッチデッキなし、義務なし。明確なスコープ、スケジュール、価格をお伝えします。", ctaPrimary: "15分間の相談を予約" }, footer: { tagline: "Landar · アルゼンチンにおける外資系企業の運営パートナー", copy: "© 2026 · ブエノスアイレス，アルゼンチン" } },
+} as const;
