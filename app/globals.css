@@ -332,6 +332,57 @@ footer { padding: 40px 0 56px; border-top: 1px solid var(--border); color: var(-
 .foot-left .brand-mark::after { width: 5px; height: 5px; }
 .foot-right { font-size: 12px; letter-spacing: 0.02em; color: var(--muted-2); }
 
+/* BLOG */
+.blog-shell { background: #000; color: #fff; min-height: 100vh; padding: 48px 0 80px; }
+.blog-header { max-width: 680px; margin-bottom: 56px; }
+.blog-back { display: inline-flex; align-items: center; gap: 6px; color: var(--muted); font-size: 13px; text-decoration: none; margin-bottom: 32px; transition: color .2s; }
+.blog-back:hover { color: #fff; }
+.blog-header h1 { font-size: 36px; font-weight: 400; letter-spacing: -0.03em; line-height: 1.1; margin: 0 0 14px; color: #fff; }
+@media (min-width: 768px) { .blog-header h1 { font-size: 48px; } }
+.blog-header p { color: var(--muted); font-size: 17px; line-height: 1.6; margin: 0; }
+
+.post-grid { display: grid; grid-template-columns: 1fr; gap: 16px; }
+@media (min-width: 768px) { .post-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1100px) { .post-grid { grid-template-columns: repeat(3, 1fr); } }
+
+.post-card { display: flex; flex-direction: column; gap: 10px; padding: 28px; border-radius: 16px; border: 1px solid var(--border); background: rgba(255,255,255,0.025); text-decoration: none; color: inherit; transition: background .2s, border-color .2s, transform .2s; }
+.post-card:hover { background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.18); transform: translateY(-2px); }
+.post-meta-top { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.post-category { font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--argentina); }
+.post-read { font-size: 11.5px; color: var(--muted-2); }
+.post-date { font-size: 11.5px; color: var(--muted-2); }
+.post-card h2 { margin: 0; font-size: 17px; font-weight: 500; line-height: 1.35; letter-spacing: -0.01em; color: #fff; }
+.post-card p { margin: 0; font-size: 14px; color: var(--muted); line-height: 1.55; flex: 1; }
+.post-cta { font-size: 13px; color: var(--argentina); font-weight: 500; margin-top: 4px; }
+
+.post-nav { margin-bottom: 40px; }
+.post-article { max-width: 720px; }
+.post-article-header { margin-bottom: 40px; padding-bottom: 32px; border-bottom: 1px solid var(--border); }
+.post-article-header h1 { font-size: 32px; font-weight: 400; letter-spacing: -0.03em; line-height: 1.1; margin: 16px 0 0; color: #fff; }
+@media (min-width: 768px) { .post-article-header h1 { font-size: 44px; } }
+.post-excerpt { margin: 16px 0 0; font-size: 18px; color: var(--muted); line-height: 1.55; font-weight: 300; }
+
+.post-content { font-size: 16.5px; line-height: 1.7; color: rgba(255,255,255,0.85); }
+.post-content h2 { font-size: 24px; font-weight: 500; letter-spacing: -0.02em; color: #fff; margin: 48px 0 16px; padding-top: 16px; border-top: 1px solid var(--border); }
+.post-content h3 { font-size: 18px; font-weight: 500; color: #fff; margin: 32px 0 10px; }
+.post-content p { margin: 0 0 20px; }
+.post-content ul, .post-content ol { margin: 0 0 20px; padding-left: 22px; }
+.post-content li { margin-bottom: 8px; }
+.post-content strong { color: #fff; font-weight: 600; }
+.post-content a { color: var(--argentina); text-decoration: underline; text-underline-offset: 3px; }
+.post-content table { width: 100%; border-collapse: collapse; margin: 24px 0; font-size: 15px; }
+.post-content th { text-align: left; font-weight: 600; color: #fff; padding: 10px 14px; border-bottom: 1px solid var(--border-strong); font-size: 13px; letter-spacing: 0.04em; }
+.post-content td { padding: 10px 14px; border-bottom: 1px solid var(--border); color: rgba(255,255,255,0.8); vertical-align: top; }
+.post-content tr:last-child td { border-bottom: none; }
+.post-content .faq-item { margin: 32px 0; padding: 24px; border-radius: 12px; border: 1px solid var(--border); background: rgba(255,255,255,0.025); }
+.post-content .faq-item h3 { margin: 0 0 10px; font-size: 16px; font-weight: 500; color: #fff; border: none; padding: 0; }
+.post-content .faq-item p { margin: 0; font-size: 15px; }
+
+.post-footer { margin-top: 64px; padding-top: 40px; border-top: 1px solid var(--border); }
+.post-cta-box { background: rgba(255,255,255,0.03); border: 1px solid var(--border); border-radius: 18px; padding: 36px; }
+.post-cta-box h3 { margin: 0 0 10px; font-size: 22px; font-weight: 500; color: #fff; letter-spacing: -0.02em; }
+.post-cta-box p { margin: 0 0 24px; color: var(--muted); font-size: 15px; line-height: 1.6; }
+
 /* SCROLL REVEAL */
 .reveal { opacity: 0; transform: translateY(20px); transition: opacity 700ms ease, transform 700ms cubic-bezier(0.16, 1, 0.3, 1); }
 .reveal.in { opacity: 1; transform: translateY(0); }
