@@ -296,6 +296,303 @@ Without a prior relationship or with documentation gaps: <strong>30–60 busines
 </div>
     `,
   },
+  {
+    slug: "hiring-employees-argentina-foreign-company",
+    title: "Hiring Employees in Argentina: A Complete Guide for Foreign Companies (2026)",
+    metaDescription: "How to hire employees in Argentina as a foreign company. Labor law basics, contract types, payroll costs, mandatory benefits, and termination rules explained.",
+    date: "2026-05-24",
+    readingTime: "7 min read",
+    category: "hiring",
+    excerpt: "Argentine labor law is generous to employees and demanding on employers. Here's what every foreign company needs to understand before making their first hire.",
+    content: `
+<p>Argentina has one of the most employee-protective labor frameworks in Latin America. For foreign companies entering the market, understanding what you're committing to before you hire your first person is not optional — it's the difference between a predictable cost structure and a surprise that derails your operation.</p>
+
+<h2>The Legal Framework: Ley de Contrato de Trabajo</h2>
+
+<p>Argentine employment is governed primarily by the Ley de Contrato de Trabajo (LCT) — Law 20.744. It establishes minimum rights for all employees in a relationship of dependency, regardless of what the employment contract says. You cannot contract below the LCT minimum. Any clause that does so is null and void; the LCT provision applies instead.</p>
+
+<p>Key principle: in Argentine labor law, doubt is resolved in favor of the employee (<em>in dubio pro operario</em>). This shapes everything from contract interpretation to termination disputes.</p>
+
+<h2>Contract Types</h2>
+
+<h3>Relación de dependencia (employment contract)</h3>
+<p>The standard form for employees. The employer pays full social security contributions (<em>cargas sociales</em>) on top of the gross salary. This includes:</p>
+<ul>
+  <li>ANSES (pension): 10.77% employer contribution</li>
+  <li>ANSES (family allowances): 4.44%</li>
+  <li>ART (workplace accident insurance): 1.5–3% depending on activity</li>
+  <li>Obra social (health insurance): 6%</li>
+  <li>ANSSAL: 0.15%</li>
+</ul>
+<p>Total employer burden above gross salary: approximately <strong>24–27%</strong>.</p>
+
+<h3>Monotributo (self-employed contractor)</h3>
+<p>A simplified tax regime for self-employed workers. The contractor issues invoices and pays their own taxes. Cheaper for the company in the short term — but carries misclassification risk. AFIP and labor courts look at the substance of the relationship, not the label. If the work looks like employment (fixed hours, supervision, exclusivity), you may be reclassified as an employer with retroactive obligations.</p>
+
+<h3>Trial period</h3>
+<p>The first three months of any indefinite employment contract are considered a probationary period. During this time, either party can terminate without severance (standard notice still applies). After the trial period, full termination rights attach.</p>
+
+<h2>Mandatory Benefits Under the LCT</h2>
+
+<table>
+  <thead><tr><th>Benefit</th><th>Details</th></tr></thead>
+  <tbody>
+    <tr><td>Aguinaldo (13th month)</td><td>One month's salary paid in two installments: June and December. Equal to 50% of the highest monthly salary in each semester.</td></tr>
+    <tr><td>Paid vacation</td><td>14 days/year (up to 5 years seniority), 21 days (5–10 years), 28 days (10–20 years), 35 days (20+ years).</td></tr>
+    <tr><td>Obra social</td><td>Employer must register the employee with an approved health insurance provider (obra social). Employee contributes 3%, employer 6% of gross salary.</td></tr>
+    <tr><td>ART</td><td>Employer must hold workplace accident insurance. Mandatory, non-negotiable.</td></tr>
+    <tr><td>Sick leave</td><td>Paid sick leave of 3–12 months depending on seniority and family situation.</td></tr>
+    <tr><td>Maternity leave</td><td>90 days paid maternity leave. Employer pays, then recovers from ANSES.</td></tr>
+  </tbody>
+</table>
+
+<h2>What Payroll Actually Costs</h2>
+
+<p>A simple example: employee with a gross salary of ARS 1,000,000/month.</p>
+
+<table>
+  <thead><tr><th>Item</th><th>Amount</th></tr></thead>
+  <tbody>
+    <tr><td>Gross salary</td><td>ARS 1,000,000</td></tr>
+    <tr><td>Employer contributions (~25%)</td><td>ARS 250,000</td></tr>
+    <tr><td>Aguinaldo provision (1/12 monthly)</td><td>ARS 83,333</td></tr>
+    <tr><td>Vacation provision (~8%)</td><td>ARS 80,000</td></tr>
+    <tr><td><strong>Total monthly cost to employer</strong></td><td><strong>ARS 1,413,333</strong></td></tr>
+    <tr><td>Employee net (after employee deductions ~17%)</td><td>ARS 830,000</td></tr>
+  </tbody>
+</table>
+
+<p>In USD terms at any given exchange rate, Argentine salaries are highly competitive globally. This is the fundamental driver of nearshoring demand.</p>
+
+<h2>Termination: What It Really Costs</h2>
+
+<p>This is the part most foreign companies underestimate. Argentine labor law requires:</p>
+
+<ul>
+  <li><strong>Notice period:</strong> 15 days (during trial), or 1 month (up to 5 years seniority), or 2 months (5+ years). Payment in lieu of notice is standard.</li>
+  <li><strong>Severance (<em>indemnización</em>):</strong> 1 month's salary per year of service (minimum 1 month), calculated on the highest normal salary in the last year. No cap.</li>
+  <li><strong>Vacation days accrued:</strong> Proportional to days worked in the current year, paid out at termination.</li>
+  <li><strong>Integration month (<em>mes de integración</em>):</strong> If termination occurs mid-month, the company pays the remainder of that month.</li>
+</ul>
+
+<p><strong>Example:</strong> An employee with 3 years of service and ARS 1,000,000 gross salary costs approximately ARS 4,000,000–4,500,000 to terminate without cause (severance + notice + accruals).</p>
+
+<p>Budget for this from day one. It is not a surprise — it is the law.</p>
+
+<h2>Frequently Asked Questions</h2>
+
+<div class="faq-item">
+  <h3>Can I hire someone in Argentina and pay them in USD?</h3>
+  <p>You can pay in USD through an Argentine bank account (caja de ahorro en dólares). The employment contract, payroll, and AFIP filings must still be in pesos at the official exchange rate. The USD payment is effectively a salary supplement. Structure this carefully with a local labor lawyer.</p>
+</div>
+
+<div class="faq-item">
+  <h3>What's the minimum wage in Argentina?</h3>
+  <p>The Salario Mínimo Vital y Móvil (SMVM) is updated periodically by the government. As of 2026, it is adjusted roughly quarterly. Any employment contract must pay at least the SMVM — but in practice, market salaries for skilled roles are significantly above it.</p>
+</div>
+
+<div class="faq-item">
+  <h3>Can I use performance-based contracts to reduce severance exposure?</h3>
+  <p>Fixed-term contracts (contratos a plazo fijo) are possible for specific projects or roles with a defined end date. They require genuine justification. If they are repeatedly renewed or the underlying work is indefinite in nature, they convert to indefinite contracts retroactively.</p>
+</div>
+    `,
+  },
+
+  {
+    slug: "argentina-vs-brazil-business-setup",
+    title: "Argentina vs. Brazil: Where to Set Up Your Latin America Operations",
+    metaDescription: "Argentina vs Brazil for business setup: talent cost, legal complexity, banking, and stability compared. Which country makes sense for your LATAM expansion in 2026.",
+    date: "2026-05-25",
+    readingTime: "6 min read",
+    category: "strategy",
+    excerpt: "Both countries offer real advantages for LATAM operations. The right answer depends entirely on what you're building and who you're hiring.",
+    content: `
+<p>If you're evaluating where to anchor your Latin America operations, Argentina and Brazil are usually the two serious candidates. Both have large talent pools, significant domestic markets, and growing FDI. They also have different risk profiles, cost structures, and operational complexities. Here's how they actually compare for a foreign company making this decision in 2026.</p>
+
+<h2>Talent: Cost, Quality, and Availability</h2>
+
+<h3>Argentina</h3>
+<p>Argentina has one of the most educated workforces in Latin America, with strong concentrations of software engineers, finance professionals, legal talent, and technical specialists. Buenos Aires is a genuine tech hub — home to unicorns like Mercado Libre and a dense freelancer ecosystem that has been building global work relationships for 15+ years.</p>
+
+<p>Cost advantage is real and substantial. A senior software engineer in Buenos Aires costs USD 2,000–4,000/month all-in. The same profile in São Paulo costs USD 4,000–8,000. In Austin or Berlin, USD 10,000–15,000.</p>
+
+<p>English proficiency is high by regional standards. Timezone alignment with North America (EST+1-3h) is excellent.</p>
+
+<h3>Brazil</h3>
+<p>Brazil's talent pool is larger in absolute terms — by population alone. São Paulo is a more mature corporate hub with established offices of most global multinationals. Portuguese fluency is near-universal; English is less prevalent than in Argentina, especially outside São Paulo and Rio.</p>
+
+<p>Brazilian tech talent is competitive but more expensive than Argentine. Regulatory complexity also means that HR overhead is high — Brazilian labor law (CLT) rivals Argentina's in complexity and employee protections.</p>
+
+<h2>Legal and Banking Infrastructure</h2>
+
+<h3>Argentina</h3>
+<p>Entity setup: 40–60 business days. Banking: 15–30 days after incorporation. FX regulations are complex but manageable with local expertise. The legal framework is predictable if you have local lawyers — it is not a legal Wild West.</p>
+
+<h3>Brazil</h3>
+<p>Entity setup in Brazil is notoriously complex. A Limitada (Brazil's LLC equivalent) takes 30–90 days depending on the state and whether you have local partners. Brazilian bureaucracy (the "custo Brasil") is a documented competitive disadvantage. Banking is more straightforward once incorporated. FX is less restricted than Argentina.</p>
+
+<h2>Economic Stability: The Honest Comparison</h2>
+
+<p>Neither country offers the stability of Western Europe or Singapore. But they're different kinds of unstable:</p>
+
+<ul>
+  <li><strong>Argentina</strong> has recurring macroeconomic crises, high inflation, and a history of currency devaluations. This is real and must be planned for in your treasury structure. The upside: talented people are cheap in USD terms precisely because of this instability.</li>
+  <li><strong>Brazil</strong> is more macroeconomically stable but politically volatile. Regulatory and tax changes are frequent. The "custo Brasil" — the aggregate cost of compliance — is high and rises unpredictably.</li>
+</ul>
+
+<p>For foreign companies with dollar-denominated revenue and local-currency costs, Argentina's instability often works in their favor. For companies with significant local revenue exposure, Brazil's larger domestic market may justify the complexity.</p>
+
+<h2>Sectors Where Argentina Wins</h2>
+
+<ul>
+  <li><strong>Tech nearshoring</strong> — cost-quality ratio is unmatched in the region</li>
+  <li><strong>Energy</strong> — Vaca Muerta and lithium resources are world-class; no Brazilian equivalent</li>
+  <li><strong>Agriculture and agribusiness</strong> — Argentina is a global agricultural powerhouse</li>
+  <li><strong>Regional shared services</strong> — Buenos Aires timezone and English proficiency make it ideal</li>
+</ul>
+
+<h2>Sectors Where Brazil Wins</h2>
+
+<ul>
+  <li><strong>Consumer market access</strong> — 215M people vs Argentina's 46M</li>
+  <li><strong>Manufacturing</strong> — larger industrial base and supply chain infrastructure</li>
+  <li><strong>Financial services</strong> — São Paulo is Latin America's financial capital</li>
+  <li><strong>Portuguese-language operations</strong> — necessary for serving the Brazilian market</li>
+</ul>
+
+<h2>The Verdict by Operation Type</h2>
+
+<table>
+  <thead><tr><th>Operation type</th><th>Better fit</th></tr></thead>
+  <tbody>
+    <tr><td>Nearshoring tech team (USD revenue)</td><td>Argentina</td></tr>
+    <tr><td>Energy or resource extraction</td><td>Argentina</td></tr>
+    <tr><td>LATAM regional HQ</td><td>Argentina (Buenos Aires) or Brazil (São Paulo) — depends on language</td></tr>
+    <tr><td>Consumer product targeting Brazil</td><td>Brazil</td></tr>
+    <tr><td>Manufacturing</td><td>Brazil</td></tr>
+    <tr><td>Shared services center (EN/ES)</td><td>Argentina</td></tr>
+  </tbody>
+</table>
+
+<h2>Frequently Asked Questions</h2>
+
+<div class="faq-item">
+  <h3>Can I set up in both Argentina and Brazil simultaneously?</h3>
+  <p>Yes. Many multinationals do. The question is sequencing — which market justifies the setup cost and management overhead first. Most companies that come to us start with Argentina for cost reasons and add Brazil when local Brazilian revenue justifies it.</p>
+</div>
+
+<div class="faq-item">
+  <h3>Is Argentina's economic instability a dealbreaker for serious investment?</h3>
+  <p>Not for companies with the right structure. The companies succeeding in Argentina in 2026 treat FX risk as an operational parameter — they structure their treasury, contracts, and pricing to manage it, not ignore it. Plenty of foreign companies have operated successfully in Argentina for decades.</p>
+</div>
+    `,
+  },
+
+  {
+    slug: "nearshoring-argentina-tech-team",
+    title: "How to Build Your Tech Team in Argentina: The Nearshoring Playbook (2026)",
+    metaDescription: "Practical guide to nearshoring to Argentina in 2026. How to hire developers, manage compliance, EOR vs entity, and build a remote team that actually works.",
+    date: "2026-05-26",
+    readingTime: "7 min read",
+    category: "hiring",
+    excerpt: "Argentina's tech talent is world-class and USD-affordable. Here's the complete operational playbook for building your engineering team there.",
+    content: `
+<p>Argentina has been a nearshoring destination for US and European tech companies for over a decade. The combination of strong engineering education, English proficiency, timezone alignment with the Americas, and a cost structure that makes dollar-denominated hiring genuinely affordable has made Buenos Aires one of the top remote tech hubs in the world.</p>
+
+<p>This is the operational playbook — not the pitch. How to actually build and run an Argentine tech team in 2026.</p>
+
+<h2>Why Argentina for Tech Nearshoring</h2>
+
+<h3>Cost advantage</h3>
+<p>A senior full-stack engineer in Buenos Aires costs USD 2,500–4,500/month all-in (salary + employer costs). The same profile in the US costs USD 12,000–18,000/month. Even with EOR fees and local compliance overhead, the cost savings are 60–75%.</p>
+
+<h3>Talent density</h3>
+<p>Argentina graduates more than 10,000 software engineers per year. Buenos Aires alone has a dense ecosystem of developers experienced with global remote work — many have worked for US companies via platforms like Toptal, Turing, and direct contracts for years. This is not a thin talent market.</p>
+
+<h3>Timezone</h3>
+<p>Buenos Aires is UTC-3 year-round (no daylight saving). From the US East Coast: 1-2 hours ahead. From Europe (CET): 4-5 hours behind. Strong overlap with both markets during standard working hours.</p>
+
+<h3>English proficiency</h3>
+<p>Argentina's English Proficiency Index consistently ranks in the top 5 in Latin America. Tech professionals specifically have high rates of professional English fluency — most have conducted technical interviews, code reviews, and project communication in English throughout their careers.</p>
+
+<h2>EOR vs. Own Entity: The Tech-Specific Decision</h2>
+
+<p>For tech nearshoring, the decision tree is straightforward:</p>
+
+<ul>
+  <li><strong>1–3 engineers:</strong> Start with EOR. Faster, lower overhead, lets you validate the team before committing to entity costs.</li>
+  <li><strong>4–8 engineers:</strong> Run entity setup in parallel while using EOR. At 5+ people, an entity becomes cheaper than EOR fees.</li>
+  <li><strong>8+ engineers:</strong> Own entity is clearly the right structure. You also want your own employer brand, benefits structure, and hiring pipeline.</li>
+</ul>
+
+<p>See our full guide on <a href="/blog/employer-of-record-argentina">EOR vs own entity in Argentina</a> for the cost comparison.</p>
+
+<h2>Hiring: Where to Find Argentine Developers</h2>
+
+<h3>Direct hiring (best long-term)</h3>
+<ul>
+  <li><strong>LinkedIn Argentina</strong> — active market, developers respond well to inbound</li>
+  <li><strong>Bumeran / Computrabajo</strong> — major local job boards</li>
+  <li><strong>Referrals from your first hire</strong> — Argentine tech community is tight-knit</li>
+</ul>
+
+<h3>Platforms</h3>
+<ul>
+  <li><strong>Toptal</strong> — pre-vetted, English-fluent, higher rates (USD 60–150/hr)</li>
+  <li><strong>Turing</strong> — vetted remote engineers, mid-range rates</li>
+  <li><strong>Gun.io</strong> — US-focused platform with strong Argentine talent pool</li>
+</ul>
+
+<h3>Local recruiters</h3>
+<p>For senior roles or team builds of 5+, a Buenos Aires-based technical recruiter is worth the fee (typically 10–15% of annual salary). They know the market and can close candidates you can't.</p>
+
+<h2>Compensation Structure That Works</h2>
+
+<p>Argentine developers who work for foreign companies have become sophisticated about compensation. A competitive offer in 2026 typically includes:</p>
+
+<ul>
+  <li><strong>Base salary in USD</strong> (paid into Argentine peso account at a favorable rate, or into a foreign account)</li>
+  <li><strong>Health insurance</strong> beyond the mandatory obra social</li>
+  <li><strong>Annual performance bonus</strong></li>
+  <li><strong>Hardware allowance</strong> (laptop, peripherals)</li>
+  <li><strong>Internet and home office stipend</strong></li>
+  <li><strong>Learning and development budget</strong></li>
+</ul>
+
+<p>Competing only on salary will not close your best candidates. The developers you want have options — from Argentine unicorns, US companies already in market, and direct freelance relationships. Offer a real package.</p>
+
+<h2>From 0 to Operating Team in 45 Days</h2>
+
+<table>
+  <thead><tr><th>Week</th><th>Action</th></tr></thead>
+  <tbody>
+    <tr><td>Week 1</td><td>Discovery call → define role specs, compensation bands, entity strategy</td></tr>
+    <tr><td>Week 1–2</td><td>EOR setup OR entity incorporation kicked off (parallel tracks)</td></tr>
+    <tr><td>Week 2–3</td><td>Sourcing and technical interviews</td></tr>
+    <tr><td>Week 3–4</td><td>Offers extended, employment contracts signed through EOR</td></tr>
+    <tr><td>Week 4–5</td><td>Onboarding: equipment, access, accounts, team integration</td></tr>
+    <tr><td>Week 6+</td><td>First sprint. Team is operating.</td></tr>
+  </tbody>
+</table>
+
+<h2>Frequently Asked Questions</h2>
+
+<div class="faq-item">
+  <h3>How do I manage a remote team in Argentina from the US?</h3>
+  <p>The same tools as any remote team: Slack, Linear/Jira, GitHub, Notion, Loom. The practical difference is timezone: schedule daily standups at 9am Buenos Aires time (6-7am US Pacific, 9-10am US Eastern). Avoid Friday afternoon meetings — Argentine work culture values the long weekend.</p>
+</div>
+
+<div class="faq-item">
+  <h3>Is turnover high in the Argentine tech market?</h3>
+  <p>It was very high in 2021–2022 when remote work exploded globally. It has stabilized. Companies that pay market rates in USD and invest in career development retain their Argentine teams well. The engineers who prioritize stability over maximizing offers are exactly who you want.</p>
+</div>
+
+<div class="faq-item">
+  <h3>Can I hire developers as contractors (not employees) to avoid labor law?</h3>
+  <p>You can — but the misclassification risk is real. Argentine labor law looks at the substance of the relationship. If a developer works exclusively for you, follows your hours, uses your tools, and has been "contracting" for 18+ months, a labor court will likely find employment and award retroactive benefits including severance. Use a proper EOR or entity.</p>
+</div>
+    `,
+  },
 ];
 
 export function getPost(slug: string): Post | undefined {
