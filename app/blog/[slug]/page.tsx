@@ -66,12 +66,12 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
               <h3>Need help setting up operations in Argentina?</h3>
               <p>Landar handles entity setup, banking, accounting, and hiring — one project lead, one timeline.</p>
               <a
-                href="https://calendly.com/landar/15min"
+                href="https://calendly.com/davinchicohen/30min"
                 target="_blank"
                 rel="noopener"
                 className="btn btn-primary btn-lg"
               >
-                Book a 15-min call →
+                Book a 30-min call →
               </a>
             </div>
           </footer>
