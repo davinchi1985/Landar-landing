@@ -191,7 +191,7 @@ button { font-family: inherit; }
 .hero-inner {
   position: relative; z-index: 10; flex: 1;
   display: flex; flex-direction: column; justify-content: center;
-  padding: 100px var(--pad-x) 56px;
+  padding: 72px var(--pad-x) 48px;
   max-width: var(--maxw); margin: 0 auto; width: 100%;
 }
 @media (min-width: 1024px) { .hero-inner { padding-bottom: 80px; } }
