@@ -151,7 +151,7 @@ export default function LandingPage() {
               </nav>
 
               <div className="nav-right">
-                <div className="lang" ref={pickerRef}>
+                <div className={`lang${pickerOpen ? " open" : ""}`} ref={pickerRef}>
                   <button
                     className="lang-btn"
                     aria-haspopup="listbox"
@@ -165,27 +165,23 @@ export default function LandingPage() {
                       <path d="M3 4.5L6 7.5L9 4.5" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
                   </button>
-                  {pickerOpen && (
-                    <div className="lang-menu liquid-glass" role="listbox" aria-label="Languages">
-                      {LANGS.map(({ flag, code, label }) => (
-                        <button
-                          key={code}
-                          className="lang-item"
-                          role="option"
-                          aria-current={code === lang ? "true" : undefined}
-                          onClick={() => { setLang(code); setPickerOpen(false); }}
-                        >
-                          <span className="lang-flag">{flag}</span>
-                          <span className="label">{label}</span>
-                          {code === lang && (
-                            <svg className="check" viewBox="0 0 14 14" fill="none">
-                              <path d="M2.5 7.5L6 11L11.5 3.5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
-                            </svg>
-                          )}
-                        </button>
-                      ))}
-                    </div>
-                  )}
+                  <div className="lang-menu liquid-glass" role="listbox" aria-label="Languages">
+                    {LANGS.map(({ flag, code, label }) => (
+                      <button
+                        key={code}
+                        className="lang-item"
+                        role="option"
+                        aria-current={code === lang ? "true" : undefined}
+                        onClick={() => { setLang(code); setPickerOpen(false); }}
+                      >
+                        <span className="lang-flag">{flag}</span>
+                        <span className="label">{label}</span>
+                        <svg className="check" viewBox="0 0 14 14" fill="none">
+                          <path d="M2.5 7.5L6 11L11.5 3.5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+                        </svg>
+                      </button>
+                    ))}
+                  </div>
                 </div>
 
                 <a className="btn btn-primary btn-sm" href={tr.calendly} target="_blank" rel="noopener">
