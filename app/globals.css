@@ -130,7 +130,8 @@ button { font-family: inherit; }
   min-width: 210px; border-radius: 12px; padding: 6px;
   display: none; z-index: 60;
 }
-.lang.open .lang-menu { display: block; }
+.lang.open .lang-menu,
+.lang:focus-within .lang-menu { display: block; }
 .lang-item {
   display: flex; align-items: center; gap: 10px;
   width: 100%; padding: 10px; border-radius: 7px;
