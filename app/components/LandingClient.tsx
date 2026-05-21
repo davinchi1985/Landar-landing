@@ -13,7 +13,7 @@ export default function LandingClient() {
       v.addEventListener("play", setRate);
     }
 
-    // Character animation
+    // Character animation — words wrapped in white-space:nowrap to prevent mid-word breaks
     const el = document.getElementById("heading");
     if (el) {
       const text = el.dataset.text?.replace(/\\n/g, "\n") ?? "";
@@ -21,16 +21,31 @@ export default function LandingClient() {
       const charDelay = 30;
       const initialDelay = 200;
       el.innerHTML = "";
-      lines.forEach((line, lineIdx) => {
+      let globalCharIdx = 0;
+      lines.forEach((line) => {
         const lineEl = document.createElement("span");
         lineEl.style.display = "block";
-        [...line].forEach((ch, charIdx) => {
-          const span = document.createElement("span");
-          span.className = "char";
-          span.textContent = ch === " " ? " " : ch;
-          const delay = initialDelay + lineIdx * line.length * charDelay + charIdx * charDelay;
-          span.style.transitionDelay = delay + "ms";
-          lineEl.appendChild(span);
+        const words = line.split(" ");
+        words.forEach((word, wordIdx) => {
+          const wordEl = document.createElement("span");
+          wordEl.style.cssText = "display:inline-block; white-space:nowrap;";
+          [...word].forEach((ch) => {
+            const span = document.createElement("span");
+            span.className = "char";
+            span.textContent = ch;
+            span.style.transitionDelay = (initialDelay + globalCharIdx * charDelay) + "ms";
+            globalCharIdx++;
+            wordEl.appendChild(span);
+          });
+          lineEl.appendChild(wordEl);
+          if (wordIdx < words.length - 1) {
+            const space = document.createElement("span");
+            space.className = "char";
+            space.textContent = " ";
+            space.style.transitionDelay = (initialDelay + globalCharIdx * charDelay) + "ms";
+            globalCharIdx++;
+            lineEl.appendChild(space);
+          }
         });
         el.appendChild(lineEl);
       });
