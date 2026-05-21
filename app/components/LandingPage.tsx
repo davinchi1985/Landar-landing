@@ -12,6 +12,14 @@ const LANGS: { flag: string; code: Lang; label: string }[] = [
   { flag: "🇯🇵", code: "JA", label: "日本語" },
 ];
 
+const FORM_COUNTRIES = [
+  "United States", "Germany", "United Kingdom", "France", "Spain",
+  "Italy", "Netherlands", "Switzerland", "Sweden", "Norway", "Denmark",
+  "Canada", "Australia", "Japan", "China", "South Korea", "Singapore",
+  "Brazil", "Mexico", "Colombia", "Chile", "Other",
+];
+const FORM_SERVICES = ["Entity setup", "Banking", "Hiring & payroll", "Full setup"];
+
 const ICONS = {
   entity: (
     <svg viewBox="0 0 18 18" fill="none"><path d="M3 7l6-4 6 4v8H3V7z M7 15v-4h4v4" stroke="currentColor" strokeWidth="1.4" strokeLinejoin="round" strokeLinecap="round" /></svg>
@@ -62,6 +70,39 @@ export default function LandingPage() {
   const [pickerOpen, setPickerOpen] = useState(false);
   const pickerRef = useRef<HTMLDivElement>(null);
   const tr = t[lang];
+
+  // Form state
+  const [formStep, setFormStep] = useState(1);
+  const [formCountry, setFormCountry] = useState("");
+  const [formServices, setFormServices] = useState<string[]>([]);
+  const [formTimeline, setFormTimeline] = useState("");
+  const [formName, setFormName] = useState("");
+  const [formEmail, setFormEmail] = useState("");
+  const [formStatus, setFormStatus] = useState<"idle" | "sending" | "done" | "error">("idle");
+
+  // Faro hover
+  const [hoveredItem, setHoveredItem] = useState<number | null>(null);
+
+  async function handleFormSubmit(e: React.FormEvent) {
+    e.preventDefault();
+    setFormStatus("sending");
+    try {
+      const res = await fetch("https://formspree.io/f/xdajgyzo", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          country: formCountry,
+          services: formServices.join(", "),
+          timeline: formTimeline,
+          name: formName,
+          email: formEmail,
+        }),
+      });
+      setFormStatus(res.ok ? "done" : "error");
+    } catch {
+      setFormStatus("error");
+    }
+  }
 
   // Close picker on outside click
   useEffect(() => {
@@ -159,14 +200,19 @@ export default function LandingPage() {
                     aria-label="Select language"
                     onClick={(e) => { e.stopPropagation(); setPickerOpen((o) => !o); }}
                   >
-                    <span className="lang-flag">{currentLang.flag}</span>
+                    <svg width="13" height="13" viewBox="0 0 14 14" fill="none" aria-hidden="true" style={{opacity:0.7}}>
+                      <circle cx="7" cy="7" r="6" stroke="currentColor" strokeWidth="1.3"/>
+                      <ellipse cx="7" cy="7" rx="2.8" ry="6" stroke="currentColor" strokeWidth="1.3"/>
+                      <line x1="1.2" y1="5" x2="12.8" y2="5" stroke="currentColor" strokeWidth="1.3"/>
+                      <line x1="1.2" y1="9" x2="12.8" y2="9" stroke="currentColor" strokeWidth="1.3"/>
+                    </svg>
                     <span className="lang-code">{currentLang.code}</span>
                     <svg className="lang-caret" viewBox="0 0 12 12" fill="none" aria-hidden="true">
                       <path d="M3 4.5L6 7.5L9 4.5" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
                   </button>
                   <div className="lang-menu liquid-glass" role="listbox" aria-label="Languages">
-                    {LANGS.map(({ flag, code, label }) => (
+                    {LANGS.map(({ code, label }) => (
                       <button
                         key={code}
                         className="lang-item"
@@ -174,7 +220,7 @@ export default function LandingPage() {
                         aria-current={code === lang ? "true" : undefined}
                         onClick={() => { setLang(code); setPickerOpen(false); }}
                       >
-                        <span className="lang-flag">{flag}</span>
+                        <span className="lang-code-pill">{code}</span>
                         <span className="label">{label}</span>
                         <svg className="check" viewBox="0 0 14 14" fill="none">
                           <path d="M2.5 7.5L6 11L11.5 3.5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
@@ -280,6 +326,121 @@ export default function LandingPage() {
           </div>
         </section>
 
+        {/* ===== EL FARO ===== */}
+        <section className="block faro-section" id="faro">
+          <div className="wrap">
+            <div className="faro-intro">
+              <div className="section-label" style={{ marginBottom: 16 }}>{tr.faro.label}</div>
+              <h2 className="h2" style={{ marginBottom: 12 }}>{tr.faro.h2.split("\n").map((line, i) => <span key={i} style={{ display: "block" }}>{line}</span>)}</h2>
+              <p className="body-text" style={{ marginBottom: 40 }}>{tr.faro.body}</p>
+            </div>
+            <div className="faro-grid">
+
+              {/* Lighthouse SVG */}
+              <div className="faro-left">
+                <svg viewBox="0 0 160 460" fill="none" xmlns="http://www.w3.org/2000/svg" className="faro-svg" aria-hidden="true">
+                  {/* Light beam cones */}
+                  <path d="M108 62 L160 18 L160 108 Z" fill="rgba(116,172,223,0.07)" className="faro-beam" />
+                  <path d="M108 62 L160 36 L160 90 Z" fill="rgba(116,172,223,0.10)" className="faro-beam2" />
+
+                  {/* Dome cap */}
+                  <path d="M52 98 Q80 68 108 98" stroke="rgba(255,255,255,0.55)" strokeWidth="1.5" fill="rgba(255,255,255,0.03)" />
+
+                  {/* Lantern glow */}
+                  <circle cx="80" cy="84" r="18" fill="rgba(116,172,223,0.12)" className="faro-glow" />
+                  <circle cx="80" cy="84" r="9" fill="rgba(116,172,223,0.6)" />
+                  <circle cx="80" cy="84" r="4" fill="#fff" />
+
+                  {/* Lantern room (Section 4 — Full setup / Compliance) */}
+                  <rect x="52" y="98" width="56" height="62" stroke="rgba(116,172,223,0.65)" strokeWidth="1.5" fill="rgba(116,172,223,0.04)" />
+                  <line x1="69" y1="98" x2="69" y2="160" stroke="rgba(116,172,223,0.25)" strokeWidth="0.8" />
+                  <line x1="80" y1="98" x2="80" y2="160" stroke="rgba(116,172,223,0.25)" strokeWidth="0.8" />
+                  <line x1="91" y1="98" x2="91" y2="160" stroke="rgba(116,172,223,0.25)" strokeWidth="0.8" />
+                  <line x1="52" y1="129" x2="108" y2="129" stroke="rgba(116,172,223,0.2)" strokeWidth="0.8" />
+                  {/* dot + connector */}
+                  <circle cx="108" cy="129" r="3.5" fill="#74ACDF" />
+                  <line x1="108" y1="129" x2="160" y2="129" stroke="rgba(116,172,223,0.35)" strokeWidth="0.8" strokeDasharray="3 3" />
+
+                  {/* Gallery ledge */}
+                  <rect x="42" y="160" width="76" height="11" stroke="rgba(255,255,255,0.32)" strokeWidth="1" fill="rgba(255,255,255,0.03)" />
+
+                  {/* Section 3 — Hiring & payroll */}
+                  <path d="M46 171 L114 171 L118 252 L42 252 Z" stroke="rgba(255,255,255,0.28)" strokeWidth="1.5" fill="rgba(255,255,255,0.02)" />
+                  <rect x="72" y="197" width="16" height="20" rx="8" stroke="rgba(255,255,255,0.22)" strokeWidth="1" fill="none" />
+                  <line x1="47" y1="212" x2="113" y2="212" stroke="rgba(255,255,255,0.08)" strokeWidth="0.8" />
+                  {/* dot + connector */}
+                  <circle cx="116" cy="211" r="3" fill="rgba(255,255,255,0.5)" />
+                  <line x1="116" y1="211" x2="160" y2="211" stroke="rgba(255,255,255,0.2)" strokeWidth="0.8" strokeDasharray="3 3" />
+
+                  {/* Section 2 — Banking & treasury */}
+                  <path d="M42 252 L118 252 L124 334 L36 334 Z" stroke="rgba(255,255,255,0.28)" strokeWidth="1.5" fill="rgba(255,255,255,0.02)" />
+                  <rect x="70" y="278" width="20" height="22" rx="10" stroke="rgba(255,255,255,0.22)" strokeWidth="1" fill="none" />
+                  <line x1="43" y1="293" x2="117" y2="293" stroke="rgba(255,255,255,0.08)" strokeWidth="0.8" />
+                  {/* dot + connector */}
+                  <circle cx="121" cy="293" r="3" fill="rgba(255,255,255,0.5)" />
+                  <line x1="121" y1="293" x2="160" y2="293" stroke="rgba(255,255,255,0.2)" strokeWidth="0.8" strokeDasharray="3 3" />
+
+                  {/* Section 1 — Entity & legal setup */}
+                  <path d="M36 334 L124 334 L130 408 L30 408 Z" stroke="rgba(255,255,255,0.32)" strokeWidth="1.5" fill="rgba(255,255,255,0.025)" />
+                  <rect x="70" y="368" width="20" height="32" rx="2" stroke="rgba(255,255,255,0.28)" strokeWidth="1" fill="rgba(255,255,255,0.04)" />
+                  <rect x="55" y="348" width="13" height="14" rx="2" stroke="rgba(255,255,255,0.18)" strokeWidth="0.8" fill="none" />
+                  <rect x="92" y="348" width="13" height="14" rx="2" stroke="rgba(255,255,255,0.18)" strokeWidth="0.8" fill="none" />
+                  <line x1="37" y1="371" x2="123" y2="371" stroke="rgba(255,255,255,0.08)" strokeWidth="0.8" />
+                  {/* dot + connector */}
+                  <circle cx="127" cy="371" r="3" fill="rgba(255,255,255,0.5)" />
+                  <line x1="127" y1="371" x2="160" y2="371" stroke="rgba(255,255,255,0.2)" strokeWidth="0.8" strokeDasharray="3 3" />
+
+                  {/* Foundation */}
+                  <path d="M30 408 L130 408 L140 440 L20 440 Z" stroke="rgba(255,255,255,0.28)" strokeWidth="1.5" fill="rgba(255,255,255,0.02)" />
+
+                  {/* Ground */}
+                  <line x1="0" y1="440" x2="160" y2="440" stroke="rgba(255,255,255,0.14)" strokeWidth="1" />
+                  <line x1="0" y1="445" x2="160" y2="445" stroke="rgba(255,255,255,0.06)" strokeWidth="1" />
+
+                  {/* Hover beams — light ray from lantern to active section dot */}
+                  {([
+                    { dx: 108, dy: 129 },
+                    { dx: 116, dy: 211 },
+                    { dx: 121, dy: 293 },
+                    { dx: 127, dy: 371 },
+                  ] as { dx: number; dy: number }[]).map(({ dx, dy }, i) => (
+                    <g key={`beam-${i}`} style={{ opacity: hoveredItem === i ? 1 : 0, transition: "opacity 0.22s ease" }} aria-hidden="true" pointerEvents="none">
+                      <line x1="80" y1="84" x2={dx} y2={dy} stroke="#74ACDF" strokeWidth="14" strokeLinecap="round" opacity="0.06" />
+                      <line x1="80" y1="84" x2={dx} y2={dy} stroke="#74ACDF" strokeWidth="1.5" strokeLinecap="round" opacity="0.95" />
+                      <line x1={dx} y1={dy} x2="160" y2={dy} stroke="#74ACDF" strokeWidth="1.2" opacity="0.85" />
+                      <circle cx={dx} cy={dy} r="10" fill="rgba(116,172,223,0.18)" />
+                      <circle cx={dx} cy={dy} r="4" fill="#74ACDF" />
+                    </g>
+                  ))}
+                </svg>
+              </div>
+
+              {/* Service items */}
+              <div className="faro-right">
+                {tr.what.features.map((feat, i) => {
+                  const levels = [371, 293, 211, 129];
+                  return (
+                    <div
+                      key={i}
+                      className={`faro-item${hoveredItem === i ? " active" : ""}`}
+                      style={{ "--faro-dot-y": `${levels[i]}px` } as React.CSSProperties}
+                      onMouseEnter={() => setHoveredItem(i)}
+                      onMouseLeave={() => setHoveredItem(null)}
+                    >
+                      <div className="faro-num">0{i + 1}</div>
+                      <div>
+                        <h3>{feat.title}</h3>
+                        <p>{feat.desc}</p>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+
+            </div>
+          </div>
+        </section>
+
         {/* ===== HOW IT WORKS ===== */}
         <section className="block" id="how">
           <div className="wrap">
@@ -335,6 +496,207 @@ export default function LandingPage() {
                   ))}
                 </ul>
               </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ===== ABOUT ===== */}
+        <section className="block" id="about">
+          <div className="wrap">
+            <div className="block-head">
+              <div className="section-label reveal">{tr.about.label}</div>
+              <div />
+            </div>
+            <div className="about-grid">
+              <div>
+                <h2 className="h2 reveal">{tr.about.h2.split("\n").map((line, i) => <span key={i} style={{ display: "block" }}>{line}</span>)}</h2>
+                <p className="about-body reveal reveal-d1">{tr.about.body}</p>
+              </div>
+              <div className="about-stats reveal reveal-d2">
+                {tr.about.stats.map((s, i) => (
+                  <div key={i} className="about-stat">
+                    <div className="about-val">{s.val}</div>
+                    <div className="about-lbl">{s.lbl}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ===== CONTACT FORM ===== */}
+        <section className="block" id="contact">
+          <div className="wrap">
+            <div className="section-label reveal" style={{ marginBottom: 40 }}>{tr.contact.label}</div>
+            <div className="contact-layout">
+              <div className="contact-intro reveal reveal-d1">
+                <h2 className="h2">{tr.contact.h2.split("\n").map((line, i) => <span key={i} style={{ display: "block" }}>{line}</span>)}</h2>
+                <p>{tr.contact.body}</p>
+                <div className="contact-reassurance">
+                  {tr.contact.reassurance.map((text, i) => (
+                    <div key={i} className="contact-reassurance-item">
+                      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                        <circle cx="7" cy="7" r="6" stroke="currentColor" strokeWidth="1.2" opacity="0.4"/>
+                        <path d="M4.5 7l2 2 3-3" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"/>
+                      </svg>
+                      <span>{text}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+              <div className="contact-wrap reveal reveal-d2">
+              <div className="wizard">
+                <div className="wizard-progress">
+                  {[1, 2, 3].map((s) => (
+                    <div key={s} className={`wizard-bar${formStep >= s || formStatus === "done" ? " done" : ""}`} />
+                  ))}
+                </div>
+
+                {formStatus === "done" ? (
+                  <div className="wizard-success">
+                    <div className="check-circle">
+                      <svg viewBox="0 0 20 20" fill="none" width="22" height="22" aria-hidden="true">
+                        <path d="M4 10l5 5 7-7" stroke="#4ADE80" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                      </svg>
+                    </div>
+                    <h3>{tr.contact.successTitle}</h3>
+                    <p>{tr.contact.successBody}</p>
+                  </div>
+                ) : (
+                  <>
+                    {formStep === 1 && (
+                      <div className="wizard-step">
+                        <div className="wiz-label">{tr.contact.step1Label}</div>
+                        <h3 className="wiz-question">{tr.contact.step1Q}</h3>
+                        <div className="field">
+                          <select
+                            className="country-select"
+                            value={formCountry}
+                            onChange={(e) => setFormCountry(e.target.value)}
+                          >
+                            <option value="">{tr.contact.selectPlaceholder}</option>
+                            {FORM_COUNTRIES.map((c) => (
+                              <option key={c} value={c}>{c}</option>
+                            ))}
+                          </select>
+                        </div>
+
+                        <div style={{ marginTop: 32 }}>
+                          <div className="wiz-label" style={{ marginBottom: 12 }}>{tr.contact.step1b}</div>
+                          <div className="service-pills">
+                            {FORM_SERVICES.map((s) => (
+                              <button
+                                key={s}
+                                type="button"
+                                className={`service-pill${formServices.includes(s) ? " selected" : ""}`}
+                                onClick={() =>
+                                  setFormServices((prev) =>
+                                    prev.includes(s) ? prev.filter((x) => x !== s) : [...prev, s]
+                                  )
+                                }
+                              >
+                                <span className="check-dot" aria-hidden="true" />
+                                {s}
+                              </button>
+                            ))}
+                          </div>
+                        </div>
+
+                        <div className="wizard-nav" style={{ justifyContent: "flex-end" }}>
+                          <button
+                            type="button"
+                            className="btn btn-primary btn-sm"
+                            disabled={!formCountry || formServices.length === 0}
+                            style={{ opacity: !formCountry || formServices.length === 0 ? 0.38 : 1 }}
+                            onClick={() => setFormStep(2)}
+                          >
+                            {tr.contact.continue}
+                          </button>
+                        </div>
+                      </div>
+                    )}
+
+                    {formStep === 2 && (
+                      <div className="wizard-step">
+                        <div className="wiz-label">{tr.contact.step2Label}</div>
+                        <h3 className="wiz-question">{tr.contact.step2Q}</h3>
+                        <div className="timeline-pills">
+                          {tr.contact.timelines.map(({ label, val }) => (
+                            <button
+                              key={val}
+                              type="button"
+                              className={`timeline-pill${formTimeline === val ? " selected" : ""}`}
+                              onClick={() => setFormTimeline(val)}
+                            >
+                              <span>{label}</span>
+                              {formTimeline === val && (
+                                <svg viewBox="0 0 16 16" fill="none" width="14" height="14" aria-hidden="true">
+                                  <path d="M3 8l4 4 6-6" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+                                </svg>
+                              )}
+                            </button>
+                          ))}
+                        </div>
+                        <div className="wizard-nav">
+                          <button type="button" className="wizard-back" onClick={() => setFormStep(1)}>{tr.contact.back}</button>
+                          <button
+                            type="button"
+                            className="btn btn-primary btn-sm"
+                            disabled={!formTimeline}
+                            style={{ opacity: !formTimeline ? 0.38 : 1 }}
+                            onClick={() => setFormStep(3)}
+                          >
+                            {tr.contact.continue}
+                          </button>
+                        </div>
+                      </div>
+                    )}
+
+                    {formStep === 3 && (
+                      <form className="wizard-step" onSubmit={handleFormSubmit}>
+                        <div className="wiz-label">{tr.contact.step3Label}</div>
+                        <h3 className="wiz-question">{tr.contact.step3Q}</h3>
+                        <div className="field-group">
+                          <div className="field">
+                            <label htmlFor="wf-name">{tr.contact.nameLabel}</label>
+                            <input
+                              id="wf-name"
+                              type="text"
+                              placeholder={tr.contact.namePlaceholder}
+                              value={formName}
+                              onChange={(e) => setFormName(e.target.value)}
+                              required
+                            />
+                          </div>
+                          <div className="field">
+                            <label htmlFor="wf-email">{tr.contact.emailLabel}</label>
+                            <input
+                              id="wf-email"
+                              type="email"
+                              placeholder={tr.contact.emailPlaceholder}
+                              value={formEmail}
+                              onChange={(e) => setFormEmail(e.target.value)}
+                              required
+                            />
+                          </div>
+                        </div>
+                        <div className="wizard-nav">
+                          <button type="button" className="wizard-back" onClick={() => setFormStep(2)}>{tr.contact.back}</button>
+                          <button type="submit" className="btn btn-primary btn-sm" disabled={formStatus === "sending"}>
+                            {formStatus === "sending" ? tr.contact.sending : tr.contact.send}
+                          </button>
+                        </div>
+                        {formStatus === "error" && (
+                          <p style={{ color: "#F87171", fontSize: 13, marginTop: 14, textAlign: "center" }}>
+                            {tr.contact.errorMsg}
+                          </p>
+                        )}
+                      </form>
+                    )}
+                  </>
+                )}
+              </div>
+            </div>
             </div>
           </div>
         </section>
