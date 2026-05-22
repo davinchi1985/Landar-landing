@@ -19,8 +19,63 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       description: post.metaDescription,
       type: "article",
       publishedTime: post.date,
+      siteName: "Landar",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: post.title,
+      description: post.metaDescription,
+    },
+    alternates: {
+      canonical: `https://landar-landing.vercel.app/blog/${slug}`,
     },
   };
+}
+
+function buildJsonLd(post: NonNullable<ReturnType<typeof getPost>>, slug: string) {
+  const baseUrl = "https://landar-landing.vercel.app";
+
+  // Extract FAQ items from content (matches <div class="faq-item"><h3>Q</h3><p>A</p></div>)
+  const faqMatches = [...post.content.matchAll(/<div class="faq-item">\s*<h3>([\s\S]*?)<\/h3>\s*<p>([\s\S]*?)<\/p>\s*<\/div>/g)];
+  const faqEntities = faqMatches.map((m) => ({
+    "@type": "Question",
+    name: m[1].replace(/<[^>]+>/g, "").trim(),
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: m[2].replace(/<[^>]+>/g, "").trim(),
+    },
+  }));
+
+  const article = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: post.title,
+    description: post.metaDescription,
+    datePublished: post.date,
+    dateModified: post.date,
+    author: {
+      "@type": "Organization",
+      name: "Landar",
+      url: baseUrl,
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "Landar",
+      url: baseUrl,
+      logo: { "@type": "ImageObject", url: `${baseUrl}/favicon.ico` },
+    },
+    mainEntityOfPage: { "@type": "WebPage", "@id": `${baseUrl}/blog/${slug}` },
+  };
+
+  if (faqEntities.length === 0) return [article];
+
+  const faqPage = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqEntities,
+  };
+
+  return [article, faqPage];
 }
 
 export default async function PostPage({ params }: { params: Promise<{ slug: string }> }) {
@@ -36,8 +91,18 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
     strategy: "Strategy",
   };
 
+  const jsonLd = buildJsonLd(post, slug);
+
   return (
     <div className="blog-shell">
+      {jsonLd.map((schema, i) => (
+        <script
+          key={i}
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+        />
+      ))}
+
       <div className="wrap">
         <nav className="post-nav">
           <Link href="/blog" className="blog-back">

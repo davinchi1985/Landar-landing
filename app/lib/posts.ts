@@ -13,7 +13,7 @@ export const posts: Post[] = [
   {
     slug: "how-to-set-up-a-company-in-argentina",
     title: "How to Set Up a Company in Argentina as a Foreign Investor (2026 Guide)",
-    metaDescription: "Step-by-step guide to incorporating in Argentina as a foreign company. SRL vs SA, IGJ registration, CUIT, timelines, and real costs in 2026.",
+    metaDescription: "How to set up a company in Argentina as a foreign investor: SRL vs SA, IGJ registration, CUIT, and bank account — with real timelines (40–60 days) and costs (USD 2,500–5,800) for 2026.",
     date: "2026-05-21",
     readingTime: "8 min read",
     category: "legal",
@@ -120,7 +120,7 @@ export const posts: Post[] = [
   {
     slug: "employer-of-record-argentina",
     title: "Employer of Record in Argentina: When It Makes Sense (And When It Doesn't)",
-    metaDescription: "EOR vs own entity in Argentina. Real costs, legal risks, and when to switch. A practical guide for foreign companies hiring in Argentina in 2026.",
+    metaDescription: "Employer of Record in Argentina: when it makes sense vs. your own entity. Cost comparison, legal risks, and the break-even point (4–5 employees). 2026 guide for foreign companies.",
     date: "2026-05-22",
     readingTime: "6 min read",
     category: "hiring",
@@ -203,7 +203,7 @@ export const posts: Post[] = [
   {
     slug: "how-to-open-a-bank-account-in-argentina-foreign-company",
     title: "How to Open a Bank Account in Argentina as a Foreign Company",
-    metaDescription: "The real process for opening a corporate bank account in Argentina as a foreign entity. Which banks work, what documents you need, and how to navigate FX regulations in 2026.",
+    metaDescription: "Opening a corporate bank account in Argentina as a foreign company: which banks work (Galicia, HSBC, Santander), required documents, FX rules, and realistic timelines (15–60 days) in 2026.",
     date: "2026-05-23",
     readingTime: "7 min read",
     category: "banking",
@@ -299,7 +299,7 @@ Without a prior relationship or with documentation gaps: <strong>30–60 busines
   {
     slug: "hiring-employees-argentina-foreign-company",
     title: "Hiring Employees in Argentina: A Complete Guide for Foreign Companies (2026)",
-    metaDescription: "How to hire employees in Argentina as a foreign company. Labor law basics, contract types, payroll costs, mandatory benefits, and termination rules explained.",
+    metaDescription: "Hiring employees in Argentina as a foreign company: LCT labor law, employer payroll costs (~25% on top of salary), mandatory benefits (aguinaldo, obra social), and termination costs — 2026 guide.",
     date: "2026-05-24",
     readingTime: "7 min read",
     category: "hiring",
@@ -401,7 +401,7 @@ Without a prior relationship or with documentation gaps: <strong>30–60 busines
   {
     slug: "argentina-vs-brazil-business-setup",
     title: "Argentina vs. Brazil: Where to Set Up Your Latin America Operations",
-    metaDescription: "Argentina vs Brazil for business setup: talent cost, legal complexity, banking, and stability compared. Which country makes sense for your LATAM expansion in 2026.",
+    metaDescription: "Argentina vs Brazil for LATAM business setup in 2026: talent cost (USD 2,500 vs 4,000+/mo), legal complexity, banking, and macro stability compared. Which market fits your operation.",
     date: "2026-05-25",
     readingTime: "6 min read",
     category: "strategy",
@@ -491,7 +491,7 @@ Without a prior relationship or with documentation gaps: <strong>30–60 busines
   {
     slug: "nearshoring-argentina-tech-team",
     title: "How to Build Your Tech Team in Argentina: The Nearshoring Playbook (2026)",
-    metaDescription: "Practical guide to nearshoring to Argentina in 2026. How to hire developers, manage compliance, EOR vs entity, and build a remote team that actually works.",
+    metaDescription: "Nearshoring to Argentina in 2026: senior developers at USD 2,500–4,500/mo, UTC-3 timezone, high English proficiency. EOR vs entity, where to hire, and how to go from 0 to operating team in 45 days.",
     date: "2026-05-26",
     readingTime: "7 min read",
     category: "hiring",
@@ -593,6 +593,404 @@ Without a prior relationship or with documentation gaps: <strong>30–60 busines
 </div>
     `,
   },
+  {
+    slug: "vaca-muerta-foreign-investment-guide",
+    title: "Vaca Muerta: The Complete Guide for Foreign Energy Companies (2026)",
+    metaDescription: "How to invest in Vaca Muerta as a foreign company. Legal structure, concession process, local content requirements, and operational setup explained for 2026.",
+    date: "2026-05-27",
+    readingTime: "8 min read",
+    category: "energy",
+    excerpt: "Vaca Muerta is one of the world's largest unconventional hydrocarbon formations. Here's what foreign energy companies need to know before entering.",
+    content: `
+<p>Vaca Muerta — the massive shale formation spanning Neuquén, Río Negro, La Pampa, and Mendoza provinces — has transformed Argentina's energy outlook. With over 16 billion barrels of recoverable oil equivalent and some of the most productive unconventional wells in the world, it has attracted major operators including Shell, Total, ExxonMobil, and Equinor. For foreign energy companies evaluating entry, this is the operational reality in 2026.</p>
+
+<h2>What Is Vaca Muerta, Actually?</h2>
+
+<p>Vaca Muerta is a Jurassic-age shale formation approximately 30,000 km² in size, located primarily in Neuquén province. It is the second-largest shale gas formation and fourth-largest shale oil formation in the world by technically recoverable resources, according to the US Energy Information Administration.</p>
+
+<p>Production has grown dramatically: Argentina produced roughly 650,000 barrels of oil per day in 2025, with Vaca Muerta accounting for the majority of unconventional output. Gas production from the formation is a key input for LNG export projects currently under development.</p>
+
+<h2>Legal Framework for Foreign Investment</h2>
+
+<h3>Hydrocarbon concessions</h3>
+<p>Oil and gas resources in Argentina belong to the provinces where they are located (following the 1994 constitutional reform). Neuquén province grants and manages most Vaca Muerta concessions directly. The national government retains authority over international pipeline infrastructure and LNG export terminals.</p>
+
+<p>Foreign companies can hold concessions directly or through an Argentine subsidiary. The typical structure:</p>
+<ul>
+  <li>A local SA (Sociedad Anónima) — required for most concession agreements</li>
+  <li>The SA held wholly or partially by the foreign parent</li>
+  <li>Joint Operating Agreements (JOAs) with local operators for initial entry</li>
+</ul>
+
+<h3>Concession types</h3>
+<ul>
+  <li><strong>Exploración convencional:</strong> Traditional exploration rights, granted by province, duration 3–7 years with extensions</li>
+  <li><strong>Explotación no convencional:</strong> Unconventional production concessions, typically 25-year primary term with extensions. The dominant structure for Vaca Muerta</li>
+  <li><strong>Piloto no convencional:</strong> Small-scale pilot concessions for new entrants to demonstrate technical capability before larger awards</li>
+</ul>
+
+<h3>National Law 17.319 (Hydrocarbons Law)</h3>
+<p>Federal law governs the overall framework: royalties (typically 12% of wellhead value, negotiable up to 18%), repatriation of profits, and environmental obligations. Provincial agreements layer additional terms on top.</p>
+
+<h2>Local Content Requirements</h2>
+
+<p>Neuquén province imposes local content requirements that increase as operations scale. Key obligations:</p>
+<ul>
+  <li><strong>Local workforce:</strong> Minimum percentage of Neuquén province residents, graduating to national-level hiring requirements. Typically 70–80% of operational workforce must be Argentine nationals.</li>
+  <li><strong>Local goods and services:</strong> Preference requirements for Argentine suppliers in procurement. This affects everything from catering to specialized equipment rental.</li>
+  <li><strong>RENATRE registration:</strong> Rural workers in operations must be registered in the national agricultural worker registry if applicable.</li>
+</ul>
+
+<h2>Infrastructure: The Practical Reality</h2>
+
+<p>Vaca Muerta's resource quality is world-class. Infrastructure is still catching up:</p>
+
+<ul>
+  <li><strong>Pipelines:</strong> The Néstor Kirchner Gas Pipeline (GNEA) opened in 2023 and dramatically increased takeaway capacity from Vaca Muerta to Buenos Aires province. Additional capacity expansions are under construction.</li>
+  <li><strong>Water management:</strong> Hydraulic fracturing requires massive water volumes. Water sourcing, treatment, and disposal logistics are a major operational consideration in the high desert environment.</li>
+  <li><strong>Roads and logistics:</strong> Access to remote pads requires coordination with provincial authorities. Oversize loads face permitting requirements.</li>
+  <li><strong>Workforce accommodation:</strong> Most operators run camp-based operations. Neuquén city (Neuquén capital) is the primary services hub; Añelo is the boom town closest to the core of operations.</li>
+</ul>
+
+<h2>FX Considerations for Energy Companies</h2>
+
+<p>Argentina's foreign exchange rules have historically complicated oil and gas operations. Key points for 2026:</p>
+
+<ul>
+  <li>Oil exports generate USD that must be settled through the official exchange market (MULC). Export retention taxes (<em>retenciones</em>) apply — rates vary and are politically sensitive.</li>
+  <li>Companies with export income have negotiated special FX arrangements (RIGI — Régimen de Incentivo para Grandes Inversiones) for large projects. RIGI offers tax stability, FX access, and import duty benefits for qualifying investments above USD 200 million.</li>
+  <li>Gas sold domestically is priced in USD but often settled in pesos at official rates. Domestic vs. export pricing strategy is a core commercial decision.</li>
+</ul>
+
+<h2>Entry Strategies for Foreign Companies</h2>
+
+<h3>Farm-in with an existing operator</h3>
+<p>The fastest entry route. Acquire a working interest in an existing concession from a current operator (YPF, Vista, Pampa Energía, or a major). You get proven acreage, existing infrastructure, and local operational capability while building your own team and relationships.</p>
+
+<h3>JOA with YPF</h3>
+<p>YPF, the state oil company, holds significant Vaca Muerta acreage and actively seeks partners for development. Joint development agreements with YPF provide access to their operational platform, but require navigating a state enterprise relationship with its associated complexity.</p>
+
+<h3>Greenfield concession</h3>
+<p>Bid for undeveloped acreage directly from Neuquén province. Slower entry (bidding process, pilot concession phase) but full ownership of the opportunity. Better suited to companies with existing Argentine presence and operational credibility.</p>
+
+<h2>Frequently Asked Questions</h2>
+
+<div class="faq-item">
+  <h3>Do I need an Argentine partner to operate in Vaca Muerta?</h3>
+  <p>Not legally required in most cases — foreign companies can hold concessions through a wholly-owned Argentine SA. In practice, having a local operating partner (through a JOA) significantly accelerates entry and reduces regulatory risk, especially for new entrants without established Argentine government relationships.</p>
+</div>
+
+<div class="faq-item">
+  <h3>What are the environmental permitting requirements?</h3>
+  <p>Environmental impact assessments (EIA) are required at both provincial and national levels before drilling. Neuquén's Secretaría de Ambiente manages provincial permits. The process typically takes 3–6 months for initial well programs. Community consultation with indigenous Mapuche communities is legally required for concessions overlapping with traditional territories.</p>
+</div>
+
+<div class="faq-item">
+  <h3>How stable is the regulatory framework for Vaca Muerta investment?</h3>
+  <p>More stable than Argentina's macro environment in general. Energy investment involves long-term commitments that no government — regardless of political orientation — can afford to unilaterally undermine. The RIGI regime specifically aims to provide legal stability guarantees for large investments. That said, export taxes and royalty rates have historically been subject to adjustment. Stress-test your models across a range of fiscal scenarios.</p>
+</div>
+    `,
+  },
+
+  {
+    slug: "lithium-argentina-investment-guide",
+    title: "Lithium in Argentina: Investment Guide for Foreign Mining Companies (2026)",
+    metaDescription: "Argentina holds the world's second-largest lithium reserves. How to invest in Argentine lithium in 2026: legal framework, provinces, concession process, and operational setup.",
+    date: "2026-05-28",
+    readingTime: "7 min read",
+    category: "energy",
+    excerpt: "Argentina sits atop the Lithium Triangle with some of the world's largest and highest-quality deposits. Here's the operational guide for foreign investors.",
+    content: `
+<p>Argentina holds approximately 22% of the world's lithium reserves, concentrated in the high-altitude salt flats (salares) of Jujuy, Salta, and Catamarca provinces — the northern portion of the Lithium Triangle it shares with Chile and Bolivia. With global demand for battery-grade lithium carbonate and lithium hydroxide accelerating through the energy transition, Argentina has become one of the most competitive lithium investment destinations in the world.</p>
+
+<p>This guide covers what foreign mining companies and battery supply chain operators need to know before entering the Argentine lithium market in 2026.</p>
+
+<h2>Argentina's Lithium Resources: The Basics</h2>
+
+<p>Argentina's lithium is predominantly brine-hosted — dissolved in subsurface brines beneath the salt flats, rather than in hard rock (spodumene) deposits as in Australia. Brine operations have lower capital costs than hard rock mining but require careful management of evaporation ponds and water resources.</p>
+
+<p>Key producing and development assets:</p>
+<ul>
+  <li><strong>Salar de Olaroz (Jujuy):</strong> Operated by Lithium Americas and Allkem (now Rio Tinto post-merger). One of the first commercial lithium carbonate operations in Argentina.</li>
+  <li><strong>Salar del Hombre Muerto (Catamarca):</strong> POSCO's major lithium project, producing lithium carbonate for Korean battery supply chains.</li>
+  <li><strong>Cauchari-Olaroz (Jujuy):</strong> Lithium Americas' main Argentine project, now in production ramp-up.</li>
+  <li><strong>Sal de Vida (Catamarca):</strong> Allkem project, in development phase.</li>
+</ul>
+
+<h2>Legal Framework for Mining in Argentina</h2>
+
+<h3>Provincial ownership</h3>
+<p>Like hydrocarbons, mineral resources in Argentina belong to the provinces where they are located. The federal Mining Code (Código de Minería) sets the national framework, but concessions are granted and regulated at the provincial level. This means dealing with three different regulators (Jujuy, Salta, Catamarca) if you have assets across provinces.</p>
+
+<h3>Mining concession types</h3>
+<ul>
+  <li><strong>Cateo (exploration permit):</strong> Initial exploration rights, typically 1–3 years, renewable. Grants the right to explore but not extract.</li>
+  <li><strong>Concesión de explotación:</strong> Production concession, indefinite duration as long as the mine is operating and obligations are met. The core operating right.</li>
+  <li><strong>Concesión de beneficio:</strong> Processing plant concession, separate from the mining concession.</li>
+</ul>
+
+<h3>RIGI for large mining projects</h3>
+<p>Argentina's RIGI (Régimen de Incentivo para Grandes Inversiones) framework, enacted in 2024, applies to mining projects with investments above USD 200 million. Benefits include:</p>
+<ul>
+  <li>30-year fiscal stability guarantee</li>
+  <li>Reduced export taxes (3% for years 1–5, phasing down to 0%)</li>
+  <li>Full FX freedom for export proceeds after year 3</li>
+  <li>Accelerated depreciation for capital investments</li>
+</ul>
+<p>RIGI has significantly improved the investment calculus for large lithium projects. Most major development-stage projects are structuring under RIGI.</p>
+
+<h2>Royalties and Taxation</h2>
+
+<table>
+  <thead><tr><th>Charge</th><th>Rate</th><th>Authority</th></tr></thead>
+  <tbody>
+    <tr><td>Provincial royalty</td><td>3% of mine mouth value (federal cap; provinces may go lower)</td><td>Province</td></tr>
+    <tr><td>Export retenciones</td><td>Varies (reduced under RIGI)</td><td>National</td></tr>
+    <tr><td>Corporate income tax</td><td>35% (25% for RIGI participants)</td><td>National (AFIP)</td></tr>
+    <tr><td>Gross revenue tax (IIBB)</td><td>~1.5–3% depending on province and activity</td><td>Province</td></tr>
+  </tbody>
+</table>
+
+<h2>Operational Setup: What Foreign Companies Need on the Ground</h2>
+
+<h3>Local entity</h3>
+<p>An Argentine SA is the standard structure for mining operations. The SA holds the mining concessions, employs the local workforce, and is the contracting party with provincial authorities. Foreign ownership of the SA can be 100%.</p>
+
+<h3>Workforce and local content</h3>
+<p>All three main lithium provinces have local content expectations. Workforce requirements typically mandate hiring from local communities, particularly indigenous Kolla and Atacameño communities near the salt flats. Community benefit agreements are increasingly expected even where not legally mandated.</p>
+
+<h3>Water rights</h3>
+<p>Lithium brine extraction involves water management in an arid, high-altitude ecosystem. Water rights (concesiones de aguas) are separate from mining concessions and are managed by provincial water authorities. Environmental impact on freshwater aquifers and local water supplies is the single largest community and regulatory risk for new projects.</p>
+
+<h3>Infrastructure and logistics</h3>
+<p>The salt flats are at 3,500–4,000 meters altitude. Access roads are often unpaved; winter weather can close them. Most projects transport product by road to Jujuy, Salta, or Catamarca cities for processing, then by rail or road to ports (primarily Antofagasta in Chile or ports in northern Argentina). Logistics planning is a major capital cost.</p>
+
+<h2>Community and Indigenous Rights</h2>
+
+<p>Argentina's Constitution (Article 75.17) and ILO Convention 169 require free, prior, and informed consent (FPIC) from indigenous communities before activities on traditional territories. The salt flats overlap with territories of Kolla, Atacameño, and other communities.</p>
+
+<p>FPIC is not just a legal formality — it is a project risk. Operations that have failed to build genuine community relationships have faced protests, road blockades, and regulatory delays. The companies succeeding in Argentine lithium in 2026 have community relations programs that started before exploration, not after.</p>
+
+<h2>Frequently Asked Questions</h2>
+
+<div class="faq-item">
+  <h3>Can a foreign company hold Argentine mining concessions directly?</h3>
+  <p>Through a wholly-owned Argentine SA, yes. The SA must be registered in the province where the concession is located. Some provinces have additional local-presence requirements for concession holders.</p>
+</div>
+
+<div class="faq-item">
+  <h3>How long does it take to go from exploration to production for a lithium brine project?</h3>
+  <p>Realistically 7–12 years from initial exploration to commercial production. This includes: 2–3 years of resource definition drilling, 1–2 years of pilot plant operation (required by most provinces), 2–3 years of feasibility study and permitting, 2–3 years of construction. Projects with existing resource definition can compress this timeline.</p>
+</div>
+
+<div class="faq-item">
+  <h3>Is there a risk of lithium nationalization in Argentina?</h3>
+  <p>It's a question investors ask. The honest answer: there is no credible nationalization risk for existing private operations under current or foreseeable Argentine governments. The country needs foreign capital and technology that it cannot replicate with state resources alone. YPF's 2012 renationalization was a specific political event driven by fuel supply crisis — not a template for mining. That said, export tax and royalty risk is real and should be stress-tested in project economics.</p>
+</div>
+    `,
+  },
+
+  {
+    slug: "common-mistakes-expanding-to-argentina",
+    title: "7 Mistakes Foreign Companies Make When Expanding to Argentina (And How to Avoid Them)",
+    metaDescription: "The most common and costly mistakes foreign companies make when entering Argentina — from underestimating banking timelines to misclassifying contractors. Practical lessons for 2026.",
+    date: "2026-05-29",
+    readingTime: "6 min read",
+    category: "strategy",
+    excerpt: "Argentina punishes the underprepared and rewards those who understand how it actually works. Here are the mistakes we see most often — and how to avoid them.",
+    content: `
+<p>Argentina has genuine advantages for foreign companies: world-class talent, natural resources, a large domestic market, and a time zone that works for both the Americas and Europe. It also has a regulatory environment, FX system, and labor framework that can create expensive surprises for companies that approach it like any other market.</p>
+
+<p>These are the mistakes we see most often — and what to do instead.</p>
+
+<h2>1. Underestimating the Banking Timeline</h2>
+
+<p><strong>What happens:</strong> A company incorporates in 35 days, gets its CUIT, and then waits 60+ additional days to open a bank account. Operations stall. Payroll can't be run. Local suppliers can't be paid.</p>
+
+<p><strong>Why it happens:</strong> Foreign companies plan around incorporation time (which is predictable) without accounting for banking time (which depends on relationships and documentation completeness).</p>
+
+<p><strong>What to do instead:</strong> Start the bank relationship before incorporation if possible. Engage a local firm with existing bank contacts. Have all home-country documents apostilled before you need them. Plan for 45–60 days from CUIT to operational bank account as your baseline assumption.</p>
+
+<h2>2. Misclassifying Employees as Contractors</h2>
+
+<p><strong>What happens:</strong> A foreign company hires Argentine talent as "independent contractors" to avoid labor law obligations. After 12–18 months, the worker files a labor claim. A court finds an employment relationship and awards retroactive benefits: severance, unpaid social security contributions, aguinaldo, vacation pay — often 2–3× the worker's annual salary.</p>
+
+<p><strong>Why it happens:</strong> The setup is cheaper in the short term. And Argentine contractors often prefer the arrangement (higher gross pay, USD-denominated). But Argentine labor law looks at substance, not labels. Regular hours + supervision + exclusivity = employment, regardless of what the contract says.</p>
+
+<p><strong>What to do instead:</strong> Use an Employer of Record for genuine employees. Reserve contractor arrangements for genuinely project-based, non-exclusive work. When in doubt, structure as employment. The cost difference is much smaller than the misclassification liability.</p>
+
+<h2>3. Treating FX as a Static Variable</h2>
+
+<p><strong>What happens:</strong> A company builds its Argentina P&L assuming a fixed ARS/USD rate. The rate moves — as it does, repeatedly, in Argentina. Peso-denominated costs suddenly look different in dollar terms. Pricing that made sense at one rate doesn't work at another.</p>
+
+<p><strong>Why it happens:</strong> Finance teams model it like they would a stable currency market. Argentina is not a stable currency market.</p>
+
+<p><strong>What to do instead:</strong> Build your Argentina financials with multiple FX scenarios (base, stress, severe). Denominate contracts with international counterparties in USD. Have a clear treasury policy for ARS — minimize peso holding to operating float. Work with a local accountant who specializes in FX planning from day one, not year two.</p>
+
+<h2>4. Using a Single Vendor for Setup</h2>
+
+<p><strong>What happens:</strong> A company hires one Argentine law firm to "handle everything." The firm incorporates the entity — and then stops, because that's what they do. Banking, accounting setup, HR, and payroll fall into a vacuum. Three vendors are engaged sequentially, each requiring its own onboarding, and the setup takes six months instead of two.</p>
+
+<p><strong>Why it happens:</strong> In most markets, a good law firm handles the full formation process. In Argentina, specialization is deep and referrals between service providers are not automatic.</p>
+
+<p><strong>What to do instead:</strong> Engage a single project coordinator who manages the whole formation process — legal, banking, and accounting — with established working relationships across all three. The coordinator model saves 4–8 weeks and eliminates the gap between steps.</p>
+
+<h2>5. Ignoring Beneficial Ownership Filings</h2>
+
+<p><strong>What happens:</strong> The company incorporates, gets its CUIT, opens a bank account — and six months later receives a notice from AFIP that beneficial ownership (beneficiario final) filings are incomplete. Bank account access is restricted until resolved. Resolution takes weeks.</p>
+
+<p><strong>Why it happens:</strong> UBO disclosure is a global requirement that companies know about — but Argentina's specific filing requirements (form, timing, and who counts as a UBO under Argentine rules) are easy to get wrong without local expertise.</p>
+
+<p><strong>What to do instead:</strong> Do the beneficial ownership analysis before incorporation, not after. Argentina defines UBO as anyone with direct or indirect ownership above 10% or effective control — the threshold is lower than many jurisdictions. File correctly with both AFIP and the IGJ at formation.</p>
+
+<h2>6. Not Planning for Termination Costs Upfront</h2>
+
+<p><strong>What happens:</strong> A company hires a team of 5 people in Argentina, the project pivots, and 18 months later they need to let the team go. The termination bill — severance × 5 employees × 1.5 years of seniority, plus notice periods and accruals — is far larger than anyone budgeted. It becomes a crisis.</p>
+
+<p><strong>Why it happens:</strong> Termination costs are modeled as a hypothetical that won't apply to us. Argentine labor law does not share this optimism.</p>
+
+<p><strong>What to do instead:</strong> Budget termination costs as a line item in your Argentina financial model from day one. For every hire, calculate what it costs to exit them cleanly in 12 months, 24 months, 36 months. This is not pessimism — it's the cost of doing business, and it's knowable in advance.</p>
+
+<h2>7. Treating Argentina as a Cost Play Only</h2>
+
+<p><strong>What happens:</strong> A company enters Argentina purely for cost arbitrage — cheap developers, cheap energy. When the peso devalues and the cost advantage shrinks, or when operational complexity increases, the entire Argentina rationale evaporates. The company exits badly.</p>
+
+<p><strong>Why it happens:</strong> The initial pitch is compelling: 60–70% cost savings vs. US talent. But cost plays without strategic depth don't survive volatility.</p>
+
+<p><strong>What to do instead:</strong> Layer a strategic rationale on top of cost. Argentina's tech talent is not just cheap — it's genuinely good and experienced with global work. Argentina's energy resources are world-class, not just price-competitive. Build an Argentina strategy that survives a 30% reduction in the cost advantage and still makes sense.</p>
+
+<h2>Frequently Asked Questions</h2>
+
+<div class="faq-item">
+  <h3>Is Argentina too risky for serious foreign investment?</h3>
+  <p>Plenty of global companies have operated successfully in Argentina for decades — Unilever, Google, Mercado Libre, Shell, Total. The risk is real and manageable. The companies that fail in Argentina almost always do so for operational reasons (the mistakes above), not because Argentina is inherently uninvestable.</p>
+</div>
+
+<div class="faq-item">
+  <h3>What's the single most important thing to get right when entering Argentina?</h3>
+  <p>Local relationships. Banking works through relationships. Regulatory issues are resolved through relationships. Hiring happens through networks. The fastest path into Argentina is through people who already know how it works — not through trying to figure it out from scratch.</p>
+</div>
+    `,
+  },
+
+  {
+    slug: "latam-expansion-argentina-chile-colombia-mexico",
+    title: "LATAM Expansion: Argentina, Chile, Colombia, or Mexico? A 2026 Comparison",
+    metaDescription: "Comparing Argentina, Chile, Colombia, and Mexico for LATAM business expansion in 2026. Talent cost, legal complexity, market size, and stability compared for foreign companies.",
+    date: "2026-05-30",
+    readingTime: "7 min read",
+    category: "strategy",
+    excerpt: "Four serious LATAM markets, four very different risk-reward profiles. Here's how to choose based on what you're actually building.",
+    content: `
+<p>When a foreign company decides to expand into Latin America, the conversation usually narrows to four markets: Argentina, Chile, Colombia, and Mexico. Each has real advantages. Each has real constraints. The right answer depends almost entirely on what you're building, who you're hiring, and where your revenue comes from.</p>
+
+<p>This is a practical comparison — not a pitch for any single market.</p>
+
+<h2>At a Glance</h2>
+
+<table>
+  <thead>
+    <tr><th>Factor</th><th>Argentina</th><th>Chile</th><th>Colombia</th><th>Mexico</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Population</td><td>46M</td><td>19M</td><td>52M</td><td>130M</td></tr>
+    <tr><td>GDP (USD, 2025)</td><td>~650B</td><td>~330B</td><td>~420B</td><td>~1.5T</td></tr>
+    <tr><td>Tech talent cost (senior eng)</td><td>USD 2,500–4,500/mo</td><td>USD 4,000–7,000/mo</td><td>USD 2,500–4,500/mo</td><td>USD 3,500–6,000/mo</td></tr>
+    <tr><td>English proficiency</td><td>High</td><td>Medium</td><td>Medium</td><td>Low–Medium</td></tr>
+    <tr><td>Entity setup time</td><td>40–60 days</td><td>5–15 days</td><td>15–30 days</td><td>20–40 days</td></tr>
+    <tr><td>Macro stability</td><td>Low</td><td>High</td><td>Medium</td><td>Medium</td></tr>
+    <tr><td>FX complexity</td><td>High</td><td>Low</td><td>Low</td><td>Low</td></tr>
+  </tbody>
+</table>
+
+<h2>Argentina</h2>
+
+<h3>Where Argentina wins</h3>
+<p>Talent quality per dollar is Argentina's defining advantage. Buenos Aires has a dense ecosystem of engineers, designers, finance professionals, and legal talent with extensive global work experience. English proficiency is the highest in the region among skilled professionals. Timezone (UTC-3) aligns well with both US and European business hours.</p>
+
+<p>For companies with USD revenue and local-currency costs, Argentina's macroeconomic instability works in their favor — peso depreciation means dollar-denominated costs become more competitive over time.</p>
+
+<p>Natural resources (Vaca Muerta, lithium, agriculture) make it the only serious LATAM option for energy and mining investment.</p>
+
+<h3>Where Argentina loses</h3>
+<p>FX complexity, banking friction, and labor law compliance overhead are genuine costs. Political and economic volatility is real. Entity setup and banking take longer than Chile or Colombia. For companies with significant peso-denominated revenue, the FX environment is a constant management challenge.</p>
+
+<h2>Chile</h2>
+
+<h3>Where Chile wins</h3>
+<p>Chile is the easiest place to do business in Latin America, full stop. Entity setup in 5–15 days. Straightforward banking. No FX controls. A legal system with a track record of respecting property rights and contracts. If operational simplicity is your primary criterion, Chile wins.</p>
+
+<p>Santiago is also the most established LATAM headquarters city for multinationals — many regional functions for LATAM operations run out of Chile precisely because of this stability.</p>
+
+<h3>Where Chile loses</h3>
+<p>Cost. Chilean tech talent costs 40–60% more than Argentine in dollar terms. The domestic market is small (19M people). And while political stability has improved post-2022, the period of constitutional uncertainty created some caution among long-term investors.</p>
+
+<h2>Colombia</h2>
+
+<h3>Where Colombia wins</h3>
+<p>Colombia has become a serious tech hub, particularly Medellín and Bogotá. Talent costs are comparable to Argentina. The country has made significant improvements in security and business environment over the past decade. For companies targeting Spanish-speaking Latin American consumers, Colombia's central geography and growing middle class make it compelling.</p>
+
+<p>Nearshoring to the US is a growing industry — Colombia is 1 hour ahead of Eastern time and has invested significantly in tech education.</p>
+
+<h3>Where Colombia loses</h3>
+<p>Security remains uneven outside major cities. Political risk has increased in recent years. English proficiency among tech talent is lower than Argentina. Infrastructure outside Bogotá and Medellín is less developed.</p>
+
+<h2>Mexico</h2>
+
+<h3>Where Mexico wins</h3>
+<p>Scale and proximity to the US are Mexico's defining advantages. At 130M people, it has the largest domestic consumer market in Latin America. It shares a border with the US and is in the same or adjacent time zones. The USMCA (successor to NAFTA) makes Mexico uniquely positioned for US companies building integrated North American operations.</p>
+
+<p>Nearshoring to the US has accelerated dramatically since 2022 as companies relocate manufacturing from Asia. Mexico is the primary beneficiary of this trend — particularly Monterrey, Guadalajara, and the border cities.</p>
+
+<h3>Where Mexico loses</h3>
+<p>Security is a genuine business risk in many regions. English proficiency is lower than Argentina or Chile. For pure tech talent on a cost-per-quality basis, Argentina competes well with Mexico. And for European companies, Mexico's UTC-6/7 timezone creates more friction than Argentina's UTC-3.</p>
+
+<h2>How to Choose: Decision Framework</h2>
+
+<table>
+  <thead><tr><th>If you're building…</th><th>Consider</th></tr></thead>
+  <tbody>
+    <tr><td>Tech nearshoring team (USD revenue, EN-speaking)</td><td>Argentina first, Colombia second</td></tr>
+    <tr><td>LATAM regional HQ (ES/PT markets)</td><td>Chile (stability) or Colombia (geography)</td></tr>
+    <tr><td>Energy or mining operation</td><td>Argentina (resources) or Chile (copper, lithium)</td></tr>
+    <tr><td>North American manufacturing nearshoring</td><td>Mexico, clearly</td></tr>
+    <tr><td>Consumer product targeting LATAM broadly</td><td>Mexico (scale) or Colombia (growth)</td></tr>
+    <tr><td>Shared services center (EN/ES)</td><td>Argentina or Colombia</td></tr>
+    <tr><td>Lowest-risk, simplest setup</td><td>Chile</td></tr>
+  </tbody>
+</table>
+
+<h2>The Multi-Country Play</h2>
+
+<p>Many mature multinationals run LATAM operations across multiple markets simultaneously. The common pattern:</p>
+<ol>
+  <li><strong>Argentina</strong> for tech and talent (cost + quality)</li>
+  <li><strong>Chile</strong> for regional HQ (stability, legal framework)</li>
+  <li><strong>Mexico</strong> for the North American-adjacent market and manufacturing</li>
+  <li><strong>Colombia</strong> added when the Andean/Caribbean market justifies a local presence</li>
+</ol>
+
+<p>Sequencing matters more than simultaneity. Pick the market where your first 12 months of Latin America operations create the most value — and build from there.</p>
+
+<h2>Frequently Asked Questions</h2>
+
+<div class="faq-item">
+  <h3>Can I run LATAM operations out of Argentina if the entity is registered in Chile?</h3>
+  <p>You can have your legal entity in Chile and employ people in Argentina through an EOR. Many companies do this — Chile entity for regional contracting and stability, Argentine EOR for the talent base. It adds a layer of complexity but can make sense for the first 12–18 months before the Argentine operation justifies its own entity.</p>
+</div>
+
+<div class="faq-item">
+  <h3>Is nearshoring to Argentina or Colombia better for a US-based tech company?</h3>
+  <p>Argentina, for most cases. English proficiency is higher, the talent ecosystem is denser for mid-to-senior roles, and Buenos Aires has a longer track record of global remote work. Colombia is catching up fast and makes sense if you want geographic diversification or are already building a Colombian team for other reasons.</p>
+</div>
+
+<div class="faq-item">
+  <h3>How do I decide without a research trip to each country?</h3>
+  <p>Start with the decision framework above: match your operation type to the market profile. Then talk to 3–5 companies that have already made the decision you're considering — not consultants, but operators. Their experience is more valuable than any market report. A 30-minute discovery call with someone who built an Argentine or Colombian team 18 months ago tells you more than a 40-page whitepaper.</p>
+</div>
+    `,
+  },
+
 ];
 
 export function getPost(slug: string): Post | undefined {
