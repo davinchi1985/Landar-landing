@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
+import Image from "next/image";
 import { t, Lang } from "../translations";
 
 const LANGS: { flag: string; code: Lang; label: string }[] = [
@@ -65,11 +66,31 @@ function animateHeading(el: HTMLElement, text: string) {
   requestAnimationFrame(() => requestAnimationFrame(() => el.classList.add("animate")));
 }
 
+const sectorIcons: Record<string, React.ReactNode> = {
+  oil: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M4 21V10l8-7 8 7v11"/><path d="M9 21v-6h6v6"/><circle cx="12" cy="11" r="1.5"/></svg>,
+  energy: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>,
+  mining: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M2 20h20"/><path d="m6 20 6-16 6 16"/><path d="M8 13h8"/></svg>,
+  agro: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22V12"/><path d="M5 12C5 7 8 4 12 4c4 0 7 3 7 8"/><path d="M5 12c0-3 2-5 4-5"/><path d="M19 12c0-3-2-5-4-5"/></svg>,
+  tech: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="m8 21 4-4 4 4"/><path d="M12 17v4"/></svg>,
+  infra: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M3 21h18"/><path d="M5 21V7l7-4 7 4v14"/><path d="M9 21v-4h6v4"/><path d="M9 11h6"/></svg>,
+  pharma: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="m16.5 9.4-9-5.19"/><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><path d="M3.27 6.96 12 12.01l8.73-5.05"/><path d="M12 22.08V12"/></svg>,
+  media: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="m15 10 4.553-2.069A1 1 0 0 1 21 8.845v6.31a1 1 0 0 1-1.447.894L15 14"/><rect x="2" y="6" width="13" height="12" rx="2"/></svg>,
+  fintech: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/><path d="M7 15h.01M11 15h2"/></svg>,
+  retail: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>,
+};
+
 export default function LandingPage() {
   const [lang, setLang] = useState<Lang>("EN");
   const [pickerOpen, setPickerOpen] = useState(false);
+  const [theme, setTheme] = useState<"dark" | "light">("dark");
   const pickerRef = useRef<HTMLDivElement>(null);
   const tr = t[lang];
+
+  const toggleTheme = () => {
+    const next = theme === "dark" ? "light" : "dark";
+    setTheme(next);
+    document.documentElement.setAttribute("data-theme", next === "light" ? "light" : "");
+  };
 
   // Form state
   const [formStep, setFormStep] = useState(1);
@@ -115,7 +136,27 @@ export default function LandingPage() {
     return () => document.removeEventListener("click", handler);
   }, []);
 
-  // Slow video
+  // Hero slideshow
+  const slides = [
+    { src: "/bg/iguazu-boat.png",        caption: "Cataratas del Iguazú" },
+    { src: "/bg/perito-moreno.png",      caption: "Glaciar Perito Moreno · Patagonia" },
+    { src: "/bg/fitzroy-pink.png",       caption: "Monte Fitz Roy · Patagonia" },
+    { src: "/bg/iguazu-rainbow.png",     caption: "Cataratas del Iguazú" },
+    { src: "/bg/fitzroy-road.png",       caption: "Ruta Patagónica" },
+    { src: "/bg/obelisco.jpg",         caption: "Obelisco · Buenos Aires" },
+    { src: "/bg/puerto-madero.jpg",    caption: "Puerto Madero · Buenos Aires" },
+    { src: "/bg/paneles-solares.jpg",  caption: "Energías Renovables · Argentina" },
+    { src: "/bg/iguazu-falls.jpg",     caption: "Cataratas del Iguazú" },
+  ];
+  const [slideIndex, setSlideIndex] = useState(0);
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setSlideIndex(i => (i + 1) % slides.length);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, [slides.length]);
+
+  // Slow video (legacy — kept for fallback)
   useEffect(() => {
     const v = document.querySelector<HTMLVideoElement>(".bg-video");
     if (!v) return;
@@ -170,9 +211,19 @@ export default function LandingPage() {
       {/* ===== HERO ===== */}
       <section className="hero" id="top">
         <div className="bg" aria-hidden="true">
-          <video className="bg-video" autoPlay loop muted playsInline preload="auto" poster="/bg/perito-moreno.png">
-            <source src="/patagonia.mp4" type="video/mp4" />
-          </video>
+          {slides.map((s, i) => (
+            <div key={s.src} className={`slide${i === slideIndex ? " active" : ""}`}>
+              <Image
+                src={s.src}
+                alt={s.caption}
+                fill
+                priority={i === 0}
+                sizes="100vw"
+                style={{ objectFit: "cover", objectPosition: "center 40%" }}
+              />
+            </div>
+          ))}
+          <div className="slide-caption">{slides[slideIndex].caption}</div>
         </div>
 
         {/* NAV */}
@@ -192,6 +243,12 @@ export default function LandingPage() {
               </nav>
 
               <div className="nav-right">
+                <button className="theme-btn" onClick={toggleTheme} aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}>
+                  {theme === "dark"
+                    ? <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+                    : <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+                  }
+                </button>
                 <div className={`lang${pickerOpen ? " open" : ""}`} ref={pickerRef}>
                   <button
                     className="lang-btn"
@@ -486,15 +543,16 @@ export default function LandingPage() {
               </div>
 
               <div className="reveal reveal-d3">
-                <p className="body-text" style={{ margin: "0 0 18px" }}>{tr.why.sectorsIntro}</p>
-                <ul className="sectors">
-                  {tr.why.sectors.map(({ tag, bold, rest }, i) => (
-                    <li key={i}>
-                      <span className="tag">{tag}</span>
-                      <span className="desc"><b>{bold}</b><span>{rest}</span></span>
-                    </li>
+                <p className="body-text" style={{ margin: "0 0 24px" }}>{tr.why.sectorsIntro}</p>
+                <div className="sectors-grid">
+                  {tr.why.sectors.map(({ icon, tag, desc }: { icon: string; tag: string; desc: string }, i: number) => (
+                    <div className="sector-card" key={i}>
+                      <div className="sector-icon">{sectorIcons[icon]}</div>
+                      <div className="sector-tag">{tag}</div>
+                      <div className="sector-desc">{desc}</div>
+                    </div>
                   ))}
-                </ul>
+                </div>
               </div>
             </div>
           </div>
