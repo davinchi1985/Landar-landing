@@ -25,6 +25,9 @@ export const metadata: Metadata = {
     follow: true,
     googleBot: { index: true, follow: true },
   },
+  verification: {
+    google: "3IQ0Har5PvrMEJDBRlIiAoOjNu29DPm_bmdiUbmDs4Q",
+  },
 };
 
 const orgSchema = {
