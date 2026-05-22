@@ -675,7 +675,12 @@ footer { padding: 40px 0 56px; border-top: 1px solid var(--border); color: var(-
 [data-theme="light"] .lang-code-pill { background: rgba(116,172,223,0.1); color: var(--muted); }
 [data-theme="light"] .btn-glass { background: rgba(116,172,223,0.12); border-color: rgba(116,172,223,0.35); color: var(--ink); }
 [data-theme="light"] .btn-glass:hover { background: var(--argentina); color: #fff; border-color: var(--argentina); }
-[data-theme="light"] .h1, [data-theme="light"] .h2 { color: var(--ink); }
+[data-theme="light"] .h2 { color: var(--ink); }
+/* Hero always has dark video bg — keep white regardless of theme */
+[data-theme="light"] .hero .h1 { color: #fff; }
+[data-theme="light"] .hero .lead { color: rgba(255,255,255,0.85); }
+[data-theme="light"] .hero-meta { color: rgba(255,255,255,0.7); }
+[data-theme="light"] .hero-meta .dot { background: rgba(255,255,255,0.5); }
 [data-theme="light"] .problem-body, [data-theme="light"] .problem-body em { color: var(--ink); }
 [data-theme="light"] .frag { background: #fff; }
 [data-theme="light"] .frag .name { color: var(--ink); }
