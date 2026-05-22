@@ -673,8 +673,8 @@ footer { padding: 40px 0 56px; border-top: 1px solid var(--border); color: var(-
 [data-theme="light"] .lang-item { color: var(--ink); }
 [data-theme="light"] .lang-item:hover { background: rgba(116,172,223,0.08); }
 [data-theme="light"] .lang-code-pill { background: rgba(116,172,223,0.1); color: var(--muted); }
-[data-theme="light"] .btn-glass { background: rgba(116,172,223,0.12); border-color: rgba(116,172,223,0.35); color: var(--ink); }
-[data-theme="light"] .btn-glass:hover { background: var(--argentina); color: #fff; border-color: var(--argentina); }
+[data-theme="light"] .btn-glass { background: rgba(255,255,255,0.15); border-color: rgba(255,255,255,0.5); color: #fff; }
+[data-theme="light"] .btn-glass:hover { background: rgba(255,255,255,0.25); color: #fff; border-color: rgba(255,255,255,0.7); }
 [data-theme="light"] .h2 { color: var(--ink); }
 /* Hero always has dark video bg — keep white regardless of theme */
 [data-theme="light"] .hero .h1 { color: #fff; }
