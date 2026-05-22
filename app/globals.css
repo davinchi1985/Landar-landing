@@ -720,6 +720,11 @@ footer { padding: 40px 0 56px; border-top: 1px solid var(--border); color: var(-
 [data-theme="light"] .country-pill.selected { background: rgba(116,172,223,0.15); border-color: var(--argentina); }
 [data-theme="light"] .country-pill.selected .cl { color: var(--ink); }
 [data-theme="light"] .section-label::before { background: rgba(116,172,223,0.5); }
+[data-theme="light"] .about-val { color: var(--ink); }
+[data-theme="light"] .wizard { background: #fff; border-color: rgba(116,172,223,0.25); }
+[data-theme="light"] .wizard-bar { background: rgba(116,172,223,0.15); }
+[data-theme="light"] .wizard-bar.done { background: var(--argentina); }
+[data-theme="light"] .wiz-question { color: var(--ink); }
 
 /* SCROLL REVEAL */
 .reveal { opacity: 0; transform: translateY(20px); transition: opacity 700ms ease, transform 700ms cubic-bezier(0.16, 1, 0.3, 1); }
