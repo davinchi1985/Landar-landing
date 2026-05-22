@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import Image from "next/image";
 import { t, Lang } from "../translations";
 
 const LANGS: { flag: string; code: Lang; label: string }[] = [
@@ -136,35 +135,7 @@ export default function LandingPage() {
     return () => document.removeEventListener("click", handler);
   }, []);
 
-  // Hero slideshow
-  const slides = [
-    { src: "/bg/iguazu-boat.png",        caption: "Cataratas del Iguazú" },
-    { src: "/bg/perito-moreno.png",      caption: "Glaciar Perito Moreno · Patagonia" },
-    { src: "/bg/fitzroy-pink.png",       caption: "Monte Fitz Roy · Patagonia" },
-    { src: "/bg/iguazu-rainbow.png",     caption: "Cataratas del Iguazú" },
-    { src: "/bg/fitzroy-road.png",       caption: "Ruta Patagónica" },
-    { src: "/bg/obelisco.jpg",         caption: "Obelisco · Buenos Aires" },
-    { src: "/bg/puerto-madero.jpg",    caption: "Puerto Madero · Buenos Aires" },
-    { src: "/bg/paneles-solares.jpg",  caption: "Energías Renovables · Argentina" },
-    { src: "/bg/iguazu-falls.jpg",     caption: "Cataratas del Iguazú" },
-  ];
-  const [slideIndex, setSlideIndex] = useState(0);
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setSlideIndex(i => (i + 1) % slides.length);
-    }, 5000);
-    return () => clearInterval(interval);
-  }, [slides.length]);
-
-  // Slow video (legacy — kept for fallback)
-  useEffect(() => {
-    const v = document.querySelector<HTMLVideoElement>(".bg-video");
-    if (!v) return;
-    const setRate = () => { try { v.playbackRate = 0.5; } catch (_) {} };
-    setRate();
-    v.addEventListener("loadedmetadata", setRate);
-    v.addEventListener("play", setRate);
-  }, []);
+  const HERO_VIDEO = "https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260403_050628_c4e32401-fab4-4a27-b7a8-6e9291cd5959.mp4";
 
   // Heading animation — re-runs when language changes
   useEffect(() => {
@@ -211,19 +182,14 @@ export default function LandingPage() {
       {/* ===== HERO ===== */}
       <section className="hero" id="top">
         <div className="bg" aria-hidden="true">
-          {slides.map((s, i) => (
-            <div key={s.src} className={`slide${i === slideIndex ? " active" : ""}`}>
-              <Image
-                src={s.src}
-                alt={s.caption}
-                fill
-                priority={i === 0}
-                sizes="100vw"
-                style={{ objectFit: "cover", objectPosition: "center 40%" }}
-              />
-            </div>
-          ))}
-          <div className="slide-caption">{slides[slideIndex].caption}</div>
+          <video
+            className="bg-video"
+            src={HERO_VIDEO}
+            autoPlay
+            loop
+            muted
+            playsInline
+          />
         </div>
 
         {/* NAV */}
