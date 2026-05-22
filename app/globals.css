@@ -14,6 +14,11 @@
   --pad-x: 24px;
   --argentina: #74ACDF;
   --sun: #F5B82E;
+  --fw-hi: rgba(255,255,255,0.55);
+  --fw-mid: rgba(255,255,255,0.28);
+  --fw-lo: rgba(255,255,255,0.18);
+  --fw-bg: rgba(255,255,255,0.03);
+  --fw-dot: rgba(255,255,255,0.5);
 }
 
 [data-theme="light"] {
@@ -28,6 +33,11 @@
   --border-strong: rgba(116,172,223,0.40);
   --argentina: #4A90C4;
   --sun: #F5B82E;
+  --fw-hi: rgba(15,50,120,0.65);
+  --fw-mid: rgba(15,50,120,0.35);
+  --fw-lo: rgba(15,50,120,0.2);
+  --fw-bg: rgba(15,50,120,0.05);
+  --fw-dot: #4A90C4;
 }
 
 @media (min-width: 768px) { :root { --pad-x: 48px; } }

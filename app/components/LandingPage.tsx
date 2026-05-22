@@ -367,58 +367,54 @@ export default function LandingPage() {
                   <path d="M108 62 L160 36 L160 90 Z" fill="rgba(116,172,223,0.10)" className="faro-beam2" />
 
                   {/* Dome cap */}
-                  <path d="M52 98 Q80 68 108 98" stroke="rgba(255,255,255,0.55)" strokeWidth="1.5" fill="rgba(255,255,255,0.03)" />
+                  <path d="M52 98 Q80 68 108 98" style={{stroke:'var(--fw-hi)',strokeWidth:1.5}} fill="var(--fw-bg)" />
 
                   {/* Lantern glow */}
                   <circle cx="80" cy="84" r="18" fill="rgba(116,172,223,0.12)" className="faro-glow" />
                   <circle cx="80" cy="84" r="9" fill="rgba(116,172,223,0.6)" />
                   <circle cx="80" cy="84" r="4" fill="#fff" />
 
-                  {/* Lantern room (Section 4 — Full setup / Compliance) */}
+                  {/* Lantern room */}
                   <rect x="52" y="98" width="56" height="62" stroke="rgba(116,172,223,0.65)" strokeWidth="1.5" fill="rgba(116,172,223,0.04)" />
                   <line x1="69" y1="98" x2="69" y2="160" stroke="rgba(116,172,223,0.25)" strokeWidth="0.8" />
                   <line x1="80" y1="98" x2="80" y2="160" stroke="rgba(116,172,223,0.25)" strokeWidth="0.8" />
                   <line x1="91" y1="98" x2="91" y2="160" stroke="rgba(116,172,223,0.25)" strokeWidth="0.8" />
                   <line x1="52" y1="129" x2="108" y2="129" stroke="rgba(116,172,223,0.2)" strokeWidth="0.8" />
-                  {/* dot + connector */}
                   <circle cx="108" cy="129" r="3.5" fill="#74ACDF" />
                   <line x1="108" y1="129" x2="160" y2="129" stroke="rgba(116,172,223,0.35)" strokeWidth="0.8" strokeDasharray="3 3" />
 
                   {/* Gallery ledge */}
-                  <rect x="42" y="160" width="76" height="11" stroke="rgba(255,255,255,0.32)" strokeWidth="1" fill="rgba(255,255,255,0.03)" />
+                  <rect x="42" y="160" width="76" height="11" style={{stroke:'var(--fw-mid)',fill:'var(--fw-bg)'}} strokeWidth="1" />
 
-                  {/* Section 3 — Hiring & payroll */}
-                  <path d="M46 171 L114 171 L118 252 L42 252 Z" stroke="rgba(255,255,255,0.28)" strokeWidth="1.5" fill="rgba(255,255,255,0.02)" />
-                  <rect x="72" y="197" width="16" height="20" rx="8" stroke="rgba(255,255,255,0.22)" strokeWidth="1" fill="none" />
-                  <line x1="47" y1="212" x2="113" y2="212" stroke="rgba(255,255,255,0.08)" strokeWidth="0.8" />
-                  {/* dot + connector */}
-                  <circle cx="116" cy="211" r="3" fill="rgba(255,255,255,0.5)" />
-                  <line x1="116" y1="211" x2="160" y2="211" stroke="rgba(255,255,255,0.2)" strokeWidth="0.8" strokeDasharray="3 3" />
+                  {/* Section 3 */}
+                  <path d="M46 171 L114 171 L118 252 L42 252 Z" style={{stroke:'var(--fw-mid)',fill:'var(--fw-bg)'}} strokeWidth="1.5" />
+                  <rect x="72" y="197" width="16" height="20" rx="8" style={{stroke:'var(--fw-lo)'}} strokeWidth="1" fill="none" />
+                  <line x1="47" y1="212" x2="113" y2="212" style={{stroke:'var(--fw-lo)'}} strokeWidth="0.8" />
+                  <circle cx="116" cy="211" r="3" style={{fill:'var(--fw-dot)'}} />
+                  <line x1="116" y1="211" x2="160" y2="211" style={{stroke:'var(--fw-lo)'}} strokeWidth="0.8" strokeDasharray="3 3" />
 
-                  {/* Section 2 — Banking & treasury */}
-                  <path d="M42 252 L118 252 L124 334 L36 334 Z" stroke="rgba(255,255,255,0.28)" strokeWidth="1.5" fill="rgba(255,255,255,0.02)" />
-                  <rect x="70" y="278" width="20" height="22" rx="10" stroke="rgba(255,255,255,0.22)" strokeWidth="1" fill="none" />
-                  <line x1="43" y1="293" x2="117" y2="293" stroke="rgba(255,255,255,0.08)" strokeWidth="0.8" />
-                  {/* dot + connector */}
-                  <circle cx="121" cy="293" r="3" fill="rgba(255,255,255,0.5)" />
-                  <line x1="121" y1="293" x2="160" y2="293" stroke="rgba(255,255,255,0.2)" strokeWidth="0.8" strokeDasharray="3 3" />
+                  {/* Section 2 */}
+                  <path d="M42 252 L118 252 L124 334 L36 334 Z" style={{stroke:'var(--fw-mid)',fill:'var(--fw-bg)'}} strokeWidth="1.5" />
+                  <rect x="70" y="278" width="20" height="22" rx="10" style={{stroke:'var(--fw-lo)'}} strokeWidth="1" fill="none" />
+                  <line x1="43" y1="293" x2="117" y2="293" style={{stroke:'var(--fw-lo)'}} strokeWidth="0.8" />
+                  <circle cx="121" cy="293" r="3" style={{fill:'var(--fw-dot)'}} />
+                  <line x1="121" y1="293" x2="160" y2="293" style={{stroke:'var(--fw-lo)'}} strokeWidth="0.8" strokeDasharray="3 3" />
 
-                  {/* Section 1 — Entity & legal setup */}
-                  <path d="M36 334 L124 334 L130 408 L30 408 Z" stroke="rgba(255,255,255,0.32)" strokeWidth="1.5" fill="rgba(255,255,255,0.025)" />
-                  <rect x="70" y="368" width="20" height="32" rx="2" stroke="rgba(255,255,255,0.28)" strokeWidth="1" fill="rgba(255,255,255,0.04)" />
-                  <rect x="55" y="348" width="13" height="14" rx="2" stroke="rgba(255,255,255,0.18)" strokeWidth="0.8" fill="none" />
-                  <rect x="92" y="348" width="13" height="14" rx="2" stroke="rgba(255,255,255,0.18)" strokeWidth="0.8" fill="none" />
-                  <line x1="37" y1="371" x2="123" y2="371" stroke="rgba(255,255,255,0.08)" strokeWidth="0.8" />
-                  {/* dot + connector */}
-                  <circle cx="127" cy="371" r="3" fill="rgba(255,255,255,0.5)" />
-                  <line x1="127" y1="371" x2="160" y2="371" stroke="rgba(255,255,255,0.2)" strokeWidth="0.8" strokeDasharray="3 3" />
+                  {/* Section 1 */}
+                  <path d="M36 334 L124 334 L130 408 L30 408 Z" style={{stroke:'var(--fw-mid)',fill:'var(--fw-bg)'}} strokeWidth="1.5" />
+                  <rect x="70" y="368" width="20" height="32" rx="2" style={{stroke:'var(--fw-mid)',fill:'var(--fw-bg)'}} strokeWidth="1" />
+                  <rect x="55" y="348" width="13" height="14" rx="2" style={{stroke:'var(--fw-lo)'}} strokeWidth="0.8" fill="none" />
+                  <rect x="92" y="348" width="13" height="14" rx="2" style={{stroke:'var(--fw-lo)'}} strokeWidth="0.8" fill="none" />
+                  <line x1="37" y1="371" x2="123" y2="371" style={{stroke:'var(--fw-lo)'}} strokeWidth="0.8" />
+                  <circle cx="127" cy="371" r="3" style={{fill:'var(--fw-dot)'}} />
+                  <line x1="127" y1="371" x2="160" y2="371" style={{stroke:'var(--fw-lo)'}} strokeWidth="0.8" strokeDasharray="3 3" />
 
                   {/* Foundation */}
-                  <path d="M30 408 L130 408 L140 440 L20 440 Z" stroke="rgba(255,255,255,0.28)" strokeWidth="1.5" fill="rgba(255,255,255,0.02)" />
+                  <path d="M30 408 L130 408 L140 440 L20 440 Z" style={{stroke:'var(--fw-mid)',fill:'var(--fw-bg)'}} strokeWidth="1.5" />
 
                   {/* Ground */}
-                  <line x1="0" y1="440" x2="160" y2="440" stroke="rgba(255,255,255,0.14)" strokeWidth="1" />
-                  <line x1="0" y1="445" x2="160" y2="445" stroke="rgba(255,255,255,0.06)" strokeWidth="1" />
+                  <line x1="0" y1="440" x2="160" y2="440" style={{stroke:'var(--fw-lo)'}} strokeWidth="1" />
+                  <line x1="0" y1="445" x2="160" y2="445" style={{stroke:'var(--fw-lo)',opacity:0.5}} strokeWidth="1" />
 
                   {/* Hover beams — light ray from lantern to active section dot */}
                   {([
