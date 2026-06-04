@@ -2,9 +2,25 @@ import Link from "next/link";
 import { posts } from "../lib/posts";
 import type { Metadata } from "next";
 
+const BLOG_TITLE = "Argentina Market Entry Guides";
+const BLOG_DESC = "Practical guides for foreign companies setting up operations in Argentina. Entity setup, banking, hiring, and compliance — no fluff.";
+
 export const metadata: Metadata = {
-  title: "Blog — Landar | Argentina Market Entry Guides",
-  description: "Practical guides for foreign companies setting up operations in Argentina. Entity setup, banking, hiring, and compliance — no fluff.",
+  title: BLOG_TITLE,
+  description: BLOG_DESC,
+  alternates: { canonical: "/blog" },
+  openGraph: {
+    title: `${BLOG_TITLE} | Landar`,
+    description: BLOG_DESC,
+    type: "website",
+    url: "/blog",
+    siteName: "Landar",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `${BLOG_TITLE} | Landar`,
+    description: BLOG_DESC,
+  },
 };
 
 const categoryLabel: Record<string, string> = {

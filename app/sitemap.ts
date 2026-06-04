@@ -1,7 +1,6 @@
 import { MetadataRoute } from "next";
 import { posts } from "./lib/posts";
-
-const BASE_URL = "https://landar-landing.vercel.app";
+import { SITE_URL as BASE_URL } from "./lib/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const blogRoutes = posts.map((post) => ({

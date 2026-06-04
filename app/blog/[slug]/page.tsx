@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { getPost, getAllSlugs } from "../../lib/posts";
+import { SITE_URL } from "../../lib/site";
 import type { Metadata } from "next";
 
 export async function generateStaticParams() {
@@ -27,13 +28,13 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       description: post.metaDescription,
     },
     alternates: {
-      canonical: `https://landar-landing.vercel.app/blog/${slug}`,
+      canonical: `/blog/${slug}`,
     },
   };
 }
 
 function buildJsonLd(post: NonNullable<ReturnType<typeof getPost>>, slug: string) {
-  const baseUrl = "https://landar-landing.vercel.app";
+  const baseUrl = SITE_URL;
 
   // Extract FAQ items from content (matches <div class="faq-item"><h3>Q</h3><p>A</p></div>)
   const faqMatches = [...post.content.matchAll(/<div class="faq-item">\s*<h3>([\s\S]*?)<\/h3>\s*<p>([\s\S]*?)<\/p>\s*<\/div>/g)];
@@ -67,7 +68,17 @@ function buildJsonLd(post: NonNullable<ReturnType<typeof getPost>>, slug: string
     mainEntityOfPage: { "@type": "WebPage", "@id": `${baseUrl}/blog/${slug}` },
   };
 
-  if (faqEntities.length === 0) return [article];
+  const breadcrumb = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: baseUrl },
+      { "@type": "ListItem", position: 2, name: "Blog", item: `${baseUrl}/blog` },
+      { "@type": "ListItem", position: 3, name: post.title, item: `${baseUrl}/blog/${slug}` },
+    ],
+  };
+
+  if (faqEntities.length === 0) return [article, breadcrumb];
 
   const faqPage = {
     "@context": "https://schema.org",
@@ -75,7 +86,7 @@ function buildJsonLd(post: NonNullable<ReturnType<typeof getPost>>, slug: string
     mainEntity: faqEntities,
   };
 
-  return [article, faqPage];
+  return [article, breadcrumb, faqPage];
 }
 
 export default async function PostPage({ params }: { params: Promise<{ slug: string }> }) {

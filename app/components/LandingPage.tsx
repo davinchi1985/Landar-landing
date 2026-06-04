@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import { t, Lang } from "../translations";
+import { HUBSPOT_ENDPOINT } from "../lib/site";
 
 const LANGS: { flag: string; code: Lang; label: string }[] = [
   { flag: "🇺🇸", code: "EN", label: "English" },
@@ -106,22 +107,49 @@ export default function LandingPage() {
   async function handleFormSubmit(e: React.FormEvent) {
     e.preventDefault();
     setFormStatus("sending");
-    try {
-      const res = await fetch("https://formspree.io/f/xdajgyzo", {
-        method: "POST",
-        headers: { "Content-Type": "application/json", Accept: "application/json" },
-        body: JSON.stringify({
-          country: formCountry,
-          services: formServices.join(", "),
-          timeline: formTimeline,
-          name: formName,
-          email: formEmail,
-        }),
-      });
-      setFormStatus(res.ok ? "done" : "error");
-    } catch {
-      setFormStatus("error");
-    }
+
+    const services = formServices.join(", ");
+    // Resumen legible de la calificación → propiedad estándar `message` de HubSpot
+    // (así no hace falta crear propiedades custom en el portal para arrancar).
+    const summary = `Services: ${services || "—"} · Timeline: ${formTimeline || "—"} · Country: ${formCountry || "—"}`;
+
+    // 1) HubSpot CRM — Forms Submission API pública (client-side, sin backend).
+    const hubspot = fetch(HUBSPOT_ENDPOINT, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        fields: [
+          { name: "email", value: formEmail },
+          { name: "firstname", value: formName },
+          { name: "country", value: formCountry },
+          { name: "message", value: summary },
+        ],
+        context: {
+          pageUri: typeof window !== "undefined" ? window.location.href : "",
+          pageName: "Landar — Contact",
+        },
+      }),
+    })
+      .then((r) => r.ok)
+      .catch(() => false);
+
+    // 2) Formspree — respaldo / notificación por email.
+    const formspree = fetch("https://formspree.io/f/xdajgyzo", {
+      method: "POST",
+      headers: { "Content-Type": "application/json", Accept: "application/json" },
+      body: JSON.stringify({
+        country: formCountry,
+        services,
+        timeline: formTimeline,
+        name: formName,
+        email: formEmail,
+      }),
+    })
+      .then((r) => r.ok)
+      .catch(() => false);
+
+    const [hs, fs] = await Promise.all([hubspot, formspree]);
+    setFormStatus(hs || fs ? "done" : "error");
   }
 
   // Close picker on outside click
