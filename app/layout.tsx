@@ -1,19 +1,25 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Newsreader } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 import { SITE_URL, SITE_NAME, SITE_EMAIL, CALENDLY_URL } from "./lib/site";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
+// Serif editorial (mood "Claude design") — para titulares
+const newsreader = Newsreader({
+  subsets: ["latin"],
+  style: ["normal", "italic"],
+  variable: "--font-newsreader",
+});
 
-const TITLE = "Landar — Land & operate your company in Argentina";
+const TITLE = "Inteligenci·AR — Set up your AI-entity & operate in Argentina";
 const DESCRIPTION =
-  "One point of contact for entity setup, banking, accounting, and hiring in Argentina. Operating-ready, not just incorporated — handled from day one by a team on the ground.";
+  "One partner to register your company, get banking-ready, and run accounting and hiring in Argentina — and to be ready for the coming AI-entity framework. Operating-ready, not just incorporated.";
 
 export const metadata: Metadata = {
   title: {
     default: TITLE,
-    template: "%s | Landar",
+    template: "%s | Inteligenci·AR",
   },
   description: DESCRIPTION,
   metadataBase: new URL(SITE_URL),
@@ -83,7 +89,7 @@ const schema = {
       logo: `${SITE_URL}/opengraph-image`,
       image: `${SITE_URL}/opengraph-image`,
       description:
-        "Landar helps foreign companies land operations in Argentina — entity setup, banking, accounting, and hiring from a single point of contact.",
+        "Inteligenci·AR helps foreign companies land operations in Argentina — entity setup, banking, accounting, and hiring from a single point of contact, with readiness for the coming AI-entity framework.",
       slogan: "One point of contact to land and operate in Argentina.",
       areaServed: { "@type": "Country", name: "Argentina" },
       address: { "@type": "PostalAddress", addressCountry: "AR", addressLocality: "Buenos Aires" },
@@ -106,7 +112,7 @@ const schema = {
     },
     {
       "@type": "ProfessionalService",
-      name: "Landar — Argentina Operating Setup",
+      name: "Inteligenci·AR — Argentina Operating Setup",
       url: SITE_URL,
       provider: { "@id": ORG_ID },
       areaServed: { "@type": "Country", name: "Argentina" },
@@ -128,7 +134,7 @@ const schema = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={inter.variable}>
+    <html lang="en" className={`${inter.variable} ${newsreader.variable}`}>
       <head>
         <script
           type="application/ld+json"

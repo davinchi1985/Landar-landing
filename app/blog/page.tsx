@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { posts } from "../lib/posts";
+import { SITE_NAME, CALENDLY_URL } from "../lib/site";
 import type { Metadata } from "next";
 
 const BLOG_TITLE = "Argentina Market Entry Guides";
@@ -10,56 +11,90 @@ export const metadata: Metadata = {
   description: BLOG_DESC,
   alternates: { canonical: "/blog" },
   openGraph: {
-    title: `${BLOG_TITLE} | Landar`,
+    title: `${BLOG_TITLE} | ${SITE_NAME}`,
     description: BLOG_DESC,
     type: "website",
     url: "/blog",
-    siteName: "Landar",
+    siteName: SITE_NAME,
   },
   twitter: {
     card: "summary_large_image",
-    title: `${BLOG_TITLE} | Landar`,
+    title: `${BLOG_TITLE} | ${SITE_NAME}`,
     description: BLOG_DESC,
   },
 };
 
 const categoryLabel: Record<string, string> = {
-  legal: "Legal & Entity",
+  legal: "Entity & legal",
   banking: "Banking",
   hiring: "Hiring & HR",
   energy: "Energy",
   strategy: "Strategy",
 };
 
-export default function BlogIndex() {
+function BlogNav() {
   return (
-    <div className="blog-shell">
-      <div className="wrap">
-        <header className="blog-header">
-          <Link href="/" className="blog-back">
-            <svg viewBox="0 0 16 16" fill="none" aria-hidden="true" width="14" height="14">
-              <path d="M10 3L5 8l5 5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-            Land·AR
-          </Link>
-          <h1>Argentina Market Entry — Field Guides</h1>
-          <p>Practical articles for foreign companies setting up operations in Argentina. Written for decision-makers, not lawyers.</p>
-        </header>
+    <header className="nav is-stuck">
+      <div className="nav__inner">
+        <Link className="logo" href="/" aria-label="Inteligenci·AR — home">
+          <svg viewBox="0 0 26 26" className="logo__mark" aria-hidden="true">
+            <rect width="26" height="26" rx="7" fill="#1C1B17" />
+            <path d="M5.5 7.5 Q13 13.5 13 17.8" fill="none" stroke="#C9613D" strokeWidth="1.4" strokeLinecap="round" opacity="0.85" />
+            <path d="M20.5 7.5 Q13 13.5 13 17.8" fill="none" stroke="#C9613D" strokeWidth="1.4" strokeLinecap="round" opacity="0.85" />
+            <path d="M13 4.6 Q13 11 13 17.8" fill="none" stroke="#C9613D" strokeWidth="1.4" strokeLinecap="round" opacity="0.5" />
+            <circle cx="13" cy="18" r="2.1" fill="#C9613D" />
+          </svg>
+          <span className="logo__word">Inteligenci<span className="ar">·AR</span></span>
+        </Link>
+        <a className="btn btn--primary" href={CALENDLY_URL} target="_blank" rel="noopener noreferrer">Book a call</a>
+      </div>
+    </header>
+  );
+}
+
+export default function BlogIndex() {
+  const [featured, ...rest] = posts;
+  return (
+    <>
+      <BlogNav />
+      <main className="wrap blog-head">
+        <div className="blog-head__inner">
+          <span className="eyebrow">The Inteligenci·AR Journal</span>
+          <h1>Operating in Argentina, explained.</h1>
+          <p className="lede">Practical guides for foreign companies setting up operations in Argentina — entity, banking, hiring and compliance. Written for decision-makers, not lawyers.</p>
+        </div>
+      </main>
+
+      <section className="wrap">
+        {featured && (
+          <article className="featured">
+            <div className="featured__media" style={{ background: "var(--accent-tint)" }} />
+            <div className="featured__body">
+              <span className="featured__eyebrow">{categoryLabel[featured.category]}</span>
+              <h2><Link href={`/blog/${featured.slug}`}>{featured.title}</Link></h2>
+              <p className="excerpt">{featured.excerpt}</p>
+              <div className="post-meta">
+                <span>{featured.readingTime}</span><span className="dot-sep" /><span>{featured.date}</span>
+              </div>
+            </div>
+          </article>
+        )}
 
         <div className="post-grid">
-          {posts.map((post) => (
-            <Link key={post.slug} href={`/blog/${post.slug}`} className="post-card">
-              <div className="post-meta-top">
-                <span className="post-category">{categoryLabel[post.category]}</span>
-                <span className="post-read">{post.readingTime}</span>
+          {rest.map((post) => (
+            <article className="post-card" key={post.slug}>
+              <span className="post-card__cat">{categoryLabel[post.category]}</span>
+              <h3 className="post-card__title"><Link href={`/blog/${post.slug}`}>{post.title}</Link></h3>
+              <p className="post-card__excerpt">{post.excerpt}</p>
+              <div className="post-meta">
+                <span>{post.readingTime}</span><span className="dot-sep" /><span>{post.date}</span>
               </div>
-              <h2>{post.title}</h2>
-              <p>{post.excerpt}</p>
-              <div className="post-cta">Read guide →</div>
-            </Link>
+            </article>
           ))}
         </div>
-      </div>
-    </div>
+      </section>
+
+      <div style={{ height: "clamp(3rem,7vw,6rem)" }} />
+    </>
   );
 }

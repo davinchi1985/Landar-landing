@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { getPost, getAllSlugs } from "../../lib/posts";
-import { SITE_URL } from "../../lib/site";
+import { SITE_URL, SITE_NAME, CALENDLY_URL } from "../../lib/site";
 import type { Metadata } from "next";
 
 export async function generateStaticParams() {
@@ -20,31 +20,25 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       description: post.metaDescription,
       type: "article",
       publishedTime: post.date,
-      siteName: "Landar",
+      siteName: SITE_NAME,
     },
     twitter: {
       card: "summary_large_image",
       title: post.title,
       description: post.metaDescription,
     },
-    alternates: {
-      canonical: `/blog/${slug}`,
-    },
+    alternates: { canonical: `/blog/${slug}` },
   };
 }
 
 function buildJsonLd(post: NonNullable<ReturnType<typeof getPost>>, slug: string) {
   const baseUrl = SITE_URL;
 
-  // Extract FAQ items from content (matches <div class="faq-item"><h3>Q</h3><p>A</p></div>)
   const faqMatches = [...post.content.matchAll(/<div class="faq-item">\s*<h3>([\s\S]*?)<\/h3>\s*<p>([\s\S]*?)<\/p>\s*<\/div>/g)];
   const faqEntities = faqMatches.map((m) => ({
     "@type": "Question",
     name: m[1].replace(/<[^>]+>/g, "").trim(),
-    acceptedAnswer: {
-      "@type": "Answer",
-      text: m[2].replace(/<[^>]+>/g, "").trim(),
-    },
+    acceptedAnswer: { "@type": "Answer", text: m[2].replace(/<[^>]+>/g, "").trim() },
   }));
 
   const article = {
@@ -54,14 +48,10 @@ function buildJsonLd(post: NonNullable<ReturnType<typeof getPost>>, slug: string
     description: post.metaDescription,
     datePublished: post.date,
     dateModified: post.date,
-    author: {
-      "@type": "Organization",
-      name: "Landar",
-      url: baseUrl,
-    },
+    author: { "@type": "Organization", name: SITE_NAME, url: baseUrl },
     publisher: {
       "@type": "Organization",
-      name: "Landar",
+      name: SITE_NAME,
       url: baseUrl,
       logo: { "@type": "ImageObject", url: `${baseUrl}/favicon.ico` },
     },
@@ -80,79 +70,71 @@ function buildJsonLd(post: NonNullable<ReturnType<typeof getPost>>, slug: string
 
   if (faqEntities.length === 0) return [article, breadcrumb];
 
-  const faqPage = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: faqEntities,
-  };
-
+  const faqPage = { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: faqEntities };
   return [article, breadcrumb, faqPage];
 }
+
+const categoryLabel: Record<string, string> = {
+  legal: "Entity & legal",
+  banking: "Banking",
+  hiring: "Hiring & HR",
+  energy: "Energy",
+  strategy: "Strategy",
+};
 
 export default async function PostPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const post = getPost(slug);
   if (!post) notFound();
 
-  const categoryLabel: Record<string, string> = {
-    legal: "Legal & Entity",
-    banking: "Banking",
-    hiring: "Hiring & HR",
-    energy: "Energy",
-    strategy: "Strategy",
-  };
-
   const jsonLd = buildJsonLd(post, slug);
 
   return (
-    <div className="blog-shell">
+    <>
       {jsonLd.map((schema, i) => (
-        <script
-          key={i}
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
-        />
+        <script key={i} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
       ))}
 
-      <div className="wrap">
-        <nav className="post-nav">
-          <Link href="/blog" className="blog-back">
-            <svg viewBox="0 0 16 16" fill="none" aria-hidden="true" width="14" height="14">
-              <path d="M10 3L5 8l5 5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+      <header className="nav is-stuck">
+        <div className="nav__inner">
+          <Link className="logo" href="/" aria-label="Inteligenci·AR — home">
+            <svg viewBox="0 0 26 26" className="logo__mark" aria-hidden="true">
+              <rect width="26" height="26" rx="7" fill="#1C1B17" />
+              <path d="M5.5 7.5 Q13 13.5 13 17.8" fill="none" stroke="#C9613D" strokeWidth="1.4" strokeLinecap="round" opacity="0.85" />
+              <path d="M20.5 7.5 Q13 13.5 13 17.8" fill="none" stroke="#C9613D" strokeWidth="1.4" strokeLinecap="round" opacity="0.85" />
+              <path d="M13 4.6 Q13 11 13 17.8" fill="none" stroke="#C9613D" strokeWidth="1.4" strokeLinecap="round" opacity="0.5" />
+              <circle cx="13" cy="18" r="2.1" fill="#C9613D" />
             </svg>
-            All guides
+            <span className="logo__word">Inteligenci<span className="ar">·AR</span></span>
           </Link>
-        </nav>
+          <a className="btn btn--primary" href={CALENDLY_URL} target="_blank" rel="noopener noreferrer">Book a call</a>
+        </div>
+      </header>
 
-        <article className="post-article">
-          <header className="post-article-header">
-            <div className="post-meta-top">
-              <span className="post-category">{categoryLabel[post.category]}</span>
-              <span className="post-read">{post.readingTime}</span>
-              <span className="post-date">{post.date}</span>
-            </div>
-            <h1>{post.title}</h1>
-            <p className="post-excerpt">{post.excerpt}</p>
-          </header>
+      <main className="article wrap">
+        <header className="article__header">
+          <span className="article__cat">{categoryLabel[post.category]}</span>
+          <h1 className="article__title">{post.title}</h1>
+          <p className="article__standfirst">{post.excerpt}</p>
+          <div className="article__meta">
+            <span>{post.readingTime}</span><span className="dot-sep" /><span>{post.date}</span>
+          </div>
+        </header>
 
-          <div className="post-content" dangerouslySetInnerHTML={{ __html: post.content }} />
+        <div className="prose" dangerouslySetInnerHTML={{ __html: post.content }} />
 
-          <footer className="post-footer">
-            <div className="post-cta-box">
-              <h3>Need help setting up operations in Argentina?</h3>
-              <p>Landar handles entity setup, banking, accounting, and hiring — one project lead, one timeline.</p>
-              <a
-                href="https://calendly.com/davinchicohen/30min"
-                target="_blank"
-                rel="noopener"
-                className="btn btn-primary btn-lg"
-              >
-                Book a 30-min call →
-              </a>
-            </div>
-          </footer>
-        </article>
-      </div>
-    </div>
+        <div className="article-cta">
+          <h2>Need help setting up operations in Argentina?</h2>
+          <p className="lede">Inteligenci·AR handles entity setup, banking, accounting and hiring — one project lead, one timeline.</p>
+          <a className="btn btn--primary btn--lg" href={CALENDLY_URL} target="_blank" rel="noopener noreferrer">Book a 30-min call <span className="arrow">→</span></a>
+        </div>
+
+        <div className="related">
+          <Link className="link" href="/blog">← All guides</Link>
+        </div>
+      </main>
+
+      <div style={{ height: "clamp(3rem,7vw,6rem)" }} />
+    </>
   );
 }
