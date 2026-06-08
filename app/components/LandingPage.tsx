@@ -27,6 +27,37 @@ const Check = () => (
   </svg>
 );
 
+// Animated stat number — counts up once when scrolled into view.
+// Only pure numbers (with optional ~ / + decoration) animate; mixed values
+// like "4 → 1" render static. SSR/no-JS show the final value.
+function StatNum({ value }: { value: string }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const [display, setDisplay] = useState(value);
+  useEffect(() => {
+    const m = value.match(/^(\D*)(\d+)(\D*)$/);
+    const el = ref.current;
+    if (!m || !el || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const target = parseInt(m[2], 10);
+    let started = false;
+    const io = new IntersectionObserver((entries) => {
+      if (!entries[0].isIntersecting || started) return;
+      started = true;
+      io.disconnect();
+      const dur = 1100, t0 = performance.now();
+      const tick = (now: number) => {
+        const p = Math.min(1, (now - t0) / dur);
+        const eased = 1 - Math.pow(1 - p, 3);
+        setDisplay(m[1] + Math.round(target * eased) + m[3]);
+        if (p < 1) requestAnimationFrame(tick);
+      };
+      requestAnimationFrame(tick);
+    }, { threshold: 0.6 });
+    io.observe(el);
+    return () => io.disconnect();
+  }, [value]);
+  return <div className="stat__n" ref={ref}>{display}</div>;
+}
+
 export default function LandingPage() {
   const [lang, setLang] = useState<Lang>("en");
   const tr = (k: string) => t(lang, k);
@@ -471,7 +502,7 @@ export default function LandingPage() {
             <div className="stats">
               {[{ n: "~45", k: "stats.s1" }, { n: "4 → 1", k: "stats.s2" }, { n: "15+", k: "stats.s3" }, { n: "6", k: "stats.s4" }].map((s, i) => (
                 <div className="stat reveal" key={s.k} style={{ ["--reveal-delay" as string]: `.${i * 6}s` }}>
-                  <div className="stat__n">{s.n}</div>
+                  <StatNum value={s.n} />
                   <div className="stat__l">{tr(s.k)}</div>
                 </div>
               ))}

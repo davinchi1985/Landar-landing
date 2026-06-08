@@ -34,10 +34,10 @@
   --fs-body:    1.0625rem;             /* 17px */
   --fs-body-l:  clamp(1.15rem, 0.95rem + 0.9vw, 1.5rem);
   --fs-h4:      clamp(1.15rem, 1rem + 0.6vw, 1.4rem);
-  --fs-h3:      clamp(1.5rem, 1.2rem + 1.3vw, 2.15rem);
-  --fs-h2:      clamp(1.95rem, 1.5rem + 2.2vw, 3.1rem);
-  --fs-h1:      clamp(2.2rem, 1.7rem + 1.9vw, 3.25rem);
-  --fs-display: clamp(2.8rem, 2rem + 4vw, 5.2rem);
+  --fs-h3:      clamp(1.55rem, 1.2rem + 1.5vw, 2.35rem);
+  --fs-h2:      clamp(2.05rem, 1.45rem + 2.7vw, 3.55rem);
+  --fs-h1:      clamp(2.3rem, 1.65rem + 2.4vw, 3.7rem);
+  --fs-display: clamp(2.9rem, 2rem + 4.4vw, 5.6rem);
 
   /* Spacing scale */
   --sp-1: 0.25rem;
@@ -99,8 +99,8 @@ ul { list-style: none; padding: 0; }
 h1, h2, h3, h4 {
   font-family: var(--font-display);
   font-weight: 400;
-  line-height: 1.08;
-  letter-spacing: -0.018em;
+  line-height: 1.04;
+  letter-spacing: -0.024em;
   text-wrap: balance;
 }
 
@@ -108,8 +108,8 @@ h1, h2, h3, h4 {
 .wrap { max-width: var(--maxw); margin-inline: auto; padding-inline: var(--gutter); }
 .wrap-narrow { max-width: var(--maxw-narrow); margin-inline: auto; padding-inline: var(--gutter); }
 
-.section { padding-block: clamp(2.5rem, 5vw, 5rem); position: relative; }
-.section--tight { padding-block: clamp(2rem, 3.5vw, 3.5rem); }
+.section { padding-block: clamp(2.25rem, 4.5vw, 4.5rem); position: relative; }
+.section--tight { padding-block: clamp(1.75rem, 3vw, 3rem); }
 
 /* Eyebrow — small uppercase section label */
 .eyebrow {
@@ -231,10 +231,10 @@ h1, h2, h3, h4 {
 .reveal {
   opacity: 1;
   transform: none;
-  transition: opacity 0.85s cubic-bezier(0.22,0.61,0.36,1), transform 0.85s cubic-bezier(0.22,0.61,0.36,1);
+  transition: opacity 0.9s cubic-bezier(0.22,0.61,0.36,1), transform 0.9s cubic-bezier(0.16,0.84,0.36,1);
   transition-delay: var(--reveal-delay, 0s);
 }
-.reveal.is-armed { opacity: 0; transform: translateY(18px); }
+.reveal.is-armed { opacity: 0; transform: translateY(28px) scale(0.985); }
 @media (prefers-reduced-motion: reduce) {
   .reveal { transition: none; }
   .reveal.is-armed { opacity: 1; transform: none; }
@@ -619,11 +619,19 @@ body.hero-left .globe-stage { order: 1; }
    EL FARO — lighthouse
    ============================================================ */
 .faro {
-  background: var(--ink);
+  background:
+    radial-gradient(90% 120% at 18% 12%, rgba(201,97,61,0.16), transparent 55%),
+    var(--ink);
   color: #EFEbe2;
   border-radius: var(--r-xl);
   overflow: hidden;
   position: relative;
+  box-shadow: var(--shadow-lg);
+}
+.faro::after {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  border-radius: inherit;
+  box-shadow: inset 0 1px 0 rgba(251,247,238,0.08);
 }
 .faro__grid {
   display: grid;
@@ -949,13 +957,16 @@ body.hero-left .globe-stage { order: 1; }
    FINAL CTA
    ============================================================ */
 .final-cta {
-  background: var(--ink);
+  background:
+    radial-gradient(80% 120% at 50% 0%, rgba(201,97,61,0.14), transparent 60%),
+    var(--ink);
   color: #FBF7EE;
   border-radius: var(--r-xl);
   text-align: center;
   padding: clamp(3rem, 8vw, 6rem) clamp(1.5rem, 5vw, 4rem);
   position: relative;
   overflow: hidden;
+  box-shadow: var(--shadow-lg);
 }
 .final-cta h2 { font-size: var(--fs-h1); color: #FBF7EE; max-width: 16ch; margin-inline: auto; }
 .final-cta .lede { color: rgba(251,247,238,0.7); max-width: 46ch; margin: 1.4rem auto 0; }
@@ -963,9 +974,9 @@ body.hero-left .globe-stage { order: 1; }
 .final-cta .btn--ghost { color: #FBF7EE; border-color: rgba(251,247,238,0.3); }
 .final-cta .btn--ghost:hover { border-color: #FBF7EE; background: rgba(251,247,238,0.08); }
 .final-glow {
-  position: absolute; left: 50%; bottom: -40%; transform: translateX(-50%);
-  width: 80%; height: 80%;
-  background: radial-gradient(circle, rgba(201,97,61,0.35), transparent 60%);
+  position: absolute; left: 50%; bottom: -42%; transform: translateX(-50%);
+  width: 90%; height: 90%;
+  background: radial-gradient(circle, rgba(201,97,61,0.42), transparent 62%);
   pointer-events: none;
 }
 
@@ -1061,6 +1072,7 @@ body.hero-left .globe-stage { order: 1; }
   border-radius: var(--r-xl);
   overflow: hidden;
   padding: clamp(2.5rem, 6vw, 5.5rem);
+  box-shadow: var(--shadow-lg);
 }
 .netband::before {
   content: ""; position: absolute; inset: 0; pointer-events: none;
