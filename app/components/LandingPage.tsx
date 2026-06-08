@@ -202,8 +202,9 @@ export default function LandingPage() {
       } catch {}
     }
 
-    let dragging = false, sx = 0, sy = 0, ox = 0, oy = 0;
+    let dragging = false, sx = 0, sy = 0, ox = 0, oy = 0, moved = false;
     const down = (e: PointerEvent) => {
+      moved = false;
       if (!big()) return;
       dragging = true; box.classList.add("is-dragging");
       const r = box.getBoundingClientRect(), hr = hero.getBoundingClientRect();
@@ -215,10 +216,16 @@ export default function LandingPage() {
     };
     const move = (e: PointerEvent) => {
       if (!dragging) return;
+      if (Math.abs(e.clientX - sx) > 5 || Math.abs(e.clientY - sy) > 5) moved = true;
       const hr = hero.getBoundingClientRect();
       const nx = clampN(ox + (e.clientX - sx), 0, hr.width - box.offsetWidth);
       const ny = clampN(oy + (e.clientY - sy), 0, hr.height - box.offsetHeight);
       box.style.left = nx + "px"; box.style.top = ny + "px";
+    };
+    // a clean click (no drag) follows the trade flow into the Export section
+    const onClick = () => {
+      if (moved) { moved = false; return; }
+      document.getElementById("network")?.scrollIntoView({ behavior: "smooth", block: "start" });
     };
     const end = () => {
       if (!dragging) return;
@@ -229,11 +236,16 @@ export default function LandingPage() {
     box.addEventListener("pointermove", move);
     box.addEventListener("pointerup", end);
     box.addEventListener("pointercancel", end);
+    box.addEventListener("click", onClick);
+    const onKey = (e: KeyboardEvent) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); onClick(); } };
+    box.addEventListener("keydown", onKey);
     return () => {
       box.removeEventListener("pointerdown", down);
       box.removeEventListener("pointermove", move);
       box.removeEventListener("pointerup", end);
       box.removeEventListener("pointercancel", end);
+      box.removeEventListener("click", onClick);
+      box.removeEventListener("keydown", onKey);
     };
   }, []);
 
@@ -412,7 +424,7 @@ export default function LandingPage() {
                 <a className="btn btn--primary" href="#contact" style={{ marginTop: "1.4rem" }}>{tr("ai.cta")} <span className="arrow">→</span></a>
                 <p className="ai-disclaimer">{tr("ai.note")}</p>
               </div>
-              <div className="ai-check">
+              <div className={"ai-check" + (aiScore >= 100 ? " is-complete" : "")}>
                 <div className="ai-check__head">
                   <span className="ai-ring-wrap">
                     <svg className="ai-ring" viewBox="0 0 80 80" aria-hidden="true">

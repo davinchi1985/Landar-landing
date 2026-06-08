@@ -437,6 +437,12 @@ section[id] { scroll-margin-top: clamp(4.5rem, 6vw, 5.5rem); }
   margin-left: auto;
   margin-right: clamp(-7rem, -4.5vw, -0.5rem);
 }
+.globe-stage::before {
+  content: ""; position: absolute; inset: 6% 6% 6% 6%;
+  border-radius: 50%; pointer-events: none; z-index: -1;
+  background: radial-gradient(circle at 50% 46%, rgba(201,97,61,0.16), rgba(201,97,61,0.05) 45%, transparent 68%);
+  filter: blur(8px);
+}
 .globe-stage canvas {
   width: 100% !important;
   height: 100% !important;
@@ -822,11 +828,29 @@ body.hero-left .globe-stage { order: 1; }
   fill: none; stroke: var(--accent); stroke-width: 7; stroke-linecap: round;
   stroke-dasharray: 220; stroke-dashoffset: 220;
   transition: stroke-dashoffset 0.7s cubic-bezier(0.22,0.61,0.36,1);
+  filter: drop-shadow(0 0 3px rgba(201,97,61,0.35));
 }
 .ai-ring-wrap { position: relative; width: 76px; height: 76px; flex: none; }
+.ai-ring-wrap::after {
+  content: ""; position: absolute; inset: -5px; border-radius: 50%;
+  border: 2px solid transparent; pointer-events: none;
+}
 .ai-ring-pct {
   position: absolute; inset: 0; display: grid; place-items: center;
   font-family: var(--font-display); font-size: 1.35rem; color: var(--ink); letter-spacing: -0.02em;
+  transition: color 0.4s var(--ease);
+}
+/* celebratory state when the readiness check hits 100% */
+.ai-check.is-complete .ai-ring-pct { color: var(--accent); animation: pctPop 0.55s var(--ease); }
+.ai-check.is-complete .ai-check__status { color: var(--accent); }
+.ai-check.is-complete .ai-ring-wrap::after { border-color: var(--accent); animation: haloPulse 0.9s var(--ease); }
+@keyframes pctPop { 0% { transform: scale(1); } 42% { transform: scale(1.16); } 100% { transform: scale(1); } }
+@keyframes haloPulse {
+  0% { transform: scale(0.9); opacity: 0.9; }
+  100% { transform: scale(1.35); opacity: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ai-check.is-complete .ai-ring-pct, .ai-check.is-complete .ai-ring-wrap::after { animation: none; }
 }
 .ai-check__status { font-weight: 600; font-size: var(--fs-body); }
 .ai-check__hint { font-size: var(--fs-body-s); color: var(--muted); margin-top: 0.15rem; }
