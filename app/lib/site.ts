@@ -1,7 +1,7 @@
 // Configuración central del sitio. Fuente única de verdad.
 // Cuando esté el dominio definitivo, cambiar SOLO `SITE_URL` acá.
 
-export const SITE_URL = "https://inteligenci.ar";
+export const SITE_URL = "https://www.inteligenci.ar";
 export const SITE_NAME = "Inteligenci·AR";
 export const SITE_EMAIL = "hola@inteligenci.ar";
 export const CALENDLY_URL = "https://calendly.com/davinchicohen/30min";
