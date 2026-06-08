@@ -4,7 +4,6 @@
 export const SITE_URL = "https://www.inteligenci.ar";
 export const SITE_NAME = "Inteligenci·AR";
 export const SITE_EMAIL = "hola@inteligenci.ar";
-export const CALENDLY_URL = "https://calendly.com/davinchicohen/30min";
 
 // HubSpot — Forms Submission API pública (client-side, sin backend ni token).
 // portalId y formGuid NO son secretos (son públicos por diseño).

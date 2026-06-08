@@ -24,7 +24,7 @@ type Dict = Record<string, string>;
 
 const en: Dict = {
   "nav.problem": "The problem", "nav.services": "What we do", "nav.how": "How it works",
-  "nav.why": "Why us", "nav.ai": "AI-entity", "nav.cta": "Book a call",
+  "nav.why": "Why us", "nav.ai": "AI-entity", "nav.cta": "Get in touch",
 
   "hero.h1": "Set up your <em>AI-entity</em> in Argentina.",
   "hero.sub": "Be among the first to register an AI-run company — with one partner to land, operate and export from Buenos Aires.",
@@ -120,7 +120,7 @@ const en: Dict = {
   "contact.name": "Name", "contact.nameph": "Your name", "contact.email": "Work email", "contact.emailph": "you@company.com",
   "contact.back": "Back", "contact.next": "Continue", "contact.send": "Send", "contact.sending": "Sending…",
   "contact.doneT": "Thank you — we'll be in touch.", "contact.doneD": "Prefer to talk now? Book a 30-minute call and we'll bring your plan to it.",
-  "contact.doneCta": "Book a call", "contact.error": "Something went wrong — please email us or try again.",
+  "contact.error": "Something went wrong — please email us or try again.",
 
   "final.eyebrow": "Ready when you are",
   "final.h2": "Let's make your Argentina launch painless.",
@@ -129,13 +129,13 @@ const en: Dict = {
 
   "footer.tag": "Operating-ready in Argentina. Entity, banking, accounting and hiring — coordinated from Buenos Aires through one point of contact.",
   "footer.h1": "Company", "footer.h2": "Resources", "footer.h3": "Get started",
-  "footer.ai": "AI readiness", "footer.blog": "Journal", "footer.contact": "Contact", "footer.book": "Book a call",
+  "footer.ai": "AI readiness", "footer.blog": "Journal", "footer.contact": "Contact",
   "footer.rights": "Pilot stage — building in Buenos Aires.",
 };
 
 const es: Dict = {
   "nav.problem": "El problema", "nav.services": "Qué hacemos", "nav.how": "Cómo funciona",
-  "nav.why": "Por qué nosotros", "nav.ai": "Entidad de IA", "nav.cta": "Agendar llamada",
+  "nav.why": "Por qué nosotros", "nav.ai": "Entidad de IA", "nav.cta": "Hablemos",
 
   "hero.h1": "Constituí tu <em>entidad de IA</em> en Argentina.",
   "hero.sub": "Sé de los primeros en registrar una empresa gestionada por IA — con un solo socio para aterrizar, operar y exportar desde Buenos Aires.",
@@ -231,7 +231,7 @@ const es: Dict = {
   "contact.name": "Nombre", "contact.nameph": "Tu nombre", "contact.email": "Email de trabajo", "contact.emailph": "vos@empresa.com",
   "contact.back": "Atrás", "contact.next": "Continuar", "contact.send": "Enviar", "contact.sending": "Enviando…",
   "contact.doneT": "Gracias — te contactamos.", "contact.doneD": "¿Preferís hablar ahora? Agendá una llamada de 30 minutos y llevamos tu plan.",
-  "contact.doneCta": "Agendar llamada", "contact.error": "Algo salió mal — escribinos o probá de nuevo.",
+  "contact.error": "Algo salió mal — escribinos o probá de nuevo.",
 
   "final.eyebrow": "Cuando estés listo",
   "final.h2": "Tu llegada a Argentina, sin dolores de cabeza.",
@@ -240,14 +240,14 @@ const es: Dict = {
 
   "footer.tag": "Listo para operar en Argentina. Sociedad, banca, contabilidad y contratación — coordinado desde Buenos Aires por un solo punto de contacto.",
   "footer.h1": "Empresa", "footer.h2": "Recursos", "footer.h3": "Empezar",
-  "footer.ai": "Preparación IA", "footer.blog": "Blog", "footer.contact": "Contacto", "footer.book": "Agendar llamada",
+  "footer.ai": "Preparación IA", "footer.blog": "Blog", "footer.contact": "Contacto",
   "footer.rights": "Etapa piloto — construyendo en Buenos Aires.",
 };
 
 // German — headlines & nav only (longest strings; proves the layout stretches).
 const de: Dict = {
   "nav.problem": "Das Problem", "nav.services": "Was wir tun", "nav.how": "So funktioniert's",
-  "nav.why": "Warum wir", "nav.ai": "KI-Entität", "nav.cta": "Termin buchen",
+  "nav.why": "Warum wir", "nav.ai": "KI-Entität", "nav.cta": "Sprechen wir",
   "hero.h1": "Gründen Sie Ihre <em>KI-Entität</em> in Argentinien.",
   "hero.sub": "Gehören Sie zu den Ersten, die ein KI-geführtes Unternehmen registrieren — mit einem Partner zum Ankommen, Betreiben und Exportieren aus Buenos Aires.",
   "hero.m1": "KI-Entität", "hero.m2": "Ankommen & betreiben", "hero.m3": "In die Welt exportieren",

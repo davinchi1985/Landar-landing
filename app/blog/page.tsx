@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { posts } from "../lib/posts";
-import { SITE_NAME, CALENDLY_URL } from "../lib/site";
+import { SITE_NAME } from "../lib/site";
 import type { Metadata } from "next";
 
 const BLOG_TITLE = "Argentina Market Entry Guides";
@@ -46,7 +46,7 @@ function BlogNav() {
           </svg>
           <span className="logo__word">Inteligenci<span className="ar">·AR</span></span>
         </Link>
-        <a className="btn btn--primary" href={CALENDLY_URL} target="_blank" rel="noopener noreferrer">Book a call</a>
+        <a className="btn btn--primary" href="/#contact">Get in touch</a>
       </div>
     </header>
   );

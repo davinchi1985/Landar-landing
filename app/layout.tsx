@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Newsreader } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
-import { SITE_URL, SITE_NAME, SITE_EMAIL, CALENDLY_URL } from "./lib/site";
+import { SITE_URL, SITE_NAME, SITE_EMAIL } from "./lib/site";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 // Serif editorial (mood "Claude design") — para titulares
@@ -97,7 +97,7 @@ const schema = {
         "@type": "ContactPoint",
         contactType: "sales",
         email: SITE_EMAIL,
-        url: CALENDLY_URL,
+        url: `${SITE_URL}/#contact`,
         availableLanguage: ["English", "Spanish", "Portuguese", "German"],
       },
     },

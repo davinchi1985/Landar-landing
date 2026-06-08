@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { getPost, getAllSlugs } from "../../lib/posts";
-import { SITE_URL, SITE_NAME, CALENDLY_URL } from "../../lib/site";
+import { SITE_URL, SITE_NAME } from "../../lib/site";
 import type { Metadata } from "next";
 
 export async function generateStaticParams() {
@@ -107,7 +107,7 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
             </svg>
             <span className="logo__word">Inteligenci<span className="ar">·AR</span></span>
           </Link>
-          <a className="btn btn--primary" href={CALENDLY_URL} target="_blank" rel="noopener noreferrer">Book a call</a>
+          <a className="btn btn--primary" href="/#contact">Get in touch</a>
         </div>
       </header>
 
@@ -126,7 +126,7 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
         <div className="article-cta">
           <h2>Need help setting up operations in Argentina?</h2>
           <p className="lede">Inteligenci·AR handles entity setup, banking, accounting and hiring — one project lead, one timeline.</p>
-          <a className="btn btn--primary btn--lg" href={CALENDLY_URL} target="_blank" rel="noopener noreferrer">Book a 30-min call <span className="arrow">→</span></a>
+          <a className="btn btn--primary btn--lg" href="/#contact">Get in touch <span className="arrow">→</span></a>
         </div>
 
         <div className="related">

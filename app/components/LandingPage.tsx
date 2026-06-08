@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import { t, Lang, LANGS, LANG_CODE } from "../translations";
-import { HUBSPOT_ENDPOINT, CALENDLY_URL } from "../lib/site";
+import { HUBSPOT_ENDPOINT } from "../lib/site";
 import Globe from "./Globe";
 
 const SERVICE_OPTIONS = [
@@ -720,7 +720,6 @@ export default function LandingPage() {
                       <div className="check-ring"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.4}><path d="M5 12l5 5L20 6" /></svg></div>
                       <h3 className="fstep__q">{tr("contact.doneT")}</h3>
                       <p className="fstep__hint">{tr("contact.doneD")}</p>
-                      <a className="btn btn--primary btn--lg" href={CALENDLY_URL} target="_blank" rel="noopener noreferrer" style={{ marginTop: "0.6rem" }}>{tr("contact.doneCta")} <span className="arrow">→</span></a>
                     </div>
                   </div>
                 )}
@@ -738,7 +737,7 @@ export default function LandingPage() {
               <h2 style={{ marginTop: "1.2rem", position: "relative" }}>{tr("final.h2")}</h2>
               <p className="lede">{tr("final.lede")}</p>
               <div className="hero__cta">
-                <a className="btn btn--primary btn--lg" href={CALENDLY_URL} target="_blank" rel="noopener noreferrer">{tr("final.cta1")} <span className="arrow">→</span></a>
+                <a className="btn btn--primary btn--lg" href="#contact">{tr("final.cta1")} <span className="arrow">→</span></a>
                 <a className="btn btn--ghost btn--lg" href="#services">{tr("final.cta2")}</a>
               </div>
             </div>
@@ -774,7 +773,6 @@ export default function LandingPage() {
               <h5>{tr("footer.h3")}</h5>
               <ul>
                 <li><a href="#contact">{tr("footer.contact")}</a></li>
-                <li><a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer">{tr("footer.book")}</a></li>
               </ul>
             </div>
           </div>
