@@ -64,6 +64,7 @@ export default function LandingPage() {
 
   // nav
   const [stuck, setStuck] = useState(false);
+  const [active, setActive] = useState("");
   const [navOpen, setNavOpen] = useState(false);
   const [langOpen, setLangOpen] = useState(false);
   const [langFooterOpen, setLangFooterOpen] = useState(false);
@@ -104,6 +105,19 @@ export default function LandingPage() {
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  // scrollspy — highlight the nav link of the section near the viewport centre
+  useEffect(() => {
+    const ids = ["problem", "services", "how", "why", "ai"];
+    const els = ids.map((id) => document.getElementById(id)).filter(Boolean) as HTMLElement[];
+    if (!els.length) return;
+    const io = new IntersectionObserver(
+      (entries) => entries.forEach((e) => { if (e.isIntersecting) setActive(e.target.id); }),
+      { rootMargin: "-45% 0px -50% 0px", threshold: 0 }
+    );
+    els.forEach((el) => io.observe(el));
+    return () => io.disconnect();
   }, []);
 
   // close dropdowns on outside click / escape
@@ -324,11 +338,11 @@ export default function LandingPage() {
         <div className="nav__inner">
           <Logo />
           <nav className="nav__links" aria-label="Primary">
-            <a href="#problem">{tr("nav.problem")}</a>
-            <a href="#services">{tr("nav.services")}</a>
-            <a href="#how">{tr("nav.how")}</a>
-            <a href="#why">{tr("nav.why")}</a>
-            <a href="#ai">{tr("nav.ai")}</a>
+            <a href="#problem" className={active === "problem" ? "is-active" : undefined}>{tr("nav.problem")}</a>
+            <a href="#services" className={active === "services" ? "is-active" : undefined}>{tr("nav.services")}</a>
+            <a href="#how" className={active === "how" ? "is-active" : undefined}>{tr("nav.how")}</a>
+            <a href="#why" className={active === "why" ? "is-active" : undefined}>{tr("nav.why")}</a>
+            <a href="#ai" className={active === "ai" ? "is-active" : undefined}>{tr("nav.ai")}</a>
           </nav>
           <div className="nav__right">
             <LangMenu open={langOpen} setOpen={setLangOpen} idSuffix="" />
