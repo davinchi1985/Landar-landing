@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Inter, Newsreader } from "next/font/google";
 import Script from "next/script";
+import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
 import { SITE_URL, SITE_NAME, SITE_EMAIL } from "./lib/site";
 
@@ -152,6 +154,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();
           `}
         </Script>
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );

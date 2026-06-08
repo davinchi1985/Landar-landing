@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
+import { track } from "@vercel/analytics";
 import { t, Lang, LANGS, LANG_CODE } from "../translations";
 import { HUBSPOT_ENDPOINT } from "../lib/site";
 import Globe from "./Globe";
@@ -85,6 +86,7 @@ export default function LandingPage() {
   const [status, setStatus] = useState<"idle" | "sending" | "error">("idle");
   const [err, setErr] = useState<string | null>(null);
   const countryRef = useRef<HTMLInputElement>(null);
+  const aiFired = useRef(false);
 
   // boot language from storage + keep <html lang> in sync
   useEffect(() => {
@@ -119,6 +121,11 @@ export default function LandingPage() {
     els.forEach((el) => io.observe(el));
     return () => io.disconnect();
   }, []);
+
+  // fire once when the AI readiness self-check reaches 100%
+  useEffect(() => {
+    if (aiScore >= 100 && !aiFired.current) { aiFired.current = true; track("ai_ready"); }
+  }, [aiScore]);
 
   // close dropdowns on outside click / escape
   useEffect(() => {
@@ -249,10 +256,11 @@ export default function LandingPage() {
     };
   }, []);
 
-  function chooseLang(l: Lang) { setLang(l); setLangOpen(false); setLangFooterOpen(false); }
+  function chooseLang(l: Lang) { track("lang_change", { lang: l }); setLang(l); setLangOpen(false); setLangFooterOpen(false); }
 
   function pathSubmit(e: React.FormEvent) {
     e.preventDefault();
+    track("checker_submit", { country: country.trim() || "—" });
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const contact = document.getElementById("contact");
     if (contact) {
@@ -275,7 +283,7 @@ export default function LandingPage() {
 
   async function next() {
     if (!validateStep()) return;
-    if (step < 3) { setStep(step + 1); return; }
+    if (step < 3) { track("wizard_step", { completed: step + 1 }); setStep(step + 1); return; }
     // submit
     setStatus("sending");
     const summary = `Services: ${services.join(", ") || "—"} · Timeline: ${timeline || "—"} · Country: ${country || "—"}`;
@@ -298,8 +306,13 @@ export default function LandingPage() {
       body: JSON.stringify({ country, services: services.join(", "), timeline, name, email }),
     }).then((r) => r.ok).catch(() => false);
     const [hs, fs] = await Promise.all([hubspot, formspree]);
-    if (hs || fs) { setDone(true); setStatus("idle"); }
-    else setStatus("error");
+    if (hs || fs) {
+      track("lead_submit", { country: country || "—", timeline: timeline || "—", services: services.join(",") || "—" });
+      setDone(true); setStatus("idle");
+    } else {
+      track("lead_error");
+      setStatus("error");
+    }
   }
 
   const errStyle = { borderColor: "var(--accent)", boxShadow: "0 0 0 3px var(--accent-soft)" } as const;
@@ -358,7 +371,7 @@ export default function LandingPage() {
           </nav>
           <div className="nav__right">
             <LangMenu open={langOpen} setOpen={setLangOpen} idSuffix="" />
-            <a className="btn btn--primary" href="#contact">{tr("nav.cta")}</a>
+            <a className="btn btn--primary" href="#contact" onClick={() => track("cta_click", { where: "nav" })}>{tr("nav.cta")}</a>
             <button className="nav__burger" aria-label="Menu" aria-expanded={navOpen} onClick={(e) => { e.stopPropagation(); setNavOpen(!navOpen); }}>
               <span></span><span></span>
             </button>
@@ -386,7 +399,7 @@ export default function LandingPage() {
                 <a className="hero-mode" href="#network"><span className="hm-no">03</span><span className="hm-label">{tr("hero.m3")}</span></a>
               </div>
               <div className="hero__cta reveal" style={{ ["--reveal-delay" as string]: ".2s" }}>
-                <a className="btn btn--primary btn--lg" href="#contact">{tr("hero.cta1")} <span className="arrow">→</span></a>
+                <a className="btn btn--primary btn--lg" href="#contact" onClick={() => track("cta_click", { where: "hero" })}>{tr("hero.cta1")} <span className="arrow">→</span></a>
                 <a className="btn btn--ghost btn--lg" href="#how">{tr("hero.cta2")}</a>
               </div>
               <div className="hero__status reveal" style={{ ["--reveal-delay" as string]: ".26s" }}>
@@ -421,7 +434,7 @@ export default function LandingPage() {
                 </span>
                 <h3>{tr("ai.h3")}</h3>
                 <p className="muted">{tr("ai.d")}</p>
-                <a className="btn btn--primary" href="#contact" style={{ marginTop: "1.4rem" }}>{tr("ai.cta")} <span className="arrow">→</span></a>
+                <a className="btn btn--primary" href="#contact" style={{ marginTop: "1.4rem" }} onClick={() => track("cta_click", { where: "ai" })}>{tr("ai.cta")} <span className="arrow">→</span></a>
                 <p className="ai-disclaimer">{tr("ai.note")}</p>
               </div>
               <div className={"ai-check" + (aiScore >= 100 ? " is-complete" : "")}>
@@ -794,7 +807,7 @@ export default function LandingPage() {
               <h2 style={{ marginTop: "1.2rem", position: "relative" }}>{tr("final.h2")}</h2>
               <p className="lede">{tr("final.lede")}</p>
               <div className="hero__cta">
-                <a className="btn btn--primary btn--lg" href="#contact">{tr("final.cta1")} <span className="arrow">→</span></a>
+                <a className="btn btn--primary btn--lg" href="#contact" onClick={() => track("cta_click", { where: "final" })}>{tr("final.cta1")} <span className="arrow">→</span></a>
                 <a className="btn btn--ghost btn--lg" href="#services">{tr("final.cta2")}</a>
               </div>
             </div>
