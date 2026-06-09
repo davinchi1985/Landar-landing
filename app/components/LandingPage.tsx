@@ -62,6 +62,8 @@ function StatNum({ value }: { value: string }) {
 export default function LandingPage() {
   const [lang, setLang] = useState<Lang>("en");
   const tr = (k: string) => t(lang, k);
+  // Trust: oculto hasta tener casos reales (decisión David, jun 2026)
+  const SHOW_TRUST: boolean = false;
 
   // nav
   const [stuck, setStuck] = useState(false);
@@ -482,18 +484,6 @@ export default function LandingPage() {
 
   function chooseLang(l: Lang) { track("lang_change", { lang: l }); setLang(l); setLangOpen(false); setLangFooterOpen(false); }
 
-  function pathSubmit(e: React.FormEvent) {
-    e.preventDefault();
-    track("checker_submit", { country: country.trim() || "—" });
-    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    const contact = document.getElementById("contact");
-    if (contact) {
-      const y = contact.getBoundingClientRect().top + window.scrollY - 24;
-      window.scrollTo({ top: y, behavior: reduce ? "auto" : "smooth" });
-      setTimeout(() => countryRef.current?.focus(), reduce ? 0 : 600);
-    }
-  }
-
   function validateStep(): boolean {
     if (step === 0 && !country.trim()) { setErr("country"); return false; }
     if (step === 1 && services.length === 0) { setErr("services"); return false; }
@@ -646,7 +636,32 @@ export default function LandingPage() {
             <div className="tb-route" id="tbRoute">Neuquén → world markets</div>
           </div>
 
-          <a className="scroll-cue" href="#path" aria-label="Scroll down"><span className="scroll-cue__line"></span></a>
+          <a className="scroll-cue" href="#problem" aria-label="Scroll down"><span className="scroll-cue__line"></span></a>
+        </section>
+
+        {/* PROBLEM */}
+        <section className="section" id="problem">
+          <div className="wrap">
+            <div className="split">
+              <div className="s-head reveal">
+                <span className="eyebrow"><span className="num">01</span> <span>{tr("problem.eyebrow")}</span></span>
+                <h2 style={{ marginTop: "1.2rem" }}>{tr("problem.h2")}</h2>
+                <p className="lede">{tr("problem.lede")}</p>
+              </div>
+              <div className="reveal" style={{ ["--reveal-delay" as string]: ".1s" }}>
+                <ul className="vendor-list">
+                  {[1, 2, 3, 4, 5].map((n) => (
+                    <li className="vendor-row" key={n}>
+                      <span className="v-idx">{n}</span>
+                      <span className="v-name">{tr("problem.v" + n)}</span>
+                      <span className="v-friction">{tr("problem.f" + n)}</span>
+                    </li>
+                  ))}
+                </ul>
+                <p className="tangle-note">{tr("problem.note")}</p>
+              </div>
+            </div>
+          </div>
         </section>
 
         {/* AI-ENTITY */}
@@ -689,48 +704,6 @@ export default function LandingPage() {
                 <div className="ai-check__foot">
                   <span className="ai-check__gap">{aiScore >= 100 ? tr("ai.gapDone") : tr("ai.gap")}</span>
                 </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* AVAILABILITY CHECKER */}
-        <section className="section--tight wrap" id="path">
-          <div className="checker reveal">
-            <div className="checker__copy">
-              <span className="eyebrow">{tr("path.eyebrow")}</span>
-              <h2 style={{ marginTop: "0.8rem" }}>{tr("path.h2")}</h2>
-            </div>
-            <form className="checker__form" onSubmit={pathSubmit} noValidate>
-              <label className="checker__field">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.6} aria-hidden="true"><circle cx="12" cy="12" r="9" /><path d="M3 12h18M12 3c2.5 2.6 2.5 15.4 0 18M12 3c-2.5 2.6-2.5 15.4 0 18" /></svg>
-                <input type="text" value={country} onChange={(e) => setCountry(e.target.value)} placeholder={tr("path.ph")} aria-label="Country or region" />
-              </label>
-              <button className="btn btn--primary btn--lg" type="submit"><span>{tr("path.cta")}</span> <span className="arrow">→</span></button>
-            </form>
-          </div>
-        </section>
-
-        {/* PROBLEM */}
-        <section className="section" id="problem">
-          <div className="wrap">
-            <div className="split">
-              <div className="s-head reveal">
-                <span className="eyebrow"><span className="num">01</span> <span>{tr("problem.eyebrow")}</span></span>
-                <h2 style={{ marginTop: "1.2rem" }}>{tr("problem.h2")}</h2>
-                <p className="lede">{tr("problem.lede")}</p>
-              </div>
-              <div className="reveal" style={{ ["--reveal-delay" as string]: ".1s" }}>
-                <ul className="vendor-list">
-                  {[1, 2, 3, 4, 5].map((n) => (
-                    <li className="vendor-row" key={n}>
-                      <span className="v-idx">{n}</span>
-                      <span className="v-name">{tr("problem.v" + n)}</span>
-                      <span className="v-friction">{tr("problem.f" + n)}</span>
-                    </li>
-                  ))}
-                </ul>
-                <p className="tangle-note">{tr("problem.note")}</p>
               </div>
             </div>
           </div>
@@ -928,7 +901,8 @@ export default function LandingPage() {
           </div>
         </section>
 
-        {/* TRUST */}
+        {/* TRUST — oculto hasta tener casos reales (David, jun 2026) */}
+        {SHOW_TRUST && (
         <section className="section trust" id="trust">
           <div className="wrap">
             <div className="s-head reveal">
@@ -950,6 +924,7 @@ export default function LandingPage() {
             </p>
           </div>
         </section>
+        )}
 
         {/* CONTACT WIZARD */}
         <section className="section" id="contact">
@@ -957,7 +932,7 @@ export default function LandingPage() {
             <div className="contact-shell reveal">
               <aside className="contact-aside">
                 <div>
-                  <span className="eyebrow" style={{ color: "rgba(239,235,226,0.6)" }}><span className="num">07</span> <span>{tr("contact.eyebrow")}</span></span>
+                  <span className="eyebrow" style={{ color: "rgba(239,235,226,0.6)" }}><span className="num">06</span> <span>{tr("contact.eyebrow")}</span></span>
                   <h2 style={{ marginTop: "1rem" }}>{tr("contact.h2")}</h2>
                   <p className="lede" style={{ marginTop: "0.9rem" }}>{tr("contact.lede")}</p>
                 </div>
