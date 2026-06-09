@@ -92,6 +92,136 @@ export const posts: Post[] = [
 `,
   },
   {
+    slug: "export-from-argentina-mercosur-base",
+    title: "Using Argentina as an Export Base: Mercosur, Trade Agreements and the 2026 Customs Reforms",
+    metaDescription: "How foreign companies can use Argentina as an export base in 2026: Mercosur access, the EU–Mercosur agreement, and the deregulation removing municipal permits for in-plant exports. A practical guide.",
+    date: "2026-06-09",
+    readingTime: "8 min read",
+    category: "strategy",
+    excerpt: "Most coverage treats Argentina as a market to sell into. The more interesting move for 2026 is using it as a base to sell out — to Mercosur and beyond.",
+    content: `
+<p>Argentina is usually framed as a domestic market — big, volatile, worth the trouble. The more interesting 2026 thesis for foreign companies is the opposite direction: setting up once in Argentina and using it as an <strong>export base</strong> to reach South America and beyond. Lower local costs, a deregulation wave cutting export friction, and Mercosur access combine into a case that didn't exist a few years ago.</p>
+
+<p>This guide covers what that base actually gives you, what's changing in 2026, and the practical setup. For the live, sourced list of the customs and trade measures referenced here, see our <a href="/oportunidades">regulatory opportunities radar</a>.</p>
+
+<h2>What does Mercosur access give you?</h2>
+
+<p>Mercosur is South America's main customs union. Its full members — <strong>Argentina, Brazil, Paraguay and Uruguay</strong> (with Bolivia as the newest acceding member) — trade with sharply reduced or zero internal tariffs and share a common external tariff. Several other South American countries participate as associate states. For an operator, the headline is simple: a company based in Argentina can sell into Brazil — a market of more than 200 million people next door — under preferential terms rather than as a foreign importer.</p>
+
+<p>Beyond the bloc, Argentina is party to a web of bilateral and regional trade arrangements. The most consequential is the <strong>EU–Mercosur agreement</strong>, whose political negotiation concluded in late 2024 and which is moving through ratification. It is not yet in force — but companies that structure now are positioning for it rather than reacting to it.</p>
+
+<h2>What's changing in 2026?</h2>
+
+<p>The deregulation program is targeting exactly the friction that made exporting from Argentina painful:</p>
+
+<ul>
+  <li><strong>Customs and in-plant exports.</strong> A measure already in force removes the requirement to present municipal permits for in-plant exports and bonded warehouses, cutting duplicate administrative steps. See the sourced entry on the <a href="/oportunidades/habilitaciones-municipales-arca-2026">elimination of municipal permits in national procedures</a>.</li>
+  <li><strong>Intellectual property alignment.</strong> Argentina is aligning its patent framework with the PCT, Budapest Treaty and Madrid Protocol, which matters for any company exporting products tied to IP. See <a href="/oportunidades/patentes-propiedad-intelectual-2026">patent-regime alignment</a>.</li>
+  <li><strong>Sector openings.</strong> Cases like the deregulated yerba-mate market — which the government cites as its model precisely because it moved to record exports — show the template it wants to replicate.</li>
+</ul>
+
+<p>The throughline is a government that explicitly treats "deregulated market → record exports" as the goal. That doesn't guarantee outcomes, but it changes the direction of the rules a foreign exporter has to work within.</p>
+
+<h2>The practical setup</h2>
+
+<p>Using Argentina as an export base needs the same operating rails as any local company, plus export registration:</p>
+
+<ul>
+  <li><strong>A local entity</strong> (usually an SRL) — see <a href="/blog/how-to-set-up-a-company-in-argentina">how to set up a company in Argentina</a>.</li>
+  <li><strong>Tax and customs registration</strong> (CUIT, exporter registry).</li>
+  <li><strong>Banking</strong> able to handle export proceeds in USD and ARS.</li>
+  <li><strong>Hiring</strong> for any local operations or production — see <a href="/blog/employer-of-record-argentina">hiring and EOR in Argentina</a>.</li>
+</ul>
+
+<p>The coordination is the hard part. Done in sequence with five separate vendors, it stretches for months. Done in parallel under one project lead, an operating-and-export-ready base is achievable in roughly six weeks.</p>
+
+<h2>Is the export thesis for everyone?</h2>
+
+<p>No. If your only goal is to sell <em>into</em> Argentina, the macro volatility may not be worth it yet. The export-base case is strongest for companies that (a) want Mercosur/regional reach, (b) benefit from Argentina's cost base or talent, or (c) are positioning for the EU–Mercosur agreement. As always, several of the supporting measures are recent and some are still being implemented — structure for readiness, and verify the status of any specific rule.</p>
+
+<div class="faq-item">
+<h3>Can a company in Argentina export to Brazil tariff-free?</h3>
+<p>Within Mercosur, internal trade among full members (Argentina, Brazil, Paraguay, Uruguay) benefits from sharply reduced or zero tariffs on most goods, subject to rules of origin and specific exceptions. A company based in Argentina can therefore reach the Brazilian market under preferential terms rather than as an external importer. Confirm the treatment for your specific product.</p>
+</div>
+
+<div class="faq-item">
+<h3>Is the EU–Mercosur trade agreement in force?</h3>
+<p>Not yet. The political negotiation concluded in late 2024 and the agreement is moving through ratification. Companies cannot rely on it as current law, but structuring an Argentine base now positions them for it if and when it takes effect.</p>
+</div>
+
+<div class="faq-item">
+<h3>What changed for exporters in Argentina in 2026?</h3>
+<p>Among other measures, a deregulation removed the requirement to present municipal permits for in-plant exports and bonded warehouses, reducing duplicate paperwork, and the patent framework is being aligned with international treaties. The live list with sources is on the Inteligenci·AR radar.</p>
+</div>
+
+<div class="faq-item">
+<h3>How long does it take to set up an export-ready company in Argentina?</h3>
+<p>With entity, tax, banking and export registration handled in parallel under one lead, an operating-and-export-ready base is typically achievable in around six weeks. Done sequentially across separate vendors it can take several months.</p>
+</div>
+`,
+  },
+  {
+    slug: "ai-entity-argentina-non-human-corporation",
+    title: "Argentina's Proposed 'AI-Entity': What a Non-Human Corporation Could Mean — and How to Be Ready",
+    metaDescription: "Argentina is debating a legal framework for AI-run companies (a 'non-human corporation'). It is a proposal, not current law. Here's what's on the table, why Argentina, and what 'readiness' actually means for foreign founders.",
+    date: "2026-06-09",
+    readingTime: "7 min read",
+    category: "legal",
+    excerpt: "Argentina is discussing a legal framework for companies run by AI. It is a proposal, not law — but the readiness question is real, and it's worth understanding now.",
+    content: `
+<p><strong>Important up front: this is a proposed framework under discussion in Argentina, not current law.</strong> You cannot register an AI-run company in Argentina today. But the proposal is real enough — and Argentina's deregulation momentum strong enough — that it's worth understanding what's on the table and what it would take to be ready, without betting on a timeline.</p>
+
+<h2>What is being proposed?</h2>
+
+<p>The idea, floated as part of Argentina's broader deregulation and competitiveness agenda, is a legal vehicle for an entity whose operations and governance can be run by an artificial-intelligence system — sometimes described as a "non-human corporation" or "automated company." In the versions discussed publicly, the framework would address questions like the limited liability of the developer for algorithmic decisions, and the recognition of an AI-governed entity for contracting and operating.</p>
+
+<p>None of that is settled. It is a <strong>project / proposal</strong>, not a statute. Any specific feature — registration, liability, governance requirements — could change or not pass at all.</p>
+
+<h2>Why Argentina, and why now?</h2>
+
+<p>Two forces make Argentina a plausible venue for this experiment. First, the deregulation wave: Argentina recorded the <a href="/blog/argentina-deregulation-2026-foreign-companies">largest economic-freedom gain of any country in the 2026 Heritage Index</a>, and the government has shown appetite for novel, business-forward frameworks. Second, the contrast: the EU is moving toward heavier AI regulation, and other jurisdictions face unresolved legal questions around autonomous entities and DAOs. A clear, permissive framework would be a differentiator.</p>
+
+<p>That's the opportunity narrative. The honest counterweight is that "plausible venue" is not "done deal," and serious legal questions (liability, accountability, international recognition) remain open.</p>
+
+<h2>What does "readiness" actually mean?</h2>
+
+<p>Because the framework isn't live, the only responsible posture is <strong>readiness, not registration</strong>. In practice that means having the conventional foundations in place so that, if and when a framework exists, you can move quickly rather than starting from zero:</p>
+
+<ul>
+  <li>A registered legal entity (SA or SRL) in good standing.</li>
+  <li>Clean, up-to-date corporate records.</li>
+  <li>Defined governance and signatories — including how decisions are made and documented.</li>
+  <li>Tax and compliance current.</li>
+</ul>
+
+<p>These are valuable on their own merits for any company operating in Argentina. They also happen to be the substrate any future AI-entity framework would build on. You can check where you stand against these in the <a href="/#ai">AI-entity readiness checker on our home page</a>.</p>
+
+<h2>How to think about it as a founder</h2>
+
+<p>Treat the AI-entity framework as an <em>option</em>, not a plan. Build a solid, compliant Argentine entity for reasons that stand up today — operating, exporting, hiring — and keep its structure current so you're positioned if the framework finalizes. Anyone promising to "register your AI company in Argentina now" is overselling: it isn't possible yet, and the framework's final shape is unknown. Readiness, not guarantees.</p>
+
+<div class="faq-item">
+<h3>Can I register an AI-run company in Argentina today?</h3>
+<p>No. The "AI-entity" or non-human corporation is a proposed framework under discussion, not current law. You cannot register an AI-governed entity in Argentina today. What you can do is structure a conventional entity so you're ready to act if and when such a framework takes effect.</p>
+</div>
+
+<div class="faq-item">
+<h3>What is a "non-human corporation"?</h3>
+<p>It is shorthand for a proposed legal vehicle whose operations and governance could be run by an AI system, with rules addressing matters like the developer's liability. In Argentina it is a proposal tied to the broader deregulation agenda — not an existing, registrable structure.</p>
+</div>
+
+<div class="faq-item">
+<h3>Why is Argentina associated with AI-company frameworks?</h3>
+<p>Argentina's 2026 deregulation drive — it was the biggest improver in that year's economic-freedom index — and its appetite for business-forward frameworks have put ideas like an AI-entity on the public agenda, in contrast with more cautious regulation elsewhere. It remains a proposal, not law.</p>
+</div>
+
+<div class="faq-item">
+<h3>How do I prepare for a possible AI-entity framework?</h3>
+<p>Focus on readiness: a registered entity in good standing, clean corporate records, defined governance and signatories, and current tax and compliance. These help any operating company today and would be the foundation for registering under a future framework. Treat it as an option, not a guarantee.</p>
+</div>
+`,
+  },
+  {
     slug: "how-to-set-up-a-company-in-argentina",
     title: "How to Set Up a Company in Argentina as a Foreign Investor (2026 Guide)",
     metaDescription: "How to set up a company in Argentina as a foreign investor: SRL vs SA, IGJ registration, CUIT, and bank account — with real timelines (40–60 days) and costs (USD 2,500–5,800) for 2026.",
