@@ -23,7 +23,10 @@ export async function requestMagicLink(
   const h = await headers();
   const host = h.get("host") ?? "localhost:3000";
   const proto = h.get("x-forwarded-proto") ?? (host.startsWith("localhost") ? "http" : "https");
-  const redirectTo = `${proto}://${host}/auth/callback?next=/admin`;
+  // Sin query extra: así matchea exacto con la allow-list de Supabase. El
+  // callback ya manda a /admin por default. El middleware cubre el caso de
+  // fallback al Site URL (code que cae en la raíz).
+  const redirectTo = `${proto}://${host}/auth/callback`;
 
   const { error } = await sb.auth.signInWithOtp({
     email,
