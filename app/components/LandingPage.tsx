@@ -143,7 +143,6 @@ export default function LandingPage() {
     const reveals = Array.from(document.querySelectorAll<HTMLElement>(".reveal"));
     const armed: HTMLElement[] = [];
     const vh = () => window.innerHeight || document.documentElement.clientHeight;
-    let faroLit = false;
 
     function animateTimeline() {
       const fill = document.getElementById("trackFill");
@@ -151,18 +150,8 @@ export default function LandingPage() {
       if (fill) requestAnimationFrame(() => { (fill as HTMLElement).style.width = "100%"; });
       nodes.forEach((n, i) => setTimeout(() => n.classList.add("is-on"), reduce ? 0 : 220 + i * 260));
     }
-    function lightFaro() {
-      if (faroLit) return; faroLit = true;
-      const steps = Array.from(document.querySelectorAll<HTMLElement>(".faro-step"));
-      steps.forEach((s, i) => setTimeout(() => {
-        steps.forEach((x) => x.classList.remove("is-lit"));
-        s.classList.add("is-lit");
-        if (i === steps.length - 1) setTimeout(() => steps.forEach((x) => x.classList.add("is-lit")), 650);
-      }, reduce ? 0 : 350 + i * 700));
-    }
     function handleTrigger(el: HTMLElement) {
       if (el.id === "timeline") animateTimeline();
-      if (el.querySelector && el.querySelector(".faro-step")) lightFaro();
     }
     reveals.forEach((el) => {
       const r = el.getBoundingClientRect();
@@ -186,6 +175,241 @@ export default function LandingPage() {
       window.removeEventListener("scroll", check);
       window.removeEventListener("resize", check);
       clearTimeout(ti);
+    };
+  }, []);
+
+  // EL FARO — "El Faro del Fin del Mundo": a lighthouse beam sweeps the relief
+  // map and lights each export commodity. Ported from the FARO export (vanilla
+  // → effect). Values in DATA are indicative until wired to a real source.
+  useEffect(() => {
+    const scene = document.getElementById("scene");
+    const map = document.getElementById("map");
+    const beam = document.getElementById("beam");
+    const halo = document.getElementById("halo");
+    const light = document.getElementById("lhLight");
+    const panel = document.getElementById("panel");
+    const trackA = document.getElementById("trackA");
+    const trackB = document.getElementById("trackB");
+    const tfEl = document.getElementById("tf");
+    if (!scene || !map || !beam || !halo || !light || !panel || !trackA || !trackB || !tfEl) return;
+
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    type Row = { commodity: string; city: string; x: number; y: number; index?: boolean; tf: number[]; icon: string };
+    // commodity → province, coords as % of the map, % change per timeframe [1D,1W,1M,1Y,3Y]
+    const DATA: Row[] = [
+      { commodity: "MERVAL",           city: "Buenos Aires · the index",       x: 53, y: 37, index: true, tf: [0.4, 1.8, 4.2, 31, 156], icon: "M3 17l5-5 4 3 6-8M21 7h-4M21 7v4" },
+      { commodity: "Oil & Gas",        city: "Neuquén · Vaca Muerta",          x: 43, y: 50, tf: [0.6, 2.1, 5.4, 28, 142], icon: "M7 21V9l5-6 5 6v12M10 21v-5h4v5" },
+      { commodity: "Lithium",          city: "Jujuy & Salta · the triangle",   x: 47, y: 18, tf: [-0.4, -1.8, -3.2, -9, -46], icon: "M12 2l3 6 6 .8-4.5 4.2 1.2 6.2L12 22l-5.9 3.2 1.2-6.2L2.8 8.8 9 8z" },
+      { commodity: "Copper & Gold",    city: "San Juan · the Andes",           x: 44, y: 39, tf: [0.3, 1.2, 4.1, 23, 71], icon: "M12 3l8 5v8l-8 5-8-5V8z" },
+      { commodity: "Grain & Beef",     city: "The Pampas · Buenos Aires",      x: 49, y: 40, tf: [0.2, 0.8, 2.4, 7, 19], icon: "M12 2c-3 4-3 8 0 12 3-4 3-8 0-12zM6 14c-1 4 1 7 6 8 5-1 7-4 6-8-3 2-9 2-12 0z" },
+      { commodity: "Wine",             city: "Mendoza · Cuyo",                 x: 44, y: 45, tf: [-0.1, 0.3, -0.8, -2, 11], icon: "M8 3h8l-1 6a4 4 0 11-6 0zM12 16v4M9 21h6" },
+      { commodity: "Fishing",          city: "Mar Argentino · the coast",      x: 44, y: 60, tf: [0.1, -0.4, 1.1, 1, 8], icon: "M3 12c4-5 11-5 15 0-4 5-11 5-15 0zM20 12l1.5-2v4zM8 11.5v1" },
+      { commodity: "Solar & Wind",     city: "Patagonia · La Puna",            x: 41, y: 57, tf: [0.7, 2.4, 6.1, 33, 118], icon: "M12 8a4 4 0 100 8 4 4 0 000-8zM12 2v2M12 20v2M4 12H2M22 12h-2M5 5l1.5 1.5M17.5 17.5L19 19M19 5l-1.5 1.5M6.5 17.5L5 19" },
+      { commodity: "Lemons & Citrus",  city: "Tucumán · the Northwest",        x: 46, y: 24, tf: [0.5, 1.6, 3.8, 12, 34], icon: "M12 3a9 9 0 109 9A9 9 0 0012 3zM12 3v18M3 12h18" },
+      { commodity: "Soy & Grains",     city: "Rosario · Santa Fe",             x: 50, y: 33, tf: [-0.3, 0.6, 1.9, 5, 22], icon: "M12 2c-2 3-2 6 0 9 2-3 2-6 0-9zM12 13c-2 3-2 6 0 9 2-3 2-6 0-9z" },
+      { commodity: "Yerba Mate",       city: "Misiones · the Litoral",         x: 64, y: 23, tf: [0.2, 0.5, 1.4, 4, 16], icon: "M7 8h10v8a4 4 0 01-4 4h-2a4 4 0 01-4-4zM12 8V4M16 9h2a2 2 0 010 4h-1" },
+      { commodity: "Honey",            city: "Entre Ríos · the Litoral",       x: 55, y: 33, tf: [0.0, -0.2, 0.9, 3, 13], icon: "M12 3s6 6 6 10a6 6 0 11-12 0c0-4 6-10 6-10z" },
+      { commodity: "Aluminium & Steel", city: "Puerto Madryn · Chubut",        x: 39, y: 53, tf: [0.4, 1.0, 2.6, 9, 27], icon: "M3 9h18v6H3zM7 9v6M12 9v6M17 9v6" },
+    ];
+    const TFS = [{ k: 0, l: "1D" }, { k: 1, l: "1W" }, { k: 2, l: "1M" }, { k: 3, l: "1Y" }, { k: 4, l: "3Y" }];
+    let tfIdx = 3; // default 1Y
+
+    // animation + interaction state
+    let originX = 0, originY = 0;
+    let idleMin = 150, idleMax = 210, idleLen = 420, idleT = 0;
+    let curA = 180, tgtA = 180, curI = 0.14, tgtI = 0.14, curL = 400, tgtL = 400, lastT = 0;
+    let mouseActive = false, manual = false, lastMouseCity = -1, tourI = 0;
+    let raf = 0;
+    let tourT: ReturnType<typeof setTimeout> | undefined;
+    let activeTimers: ReturnType<typeof setTimeout>[] = [];
+    let io: IntersectionObserver | undefined;
+    const pins: HTMLElement[] = [];
+
+    const trendOf = (v: number) => (v > 1.2 ? "up" : v < -1.2 ? "down" : "flat");
+    const arrow = (t: string) => (t === "up" ? "▲" : t === "down" ? "▼" : "▸");
+    const fmt = (v: number) => { const a = Math.abs(v); return (v > 0 ? "+" : v < 0 ? "−" : "") + a.toFixed(a < 10 ? 1 : 0) + "%"; };
+    const spark = (t: string) => {
+      const pts = t === "up" ? "0,12 9,10 18,12 27,6 36,8 44,2"
+        : t === "down" ? "0,3 9,6 18,4 27,9 36,7 44,13"
+          : "0,8 9,7 18,9 27,7 36,8 44,7";
+      const col = t === "up" ? "#5BBA84" : t === "down" ? "#E0604D" : "#E6AC4B";
+      return '<svg class="spark" viewBox="0 0 44 15" preserveAspectRatio="none" fill="none">'
+        + '<polyline points="' + pts + '" stroke="' + col + '" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+    };
+
+    function aim(pin: HTMLElement) {
+      const m = map!.getBoundingClientRect(), r = pin.getBoundingClientRect();
+      const tx = r.left + r.width / 2 - m.left, ty = r.top + r.height / 2 - m.top;
+      const dx = tx - originX, dy = ty - originY;
+      let ang = Math.atan2(dy, dx) * 180 / Math.PI; if (ang < 0) ang += 360;
+      return { ang, len: Math.hypot(dx, dy) };
+    }
+    function measure() {
+      const m = map!.getBoundingClientRect(), l = light!.getBoundingClientRect();
+      originX = l.left + l.width / 2 - m.left; originY = l.top + l.height / 2 - m.top;
+      beam!.style.left = originX + "px"; beam!.style.top = originY + "px";
+      beam!.style.marginTop = (-beam!.offsetHeight / 2) + "px"; // center the cone apex on the lantern
+      halo!.style.left = originX + "px"; halo!.style.top = originY + "px";
+      if (pins.length) {
+        const a0 = aim(pins[0]), a1 = aim(pins[pins.length - 1]);
+        idleMin = Math.min(a0.ang, a1.ang); idleMax = Math.max(a0.ang, a1.ang); idleLen = (a0.len + a1.len) / 2;
+      }
+    }
+    function render() {
+      beam!.style.transform = "rotate(" + curA.toFixed(2) + "deg)";
+      beam!.style.width = curL.toFixed(1) + "px";
+      beam!.style.setProperty("--i", curI.toFixed(3));
+      halo!.style.opacity = (0.17 + 0.72 * curI).toFixed(3);
+      halo!.style.transform = "scale(" + (0.66 + 0.8 * curI).toFixed(3) + ")";
+    }
+    function frame(now: number) {
+      if (!lastT) lastT = now; const dt = Math.min(64, now - lastT); lastT = now;
+      if (!manual && !mouseActive) {
+        idleT += dt;
+        const k = (Math.sin(idleT * 0.0003) + 1) / 2; // very slow sweep
+        tgtA = idleMin + (idleMax - idleMin) * k; tgtI = 0.12; tgtL = idleLen;
+      }
+      const ea = manual ? 0.085 : mouseActive ? 0.12 : 0.038;
+      const diff = ((tgtA - curA + 540) % 360) - 180; // shortest path
+      curA += diff * ea; curL += (tgtL - curL) * 0.07; curI += (tgtI - curI) * 0.06;
+      render(); raf = requestAnimationFrame(frame);
+    }
+    function lightCity(i: number, strong: boolean, delay?: number) {
+      measure();
+      const a = aim(pins[i]);
+      tgtA = a.ang; tgtL = a.len + map!.getBoundingClientRect().width * 0.02;
+      panel!.classList.add("focusing");
+      pins.forEach((p) => p.classList.remove("lit"));
+      scene!.querySelectorAll(".comm").forEach((c) => c.classList.remove("is-on"));
+      scene!.querySelectorAll('.comm[data-i="' + i + '"]').forEach((c) => c.classList.add("is-on"));
+      beam!.classList.remove("locked");
+      tgtI = 0.5;
+      const rad = a.ang * Math.PI / 180, pull = strong ? 11 : 8;
+      pins.forEach((p) => { p.style.setProperty("--pull-x", "0px"); p.style.setProperty("--pull-y", "0px"); });
+      activeTimers.forEach((t) => clearTimeout(t)); activeTimers = [];
+      activeTimers.push(setTimeout(() => {
+        beam!.classList.add("locked"); tgtI = strong ? 1.35 : 0.86;
+        pins[i].classList.add("lit");
+        pins[i].style.setProperty("--pull-x", (-Math.cos(rad) * pull).toFixed(1) + "px");
+        pins[i].style.setProperty("--pull-y", (-Math.sin(rad) * pull).toFixed(1) + "px");
+      }, reduce ? 0 : (delay == null ? 200 : delay)));
+    }
+    function tourStep() {
+      if (manual || mouseActive) return;
+      lightCity(tourI, false);
+      tourI = (tourI + 1) % DATA.length;
+      tourT = setTimeout(tourStep, 3600);
+    }
+    function scheduleTour(delay: number) { clearTimeout(tourT); tourT = setTimeout(tourStep, delay); }
+
+    function applyTF() {
+      DATA.forEach((d, i) => {
+        const v = d.tf[TFS[tfIdx].k], tr2 = trendOf(v), lbl = TFS[tfIdx].l;
+        scene!.querySelectorAll('.comm[data-i="' + i + '"]').forEach((card) => {
+          const ytd = card.querySelector(".comm__ytd") as HTMLElement | null;
+          if (ytd) { ytd.className = "comm__ytd trend--" + tr2; ytd.innerHTML = '<i class="cur">US$</i><i class="arr">' + arrow(tr2) + "</i>" + fmt(v); }
+          const sp = card.querySelector(".comm__spark") as HTMLElement | null;
+          if (sp) sp.innerHTML = spark(tr2);
+        });
+        const cy = pins[i].querySelector(".chip .ytd") as HTMLElement | null;
+        if (cy) { cy.className = "ytd trend--" + tr2; cy.textContent = arrow(tr2) + " " + fmt(v) + " US$ · " + lbl; }
+      });
+    }
+
+    function makeCard(d: Row, i: number) {
+      const b = document.createElement("button");
+      b.className = "comm"; b.type = "button"; b.setAttribute("data-i", String(i));
+      if (d.index) b.classList.add("is-index");
+      b.innerHTML =
+        '<span class="comm__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"><path d="' + d.icon + '"/></svg></span>' +
+        '<span class="comm__main"><span class="comm__t">' + d.commodity + '</span><span class="comm__ytd"></span></span>' +
+        '<span class="comm__sub"><span class="comm__s">' + d.city + '</span><span class="comm__spark"></span></span>';
+      b.addEventListener("pointerenter", () => { manual = true; clearTimeout(tourT); lightCity(i, true); });
+      b.addEventListener("pointerleave", () => { manual = false; scheduleTour(900); });
+      return b;
+    }
+
+    DATA.forEach((d, i) => {
+      const pin = document.createElement("div");
+      pin.className = "pin"; pin.style.left = d.x + "%"; pin.style.top = d.y + "%";
+      pin.innerHTML =
+        '<div class="pin__stalk"></div><div class="pin__base"></div>' +
+        '<div class="pin__glow"></div><div class="pin__ring"></div><div class="pin__dot"></div>' +
+        '<div class="chip"><b>' + d.commodity + '</b><span class="ytd"></span></div>';
+      map.appendChild(pin); pins.push(pin);
+    });
+
+    const half = Math.ceil(DATA.length / 2);
+    const fill = (track: HTMLElement, from: number, to: number) => {
+      for (let pass = 0; pass < 2; pass++) { for (let i = from; i < to; i++) track.appendChild(makeCard(DATA[i], i)); }
+    };
+    fill(trackA, 0, half);
+    fill(trackB, half, DATA.length);
+    applyTF();
+
+    function onTf(e: Event) {
+      const b = (e.target as HTMLElement).closest("button[data-tf]"); if (!b) return;
+      tfIdx = parseInt(b.getAttribute("data-tf") || "0", 10);
+      tfEl!.querySelectorAll("button").forEach((x) => x.classList.toggle("is-sel", x === b));
+      applyTF();
+    }
+    tfEl.addEventListener("click", onTf);
+
+    function onPointerMove(e: PointerEvent) {
+      if (manual) return;
+      const py = panel!.getBoundingClientRect().top;
+      if (e.clientY > py - 6) { if (mouseActive) { mouseActive = false; lastMouseCity = -1; scheduleTour(700); } return; }
+      const m = map!.getBoundingClientRect();
+      const mx = e.clientX - m.left, my = e.clientY - m.top;
+      if (!mouseActive) { mouseActive = true; clearTimeout(tourT); }
+      let best = -1, bd = 1e18;
+      for (let i = 0; i < pins.length; i++) {
+        const pr = pins[i].getBoundingClientRect();
+        const ddx = (pr.left + pr.width / 2 - m.left) - mx, ddy = (pr.top + pr.height / 2 - m.top) - my;
+        const dd = ddx * ddx + ddy * ddy; if (dd < bd) { bd = dd; best = i; }
+      }
+      if (best >= 0 && best !== lastMouseCity) { lastMouseCity = best; lightCity(best, true, 40); }
+    }
+    function onSceneLeave() { mouseActive = false; lastMouseCity = -1; scheduleTour(800); }
+    function onResize() { measure(); }
+
+    function boot() {
+      measure(); curA = tgtA = 180; render();
+      raf = requestAnimationFrame(frame);
+      scene!.addEventListener("pointermove", onPointerMove);
+      scene!.addEventListener("pointerleave", onSceneLeave);
+      if (reduce) {
+        tgtI = 0.55; curI = 0.55; pins.forEach((p) => p.classList.add("lit"));
+        const a = aim(pins[0]); curA = tgtA = a.ang; curL = tgtL = a.len; render(); return;
+      }
+      if ("IntersectionObserver" in window) {
+        io = new IntersectionObserver((es) => {
+          es.forEach((entry) => { if (entry.isIntersecting) { scheduleTour(700); io!.disconnect(); } });
+        }, { threshold: 0.35 });
+        io.observe(scene!);
+      } else scheduleTour(700);
+    }
+
+    window.addEventListener("resize", onResize);
+    const img = map.querySelector(".map__img") as HTMLImageElement | null;
+    const start = () => boot();
+    if (img && img.complete && img.naturalWidth) start();
+    else if (img) { img.addEventListener("load", start); img.addEventListener("error", start); }
+    else start();
+
+    return () => {
+      cancelAnimationFrame(raf);
+      clearTimeout(tourT);
+      activeTimers.forEach((t) => clearTimeout(t));
+      window.removeEventListener("resize", onResize);
+      scene.removeEventListener("pointermove", onPointerMove);
+      scene.removeEventListener("pointerleave", onSceneLeave);
+      tfEl.removeEventListener("click", onTf);
+      if (io) io.disconnect();
+      if (img) { img.removeEventListener("load", start); img.removeEventListener("error", start); }
+      pins.forEach((p) => p.remove());
+      trackA.innerHTML = ""; trackB.innerHTML = "";
     };
   }, []);
 
@@ -564,48 +788,79 @@ export default function LandingPage() {
           </div>
         </section>
 
-        {/* EL FARO */}
+        {/* EL FARO — El Faro del Fin del Mundo: relief map + sweeping beam */}
         <section className="section" id="faro">
           <div className="wrap">
-            <div className="faro reveal">
-              <div className="faro__grid">
-                <div className="lighthouse-stage" aria-hidden="true">
-                  <svg viewBox="0 0 220 300" width="100%" style={{ maxWidth: "300px" }} fill="none" aria-hidden="true">
+            <div className="scene reveal" id="scene">
+              <div className="map" id="map">
+                <img className="map__img" src="/argentina-relief.png" alt="Relief map of Argentina" />
+                <div className="map__dusk" />
+                <div className="geo geo--ar" style={{ left: "45%", top: "33%" }}>
+                  <span className="geo__name">Argentina</span>
+                  <span className="geo__stick" />
+                  <span className="geo__dot" />
+                </div>
+                <div className="map__tone" />
+
+                <div className="lh__halo" id="halo" aria-hidden="true" />
+                <div className="beam" id="beam" aria-hidden="true">
+                  <div className="beam__cone" />
+                  <div className="beam__src" />
+                </div>
+
+                <div className="lh" id="lh" aria-hidden="true">
+                  <svg viewBox="0 0 120 210">
                     <defs>
-                      <linearGradient id="beam" x1="0" y1="0" x2="1" y2="0">
-                        <stop offset="0" stopColor="#C9613D" stopOpacity="0.55" />
-                        <stop offset="1" stopColor="#C9613D" stopOpacity="0" />
+                      <linearGradient id="tw" x1="0" y1="0" x2="1" y2="0">
+                        <stop offset="0" stopColor="#c9bda9" /><stop offset="0.18" stopColor="#f3ede0" />
+                        <stop offset="0.5" stopColor="#fffdf8" /><stop offset="0.82" stopColor="#ece5d6" />
+                        <stop offset="1" stopColor="#c4b9a4" />
                       </linearGradient>
+                      <linearGradient id="bd" x1="0" y1="0" x2="1" y2="0">
+                        <stop offset="0" stopColor="#a84a28" /><stop offset="0.5" stopColor="#cf6a44" /><stop offset="1" stopColor="#a3492a" />
+                      </linearGradient>
+                      <radialGradient id="ln" cx="0.5" cy="0.5" r="0.5">
+                        <stop offset="0" stopColor="#fff3df" /><stop offset="0.45" stopColor="#ffd9a8" />
+                        <stop offset="0.78" stopColor="#C9613D" /><stop offset="1" stopColor="#C9613D" stopOpacity="0" />
+                      </radialGradient>
                     </defs>
-                    <g className="lh-beams" style={{ transformOrigin: "110px 78px" }}>
-                      <path d="M110 78 L228 36 L228 120 Z" fill="url(#beam)" />
-                      <path d="M110 78 L-8 36 L-8 120 Z" fill="url(#beam)" opacity="0.6" />
-                    </g>
-                    <circle cx="110" cy="78" r="13" fill="#C9613D" opacity="0.9" />
-                    <circle cx="110" cy="78" r="22" fill="#C9613D" opacity="0.18" />
-                    <path d="M98 62 h24 v18 h-24 z" fill="#2A2823" stroke="rgba(239,235,226,0.35)" strokeWidth="1.2" />
-                    <path d="M94 80 h32 l-4 8 h-24 z" fill="#1f1d19" stroke="rgba(239,235,226,0.3)" strokeWidth="1" />
-                    <path d="M98 88 L96 250 h28 L122 88 Z" fill="#EFEbe2" />
-                    <path d="M98 88 L96 250 h28 L122 88 Z" fill="none" stroke="rgba(28,27,23,0.25)" strokeWidth="1" />
-                    <path d="M97.4 130 h25.2 l-0.4 22 h-24.4 z" fill="#C9613D" opacity="0.9" />
-                    <path d="M96.7 186 h26.6 l-0.4 22 h-25.8 z" fill="#C9613D" opacity="0.9" />
-                    <path d="M88 250 h44 l6 16 h-56 z" fill="#2A2823" />
-                    <path d="M40 268 q30 -16 70 -14 q44 -2 72 14 q-72 14 -142 0 z" fill="#211f1b" />
+                    <ellipse cx="60" cy="176" rx="30" ry="4" fill="#000" opacity="0.18" />
+                    <path d="M44 160 h32 l6 14 H38 Z" fill="#221e19" />
+                    <path d="M50 56 L40 160 H80 L70 56 Z" fill="url(#tw)" />
+                    <path d="M56 58 L52 158" stroke="#fff" strokeWidth="2.4" strokeLinecap="round" opacity="0.45" />
+                    <path d="M47.5 86 H72.5 L73.6 102 H46.4 Z" fill="url(#bd)" />
+                    <path d="M44.5 124 H75.5 L76.8 140 H43.2 Z" fill="url(#bd)" />
+                    <path d="M46 52 H74 L77 60 H43 Z" fill="#221e19" stroke="rgba(239,235,226,.16)" />
+                    <rect x="44" y="44" width="32" height="2" rx="1" fill="rgba(239,235,226,.5)" />
+                    <path d="M50 44 V30 Q50 27 53 27 H67 Q70 27 70 30 V44 Z" fill="#1b1813" stroke="rgba(239,235,226,.32)" strokeWidth="1" />
+                    <circle id="lhLight" cx="60" cy="36" r="8" fill="url(#ln)" />
+                    <circle cx="60" cy="36" r="3.6" fill="#fff1d8" />
+                    <rect x="44" y="25" width="32" height="2.6" rx="1.3" fill="#26221c" />
+                    <path d="M47 26 Q60 8 73 26 Z" fill="#2a2620" />
+                    <circle cx="60" cy="6" r="2.4" fill="#C9613D" />
+                    <rect x="59" y="6" width="2" height="7" fill="#2a2620" />
                   </svg>
                 </div>
-                <div>
-                  <span className="eyebrow"><span className="num">03</span> <span>{tr("faro.eyebrow")}</span></span>
-                  <h2 style={{ marginTop: "1.1rem" }}>{tr("faro.h2")}</h2>
-                  <p className="lede" style={{ marginTop: "1rem" }}>{tr("faro.lede")}</p>
-                  <div className="faro-steps">
-                    {[1, 2, 3, 4].map((n) => (
-                      <div className={"faro-step" + (n === 1 ? " is-lit" : "")} key={n}>
-                        <span className="s-no">0{n}</span>
-                        <div><h4>{tr(`faro.s${n}.t`)}</h4><p>{tr(`faro.s${n}.d`)}</p></div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
+                {/* city markers injected by the faro effect */}
+              </div>
+
+              <div className="title">
+                <span className="sc-eyebrow"><span className="num">03</span> {tr("faro.eyebrow")}</span>
+                <h2>{tr("faro.h2")}</h2>
+              </div>
+
+              <div className="tf" id="tf" role="tablist" aria-label="Timeframe">
+                <button data-tf="0" type="button">1D</button>
+                <button data-tf="1" type="button">1W</button>
+                <button data-tf="2" type="button">1M</button>
+                <button data-tf="3" type="button" className="is-sel">1Y</button>
+                <button data-tf="4" type="button">3Y</button>
+              </div>
+
+              <div className="panel" id="panel">
+                <div className="panel__h">{tr("faro.panel")}</div>
+                <div className="sc-track sc-track--right"><div className="sc-track__in" id="trackA" /></div>
+                <div className="sc-track sc-track--left"><div className="sc-track__in" id="trackB" /></div>
               </div>
             </div>
           </div>
