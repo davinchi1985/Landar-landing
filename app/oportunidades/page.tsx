@@ -6,6 +6,7 @@ import { getMedidas, getTandas } from "../lib/radar";
 import { hasServiceClient } from "../lib/supabase/server";
 import Feed from "./Feed";
 import SubscribeBox from "./SubscribeBox";
+import FreedomBand from "./FreedomBand";
 
 const TITLE = "Radar de oportunidades regulatorias";
 const DESC =
@@ -128,6 +129,8 @@ export default async function OportunidadesPage() {
             </div>
           )}
         </header>
+
+        <FreedomBand />
 
         <Feed medidas={medidas} />
 

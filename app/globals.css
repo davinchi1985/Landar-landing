@@ -1677,6 +1677,42 @@ body.hero-left .globe-stage { order: 1; }
   font-size: clamp(1.5rem, 1.1rem + 1.5vw, 2.1rem); margin-bottom: 0.4rem;
 }
 
+/* ---- banda "por qué ahora": Índice de Libertad Económica ---- */
+.radar-freedom {
+  margin-top: 1.5rem;
+  background: var(--ink); color: #FBF7EE;
+  border-radius: 20px; padding: clamp(1.6rem, 3.5vw, 2.6rem);
+  display: grid; gap: 1.5rem;
+}
+.radar-freedom .eyebrow { color: rgba(251, 247, 238, 0.55); }
+.radar-freedom__lead h2 {
+  font-family: var(--font-display); font-weight: 400;
+  font-size: clamp(1.4rem, 1rem + 1.9vw, 2.15rem); line-height: 1.14;
+  letter-spacing: -0.015em; max-width: 30ch; margin-top: 0.5rem; text-wrap: balance;
+}
+.radar-freedom__lead h2 em { font-style: italic; color: var(--accent); }
+.radar-freedom__stats {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.4rem;
+}
+@media (max-width: 640px) { .radar-freedom__stats { grid-template-columns: 1fr; gap: 1rem; } }
+.radar-freedom__stat {
+  display: flex; flex-direction: column; gap: 0.3rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.16); padding-top: 0.85rem;
+}
+.radar-freedom__num {
+  font-family: var(--font-display); font-weight: 400;
+  font-size: clamp(2rem, 1.4rem + 2.4vw, 3rem); line-height: 1; letter-spacing: -0.02em;
+}
+.radar-freedom__lbl {
+  font-size: 0.82rem; color: rgba(251, 247, 238, 0.7);
+  display: flex; gap: 0.5rem; align-items: baseline; flex-wrap: wrap;
+}
+.radar-freedom__up { color: var(--accent); font-weight: 600; }
+.radar-freedom__src {
+  font-size: 0.76rem; color: rgba(251, 247, 238, 0.5); justify-self: start;
+}
+.radar-freedom__src:hover { color: var(--accent); text-decoration: underline; }
+
 /* ============================================================
    PANEL ADMIN (/admin) — interno, utilitario. Reusa tokens + .btn/.link.
    ============================================================ */
