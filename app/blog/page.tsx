@@ -46,7 +46,10 @@ function BlogNav() {
           </svg>
           <span className="logo__word">Inteligenci<span className="ar">·AR</span></span>
         </Link>
-        <a className="btn btn--primary" href="/#contact">Get in touch</a>
+        <div className="nav__right">
+          <Link className="link" href="/oportunidades">Radar</Link>
+          <a className="btn btn--primary" href="/#contact">Get in touch</a>
+        </div>
       </div>
     </header>
   );

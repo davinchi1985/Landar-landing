@@ -24,7 +24,7 @@ type Dict = Record<string, string>;
 
 const en: Dict = {
   "nav.problem": "The problem", "nav.services": "What we do", "nav.how": "How it works",
-  "nav.why": "Why us", "nav.ai": "AI-entity", "nav.cta": "Get in touch",
+  "nav.why": "Why us", "nav.ai": "AI-entity", "nav.radar": "Radar", "nav.cta": "Get in touch",
 
   "hero.h1": "Set up your <em>AI-entity</em> in Argentina.",
   "hero.sub": "Be among the first to register an AI-run company — with one partner to land, operate and export from Buenos Aires.",
@@ -125,13 +125,13 @@ const en: Dict = {
 
   "footer.tag": "Operating-ready in Argentina. Entity, banking, accounting and hiring — coordinated from Buenos Aires through one point of contact.",
   "footer.h1": "Company", "footer.h2": "Resources", "footer.h3": "Get started",
-  "footer.ai": "AI readiness", "footer.blog": "Journal", "footer.contact": "Contact",
+  "footer.ai": "AI readiness", "footer.blog": "Journal", "footer.radar": "Opportunities radar", "footer.contact": "Contact",
   "footer.rights": "Pilot stage — building in Buenos Aires.",
 };
 
 const es: Dict = {
   "nav.problem": "El problema", "nav.services": "Qué hacemos", "nav.how": "Cómo funciona",
-  "nav.why": "Por qué nosotros", "nav.ai": "Entidad de IA", "nav.cta": "Hablemos",
+  "nav.why": "Por qué nosotros", "nav.ai": "Entidad de IA", "nav.radar": "Radar", "nav.cta": "Hablemos",
 
   "hero.h1": "Constituí tu <em>entidad de IA</em> en Argentina.",
   "hero.sub": "Sé de los primeros en registrar una empresa gestionada por IA — con un solo socio para aterrizar, operar y exportar desde Buenos Aires.",
@@ -232,7 +232,7 @@ const es: Dict = {
 
   "footer.tag": "Listo para operar en Argentina. Sociedad, banca, contabilidad y contratación — coordinado desde Buenos Aires por un solo punto de contacto.",
   "footer.h1": "Empresa", "footer.h2": "Recursos", "footer.h3": "Empezar",
-  "footer.ai": "Preparación IA", "footer.blog": "Blog", "footer.contact": "Contacto",
+  "footer.ai": "Preparación IA", "footer.blog": "Blog", "footer.radar": "Radar de oportunidades", "footer.contact": "Contacto",
   "footer.rights": "Etapa piloto — construyendo en Buenos Aires.",
 };
 

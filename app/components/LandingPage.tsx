@@ -592,6 +592,7 @@ export default function LandingPage() {
             <a href="#how" className={active === "how" ? "is-active" : undefined}>{tr("nav.how")}</a>
             <a href="#why" className={active === "why" ? "is-active" : undefined}>{tr("nav.why")}</a>
             <a href="#ai" className={active === "ai" ? "is-active" : undefined}>{tr("nav.ai")}</a>
+            <a href="/oportunidades">{tr("nav.radar")}</a>
           </nav>
           <div className="nav__right">
             <LangMenu open={langOpen} setOpen={setLangOpen} idSuffix="" />
@@ -607,6 +608,7 @@ export default function LandingPage() {
           <a href="#how" onClick={() => setNavOpen(false)}>{tr("nav.how")}</a>
           <a href="#why" onClick={() => setNavOpen(false)}>{tr("nav.why")}</a>
           <a href="#ai" onClick={() => setNavOpen(false)}>{tr("nav.ai")}</a>
+          <a href="/oportunidades" onClick={() => setNavOpen(false)}>{tr("nav.radar")}</a>
         </div>
       </header>
 
@@ -1091,6 +1093,7 @@ export default function LandingPage() {
               <ul>
                 <li><a href="#how">{tr("nav.how")}</a></li>
                 <li><a href="#ai">{tr("footer.ai")}</a></li>
+                <li><a href="/oportunidades">{tr("footer.radar")}</a></li>
                 <li><a href="/blog">{tr("footer.blog")}</a></li>
               </ul>
             </div>
