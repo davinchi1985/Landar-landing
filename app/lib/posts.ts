@@ -11,6 +11,87 @@ export interface Post {
 
 export const posts: Post[] = [
   {
+    slug: "argentina-deregulation-2026-foreign-companies",
+    title: "Argentina's 2026 Deregulation Wave: What the World's Biggest Economic-Freedom Gain Means for Foreign Companies",
+    metaDescription: "Argentina recorded the largest economic-freedom gain of any country in the 2026 Heritage Index (score 57.4, +3.2 pts, rank #106). Here's what's being deregulated — real estate, imports, professions, exports — and what it means for foreign companies entering Argentina.",
+    date: "2026-06-09",
+    readingTime: "9 min read",
+    category: "strategy",
+    excerpt: "Argentina was the single biggest improver in the 2026 Index of Economic Freedom. For foreign companies, the deregulation wave behind that number is the real story — and the opportunity.",
+    content: `
+<p>In the 2026 Heritage Foundation <a href="https://www.heritage.org/index/pages/country-pages/argentina" target="_blank" rel="noopener noreferrer">Index of Economic Freedom</a>, Argentina recorded the <strong>largest economic-freedom gain of any country in the world</strong>: its score rose to <strong>57.4</strong> (up 3.2 points year over year), lifting it to world rank #106 — a jump of roughly 40 places. For foreign companies weighing whether to enter Argentina, that single number is a useful headline. The deregulation program behind it is the real story.</p>
+
+<p>This guide explains what is actually being deregulated, what is still a bill rather than a law, and what the shift means for companies that want to land, operate, and export from Argentina. For the live, source-by-source breakdown, see our <a href="/oportunidades">regulatory opportunities radar</a>.</p>
+
+<h2>Why did Argentina's economic-freedom score jump in 2026?</h2>
+
+<p>The gain reflects a broad program targeting fiscal consolidation, monetary stabilization, and — most relevant for operators — <strong>regulatory simplification</strong>: removing licensing barriers, price-setting bodies, and duplicate administrative requirements across sector after sector. Argentina remains in the "Mostly Unfree" band (scores of 50–59.9), so this is a trajectory, not a destination. But the direction of travel is unusually clear, and it is happening fast.</p>
+
+<h2>What is actually being deregulated?</h2>
+
+<p>Below is a snapshot of measures our team is tracking. Each links to a sourced entry on the radar with what changed, the legal instrument, and its current status.</p>
+
+<table>
+  <thead><tr><th>Area</th><th>What changes</th><th>Status</th></tr></thead>
+  <tbody>
+    <tr><td><a href="/oportunidades/inmobiliaria-corretaje-2026">Real estate &amp; brokerage</a></td><td>No mandatory license or degree to broker; platform-based brokerage explicitly allowed; free pricing</td><td>Bill to Congress</td></tr>
+    <tr><td><a href="/oportunidades/colegios-profesionales-2026">Professional colleges</a></td><td>End of minimum fees and mandatory registration as entry barriers</td><td>Bill to Congress</td></tr>
+    <tr><td><a href="/oportunidades/pilas-baterias-2026">Import certification</a></td><td>US/EU/Japan standards recognized; redundant local certification removed (batteries first)</td><td>Announced</td></tr>
+    <tr><td><a href="/oportunidades/habilitaciones-municipales-arca-2026">Export &amp; customs</a></td><td>Municipal permits no longer required for in-plant exports and bonded warehouses</td><td>In force</td></tr>
+    <tr><td><a href="/oportunidades/patentes-propiedad-intelectual-2026">Patents &amp; IP</a></td><td>Alignment with the PCT, Budapest Treaty and Madrid Protocol</td><td>In process</td></tr>
+  </tbody>
+</table>
+
+<p>The pattern matters more than any single item: barriers that protected incumbents — licensing boards, local-only certification, price floors — are being dismantled in favor of competition. That is precisely the kind of change that lowers the cost of entry for a foreign operator.</p>
+
+<h2>What does it mean for foreign companies?</h2>
+
+<h3>1. Entering is getting cheaper and faster</h3>
+<p>Lower certification and licensing friction reduces the cost of importing equipment and inputs, and opens sectors (brokerage, professional services) that were effectively closed to new digital entrants. If your model is a marketplace or a service platform, several of these changes remove the gatekeeper. (Setting up the entity itself still follows a process — see our guide on <a href="/blog/how-to-set-up-a-company-in-argentina">how to set up a company in Argentina</a>.)</p>
+
+<h3>2. Operating gets simpler</h3>
+<p>Removing duplicate municipal and national requirements cuts administrative overhead. The labor framework has also moved toward firm-level agreements, giving more flexibility on <a href="/blog/employer-of-record-argentina">hiring and payroll</a>.</p>
+
+<h3>3. Exporting from Argentina is a thesis, not a footnote</h3>
+<p>The customs and in-plant export changes, plus the IP alignment, make Argentina more credible as an <em>export base</em> — not just a domestic market. The yerba-mate case the government cites as its model (a deregulated market that reached record exports) is the template it wants to replicate across sectors.</p>
+
+<h2>Important: many of these are bills, not laws</h2>
+
+<p>This is the part most coverage gets wrong. Several headline measures — including the real-estate and professional-college reforms — are <strong>bills heading to Congress</strong>, not statutes in force. Others are administrative announcements. A few (like the customs change) are already in effect. The practical stance for a foreign company is <strong>readiness</strong>: position now, structure for the change, but do not assume a bill is law. Every entry on our <a href="/oportunidades">radar</a> shows its exact status for this reason. None of this is legal advice.</p>
+
+<h2>How to position now</h2>
+
+<p>The companies that benefit most from a regulatory shift are the ones already structured when it lands. That means having the entity, banking, accounting and hiring rails in place, and a clear read on which specific measures affect your sector and when. That is exactly what Inteligenci·AR does — soft-landing and regulatory intelligence from a single point of contact. <a href="/#contact">Get in touch</a> to map your sector against the radar.</p>
+
+<h2>Frequently asked questions</h2>
+
+<div class="faq-item">
+<h3>What is Argentina's economic freedom score in 2026?</h3>
+<p>Argentina scored 57.4 in the 2026 Heritage Index of Economic Freedom, up 3.2 points from the previous year — the largest gain of any country in that edition — placing it at world rank #106, in the "Mostly Unfree" category. Source: Heritage Foundation, Index of Economic Freedom 2026.</p>
+</div>
+
+<div class="faq-item">
+<h3>Is Argentina a good place to set up a company in 2026?</h3>
+<p>It is improving quickly. Deregulation is lowering entry and operating costs in several sectors, and the country posted the world's biggest economic-freedom gain in 2026. The caveats are real: macro volatility persists, and several reforms are still bills rather than laws. For most foreign operators the right move is to structure for readiness — entity, banking, accounting and hiring in place — and track which measures actually pass.</p>
+</div>
+
+<div class="faq-item">
+<h3>Which sectors are being deregulated in Argentina?</h3>
+<p>Recent and announced measures touch real estate and brokerage, professional services, import certification (e.g. batteries and electronics), customs and in-plant exports, patents and intellectual property, and agriculture (seeds, the yerba-mate market). The live list with sources is on the Inteligenci·AR regulatory opportunities radar.</p>
+</div>
+
+<div class="faq-item">
+<h3>Are Argentina's 2026 deregulations already law?</h3>
+<p>Some are. The removal of municipal permits for in-plant exports is in force, and certain import-certification changes are administrative. But high-profile items like the real-estate and professional-college reforms are bills heading to Congress, not laws yet. Always check the status of a specific measure before acting on it.</p>
+</div>
+
+<div class="faq-item">
+<h3>How can a foreign company take advantage of Argentina's deregulation?</h3>
+<p>Map your sector against the specific measures, structure the entity and operating rails before the change lands, and move early in sectors where gatekeepers are being removed (such as platform-based brokerage or import-heavy models). A single point of contact for entity setup, banking, accounting, hiring and regulatory tracking removes most of the coordination risk.</p>
+</div>
+`,
+  },
+  {
     slug: "how-to-set-up-a-company-in-argentina",
     title: "How to Set Up a Company in Argentina as a Foreign Investor (2026 Guide)",
     metaDescription: "How to set up a company in Argentina as a foreign investor: SRL vs SA, IGJ registration, CUIT, and bank account — with real timelines (40–60 days) and costs (USD 2,500–5,800) for 2026.",

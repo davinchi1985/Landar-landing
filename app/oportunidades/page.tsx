@@ -59,7 +59,31 @@ function buildJsonLd(medidas: Medida[]) {
     ],
   };
 
-  return [itemList, breadcrumb];
+  const sectores = [...new Set(medidas.map((m) => m.sector.replace(/_/g, " ")))];
+  const dataset = {
+    "@context": "https://schema.org",
+    "@type": "Dataset",
+    name: "Radar de desregulaciones y oportunidades — Argentina",
+    description: DESC,
+    url: `${SITE_URL}/oportunidades`,
+    keywords: [
+      "desregulación Argentina",
+      "reformas Milei",
+      "Nueva Argentina",
+      "libertad económica",
+      "oportunidades de negocio Argentina",
+      ...sectores,
+    ],
+    creator: { "@type": "Organization", name: SITE_NAME, url: SITE_URL },
+    publisher: { "@type": "Organization", name: SITE_NAME, url: SITE_URL },
+    isAccessibleForFree: true,
+    inLanguage: "es-AR",
+    dateModified: new Date().toISOString().slice(0, 10),
+    license: "https://creativecommons.org/licenses/by/4.0/",
+    measurementTechnique: "Curación de normas y cobertura de fuentes públicas",
+  };
+
+  return [dataset, itemList, breadcrumb];
 }
 
 function RadarNav() {
