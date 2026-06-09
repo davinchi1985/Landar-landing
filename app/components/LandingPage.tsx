@@ -92,7 +92,7 @@ export default function LandingPage() {
   useEffect(() => {
     try {
       const s = localStorage.getItem("landar.lang") as Lang | null;
-      if (s && s !== lang) setLang(s);
+      if (s && s !== lang && LANGS.some((l) => l.code === s)) setLang(s);
     } catch {}
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -765,7 +765,7 @@ export default function LandingPage() {
         <section className="section--tight" id="stats">
           <div className="wrap">
             <div className="stats">
-              {[{ n: "~45", k: "stats.s1" }, { n: "4 → 1", k: "stats.s2" }, { n: "15+", k: "stats.s3" }, { n: "6", k: "stats.s4" }].map((s, i) => (
+              {[{ n: "~45", k: "stats.s1" }, { n: "4 → 1", k: "stats.s2" }, { n: "15+", k: "stats.s3" }, { n: "4", k: "stats.s4" }].map((s, i) => (
                 <div className="stat reveal" key={s.k} style={{ ["--reveal-delay" as string]: `.${i * 6}s` }}>
                   <StatNum value={s.n} />
                   <div className="stat__l">{tr(s.k)}</div>

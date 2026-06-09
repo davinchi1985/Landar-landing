@@ -1,23 +1,20 @@
 // ============================================================
 // Inteligenci·AR — copy / i18n
-// EN is the source. ES fully translated; DE covers layout-critical
-// headlines (to prove longer strings don't break layout).
-// PT / ZH / JA fall back to EN for now (picker stays functional).
+// EN is the source. ES, PT y DE están traducidos por completo.
+// Los 4 idiomas coinciden con lo que el equipo declara (why.t1: EN·ES·PT·DE).
 // ============================================================
 
-export type Lang = "en" | "es" | "pt" | "de" | "zh" | "ja";
+export type Lang = "en" | "es" | "pt" | "de";
 
 export const LANGS: { code: Lang; label: string; short: string }[] = [
   { code: "en", label: "English", short: "EN" },
   { code: "es", label: "Español", short: "ES" },
   { code: "pt", label: "Português", short: "PT" },
   { code: "de", label: "Deutsch", short: "DE" },
-  { code: "zh", label: "中文", short: "ZH" },
-  { code: "ja", label: "日本語", short: "JA" },
 ];
 
 export const LANG_CODE: Record<Lang, string> = {
-  en: "EN", es: "ES", pt: "PT", de: "DE", zh: "ZH", ja: "JA",
+  en: "EN", es: "ES", pt: "PT", de: "DE",
 };
 
 type Dict = Record<string, string>;
@@ -236,28 +233,221 @@ const es: Dict = {
   "footer.rights": "Etapa piloto — construyendo en Buenos Aires.",
 };
 
-// German — headlines & nav only (longest strings; proves the layout stretches).
+const pt: Dict = {
+  "nav.problem": "O problema", "nav.services": "O que fazemos", "nav.how": "Como funciona",
+  "nav.why": "Por que nós", "nav.ai": "Entidade de IA", "nav.radar": "Radar", "nav.cta": "Fale conosco",
+
+  "hero.h1": "Crie sua <em>entidade de IA</em> na Argentina.",
+  "hero.sub": "Esteja entre os primeiros a registrar uma empresa gerida por IA — com um único parceiro para aterrissar, operar e exportar a partir de Buenos Aires.",
+  "hero.m1": "Entidade de IA", "hero.m2": "Aterrissar e operar", "hero.m3": "Exportar para o mundo",
+  "hero.cta1": "Fale conosco", "hero.cta2": "Veja como funciona",
+  "hero.status": "Integrando clientes piloto",
+
+  "path.eyebrow": "Verifique seu caminho",
+  "path.h2": "Veja em quanto tempo você poderia estar operando.",
+  "path.ph": "De onde você está se expandindo?",
+  "path.cta": "Ver meu caminho",
+
+  "problem.eyebrow": "O problema",
+  "problem.h2": "Cinco fornecedores que não se falam.",
+  "problem.lede": "Entidade, banco, contador, folha de pagamento, compliance — cada um no seu ritmo e no seu idioma.",
+  "problem.v1": "Entidade e assessoria jurídica", "problem.f1": "Semanas de idas e vindas",
+  "problem.v2": "Um banco que abra sua conta", "problem.f2": "Requisitos opacos",
+  "problem.v3": "Um contador local", "problem.f3": "Declarações só em espanhol",
+  "problem.v4": "Folha e previdência social", "problem.f4": "Prazos rígidos",
+  "problem.v5": "Compliance contínuo", "problem.f5": "Regras que mudam",
+  "problem.note": "Meses perdidos em coordenação — e ninguém a quem responsabilizar.",
+
+  "services.eyebrow": "O que fazemos",
+  "services.h2": "Quatro coisas. Um parceiro.",
+  "services.p1.t": "Entidade e jurídico", "services.p1.d": "A estrutura certa, em conformidade desde o primeiro dia.",
+  "services.p2.t": "Preparação bancária", "services.p2.d": "Um dossiê completo, pronto para o banco. Preparação, não promessas.",
+  "services.p3.t": "Impostos e contabilidade", "services.p3.d": "AFIP, livros e declarações mensais — em inglês.",
+  "services.p4.t": "Contratação e folha", "services.p4.d": "Contratos, folha e previdência social, de ponta a ponta.",
+
+  "stats.s1": "dias para operar, não meses",
+  "stats.s2": "serviços, um ponto de contato",
+  "stats.s3": "mercados parceiros ao alcance",
+  "stats.s4": "idiomas, uma equipe local",
+
+  "network.eyebrow": "Exportar da Argentina",
+  "network.h2": "Uma base.<br>Mais de 50 mercados ao alcance.",
+  "network.lede": "Estabeleça-se uma vez e venda para o mundo — conecte-se ao Mercosul e à rede de acordos comerciais da Argentina para alcançar a região e além a partir de uma única base operacional.",
+
+  "faro.eyebrow": "O Farol do Fim do Mundo",
+  "faro.h2": "Uma só luz sobre toda a Argentina.",
+  "faro.panel": "Da Argentina para o mundo · retornos em USD por período (indicativo)",
+
+  "how.eyebrow": "Como funciona",
+  "how.h2": "Três passos. Uma equipe. Cerca de seis semanas.",
+  "how.s1.t": "Diagnóstico e plano", "how.s1.d": "Uma ligação de 30 minutos e um plano por escrito.",
+  "how.s2.t": "Nós montamos", "how.s2.d": "Entidade, fiscal e bancário — em paralelo, um líder.",
+  "how.s3.t": "Você opera; nós tocamos", "how.s3.d": "Contabilidade, folha e compliance, todo mês.",
+  "how.tl.title": "Um cronograma indicativo", "how.tl.days": "dias até operar",
+  "how.tl.n1": "Início e plano", "how.tl.n2": "Entidade registrada", "how.tl.n3": "Inscrição fiscal",
+  "how.tl.n4": "Dossiê bancário pronto", "how.tl.n5": "Operando",
+  "how.tl.note": "Apenas indicativo — damos uma estimativa concreta na primeira ligação.",
+
+  "why.eyebrow": "Por que nós",
+  "why.h2": "Um operador local, não um diretório de fornecedores.",
+  "why.c1.t": "Um único ponto de contato", "why.c1.d": "Um líder de projeto que assume o seu lançamento.",
+  "why.c2.t": "Uma rede selecionada, sob um teto", "why.c2.d": "Advogados, contadores e bancos que nós mesmos coordenamos.",
+  "why.c3.t": "Responsabilidade de ponta a ponta", "why.c3.d": "A equipe que te lança te mantém em conformidade.",
+  "why.t1": "Equipe bilíngue — EN · ES · PT · DE", "why.t2": "Com base em Buenos Aires", "why.t3": "Propostas de escopo fixo",
+
+  "trust.eyebrow": "Confiança", "trust.h2": "Como trabalhamos, à vista.",
+  "trust.k1": "Metodologia", "trust.c1.t": "Plano escrito, escopo fixo", "trust.c1.d": "Escopo, prazo e preço documentados. Sem cobrança em aberto.",
+  "trust.k2": "Equipe", "trust.c2.t": "Pessoas, não um call center", "trust.c2.d": "Operadores com nome em Buenos Aires, no seu idioma.",
+  "trust.k3": "Casos piloto", "trust.c3.t": "No início, e honestos sobre isso", "trust.c3.d": "Primeira leva em andamento. Casos anonimizados em breve.",
+  "trust.note": "Esta seção cresce à medida que casos reais se concretizam — fica oculta até haver algo verdadeiro para mostrar.",
+
+  "ai.badge": "Entidade de IA · incluído",
+  "ai.h3": "Quão pronto você está para registrar uma entidade de IA?",
+  "ai.d": "A Argentina está abrindo a porta para entidades geridas por IA. Estruturamos sua empresa — entidade, registros e governança — para que você esteja pronto para registrá-la e operá-la assim que virar lei.",
+  "ai.cta": "Receba seu plano de preparação",
+  "ai.note": "Um marco emergente — mantemos sua estrutura atualizada à medida que se define. Preparação, não garantias.",
+  "ai.hint": "Marque o que já é verdade para você",
+  "ai.c1": "Entidade legal registrada (SA / SRL)",
+  "ai.c2": "Registros societários limpos e atualizados",
+  "ai.c3": "Governança e signatários definidos",
+  "ai.c4": "Impostos e compliance em dia",
+  "ai.s0": "Apenas começando", "ai.s2": "No caminho", "ai.s3": "Quase lá", "ai.s4": "Pronto para registrar",
+  "ai.gap": "Nós cuidamos do resto — geralmente em semanas.",
+  "ai.gapDone": "Você está pronto para registrar. Vamos confirmar os detalhes.",
+
+  "contact.eyebrow": "Comece aqui", "contact.h2": "Conte de onde você está aterrissando.",
+  "contact.lede": "Quatro perguntas. Um plano sob medida, não um discurso de vendas.",
+  "contact.ws1": "Onde você está", "contact.ws2": "O que você precisa", "contact.ws3": "Seu prazo", "contact.ws4": "Como falar com você",
+  "contact.q1": "Onde sua empresa está sediada?", "contact.q1h": "Para sabermos quais tratados e rotas bancárias se aplicam.",
+  "contact.country": "País / região", "contact.countryph": "ex.: Estados Unidos, Espanha, Alemanha…",
+  "contact.q2": "Com o que você precisa de ajuda?", "contact.q2h": "Escolha tudo o que se aplica — você pode mudar depois.",
+  "contact.q3": "Quando você quer estar operando?", "contact.q3h": "Uma estimativa honesta já basta.",
+  "contact.t1": "O quanto antes", "contact.t2": "Em 1–3 meses", "contact.t3": "3–6 meses", "contact.t4": "Apenas explorando",
+  "contact.q4": "Como falamos com você?", "contact.q4h": "Respondemos em até um dia útil.",
+  "contact.name": "Nome", "contact.nameph": "Seu nome", "contact.email": "Email corporativo", "contact.emailph": "voce@empresa.com",
+  "contact.back": "Voltar", "contact.next": "Continuar", "contact.send": "Enviar", "contact.sending": "Enviando…",
+  "contact.doneT": "Obrigado — entraremos em contato.", "contact.doneD": "Vamos analisar sua situação e enviar um plano por escrito em um dia.",
+  "contact.error": "Algo deu errado — escreva para nós ou tente de novo.",
+
+  "final.eyebrow": "Quando você quiser",
+  "final.h2": "Vamos tornar sua chegada à Argentina sem dores de cabeça.",
+  "final.lede": "Conte sua situação e enviamos um plano por escrito em um dia.",
+  "final.cta1": "Fale conosco", "final.cta2": "Veja o que fazemos",
+
+  "footer.tag": "Pronto para operar na Argentina. Entidade, banco, contabilidade e contratação — coordenados de Buenos Aires por um único ponto de contato.",
+  "footer.h1": "Empresa", "footer.h2": "Recursos", "footer.h3": "Começar",
+  "footer.ai": "Preparação IA", "footer.blog": "Blog", "footer.radar": "Radar de oportunidades", "footer.contact": "Contato",
+  "footer.rights": "Fase piloto — construindo em Buenos Aires.",
+};
+
 const de: Dict = {
   "nav.problem": "Das Problem", "nav.services": "Was wir tun", "nav.how": "So funktioniert's",
-  "nav.why": "Warum wir", "nav.ai": "KI-Entität", "nav.cta": "Sprechen wir",
+  "nav.why": "Warum wir", "nav.ai": "KI-Entität", "nav.radar": "Radar", "nav.cta": "Sprechen wir",
+
   "hero.h1": "Gründen Sie Ihre <em>KI-Entität</em> in Argentinien.",
   "hero.sub": "Gehören Sie zu den Ersten, die ein KI-geführtes Unternehmen registrieren — mit einem Partner zum Ankommen, Betreiben und Exportieren aus Buenos Aires.",
   "hero.m1": "KI-Entität", "hero.m2": "Ankommen & betreiben", "hero.m3": "In die Welt exportieren",
   "hero.cta1": "Sprechen wir", "hero.cta2": "So funktioniert es",
   "hero.status": "Wir nehmen Pilotkunden auf",
+
+  "path.eyebrow": "Prüfen Sie Ihren Weg",
+  "path.h2": "Sehen Sie, wie schnell Sie betriebsbereit sein könnten.",
+  "path.ph": "Von wo aus expandieren Sie?",
+  "path.cta": "Meinen Weg prüfen",
+
   "problem.eyebrow": "Das Problem",
-  "problem.h2": "In Argentinien zu operieren heißt, fünf Dienstleister zu jonglieren, die nicht miteinander reden.",
+  "problem.h2": "Fünf Dienstleister, die nicht miteinander reden.",
+  "problem.lede": "Gesellschaft, Bank, Steuerberater, Lohnabrechnung, Compliance — jeder mit eigenem Tempo und eigener Sprache.",
+  "problem.v1": "Gesellschaft & Rechtsberatung", "problem.f1": "Wochen des Hin und Her",
+  "problem.v2": "Eine Bank, die Sie aufnimmt", "problem.f2": "Undurchsichtige Anforderungen",
+  "problem.v3": "Ein lokaler Steuerberater", "problem.f3": "Einreichungen nur auf Spanisch",
+  "problem.v4": "Lohn & Sozialversicherung", "problem.f4": "Strenge Fristen",
+  "problem.v5": "Laufende Compliance", "problem.f5": "Regeln, die sich ändern",
+  "problem.note": "Monate verloren durch Koordination — und niemand, der verantwortlich ist.",
+
   "services.eyebrow": "Was wir tun",
-  "services.h2": "Ein Partner für die vier Dinge, die Sie tatsächlich betriebsbereit machen.",
+  "services.h2": "Vier Dinge. Ein Partner.",
+  "services.p1.t": "Gesellschaft & Recht", "services.p1.d": "Die richtige Struktur, ab dem ersten Tag regelkonform.",
+  "services.p2.t": "Bankfähigkeit", "services.p2.d": "Eine vollständige, bankfertige Akte. Bereitschaft, keine Versprechen.",
+  "services.p3.t": "Steuern & Buchhaltung", "services.p3.d": "AFIP, monatliche Bücher und Einreichungen — auf Englisch.",
+  "services.p4.t": "Einstellung & Lohn", "services.p4.d": "Verträge, Lohnabrechnung und Sozialversicherung, von A bis Z.",
+
+  "stats.s1": "Tage bis zum Betrieb, nicht Monate",
+  "stats.s2": "Leistungen, ein Ansprechpartner",
+  "stats.s3": "erreichbare Partnermärkte",
+  "stats.s4": "Sprachen, ein lokales Team",
+
+  "network.eyebrow": "Export aus Argentinien",
+  "network.h2": "Eine Basis.<br>50+ Märkte in Reichweite.",
+  "network.lede": "Einmal gründen und an die Welt verkaufen — schließen Sie sich dem Mercosur und Argentiniens Handelsabkommen an, um von einer einzigen Betriebsbasis aus die Region und darüber hinaus zu erreichen.",
+
+  "faro.eyebrow": "Der Leuchtturm am Ende der Welt",
   "faro.h2": "Ein Licht über ganz Argentinien.",
+  "faro.panel": "Von Argentinien in die Welt · USD-Renditen nach Zeitraum (indikativ)",
+
   "how.eyebrow": "So funktioniert's",
   "how.h2": "Drei Schritte. Ein Team. Etwa sechs Wochen.",
+  "how.s1.t": "Analyse & Plan", "how.s1.d": "Ein 30-minütiges Gespräch, dann ein schriftlicher Plan.",
+  "how.s2.t": "Wir richten es ein", "how.s2.d": "Gesellschaft, Steuern und Bank — parallel, eine Leitung.",
+  "how.s3.t": "Sie operieren; wir führen es", "how.s3.d": "Buchhaltung, Lohn und Compliance, jeden Monat.",
+  "how.tl.title": "Ein indikativer Zeitplan", "how.tl.days": "Tage bis zum Betrieb",
+  "how.tl.n1": "Kickoff & Plan", "how.tl.n2": "Gesellschaft eingereicht", "how.tl.n3": "Steuerlich registriert",
+  "how.tl.n4": "Bankakte bereit", "how.tl.n5": "In Betrieb",
+  "how.tl.note": "Nur indikativ — wir geben Ihnen im ersten Gespräch eine konkrete Schätzung.",
+
   "why.eyebrow": "Warum wir",
   "why.h2": "Ein lokaler Betreiber, kein Verzeichnis von Dienstleistern.",
+  "why.c1.t": "Ein Ansprechpartner", "why.c1.d": "Eine Projektleitung, die Ihren Start verantwortet.",
+  "why.c2.t": "Ein geprüftes Netzwerk, unter einem Dach", "why.c2.d": "Anwälte, Steuerberater und Banken, die wir selbst koordinieren.",
+  "why.c3.t": "Verantwortung von A bis Z", "why.c3.d": "Das Team, das Sie startet, hält Sie regelkonform.",
+  "why.t1": "Mehrsprachiges Team — EN · ES · PT · DE", "why.t2": "Mit Sitz in Buenos Aires", "why.t3": "Angebote mit festem Umfang",
+
+  "trust.eyebrow": "Vertrauen", "trust.h2": "Wie wir arbeiten, offen gelegt.",
+  "trust.k1": "Methodik", "trust.c1.t": "Schriftlicher Plan, fester Umfang", "trust.c1.d": "Umfang, Zeitplan und Preis dokumentiert. Keine offene Abrechnung.",
+  "trust.k2": "Team", "trust.c2.t": "Menschen, kein Callcenter", "trust.c2.d": "Namentliche Operatoren in Buenos Aires, in Ihrer Sprache.",
+  "trust.k3": "Pilotfälle", "trust.c3.t": "Früh, und ehrlich dazu", "trust.c3.d": "Erste Gruppe im Onboarding. Anonymisierte Fälle in Kürze.",
+  "trust.note": "Dieser Abschnitt wächst, sobald echte Fälle abgeschlossen sind — er bleibt verborgen, bis es etwas Wahres zu zeigen gibt.",
+
+  "ai.badge": "KI-Entität · inklusive",
+  "ai.h3": "Wie bereit sind Sie, sich als KI-Entität zu registrieren?",
+  "ai.d": "Argentinien öffnet die Tür für KI-geführte Entitäten. Wir strukturieren Ihr Unternehmen — Gesellschaft, Unterlagen und Governance — damit Sie bereit sind, sich als solche zu registrieren und zu operieren, sobald es in Kraft tritt.",
+  "ai.cta": "Ihren Bereitschaftsplan erhalten",
+  "ai.note": "Ein entstehender Rahmen — wir halten Ihre Struktur aktuell, während er sich finalisiert. Bereitschaft, keine Garantien.",
+  "ai.hint": "Markieren Sie, was bereits zutrifft",
+  "ai.c1": "Registrierte juristische Person (SA / SRL)",
+  "ai.c2": "Saubere, aktuelle Gesellschaftsunterlagen",
+  "ai.c3": "Definierte Governance & Zeichnungsberechtigte",
+  "ai.c4": "Steuern & Compliance in Ordnung",
+  "ai.s0": "Gerade erst gestartet", "ai.s2": "Auf dem Weg", "ai.s3": "Fast geschafft", "ai.s4": "Bereit zur Einreichung",
+  "ai.gap": "Den Rest erledigen wir — meist in Wochen.",
+  "ai.gapDone": "Sie sind bereit zur Einreichung. Klären wir die Details.",
+
+  "contact.eyebrow": "Hier starten", "contact.h2": "Sagen Sie uns, von wo aus Sie ankommen.",
+  "contact.lede": "Vier Fragen. Ein maßgeschneiderter Plan, kein Verkaufsgespräch.",
+  "contact.ws1": "Wo Sie sind", "contact.ws2": "Was Sie brauchen", "contact.ws3": "Ihr Zeitrahmen", "contact.ws4": "Wie wir Sie erreichen",
+  "contact.q1": "Wo hat Ihr Unternehmen seinen Sitz?", "contact.q1h": "Damit wir wissen, welche Abkommen und Bankwege gelten.",
+  "contact.country": "Land / Region", "contact.countryph": "z. B. USA, Spanien, Deutschland…",
+  "contact.q2": "Wobei brauchen Sie Hilfe?", "contact.q2h": "Wählen Sie alles Zutreffende — Sie können es später ändern.",
+  "contact.q3": "Wann möchten Sie betriebsbereit sein?", "contact.q3h": "Eine ehrliche Schätzung genügt.",
+  "contact.t1": "So bald wie möglich", "contact.t2": "In 1–3 Monaten", "contact.t3": "3–6 Monate", "contact.t4": "Nur am Erkunden",
+  "contact.q4": "Wie sollen wir Sie erreichen?", "contact.q4h": "Wir antworten innerhalb eines Werktages.",
+  "contact.name": "Name", "contact.nameph": "Ihr Name", "contact.email": "Geschäftliche E-Mail", "contact.emailph": "sie@firma.com",
+  "contact.back": "Zurück", "contact.next": "Weiter", "contact.send": "Senden", "contact.sending": "Senden…",
+  "contact.doneT": "Danke — wir melden uns.", "contact.doneD": "Wir prüfen Ihre Situation und senden innerhalb eines Tages einen schriftlichen Plan.",
+  "contact.error": "Etwas ist schiefgelaufen — schreiben Sie uns oder versuchen Sie es erneut.",
+
+  "final.eyebrow": "Wann immer Sie bereit sind",
   "final.h2": "Machen wir Ihren Argentinien-Start mühelos.",
+  "final.lede": "Schildern Sie uns Ihre Situation und wir senden innerhalb eines Tages einen schriftlichen Plan.",
+  "final.cta1": "Sprechen wir", "final.cta2": "Ansehen, was wir tun",
+
+  "footer.tag": "Betriebsbereit in Argentinien. Gesellschaft, Bank, Buchhaltung und Einstellung — koordiniert aus Buenos Aires über einen Ansprechpartner.",
+  "footer.h1": "Unternehmen", "footer.h2": "Ressourcen", "footer.h3": "Loslegen",
+  "footer.ai": "KI-Bereitschaft", "footer.blog": "Journal", "footer.radar": "Chancen-Radar", "footer.contact": "Kontakt",
+  "footer.rights": "Pilotphase — wir bauen in Buenos Aires.",
 };
 
-const DICT: Partial<Record<Lang, Dict>> = { en, es, de };
+const DICT: Record<Lang, Dict> = { en, es, pt, de };
 
 export function t(lang: Lang, key: string): string {
   const d = DICT[lang];
