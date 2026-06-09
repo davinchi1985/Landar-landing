@@ -1,9 +1,9 @@
 import { MetadataRoute } from "next";
 import { posts } from "./lib/posts";
-import { medidas } from "./lib/oportunidades";
+import { getMedidas } from "./lib/radar";
 import { SITE_URL as BASE_URL } from "./lib/site";
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const blogRoutes = posts.map((post) => ({
     url: `${BASE_URL}/blog/${post.slug}`,
     lastModified: new Date(post.date),
@@ -11,6 +11,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
+  const medidas = await getMedidas();
   const radarRoutes = medidas.map((m) => ({
     url: `${BASE_URL}/oportunidades/${m.id}`,
     lastModified: new Date(),

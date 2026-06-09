@@ -2,18 +2,12 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import type { Metadata } from "next";
 import { SITE_URL, SITE_NAME } from "../../lib/site";
-import {
-  getAllIds,
-  getMedida,
-  relacionadas,
-  tandaDe,
-  sectorLabel,
-  ESTADO_LABEL,
-  TIPO_LABEL,
-} from "../../lib/oportunidades";
+import { sectorLabel, ESTADO_LABEL, TIPO_LABEL } from "../../lib/oportunidades";
+import { getAllIds, getMedida, relacionadas, tandaDe } from "../../lib/radar";
 
-export function generateStaticParams() {
-  return getAllIds().map((id) => ({ id }));
+export async function generateStaticParams() {
+  const ids = await getAllIds();
+  return ids.map((id) => ({ id }));
 }
 
 export async function generateMetadata({
@@ -22,7 +16,7 @@ export async function generateMetadata({
   params: Promise<{ id: string }>;
 }): Promise<Metadata> {
   const { id } = await params;
-  const m = getMedida(id);
+  const m = await getMedida(id);
   if (!m) return {};
   const title = `${m.titulo} — ${ESTADO_LABEL[m.estado]}`;
   return {
@@ -70,11 +64,10 @@ export default async function MedidaPage({
   params: Promise<{ id: string }>;
 }) {
   const { id } = await params;
-  const m = getMedida(id);
+  const m = await getMedida(id);
   if (!m) notFound();
 
-  const tanda = tandaDe(id);
-  const rel = relacionadas(id);
+  const [tanda, rel] = await Promise.all([tandaDe(id), relacionadas(id)]);
 
   const article = {
     "@context": "https://schema.org",

@@ -1,13 +1,11 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import { SITE_URL, SITE_NAME } from "../lib/site";
-import {
-  medidas,
-  tandas,
-  ultimaActualizacion,
-  ESTADO_LABEL,
-} from "../lib/oportunidades";
+import { ESTADO_LABEL, type Medida } from "../lib/oportunidades";
+import { getMedidas, getTandas } from "../lib/radar";
+import { hasServiceClient } from "../lib/supabase/server";
 import Feed from "./Feed";
+import SubscribeBox from "./SubscribeBox";
 
 const TITLE = "Radar de oportunidades regulatorias";
 const DESC =
@@ -31,7 +29,7 @@ export const metadata: Metadata = {
   },
 };
 
-function buildJsonLd() {
+function buildJsonLd(medidas: Medida[]) {
   const itemList = {
     "@context": "https://schema.org",
     "@type": "ItemList",
@@ -83,9 +81,12 @@ function RadarNav() {
   );
 }
 
-export default function OportunidadesPage() {
-  const jsonLd = buildJsonLd();
+export default async function OportunidadesPage() {
+  const [medidas, tandas] = await Promise.all([getMedidas(), getTandas()]);
+  const jsonLd = buildJsonLd(medidas);
   const fuente = tandas[0]?.fuente;
+  const ultimaActualizacion =
+    fuente?.ingesta_fecha ?? fuente?.fecha_publicacion ?? "";
 
   return (
     <>
@@ -129,6 +130,8 @@ export default function OportunidadesPage() {
         </header>
 
         <Feed medidas={medidas} />
+
+        {hasServiceClient && <SubscribeBox />}
 
         <section className="radar-cta">
           <h2>¿Alguna de estas ventanas es tuya?</h2>

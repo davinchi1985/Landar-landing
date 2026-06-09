@@ -1645,3 +1645,34 @@ body.hero-left .globe-stage { order: 1; }
   line-height: 1.2; color: var(--ink);
 }
 .radar-back { margin-top: 1.4rem; font-size: 0.88rem; }
+
+/* ---- caja de suscripción al feed semanal ---- */
+.radar-sub {
+  margin-top: clamp(2.5rem, 5vw, 4rem);
+  display: grid; grid-template-columns: 1.1fr 1fr; gap: 1.4rem 2rem; align-items: center;
+  background: var(--accent-tint); border-radius: 20px;
+  padding: clamp(1.6rem, 3vw, 2.4rem);
+}
+@media (max-width: 680px) { .radar-sub { grid-template-columns: 1fr; } }
+.radar-sub__copy h2 {
+  font-family: var(--font-display); font-weight: 400;
+  font-size: clamp(1.5rem, 1.1rem + 1.5vw, 2.1rem); line-height: 1.1; margin: 0.5rem 0 0.4rem;
+}
+.radar-sub__copy .lede { font-size: 0.95rem; }
+.radar-sub__form { display: flex; flex-wrap: wrap; gap: 0.6rem; }
+.radar-sub__form input {
+  flex: 1; min-width: 200px; padding: 0.7rem 1rem;
+  border: 1px solid var(--hairline-strong); border-radius: 999px;
+  background: var(--surface-pure); font: inherit; font-size: 0.95rem; color: var(--ink);
+}
+.radar-sub__form input:focus {
+  outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft);
+}
+.radar-sub__form .btn { white-space: nowrap; }
+.radar-sub__msg { flex-basis: 100%; font-size: 0.82rem; margin-top: 0.1rem; }
+.radar-sub__msg.err { color: #A23B2B; }
+.radar-sub--done { text-align: center; display: block; }
+.radar-sub--done h2 {
+  font-family: var(--font-display); font-weight: 400;
+  font-size: clamp(1.5rem, 1.1rem + 1.5vw, 2.1rem); margin-bottom: 0.4rem;
+}
