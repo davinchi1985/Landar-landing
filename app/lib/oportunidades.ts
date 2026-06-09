@@ -335,6 +335,60 @@ export function sectorLabel(sector: string): string {
   return sector.replace(/_/g, " ");
 }
 
+// ---- FAQs por medida (AEO/GEO) ----
+// Derivadas SÓLO de la data ya verificada de la medida (no agrega claims nuevos).
+export interface FaqItem {
+  q: string;
+  a: string;
+}
+
+function estadoFrase(estado: EstadoMedida): string {
+  switch (estado) {
+    case "vigente":
+      return "Sí: es una norma vigente.";
+    case "anunciado":
+      return "Fue anunciada, pero todavía no es una norma vigente; conviene confirmar su publicación oficial.";
+    case "proyecto":
+      return "No: es un proyecto, todavía no es ley.";
+    case "proyecto_a_congreso":
+      return "Todavía no: es un proyecto de ley que debe tratarse en el Congreso.";
+    case "en_proceso":
+      return "Está en proceso de implementación; todavía no está plenamente vigente.";
+  }
+}
+
+export function medidaFaqs(m: Medida): FaqItem[] {
+  const faqs: FaqItem[] = [];
+
+  faqs.push({
+    q: `¿Qué cambia con "${m.titulo}"?`,
+    a:
+      m.que_cambia && m.que_cambia.length > 0
+        ? `${m.resumen} En concreto: ${m.que_cambia.join("; ")}.`
+        : m.resumen,
+  });
+
+  faqs.push({
+    q: `¿"${m.titulo}" ya es ley o está vigente?`,
+    a: `${estadoFrase(m.estado)}${m.instrumento ? ` Instrumento: ${m.instrumento}.` : ""} Es información, no asesoramiento legal: verificá siempre el estado actual en la fuente oficial.`,
+  });
+
+  const op = m.oportunidades?.[0];
+  if (op) {
+    faqs.push({
+      q: `¿Qué oportunidad abre para empresas?`,
+      a: op.descripcion ? `${op.titulo}: ${op.descripcion}` : op.titulo,
+    });
+  }
+
+  faqs.push({
+    q: `¿A qué sector y organismo afecta?`,
+    a: `Sector: ${sectorLabel(m.sector)}.${m.organismo_afectado ? ` Organismo afectado: ${m.organismo_afectado}.` : ""}`,
+  });
+
+  return faqs;
+}
+
 export function getAllIds(): string[] {
   return medidas.map((m) => m.id);
 }

@@ -2,7 +2,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import type { Metadata } from "next";
 import { SITE_URL, SITE_NAME } from "../../lib/site";
-import { sectorLabel, ESTADO_LABEL, TIPO_LABEL } from "../../lib/oportunidades";
+import { sectorLabel, ESTADO_LABEL, TIPO_LABEL, medidaFaqs } from "../../lib/oportunidades";
 import { getAllIds, getMedida, relacionadas, tandaDe } from "../../lib/radar";
 
 export async function generateStaticParams() {
@@ -68,6 +68,7 @@ export default async function MedidaPage({
   if (!m) notFound();
 
   const [tanda, rel] = await Promise.all([tandaDe(id), relacionadas(id)]);
+  const faqs = medidaFaqs(m);
 
   const article = {
     "@context": "https://schema.org",
@@ -113,9 +114,19 @@ export default async function MedidaPage({
     ],
   };
 
+  const faqPage = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((f) => ({
+      "@type": "Question",
+      name: f.q,
+      acceptedAnswer: { "@type": "Answer", text: f.a },
+    })),
+  };
+
   return (
     <>
-      {[article, breadcrumb].map((schema, i) => (
+      {[article, breadcrumb, faqPage].map((schema, i) => (
         <script key={i} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
       ))}
 
@@ -213,6 +224,20 @@ export default async function MedidaPage({
                 Es información, no asesoramiento legal.
               </p>
             )}
+          </section>
+        )}
+
+        {faqs.length > 0 && (
+          <section className="radar-detail__block radar-faq">
+            <h2>Preguntas frecuentes</h2>
+            <div className="radar-faq__list">
+              {faqs.map((f, i) => (
+                <details className="radar-faq__item" key={i}>
+                  <summary>{f.q}</summary>
+                  <p>{f.a}</p>
+                </details>
+              ))}
+            </div>
           </section>
         )}
 
