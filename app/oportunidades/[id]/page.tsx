@@ -44,11 +44,11 @@ function RadarNav() {
       <div className="nav__inner">
         <Link className="logo" href="/" aria-label="Inteligenci·AR — home">
           <svg viewBox="0 0 26 26" className="logo__mark" aria-hidden="true">
-            <rect width="26" height="26" rx="7" fill="#1C1B17" />
-            <path d="M5.5 7.5 Q13 13.5 13 17.8" fill="none" stroke="#C9613D" strokeWidth="1.4" strokeLinecap="round" opacity="0.85" />
-            <path d="M20.5 7.5 Q13 13.5 13 17.8" fill="none" stroke="#C9613D" strokeWidth="1.4" strokeLinecap="round" opacity="0.85" />
-            <path d="M13 4.6 Q13 11 13 17.8" fill="none" stroke="#C9613D" strokeWidth="1.4" strokeLinecap="round" opacity="0.5" />
-            <circle cx="13" cy="18" r="2.1" fill="#C9613D" />
+            <rect width="26" height="26" rx="7" fill="#14202B" />
+            <path d="M5.5 7.5 Q13 13.5 13 17.8" fill="none" stroke="#74ACDF" strokeWidth="1.4" strokeLinecap="round" opacity="0.85" />
+            <path d="M20.5 7.5 Q13 13.5 13 17.8" fill="none" stroke="#74ACDF" strokeWidth="1.4" strokeLinecap="round" opacity="0.85" />
+            <path d="M13 4.6 Q13 11 13 17.8" fill="none" stroke="#74ACDF" strokeWidth="1.4" strokeLinecap="round" opacity="0.5" />
+            <circle cx="13" cy="18" r="2.1" fill="#F6B40E" />
           </svg>
           <span className="logo__word">Inteligenci<span className="ar">·AR</span></span>
         </Link>

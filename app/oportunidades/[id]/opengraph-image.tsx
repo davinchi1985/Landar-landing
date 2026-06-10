@@ -21,7 +21,7 @@ export default async function Image({
     (
       <div
         style={{
-          background: "#1C1B17",
+          background: "#16242E",
           width: "100%",
           height: "100%",
           display: "flex",
@@ -35,13 +35,13 @@ export default async function Image({
           <span style={{ fontSize: 38, fontWeight: 500, color: "#FBF7EE", letterSpacing: "-2px" }}>
             Inteligenci
           </span>
-          <span style={{ fontSize: 38, fontWeight: 700, color: "#C9613D", letterSpacing: "-1px" }}>
+          <span style={{ fontSize: 38, fontWeight: 700, color: "#2A6FA8", letterSpacing: "-1px" }}>
             ·AR
           </span>
         </div>
 
         <div style={{ display: "flex", flexDirection: "column" }}>
-          <div style={{ fontSize: 24, color: "#C9613D", fontFamily: "sans-serif", letterSpacing: "1px", marginBottom: 18 }}>
+          <div style={{ fontSize: 24, color: "#2A6FA8", fontFamily: "sans-serif", letterSpacing: "1px", marginBottom: 18 }}>
             {`RADAR · ${sector.toUpperCase()}`}
           </div>
           <div style={{ fontSize: 50, color: "#FBF7EE", lineHeight: 1.12, letterSpacing: "-1.5px", maxWidth: 1010 }}>
@@ -51,7 +51,7 @@ export default async function Image({
 
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end" }}>
           {estado ? (
-            <div style={{ display: "flex", fontSize: 20, color: "#FBF7EE", fontFamily: "sans-serif", background: "rgba(201,97,61,0.22)", padding: "8px 18px", borderRadius: 999 }}>
+            <div style={{ display: "flex", fontSize: 20, color: "#FBF7EE", fontFamily: "sans-serif", background: "rgba(42,111,168,0.22)", padding: "8px 18px", borderRadius: 999 }}>
               {estado}
             </div>
           ) : (

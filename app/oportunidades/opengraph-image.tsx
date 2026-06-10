@@ -12,7 +12,7 @@ export default function Image() {
     (
       <div
         style={{
-          background: "#1C1B17",
+          background: "#16242E",
           width: "100%",
           height: "100%",
           display: "flex",
@@ -27,14 +27,14 @@ export default function Image() {
           <span style={{ fontSize: 44, fontWeight: 500, color: "#FBF7EE", letterSpacing: "-2px" }}>
             Inteligenci
           </span>
-          <span style={{ fontSize: 44, fontWeight: 700, color: "#C9613D", letterSpacing: "-1px" }}>
+          <span style={{ fontSize: 44, fontWeight: 700, color: "#2A6FA8", letterSpacing: "-1px" }}>
             ·AR
           </span>
         </div>
 
         {/* Title */}
         <div style={{ display: "flex", flexDirection: "column" }}>
-          <div style={{ fontSize: 30, color: "#C9613D", fontFamily: "sans-serif", marginBottom: 14, letterSpacing: "1px" }}>
+          <div style={{ fontSize: 30, color: "#2A6FA8", fontFamily: "sans-serif", marginBottom: 14, letterSpacing: "1px" }}>
             RADAR DE OPORTUNIDADES
           </div>
           <div style={{ fontSize: 58, color: "#FBF7EE", lineHeight: 1.08, maxWidth: 960, letterSpacing: "-2px" }}>
@@ -54,7 +54,7 @@ export default function Image() {
               <span style={{ fontSize: 18, color: "rgba(251,247,238,0.6)", fontFamily: "sans-serif" }}>Ranking mundial</span>
             </div>
             <div style={{ display: "flex", flexDirection: "column" }}>
-              <span style={{ fontSize: 56, color: "#C9613D", letterSpacing: "-2px" }}>#1</span>
+              <span style={{ fontSize: 56, color: "#2A6FA8", letterSpacing: "-2px" }}>#1</span>
               <span style={{ fontSize: 18, color: "rgba(251,247,238,0.6)", fontFamily: "sans-serif" }}>en mejora global</span>
             </div>
           </div>

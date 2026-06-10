@@ -183,7 +183,7 @@ export default function Globe() {
       ctx.clearRect(0, 0, size, size);
 
       const halo = ctx.createRadialGradient(cx, cy, R * 0.82, cx, cy, R * 1.16);
-      halo.addColorStop(0, "rgba(201,97,61,0.10)"); halo.addColorStop(0.5, "rgba(201,97,61,0.045)"); halo.addColorStop(1, "rgba(201,97,61,0)");
+      halo.addColorStop(0, "rgba(42,111,168,0.10)"); halo.addColorStop(0.5, "rgba(42,111,168,0.045)"); halo.addColorStop(1, "rgba(42,111,168,0)");
       ctx.fillStyle = halo; ctx.beginPath(); ctx.arc(cx, cy, R * 1.16, 0, Math.PI * 2); ctx.fill();
 
       const body = ctx.createRadialGradient(cx - R * 0.34, cy - R * 0.38, R * 0.04, cx + R * 0.18, cy + R * 0.22, R * 1.12);

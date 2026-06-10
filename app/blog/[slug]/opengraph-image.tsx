@@ -27,7 +27,7 @@ export default async function Image({
     (
       <div
         style={{
-          background: "#F0EEE6",
+          background: "#F0F4F7",
           width: "100%",
           height: "100%",
           display: "flex",
@@ -38,24 +38,24 @@ export default async function Image({
         }}
       >
         <div style={{ display: "flex", alignItems: "baseline" }}>
-          <span style={{ fontSize: 40, fontWeight: 500, color: "#1C1B17", letterSpacing: "-2px" }}>
+          <span style={{ fontSize: 40, fontWeight: 500, color: "#16242E", letterSpacing: "-2px" }}>
             Inteligenci
           </span>
-          <span style={{ fontSize: 40, fontWeight: 700, color: "#C9613D", letterSpacing: "-1px" }}>
+          <span style={{ fontSize: 40, fontWeight: 700, color: "#2A6FA8", letterSpacing: "-1px" }}>
             ·AR
           </span>
         </div>
 
         <div style={{ display: "flex", flexDirection: "column" }}>
-          <div style={{ fontSize: 24, color: "#C9613D", fontFamily: "sans-serif", letterSpacing: "1px", marginBottom: 18 }}>
+          <div style={{ fontSize: 24, color: "#2A6FA8", fontFamily: "sans-serif", letterSpacing: "1px", marginBottom: 18 }}>
             {cat.toUpperCase()}
           </div>
-          <div style={{ fontSize: 52, color: "#1C1B17", lineHeight: 1.12, letterSpacing: "-1.5px", maxWidth: 1010 }}>
+          <div style={{ fontSize: 52, color: "#16242E", lineHeight: 1.12, letterSpacing: "-1.5px", maxWidth: 1010 }}>
             {title}
           </div>
         </div>
 
-        <div style={{ fontSize: 18, color: "#6E6A60", fontFamily: "sans-serif" }}>
+        <div style={{ fontSize: 18, color: "#5F6E7A", fontFamily: "sans-serif" }}>
           inteligenci.ar/blog
         </div>
       </div>

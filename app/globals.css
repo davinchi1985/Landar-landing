@@ -6,23 +6,25 @@
 
 /* ---------- Design tokens ---------- */
 :root {
-  /* Color */
-  --canvas:        #F0EEE6;  /* warm ivory page bg */
-  --surface:       #FAF9F5;  /* raised blocks */
+  /* Color — Albiceleste 🇦🇷 (rebrand jun 2026): celeste + white + Sol de Mayo */
+  --canvas:        #F0F4F7;  /* cool paper page bg */
+  --surface:       #F8FBFD;  /* raised blocks */
   --surface-pure:  #FFFFFF;
-  --ink:           #1C1B17;  /* warm near-black */
-  --muted:         #6E6A60;  /* secondary copy */
-  --accent:        #C9613D;  /* coral / clay — the only saturated color */
-  --accent-hover:  #B5562F;
-  --accent-soft:   rgba(201, 97, 61, 0.10);
-  --accent-tint:   #F4E7DF;  /* very soft coral wash */
-  --sky:           #74ACDF;  /* Argentine sky-blue — tiny nods only */
-  --hairline:      rgba(28, 27, 23, 0.10);
-  --hairline-strong: rgba(28, 27, 23, 0.16);
-  --ink-08:        rgba(28, 27, 23, 0.05);
+  --ink:           #16242E;  /* cool near-black */
+  --muted:         #5F6E7A;  /* secondary copy */
+  --accent:        #2A6FA8;  /* deep celeste — the saturated brand color (readable w/ white) */
+  --accent-hover:  #235D8E;
+  --accent-soft:   rgba(116, 172, 223, 0.18);
+  --accent-tint:   #E4EFF8;  /* very soft celeste wash */
+  --sky:           #74ACDF;  /* flag celeste — borders, logo strands, tints */
+  --sun:           #F6B40E;  /* Sol de Mayo gold — glows/dots/ticks on dark */
+  --sun-deep:      #B8860B;  /* deep gold — gold text on light paper */
+  --hairline:      rgba(22, 36, 46, 0.10);
+  --hairline-strong: rgba(22, 36, 46, 0.16);
+  --ink-08:        rgba(22, 36, 46, 0.05);
 
   /* Accent intensity is tweakable; arcs/markers read these */
-  --accent-r: 201; --accent-g: 97; --accent-b: 61;
+  --accent-r: 42; --accent-g: 111; --accent-b: 168;
 
   /* Type families — wired to next/font variables (layout.tsx) */
   --font-display: var(--font-newsreader), "Newsreader", Georgia, "Times New Roman", serif;
@@ -157,8 +159,8 @@ section[id] { scroll-margin-top: clamp(4.5rem, 6vw, 5.5rem); }
 .btn .arrow { transition: transform 0.3s cubic-bezier(0.22,0.61,0.36,1); }
 .btn:hover .arrow { transform: translateX(3px); }
 
-.btn--primary { background: var(--accent); color: #fff; box-shadow: 0 1px 2px rgba(201,97,61,0.18); }
-.btn--primary:hover { background: var(--accent-hover); transform: translateY(-2px); box-shadow: 0 10px 26px rgba(201,97,61,0.34); }
+.btn--primary { background: var(--accent); color: #fff; box-shadow: 0 1px 2px rgba(42,111,168,0.18); }
+.btn--primary:hover { background: var(--accent-hover); transform: translateY(-2px); box-shadow: 0 10px 26px rgba(42,111,168,0.34); }
 .btn--primary:active { transform: translateY(0); }
 
 .btn--ghost {
@@ -440,7 +442,7 @@ section[id] { scroll-margin-top: clamp(4.5rem, 6vw, 5.5rem); }
 .globe-stage::before {
   content: ""; position: absolute; inset: 6% 6% 6% 6%;
   border-radius: 50%; pointer-events: none; z-index: -1;
-  background: radial-gradient(circle at 50% 46%, rgba(201,97,61,0.16), rgba(201,97,61,0.05) 45%, transparent 68%);
+  background: radial-gradient(circle at 50% 46%, rgba(42,111,168,0.16), rgba(42,111,168,0.05) 45%, transparent 68%);
   filter: blur(8px);
 }
 .globe-stage canvas {
@@ -602,7 +604,7 @@ body.hero-left .globe-stage { order: 1; }
 }
 @media (max-width: 720px) { .pillars { grid-template-columns: 1fr; } }
 .pillar { position: relative; overflow: hidden; }
-.pillar:hover { border-color: rgba(201,97,61,0.4); transform: translateY(-4px); box-shadow: var(--shadow-md); }
+.pillar:hover { border-color: rgba(42,111,168,0.4); transform: translateY(-4px); box-shadow: var(--shadow-md); }
 .pillar__ic {
   width: 46px; height: 46px;
   border-radius: var(--r-md);
@@ -650,7 +652,7 @@ body.hero-left .globe-stage { order: 1; }
 }
 .scene .map__tone {
   position: absolute; inset: 0; pointer-events: none; mix-blend-mode: soft-light;
-  background: radial-gradient(60% 60% at 50% 75%, rgba(201,97,61,.25), transparent 70%);
+  background: radial-gradient(60% 60% at 50% 75%, rgba(42,111,168,.25), transparent 70%);
 }
 
 /* beam */
@@ -661,7 +663,7 @@ body.hero-left .globe-stage { order: 1; }
 }
 .scene .beam__cone {
   position: absolute; inset: 0;
-  background: linear-gradient(90deg, rgba(255,214,158,.92) 0%, rgba(220,120,74,.4) 44%, rgba(201,97,61,0) 86%);
+  background: linear-gradient(90deg, rgba(255,214,158,.92) 0%, rgba(220,120,74,.4) 44%, rgba(42,111,168,0) 86%);
   clip-path: polygon(0 50%, 100% 18%, 100% 82%, 0 50%);
   filter: blur(14px); opacity: var(--i);
 }
@@ -740,7 +742,7 @@ body.hero-left .globe-stage { order: 1; }
 .scene .chip {
   position: absolute; left: 50%; bottom: 150%; transform: translateX(-50%) translateY(8px);
   white-space: nowrap; padding: .4rem .64rem; border-radius: 9px; text-align: left;
-  background: rgba(18,11,6,.9); border: 1px solid rgba(201,97,61,.5);
+  background: rgba(18,11,6,.9); border: 1px solid rgba(42,111,168,.5);
   box-shadow: 0 10px 26px -10px rgba(0,0,0,.75); backdrop-filter: blur(4px);
   opacity: 0; pointer-events: none;
 }
@@ -771,7 +773,7 @@ body.hero-left .globe-stage { order: 1; }
   background: transparent; border: 0; padding: .34rem .62rem; border-radius: 8px; cursor: pointer;
   font-variant-numeric: tabular-nums; transition: background .25s var(--ease), color .25s var(--ease); }
 .scene .tf button:hover { color: var(--cream); }
-.scene .tf button.is-sel { background: var(--accent); color: #fff; box-shadow: 0 4px 14px -6px rgba(201,97,61,.9); }
+.scene .tf button.is-sel { background: var(--accent); color: #fff; box-shadow: 0 4px 14px -6px rgba(42,111,168,.9); }
 
 /* commodities — marquee ticker tape */
 .scene .panel {
@@ -802,7 +804,7 @@ body.hero-left .globe-stage { order: 1; }
 .scene .panel.focusing .comm { opacity: .38; }
 .scene .panel.focusing .comm.is-on { opacity: 1; }
 .scene .comm__ico { grid-row: 1 / span 2; width: 30px; height: 30px; flex: none; display: grid; place-items: center; border-radius: 8px;
-  background: rgba(201,97,61,.14); color: var(--warm); }
+  background: rgba(42,111,168,.14); color: var(--warm); }
 .scene .comm__ico svg { width: 17px; height: 17px; }
 .scene .comm__main { grid-column: 2; display: flex; align-items: baseline; gap: .7rem; }
 .scene .comm__sub { grid-column: 2; display: flex; align-items: center; gap: .7rem; margin-top: 1px; }
@@ -811,15 +813,15 @@ body.hero-left .globe-stage { order: 1; }
 .scene .comm__ytd { margin-left: auto; flex: none; font-size: .78rem; font-weight: 700; font-variant-numeric: tabular-nums; }
 .scene .comm__ytd .arr { font-style: normal; font-size: .66rem; margin-right: 1px; }
 .scene .comm__ytd .cur { font-style: normal; font-size: .6rem; font-weight: 600; color: rgba(239,235,226,.42); margin-right: 3px; letter-spacing: .02em; }
-.scene .comm.is-index { border-color: rgba(201,97,61,.5); background: rgba(201,97,61,.12); }
-.scene .comm.is-index .comm__ico { background: rgba(201,97,61,.24); color: #fff; }
+.scene .comm.is-index { border-color: rgba(42,111,168,.5); background: rgba(42,111,168,.12); }
+.scene .comm.is-index .comm__ico { background: rgba(42,111,168,.24); color: #fff; }
 .scene .comm.is-index .comm__t { color: #fff; letter-spacing: .05em; }
 .scene .trend--up { color: #5BBA84; }
 .scene .trend--down { color: #E0604D; }
 .scene .trend--flat { color: #E6AC4B; }
 .scene .spark { margin-left: auto; flex: none; width: 46px; height: 15px; opacity: .92; }
-.scene .comm.is-on { background: rgba(201,97,61,.24); border-color: rgba(201,97,61,.72);
-  box-shadow: 0 0 0 1px rgba(201,97,61,.3), 0 -14px 40px -18px rgba(201,97,61,.85); }
+.scene .comm.is-on { background: rgba(42,111,168,.24); border-color: rgba(42,111,168,.72);
+  box-shadow: 0 0 0 1px rgba(42,111,168,.3), 0 -14px 40px -18px rgba(42,111,168,.85); }
 .scene .comm.is-on .comm__ico { background: rgba(255,210,150,.26); }
 .scene .comm.is-on .comm__t { color: #fff; }
 
@@ -907,7 +909,7 @@ body.hero-left .globe-stage { order: 1; }
 }
 @media (max-width: 820px) { .why-grid { grid-template-columns: 1fr; } }
 .why-card { transition: border-color 0.3s var(--ease), transform 0.3s var(--ease), box-shadow 0.3s var(--ease); }
-.why-card:hover { border-color: rgba(201,97,61,0.4); transform: translateY(-4px); box-shadow: var(--shadow-md); }
+.why-card:hover { border-color: rgba(42,111,168,0.4); transform: translateY(-4px); box-shadow: var(--shadow-md); }
 .why-card h3 { font-size: var(--fs-h4); margin-bottom: 0.5rem; }
 .why-card p { color: var(--muted); font-size: var(--fs-body-s); }
 .why-card .why-ic { color: var(--accent); margin-bottom: 1rem; transition: transform 0.3s var(--ease); }
@@ -981,7 +983,7 @@ body.hero-left .globe-stage { order: 1; }
   fill: none; stroke: var(--accent); stroke-width: 7; stroke-linecap: round;
   stroke-dasharray: 220; stroke-dashoffset: 220;
   transition: stroke-dashoffset 0.7s cubic-bezier(0.22,0.61,0.36,1);
-  filter: drop-shadow(0 0 3px rgba(201,97,61,0.35));
+  filter: drop-shadow(0 0 3px rgba(42,111,168,0.35));
 }
 .ai-ring-wrap { position: relative; width: 76px; height: 76px; flex: none; }
 .ai-ring-wrap::after {
@@ -1138,7 +1140,7 @@ body.hero-left .globe-stage { order: 1; }
    ============================================================ */
 .final-cta {
   background:
-    radial-gradient(80% 120% at 50% 0%, rgba(201,97,61,0.14), transparent 60%),
+    radial-gradient(80% 120% at 50% 0%, rgba(42,111,168,0.14), transparent 60%),
     var(--ink);
   color: #FBF7EE;
   border-radius: var(--r-xl);
@@ -1156,7 +1158,7 @@ body.hero-left .globe-stage { order: 1; }
 .final-glow {
   position: absolute; left: 50%; bottom: -42%; transform: translateX(-50%);
   width: 90%; height: 90%;
-  background: radial-gradient(circle, rgba(201,97,61,0.42), transparent 62%);
+  background: radial-gradient(circle, rgba(42,111,168,0.42), transparent 62%);
   pointer-events: none;
 }
 
@@ -1245,8 +1247,8 @@ body.hero-left .globe-stage { order: 1; }
 .netband {
   position: relative;
   background:
-    radial-gradient(75% 120% at 82% 8%, rgba(201,97,61,0.24), transparent 55%),
-    radial-gradient(60% 90% at 8% 95%, rgba(201,97,61,0.10), transparent 60%),
+    radial-gradient(75% 120% at 82% 8%, rgba(42,111,168,0.24), transparent 55%),
+    radial-gradient(60% 90% at 8% 95%, rgba(42,111,168,0.10), transparent 60%),
     #1C1B17;
   color: #F4EFE6;
   border-radius: var(--r-xl);
@@ -1268,7 +1270,7 @@ body.hero-left .globe-stage { order: 1; }
 .netband .lede { color: rgba(244,239,230,0.72); max-width: 54ch; }
 .net-chips { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1.9rem; max-width: 60ch; }
 .net-chip { font-size: var(--fs-body-s); color: #F4EFE6; border: 1px solid rgba(244,239,230,0.18); background: rgba(244,239,230,0.05); border-radius: var(--r-pill); padding: 0.45rem 0.95rem; }
-.net-chip.is-core { border-color: rgba(201,97,61,0.55); color: #fff; background: rgba(201,97,61,0.16); }
+.net-chip.is-core { border-color: rgba(42,111,168,0.55); color: #fff; background: rgba(42,111,168,0.16); }
 
 
 /* ============================================================
@@ -1391,7 +1393,7 @@ body.hero-left .globe-stage { order: 1; }
 
 .callout {
   margin: 2.4rem 0; padding: clamp(1.3rem, 3vw, 1.8rem);
-  background: var(--accent-tint); border: 1px solid rgba(201,97,61,0.22); border-radius: var(--r-lg);
+  background: var(--accent-tint); border: 1px solid rgba(42,111,168,0.22); border-radius: var(--r-lg);
 }
 .callout h4 { font-family: var(--font-body); font-weight: 600; font-size: var(--fs-body); margin-bottom: 0.5rem; color: var(--accent-hover); display: flex; align-items: center; gap: 0.5rem; }
 .callout p { font-size: var(--fs-body-s); line-height: 1.6; color: var(--ink); }
@@ -1800,3 +1802,183 @@ body.hero-left .globe-stage { order: 1; }
 .admin-pill.on { background: var(--accent-soft); color: var(--accent); }
 .admin-pill.off { background: var(--ink-08); color: var(--muted); }
 .admin-pill:hover { border-color: var(--hairline-strong); }
+
+/* ============================================================
+   ALBICELESTE v2 🇦🇷 — rebrand layer (jun 2026)
+   Sol de Mayo accents + dark-band recolor + services colonnade +
+   why-us panel + nav scrollspy + El Faro recolor. Token-driven;
+   loads last so it overrides the v1 coral rules above.
+   ============================================================ */
+
+/* ---------- logo mark — celeste strands, sun dot ---------- */
+.logo__mark rect { fill: #14202B; }
+.logo__mark path { stroke: var(--sky); }
+.logo__mark circle { fill: var(--sun); }
+
+/* ---------- dark bands — slate-blue night, sun + celeste glows ---------- */
+.netband {
+  background:
+    radial-gradient(75% 120% at 82% 8%, rgba(246, 180, 14, 0.20), transparent 55%),
+    radial-gradient(60% 90% at 8% 95%, rgba(116, 172, 223, 0.14), transparent 60%),
+    #14202B;
+}
+.net-chip.is-core { border-color: rgba(246, 180, 14, 0.55); background: rgba(246, 180, 14, 0.13); }
+.final-glow { background: radial-gradient(circle, rgba(246, 180, 14, 0.30), transparent 60%); }
+.contact-aside {
+  background:
+    radial-gradient(120% 90% at 88% -12%, rgba(246, 180, 14, 0.22), transparent 55%),
+    var(--ink);
+}
+
+/* ---------- Sol de Mayo — gold accents, used like jewelry ---------- */
+/* section eyebrow numbers turn gold — a thread of sun through the page */
+.eyebrow .num { color: var(--sun-deep); }
+.netband .eyebrow .num,
+.contact-aside .eyebrow .num,
+.final-cta .eyebrow .num,
+.scene .sc-eyebrow .num { color: var(--sun); }
+.netband .eyebrow::before { background: rgba(246, 180, 14, 0.5); }
+
+/* hero: the status dot becomes a tiny sun */
+.hero__status .pill .dot { background: var(--sun); box-shadow: 0 0 0 3px rgba(246, 180, 14, 0.18); }
+
+/* stats band: a gold tick under each number */
+.stat__n::after {
+  content: ""; display: block; width: 1.6rem; height: 2px;
+  margin-top: 0.85rem; background: var(--sun); border-radius: 1px;
+}
+
+/* the Sol de Mayo emblem (final CTA) */
+.sol {
+  width: 58px; height: 58px; display: block;
+  margin: 0 auto 1.4rem; position: relative;
+  color: var(--sun);
+  filter: drop-shadow(0 0 18px rgba(246, 180, 14, 0.55));
+}
+.sol .rays { transform-origin: 32px 32px; }
+@media (prefers-reduced-motion: no-preference) { .sol .rays { animation: solSpin 90s linear infinite; } }
+@keyframes solSpin { to { transform: rotate(360deg); } }
+
+/* ---------- NAV — scrollspy current state (our active class = .is-active) ---------- */
+.nav__links a { position: relative; padding-bottom: 2px; }
+.nav__links a::after {
+  content: ""; position: absolute; left: 0; right: 100%; bottom: -4px;
+  height: 1.5px; background: var(--accent);
+  transition: right 0.4s var(--ease);
+}
+.nav__links a.is-active { color: var(--accent); opacity: 1; }
+.nav__links a.is-active::after { right: 0; }
+
+/* ============================================================
+   SERVICES — colonnade (replaces 2x2 cards)
+   ============================================================ */
+.pillars-v2 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border-block: 1px solid var(--hairline);
+  margin-top: clamp(2.5rem, 5vw, 3.5rem);
+}
+.pcol {
+  position: relative;
+  padding: clamp(1.7rem, 2.6vw, 2.4rem) clamp(1.1rem, 2vw, 1.7rem) clamp(1.9rem, 3vw, 2.7rem);
+  border-left: 1px solid var(--hairline);
+  transition: background 0.5s var(--ease);
+}
+.pcol:first-child { border-left: 0; }
+.pcol::after {
+  content: ""; position: absolute; top: -1px; left: 0; right: 0; height: 2px;
+  background: var(--accent);
+  transform: scaleX(0); transform-origin: left;
+  transition: transform 0.55s var(--ease);
+}
+.pcol:hover { background: var(--surface); }
+.pcol:hover::after { transform: scaleX(1); }
+.pcol__top {
+  display: flex; align-items: flex-start; justify-content: space-between; gap: 0.8rem;
+  margin-bottom: clamp(2rem, 4vw, 3.2rem);
+}
+.pcol__ic {
+  width: 46px; height: 46px; border-radius: var(--r-md);
+  display: grid; place-items: center;
+  background: var(--accent-soft); color: var(--accent);
+  transition: background 0.4s var(--ease), color 0.4s var(--ease);
+}
+.pcol:hover .pcol__ic { background: var(--accent); color: #FBF7EE; }
+.pcol__ic svg { width: 24px; height: 24px; }
+.pcol__no {
+  font-family: var(--font-display);
+  font-size: 1.05rem; line-height: 1;
+  color: var(--muted); font-variant-numeric: tabular-nums;
+  padding-top: 0.2rem;
+}
+.pcol h3 { font-size: var(--fs-h4); margin-bottom: 0.5rem; }
+.pcol p { color: var(--muted); font-size: var(--fs-body-s); text-wrap: pretty; }
+@media (max-width: 1000px) {
+  .pillars-v2 { grid-template-columns: 1fr 1fr; }
+  .pcol:nth-child(odd) { border-left: 0; }
+  .pcol:nth-child(n+3) { border-top: 1px solid var(--hairline); }
+}
+@media (max-width: 560px) {
+  .pillars-v2 { grid-template-columns: 1fr; }
+  .pcol { border-left: 0; }
+  .pcol:nth-child(n+2) { border-top: 1px solid var(--hairline); }
+}
+
+/* ============================================================
+   WHY US — one panel, three columns, facts strip
+   ============================================================ */
+.why-panel {
+  margin-top: clamp(2.5rem, 5vw, 3.5rem);
+  background: var(--surface-pure);
+  border: 1px solid var(--hairline);
+  border-radius: var(--r-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+.why-cols { display: grid; grid-template-columns: repeat(3, 1fr); }
+.why-col { padding: clamp(1.7rem, 3vw, 2.5rem); border-left: 1px solid var(--hairline); }
+.why-col:first-child { border-left: 0; }
+.why-col .why-ic {
+  width: 46px; height: 46px; border-radius: var(--r-md);
+  display: grid; place-items: center;
+  background: var(--accent-soft); color: var(--accent);
+  margin-bottom: 1.3rem;
+}
+.why-col .why-ic svg { width: 24px; height: 24px; }
+.why-col h3 { font-size: var(--fs-h4); margin-bottom: 0.5rem; }
+.why-col p { color: var(--muted); font-size: var(--fs-body-s); }
+.why-facts {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  border-top: 1px solid var(--hairline);
+  background: var(--surface);
+}
+.why-fact {
+  display: flex; align-items: center; gap: 0.65rem;
+  padding: 1rem clamp(1.7rem, 3vw, 2.5rem);
+  font-size: var(--fs-body-s); color: var(--muted);
+  border-left: 1px solid var(--hairline);
+}
+.why-fact:first-child { border-left: 0; }
+.why-fact::before {
+  content: ""; width: 6px; height: 6px; border-radius: 50%;
+  background: var(--sun); flex: none;
+}
+@media (max-width: 820px) {
+  .why-cols { grid-template-columns: 1fr; }
+  .why-col { border-left: 0; border-top: 1px solid var(--hairline); }
+  .why-col:first-child { border-top: 0; }
+  .why-facts { grid-template-columns: 1fr; }
+  .why-fact { border-left: 0; border-top: 1px solid var(--hairline); }
+  .why-fact:first-child { border-top: 0; }
+}
+
+/* ============================================================
+   EL FARO — recolor to moonlit steel-blue + celeste chrome.
+   The beam stays a golden dusk (the sun over the land); only the
+   map tone, index card and chips follow the celeste theme.
+   ============================================================ */
+.scene .map__img { filter: saturate(0.75) hue-rotate(170deg) brightness(1.04); }
+.scene .map__tone { background: radial-gradient(60% 60% at 50% 75%, rgba(116, 172, 223, 0.30), transparent 70%); }
+.scene .chip { border-color: rgba(116, 172, 223, 0.45); }
+.scene .comm.is-index { border-color: rgba(116, 172, 223, 0.55); background: rgba(116, 172, 223, 0.14); }
+.scene .comm.is-index .comm__ico { background: rgba(116, 172, 223, 0.26); color: #fff; }

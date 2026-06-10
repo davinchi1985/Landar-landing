@@ -10,7 +10,7 @@ export default function Image() {
     (
       <div
         style={{
-          background: "#F0EEE6",
+          background: "#F0F4F7",
           width: "100%",
           height: "100%",
           display: "flex",
@@ -23,16 +23,16 @@ export default function Image() {
       >
         {/* Logo */}
         <div style={{ display: "flex", alignItems: "baseline", marginBottom: 28 }}>
-          <span style={{ fontSize: 70, fontWeight: 500, color: "#1C1B17", letterSpacing: "-3px" }}>
+          <span style={{ fontSize: 70, fontWeight: 500, color: "#16242E", letterSpacing: "-3px" }}>
             Inteligenci
           </span>
-          <span style={{ fontSize: 70, fontWeight: 700, color: "#C9613D", letterSpacing: "-2px" }}>
+          <span style={{ fontSize: 70, fontWeight: 700, color: "#2A6FA8", letterSpacing: "-2px" }}>
             ·AR
           </span>
         </div>
 
         {/* Tagline */}
-        <div style={{ fontSize: 34, color: "#1C1B17", lineHeight: 1.35, maxWidth: 760, letterSpacing: "-1px" }}>
+        <div style={{ fontSize: 34, color: "#16242E", lineHeight: 1.35, maxWidth: 760, letterSpacing: "-1px" }}>
           Set up your AI-entity in Argentina — and land, operate and export from Buenos Aires.
         </div>
 
@@ -44,8 +44,8 @@ export default function Image() {
               style={{
                 padding: "10px 20px",
                 borderRadius: 999,
-                border: "1px solid rgba(201,97,61,0.45)",
-                color: "#C9613D",
+                border: "1px solid rgba(42,111,168,0.45)",
+                color: "#2A6FA8",
                 fontSize: 18,
                 display: "flex",
                 fontFamily: "sans-serif",
@@ -57,7 +57,7 @@ export default function Image() {
         </div>
 
         {/* Domain */}
-        <div style={{ marginTop: 48, fontSize: 16, color: "#6E6A60", fontFamily: "sans-serif" }}>
+        <div style={{ marginTop: 48, fontSize: 16, color: "#5F6E7A", fontFamily: "sans-serif" }}>
           inteligenci.ar
         </div>
       </div>

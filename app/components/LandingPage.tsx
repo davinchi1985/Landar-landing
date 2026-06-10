@@ -541,11 +541,11 @@ export default function LandingPage() {
   const Logo = () => (
     <a className="logo" href="#top" aria-label="Inteligenci·AR — home">
       <svg viewBox="0 0 26 26" className="logo__mark" aria-hidden="true">
-        <rect width="26" height="26" rx="7" fill="#1C1B17" />
-        <path d="M5.5 7.5 Q13 13.5 13 17.8" fill="none" stroke="#C9613D" strokeWidth="1.4" strokeLinecap="round" opacity="0.85" />
-        <path d="M20.5 7.5 Q13 13.5 13 17.8" fill="none" stroke="#C9613D" strokeWidth="1.4" strokeLinecap="round" opacity="0.85" />
-        <path d="M13 4.6 Q13 11 13 17.8" fill="none" stroke="#C9613D" strokeWidth="1.4" strokeLinecap="round" opacity="0.5" />
-        <circle cx="13" cy="18" r="2.1" fill="#C9613D" />
+        <rect width="26" height="26" rx="7" fill="#14202B" />
+        <path d="M5.5 7.5 Q13 13.5 13 17.8" fill="none" stroke="#74ACDF" strokeWidth="1.4" strokeLinecap="round" opacity="0.85" />
+        <path d="M20.5 7.5 Q13 13.5 13 17.8" fill="none" stroke="#74ACDF" strokeWidth="1.4" strokeLinecap="round" opacity="0.85" />
+        <path d="M13 4.6 Q13 11 13 17.8" fill="none" stroke="#74ACDF" strokeWidth="1.4" strokeLinecap="round" opacity="0.5" />
+        <circle cx="13" cy="18" r="2.1" fill="#F6B40E" />
       </svg>
       <span className="logo__word">Inteligenci<span className="ar">·AR</span></span>
     </a>
@@ -716,16 +716,18 @@ export default function LandingPage() {
               <span className="eyebrow"><span className="num">02</span> <span>{tr("services.eyebrow")}</span></span>
               <h2 style={{ marginTop: "1.2rem" }}>{tr("services.h2")}</h2>
             </div>
-            <div className="pillars">
+            <div className="pillars-v2">
               {[
                 { no: "01", d: ".0s", icon: <path d="M6 3h9l3 3v15H6z" />, extra: <path d="M9 9h6M9 13h6M9 17h3" /> },
                 { no: "02", d: ".06s", icon: <path d="M3 10l9-5 9 5" />, extra: <path d="M5 10v8M19 10v8M9 10v8M15 10v8M3 21h18" /> },
                 { no: "03", d: ".12s", icon: <path d="M6 3h12v18l-3-2-3 2-3-2-3 2z" />, extra: <path d="M9 8h6M9 12h6" /> },
                 { no: "04", d: ".18s", icon: <><circle cx="9" cy="8" r="3" /><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6" /></>, extra: <path d="M16 5.5a3 3 0 010 5M18 14c2.2.7 3.5 2.6 3.5 4.8" /> },
               ].map((p, i) => (
-                <article className="card pillar reveal" key={p.no} style={{ ["--reveal-delay" as string]: p.d }}>
-                  <span className="pillar__no">{p.no}</span>
-                  <div className="pillar__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.6}>{p.icon}{p.extra}</svg></div>
+                <article className="pcol reveal" key={p.no} style={{ ["--reveal-delay" as string]: p.d }}>
+                  <div className="pcol__top">
+                    <div className="pcol__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.6}>{p.icon}{p.extra}</svg></div>
+                    <span className="pcol__no">{p.no}</span>
+                  </div>
                   <h3>{tr(`services.p${i + 1}.t`)}</h3>
                   <p>{tr(`services.p${i + 1}.d`)}</p>
                 </article>
@@ -792,11 +794,11 @@ export default function LandingPage() {
                         <stop offset="1" stopColor="#c4b9a4" />
                       </linearGradient>
                       <linearGradient id="bd" x1="0" y1="0" x2="1" y2="0">
-                        <stop offset="0" stopColor="#a84a28" /><stop offset="0.5" stopColor="#cf6a44" /><stop offset="1" stopColor="#a3492a" />
+                        <stop offset="0" stopColor="#226092" /><stop offset="0.5" stopColor="#4A93CE" /><stop offset="1" stopColor="#1F5884" />
                       </linearGradient>
                       <radialGradient id="ln" cx="0.5" cy="0.5" r="0.5">
                         <stop offset="0" stopColor="#fff3df" /><stop offset="0.45" stopColor="#ffd9a8" />
-                        <stop offset="0.78" stopColor="#C9613D" /><stop offset="1" stopColor="#C9613D" stopOpacity="0" />
+                        <stop offset="0.78" stopColor="#E0903C" /><stop offset="1" stopColor="#E0903C" stopOpacity="0" />
                       </radialGradient>
                     </defs>
                     <ellipse cx="60" cy="176" rx="30" ry="4" fill="#000" opacity="0.18" />
@@ -812,7 +814,7 @@ export default function LandingPage() {
                     <circle cx="60" cy="36" r="3.6" fill="#fff1d8" />
                     <rect x="44" y="25" width="32" height="2.6" rx="1.3" fill="#26221c" />
                     <path d="M47 26 Q60 8 73 26 Z" fill="#2a2620" />
-                    <circle cx="60" cy="6" r="2.4" fill="#C9613D" />
+                    <circle cx="60" cy="6" r="2.4" fill="#F6B40E" />
                     <rect x="59" y="6" width="2" height="7" fill="#2a2620" />
                   </svg>
                 </div>
@@ -881,22 +883,25 @@ export default function LandingPage() {
               <span className="eyebrow"><span className="num">05</span> <span>{tr("why.eyebrow")}</span></span>
               <h2 style={{ marginTop: "1.2rem" }}>{tr("why.h2")}</h2>
             </div>
-            <div className="why-grid">
-              {[
-                { icon: <><circle cx="12" cy="8" r="3.2" /><path d="M5 20c0-3.9 3.1-7 7-7s7 3.1 7 7" /></> },
-                { icon: <><circle cx="6" cy="6" r="2.4" /><circle cx="18" cy="6" r="2.4" /><circle cx="12" cy="18" r="2.4" /><path d="M7.5 7.5L11 15.5M16.5 7.5L13 15.5M8 6h8" /></> },
-                { icon: <><path d="M12 3l7 3v5c0 4.5-3 8.3-7 10-4-1.7-7-5.5-7-10V6z" /><path d="M9 12l2 2 4-4" /></> },
-              ].map((c, i) => (
-                <article className="card why-card reveal" key={i} style={{ ["--reveal-delay" as string]: `.${i * 8}s` }}>
-                  <div className="why-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.6}>{c.icon}</svg></div>
-                  <h3>{tr(`why.c${i + 1}.t`)}</h3><p>{tr(`why.c${i + 1}.d`)}</p>
-                </article>
-              ))}
-            </div>
-            <div className="reveal" style={{ marginTop: "2rem", display: "flex", flexWrap: "wrap", gap: "0.6rem" }}>
-              <span className="pill">{tr("why.t1")}</span>
-              <span className="pill">{tr("why.t2")}</span>
-              <span className="pill">{tr("why.t3")}</span>
+            <div className="why-panel reveal">
+              <div className="why-cols">
+                {[
+                  { icon: <><circle cx="12" cy="8" r="3.2" /><path d="M5 20c0-3.9 3.1-7 7-7s7 3.1 7 7" /></> },
+                  { icon: <><circle cx="6" cy="6" r="2.4" /><circle cx="18" cy="6" r="2.4" /><circle cx="12" cy="18" r="2.4" /><path d="M7.5 7.5L11 15.5M16.5 7.5L13 15.5M8 6h8" /></> },
+                  { icon: <><path d="M12 3l7 3v5c0 4.5-3 8.3-7 10-4-1.7-7-5.5-7-10V6z" /><path d="M9 12l2 2 4-4" /></> },
+                ].map((c, i) => (
+                  <div className="why-col" key={i}>
+                    <div className="why-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.6}>{c.icon}</svg></div>
+                    <h3>{tr(`why.c${i + 1}.t`)}</h3>
+                    <p>{tr(`why.c${i + 1}.d`)}</p>
+                  </div>
+                ))}
+              </div>
+              <div className="why-facts">
+                <div className="why-fact">{tr("why.t1")}</div>
+                <div className="why-fact">{tr("why.t2")}</div>
+                <div className="why-fact">{tr("why.t3")}</div>
+              </div>
             </div>
           </div>
         </section>
@@ -1035,6 +1040,28 @@ export default function LandingPage() {
           <div className="wrap">
             <div className="final-cta reveal">
               <div className="final-glow" aria-hidden="true"></div>
+              <svg className="sol" viewBox="0 0 64 64" aria-hidden="true" fill="currentColor">
+                <g className="rays">
+                  <g stroke="currentColor" strokeWidth={1.6} strokeLinecap="round" fill="none">
+                    <path d="M32 7 C34 10.5, 30 13, 32 16.5" />
+                    <path d="M57 32 C53.5 34, 51 30, 47.5 32" />
+                    <path d="M32 57 C30 53.5, 34 51, 32 47.5" />
+                    <path d="M7 32 C10.5 30, 13 34, 16.5 32" />
+                  </g>
+                  <g>
+                    {[22.5, 67.5, 112.5, 157.5, 202.5, 247.5, 292.5, 337.5].map((deg) => (
+                      <path d="M32 2 L34.3 14 L29.7 14 Z" transform={`rotate(${deg} 32 32)`} key={deg} />
+                    ))}
+                  </g>
+                  <g stroke="currentColor" strokeWidth={1.6} strokeLinecap="round" fill="none">
+                    {[45, 135, 225, 315].map((deg) => (
+                      <path d="M32 7 C34 10.5, 30 13, 32 16.5" transform={`rotate(${deg} 32 32)`} key={deg} />
+                    ))}
+                  </g>
+                </g>
+                <circle cx="32" cy="32" r="10" />
+                <circle cx="32" cy="32" r="6.5" fill="#FFE9B0" />
+              </svg>
               <span className="eyebrow" style={{ color: "rgba(251,247,238,0.6)", position: "relative" }}>{tr("final.eyebrow")}</span>
               <h2 style={{ marginTop: "1.2rem", position: "relative" }}>{tr("final.h2")}</h2>
               <p className="lede">{tr("final.lede")}</p>
