@@ -1716,7 +1716,7 @@ body.hero-left .globe-stage { order: 1; }
 }
 .radar-freedom__lead h2 em { font-style: italic; color: var(--accent); }
 .radar-freedom__stats {
-  display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.4rem;
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 1.4rem;
 }
 @media (max-width: 640px) { .radar-freedom__stats { grid-template-columns: 1fr; gap: 1rem; } }
 .radar-freedom__stat {
@@ -1732,6 +1732,7 @@ body.hero-left .globe-stage { order: 1; }
   display: flex; gap: 0.5rem; align-items: baseline; flex-wrap: wrap;
 }
 .radar-freedom__up { color: var(--accent); font-weight: 600; }
+.radar-freedom__srcs { display: flex; flex-wrap: wrap; gap: 0.4rem 1.4rem; }
 .radar-freedom__src {
   font-size: 0.76rem; color: rgba(251, 247, 238, 0.5); justify-self: start;
 }
