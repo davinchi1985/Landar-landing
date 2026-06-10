@@ -72,6 +72,198 @@ export const TIPO_LABEL: Record<TipoOportunidad, string> = {
 export const tandas: Tanda[] = [
   {
     fuente: {
+      tipo: "curaduria",
+      titulo:
+        "Tanda desregulación junio 2026 — Boletín Oficial y prensa económica",
+      canal:
+        "Ministerio de Desregulación y Transformación del Estado / Boletín Oficial",
+      fecha_publicacion: "2026-06-09",
+      ingesta_fecha: "2026-06-10",
+    },
+    medidas: [
+      {
+        id: "derogacion-58-normas-comercio-2026",
+        titulo: "Derogación de 58 normas de comercio, industria e importación",
+        sector: "comercio_interior",
+        organismo_afectado:
+          "Secretaría de Coordinación de Producción / Ministerio de Economía",
+        instrumento: "Resolución 12/2026 (Secretaría de Coordinación de Producción)",
+        estado: "vigente",
+        fecha: "2026-06-09",
+        resumen:
+          "Deroga 58 resoluciones y disposiciones de comercio, industria, importaciones y programas de consumo por considerarlas sin vigencia ni sustento jurídico tras las reformas de la gestión.",
+        que_cambia: [
+          "Deroga 30 normas de Ahora 12 / Cuota Simple y la Resolución 355/2022 (Precios Cuidados) con sus 19 modificatorias",
+          "Deroga 22 regulaciones del Fondo Estabilizador del Trigo Argentino (FETA)",
+          "Deroga las Resoluciones 254/2019 y 43/2022 sobre autorizaciones de importación",
+          "Elimina la obligación de los colegios privados de informar aranceles por anticipado (Res. 368/2025)",
+        ],
+        oportunidades: [
+          {
+            titulo: "Menos fricción para importar y comerciar",
+            descripcion:
+              "Caen autorizaciones previas y esquemas de control de precios que encarecían y trababan la operación cotidiana.",
+            tipo: "negocio",
+            perfil: "comercio / importacion",
+          },
+        ],
+        tags: ["derogacion", "comercio", "importacion", "precios", "ley-hojarasca"],
+        fuentes: [
+          {
+            medio: "BAE Negocios",
+            url: "https://www.baenegocios.com/politica/el-gobierno-derogo-58-normas-comerciales-mientras-avanza-la-ley-hojarasca/",
+          },
+          {
+            medio: "Ámbito",
+            url: "https://www.ambito.com/economia/el-gobierno-profundiza-la-desregulacion-consumo-e-industria-y-deroga-16-resoluciones-economicas-cuales-son-y-que-cambia-partir-hoy-n6286638",
+          },
+          {
+            medio: "La Nación",
+            url: "https://www.lanacion.com.ar/economia/el-gobierno-derogo-16-resoluciones-del-ministerio-de-economia-de-ahora-12-al-fondo-estabilizador-del-nid09062026/",
+          },
+        ],
+      },
+      {
+        id: "ley-hojarasca-2026",
+        titulo: "Ley Hojarasca: derogación de más de 70 leyes obsoletas",
+        sector: "marco_normativo",
+        organismo_afectado: "Congreso de la Nación / leyes en desuso",
+        instrumento: "Proyecto de ley (con media sanción de Diputados)",
+        estado: "en_proceso",
+        fecha: "2026-06",
+        resumen:
+          "Proyecto elaborado por el Ministerio de Desregulación para eliminar más de 70 leyes consideradas obsoletas. Cuenta con media sanción de la Cámara de Diputados y se debate en el Senado.",
+        que_cambia: [
+          "Propone derogar más de 70 leyes consideradas obsoletas",
+          "Ya tiene media sanción de la Cámara de Diputados",
+          "En tratamiento en el Senado",
+        ],
+        oportunidades: [
+          {
+            titulo: "Marco legal más simple y previsible",
+            descripcion:
+              "La limpieza de leyes en desuso reduce zonas grises e incertidumbre regulatoria para operar.",
+            tipo: "contenido",
+            perfil: "regulatorio",
+          },
+        ],
+        tags: ["ley-hojarasca", "derogacion", "congreso", "simplificacion"],
+        fuentes: [
+          {
+            medio: "InfoRegión",
+            url: "https://www.inforegion.com.ar/2026/06/09/desregulacion-del-gobierno-eliminan-58-normas-y-avanzan-con-la-ley-hojarasca/",
+          },
+          {
+            medio: "El Cronista",
+            url: "https://www.cronista.com/economia-politica/sturzenegger-acelera-su-agenda-de-desregulacion-y-lleva-la-ley-hojarasca-al-recinto/",
+          },
+        ],
+      },
+      {
+        id: "anmat-productos-medicos-2026",
+        titulo: "Desregulación de la importación de productos médicos de bajo riesgo",
+        sector: "salud_dispositivos",
+        organismo_afectado: "ANMAT",
+        instrumento: "Medida administrativa (anuncio) — vigencia 24 jul 2026",
+        estado: "anunciado",
+        fecha: "2026-06",
+        resumen:
+          "El Gobierno anunció la desregulación de la importación de productos médicos considerados de bajo riesgo, con entrada en vigencia el 24 de julio de 2026.",
+        que_cambia: [
+          "Alcanza productos de bajo riesgo: termómetros, jeringas estériles, agujas, tensiómetros, vendas, gasas y desinfectantes de lentes",
+          "Agiliza la importación y apunta a reducir el costo de estos insumos",
+          "Entra en vigencia el 24 de julio de 2026",
+        ],
+        oportunidades: [
+          {
+            titulo: "Importación y distribución de dispositivos médicos de bajo riesgo",
+            descripcion:
+              "Menos trámites para traer e introducir insumos médicos de uso masivo al mercado argentino.",
+            tipo: "negocio",
+            perfil: "salud / importacion",
+          },
+        ],
+        tags: ["anmat", "salud", "dispositivos-medicos", "importacion"],
+        fuentes: [
+          {
+            medio: "Página/12",
+            url: "https://www.pagina12.com.ar/837073-anmat-desregula-la-importacion-de-productos-medicos-consider",
+          },
+        ],
+      },
+      {
+        id: "cabotaje-maritimo-2026",
+        titulo: "Apertura del cabotaje marítimo a buques de bandera extranjera",
+        sector: "transporte_maritimo",
+        organismo_afectado: "Reserva de bandera / marina mercante",
+        instrumento: "Proyecto en preparación (aún no enviado al Congreso)",
+        estado: "proyecto",
+        fecha: "2026-06",
+        resumen:
+          "Proyecto en preparación en el Ministerio de Desregulación para flexibilizar el cabotaje nacional y abrir la navegación de los ríos y mares argentinos.",
+        que_cambia: [
+          "Habilitaría a buques de bandera extranjera a operar hasta 90 días en rutas de cabotaje",
+          "Condición: la tripulación debería ser obligatoriamente del Mercosur",
+          "Flexibiliza la reserva de bandera vigente (hoy exige embarcaciones de matrícula nacional)",
+        ],
+        oportunidades: [
+          {
+            titulo: "Menor costo logístico fluvial y marítimo",
+            descripcion:
+              "La apertura del cabotaje a operadores extranjeros puede bajar costos de transporte para cargas y exportación.",
+            tipo: "negocio",
+            perfil: "logistica / exportacion",
+          },
+        ],
+        tags: ["cabotaje", "marina-mercante", "logistica", "exportacion", "mercosur"],
+        fuentes: [
+          {
+            medio: "El Cronista",
+            url: "https://www.cronista.com/economia-politica/marina-mercante-las-advertencias-del-sector-sobre-la-desregulacion-que-prepara-sturzenegger/",
+          },
+        ],
+      },
+      {
+        id: "importacion-maquinaria-usada-2026",
+        titulo: "Importación de maquinaria y equipos usados sin restricciones",
+        sector: "bienes_de_capital",
+        organismo_afectado: "Aduana / Certificado de Importación de Bienes Usados (CIBU)",
+        instrumento: "Decreto 273/2025 (vigente) — con dictamen de comisión que busca derogarlo",
+        estado: "vigente",
+        fecha: "2025",
+        resumen:
+          "El Decreto 273/2025 permite importar maquinaria y equipos usados sin restricciones y eliminó el Certificado de Importación de Bienes Usados (CIBU). En Diputados hay un dictamen de comisión que propone derogarlo: hay riesgo de reversión.",
+        que_cambia: [
+          "Permite importar maquinaria y equipos usados sin restricciones",
+          "Elimina el Certificado de Importación de Bienes Usados (CIBU)",
+          "Beneficia a PYMES y contratistas que renuevan un parque tecnológico obsoleto",
+          "Atención: hay un dictamen de comisión en Diputados que propone derogarlo (no firme)",
+        ],
+        oportunidades: [
+          {
+            titulo: "Acceso a maquinaria y tecnología usada importada",
+            descripcion:
+              "Modernización de equipos a menor costo para PYMES e industria que requieren tecnología no producida localmente.",
+            tipo: "inversion",
+            perfil: "industria / pymes",
+          },
+        ],
+        tags: ["maquinaria-usada", "cibu", "bienes-de-capital", "pymes", "importacion"],
+        fuentes: [
+          {
+            medio: "HCDN (Cámara de Diputados)",
+            url: "https://www.hcdn.gob.ar/prensa/noticia/DICTAMEN-FAVORABLE-A-LA-DEROGACION-DE-IMPORTACIONES-IRRESTRICTAS-DE-MAQUINARIAS-USADAS/",
+          },
+          {
+            medio: "AFoA",
+            url: "https://afoa.org.ar/afoa-solicita-al-congreso-mantener-la-desregulacion-de-la-importacion-de-bienes-usados-para-sostener-la-modernizacion-tecnologica-de-las-pymes/",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    fuente: {
       tipo: "entrevista",
       titulo:
         "Entrevista al Ministro Sturzenegger en Neura Media (programa ArgenData)",
@@ -156,15 +348,18 @@ export const tandas: Tanda[] = [
         id: "pilas-baterias-2026",
         titulo: "Liberación de importación de pilas y baterías",
         sector: "importacion_electronica",
-        organismo_afectado: "Secretaría de Comercio / certificación local",
-        instrumento: "Medida administrativa",
-        estado: "anunciado",
+        organismo_afectado:
+          "Secretaría de Turismo y Ambiente / Secretaría de Coordinación de Producción",
+        instrumento: "Resolución Conjunta 1/2026 (publicada en el Boletín Oficial)",
+        estado: "vigente",
         fecha: "2026-06-05",
         resumen:
-          "Elimina requisitos burocráticos para importar y comercializar pilas y baterías; reconoce estándares internacionales en vez de exigir certificación local.",
+          "Elimina las autorizaciones previas para importar y comercializar pilas y baterías y reconoce certificaciones internacionales en vez de exigir certificación local redundante.",
         que_cambia: [
-          "Reconoce estándares de EE.UU., Europa y Japón como válidos",
-          "Quita certificaciones locales redundantes",
+          "Desaparecen las autorizaciones previas para importar y comercializar",
+          "El cumplimiento se acredita por declaración jurada de conformidad + informes de ensayo o certificación internacional",
+          "Reconoce la validez de certificaciones de organismos técnicos extranjeros habilitados",
+          "Todos los trámites pasan a ser digitales vía Trámites a Distancia (TAD)",
           "Abarata juguetes, relojes y electrónica de consumo cotidiana",
         ],
         oportunidades: [
@@ -186,6 +381,10 @@ export const tandas: Tanda[] = [
           {
             medio: "El Economista",
             url: "https://eleconomista.com.ar/economia/otro-kiosko-va-nueva-desregulacion-anuncio-sturzenegger-n95543",
+          },
+          {
+            medio: "Infobae",
+            url: "https://www.infobae.com/economia/2026/06/05/el-gobierno-elimino-tramites-y-flexibilizo-la-importacion-de-pilas-y-baterias-como-funciona-el-nuevo-regimen/",
           },
         ],
       },
@@ -298,11 +497,12 @@ export const tandas: Tanda[] = [
         estado: "anunciado",
         fecha: "2026-05",
         resumen:
-          "Cambios en la Ley de Semillas para mejorar productividad agropecuaria, con foco en biotecnología y propiedad intelectual de semillas. Objetivo declarado: duplicar producción.",
+          "Cambios en la Ley de Semillas para mejorar productividad agropecuaria, con foco en biotecnología y propiedad intelectual de semillas. Objetivo declarado: duplicar producción. En junio 2026 se sumó un nuevo protocolo de control de identidad varietal en grano para acercar al país a la 'frontera tecnológica'.",
         que_cambia: [
           "Transformación del INASE",
           "Mayor protección de PI en semillas",
           "Marco para biotecnología agrícola",
+          "Nuevo protocolo de control de identidad varietal en grano (jun 2026)",
         ],
         oportunidades: [
           {
@@ -318,6 +518,10 @@ export const tandas: Tanda[] = [
           {
             medio: "El Liberal",
             url: "https://www.elliberal.com.ar/nota/79850/2026/05/sturzenegger-anuncio-cambios-en-la-ley-de-semillas-y-apunto-a-duplicar-la-produccion-agropecuaria",
+          },
+          {
+            medio: "La Nación",
+            url: "https://www.lanacion.com.ar/economia/campo/deuda-historica-sturzenegger-defendio-el-nuevo-protocolo-de-control-de-semillas-y-revelo-que-pidio-nid08062026/",
           },
         ],
       },
