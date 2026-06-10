@@ -129,21 +129,30 @@ export default function LandingPage() {
     if (aiScore >= 100 && !aiFired.current) { aiFired.current = true; track("ai_ready"); }
   }, [aiScore]);
 
-  // close dropdowns on outside click / escape
+  // close dropdowns on outside click / escape.
+  // NOTE: ignore clicks that originate inside a .lang menu — React 19 delegates
+  // its synthetic events on `document`, so e.stopPropagation() in JSX can't stop
+  // this sibling native listener; without the closest() guard the menu would
+  // open and close on the very same click (the "languages don't work" bug).
   useEffect(() => {
     const close = () => { setLangOpen(false); setLangFooterOpen(false); };
+    const onDocClick = (e: MouseEvent) => {
+      if ((e.target as Element)?.closest?.(".lang")) return;
+      close();
+    };
     const onKey = (e: KeyboardEvent) => { if (e.key === "Escape") close(); };
-    document.addEventListener("click", close);
+    document.addEventListener("click", onDocClick);
     document.addEventListener("keydown", onKey);
-    return () => { document.removeEventListener("click", close); document.removeEventListener("keydown", onKey); };
+    return () => { document.removeEventListener("click", onDocClick); document.removeEventListener("keydown", onKey); };
   }, []);
 
-  // scroll reveal + timeline + faro (DOM-driven; classes persist across re-renders
-  // because the className prop of these nodes never changes)
+  // scroll reveal + timeline (IntersectionObserver-driven — fires reliably no
+  // matter how an element enters the viewport: scroll, anchor jump, resize or
+  // programmatic. No scroll listener → lighter main thread. Content is visible
+  // by default; JS only arms below-the-fold nodes, which then animate in.)
   useEffect(() => {
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const reveals = Array.from(document.querySelectorAll<HTMLElement>(".reveal"));
-    const armed: HTMLElement[] = [];
     const vh = () => window.innerHeight || document.documentElement.clientHeight;
 
     function animateTimeline() {
@@ -152,32 +161,32 @@ export default function LandingPage() {
       if (fill) requestAnimationFrame(() => { (fill as HTMLElement).style.width = "100%"; });
       nodes.forEach((n, i) => setTimeout(() => n.classList.add("is-on"), reduce ? 0 : 220 + i * 260));
     }
-    function handleTrigger(el: HTMLElement) {
+    function trigger(el: HTMLElement) {
+      el.classList.remove("is-armed");
       if (el.id === "timeline") animateTimeline();
     }
+
+    // Above-the-fold content shows immediately; only arm what's below it.
+    const armed: HTMLElement[] = [];
     reveals.forEach((el) => {
-      const r = el.getBoundingClientRect();
-      if (r.top >= vh() * 0.88) { el.classList.add("is-armed"); armed.push(el); }
-      else handleTrigger(el);
-    });
-    function check() {
-      for (let i = armed.length - 1; i >= 0; i--) {
-        const el = armed[i], r = el.getBoundingClientRect();
-        if (r.top < vh() * 0.88 && r.bottom > 0) {
-          el.classList.remove("is-armed");
-          handleTrigger(el);
-          armed.splice(i, 1);
-        }
+      if (!reduce && el.getBoundingClientRect().top >= vh() * 0.9) {
+        el.classList.add("is-armed");
+        armed.push(el);
+      } else {
+        trigger(el);
       }
-    }
-    window.addEventListener("scroll", check, { passive: true });
-    window.addEventListener("resize", check);
-    const ti = setTimeout(check, 120);
-    return () => {
-      window.removeEventListener("scroll", check);
-      window.removeEventListener("resize", check);
-      clearTimeout(ti);
-    };
+    });
+    if (!armed.length) return;
+    if (reduce || !("IntersectionObserver" in window)) { armed.forEach(trigger); return; }
+
+    const io = new IntersectionObserver(
+      (entries) => entries.forEach((e) => {
+        if (e.isIntersecting) { trigger(e.target as HTMLElement); io.unobserve(e.target); }
+      }),
+      { rootMargin: "0px 0px -10% 0px", threshold: 0.01 }
+    );
+    armed.forEach((el) => io.observe(el));
+    return () => io.disconnect();
   }, []);
 
   // EL FARO — "El Faro del Fin del Mundo": a lighthouse beam sweeps the relief
@@ -353,7 +362,11 @@ export default function LandingPage() {
     function onTf(e: Event) {
       const b = (e.target as HTMLElement).closest("button[data-tf]"); if (!b) return;
       tfIdx = parseInt(b.getAttribute("data-tf") || "0", 10);
-      tfEl!.querySelectorAll("button").forEach((x) => x.classList.toggle("is-sel", x === b));
+      tfEl!.querySelectorAll("button").forEach((x) => {
+        const on = x === b;
+        x.classList.toggle("is-sel", on);
+        x.setAttribute("aria-pressed", String(on));
+      });
       applyTF();
     }
     tfEl.addEventListener("click", onTf);
@@ -626,8 +639,11 @@ export default function LandingPage() {
             <Globe />
           </div>
 
-          <div className="trade-box is-out" id="tradeBox" role="button" tabIndex={0} aria-label="Live Argentina trade — drag to move">
-            <span className="tb-grip" aria-hidden="true"><i></i><i></i></span>
+          {/* Decorative live-trade ticker — a mouse shortcut into the Export section.
+              Hidden from AT (the hero "Export to the world" link reaches the same place),
+              so no role/tabindex and no name/content mismatch. */}
+          <div className="trade-box is-out" id="tradeBox" aria-hidden="true">
+            <span className="tb-grip"><i></i><i></i></span>
             <div className="tb-top">
               <span className="tb-live"><span className="tb-dot"></span>Live · Argentina</span>
               <span className="tb-badge"><span className="tb-arrow" id="tbArrow">↗</span><span id="tbMode">Export</span></span>
@@ -770,7 +786,7 @@ export default function LandingPage() {
           <div className="wrap">
             <div className="scene reveal" id="scene">
               <div className="map" id="map">
-                <img className="map__img" src="/argentina-relief.png" alt="Relief map of Argentina" />
+                <img className="map__img" src="/argentina-relief.webp" alt="Relief map of Argentina" width={1280} height={960} loading="lazy" decoding="async" />
                 <div className="map__dusk" />
                 <div className="geo geo--ar" style={{ left: "45%", top: "33%" }}>
                   <span className="geo__name">Argentina</span>
@@ -826,12 +842,12 @@ export default function LandingPage() {
                 <h2>{tr("faro.h2")}</h2>
               </div>
 
-              <div className="tf" id="tf" role="tablist" aria-label="Timeframe">
-                <button data-tf="0" type="button">1D</button>
-                <button data-tf="1" type="button">1W</button>
-                <button data-tf="2" type="button">1M</button>
-                <button data-tf="3" type="button" className="is-sel">1Y</button>
-                <button data-tf="4" type="button">3Y</button>
+              <div className="tf" id="tf" role="group" aria-label="Timeframe">
+                <button data-tf="0" type="button" aria-pressed={false}>1D</button>
+                <button data-tf="1" type="button" aria-pressed={false}>1W</button>
+                <button data-tf="2" type="button" aria-pressed={false}>1M</button>
+                <button data-tf="3" type="button" className="is-sel" aria-pressed={true}>1Y</button>
+                <button data-tf="4" type="button" aria-pressed={false}>3Y</button>
               </div>
 
               <div className="panel" id="panel">
@@ -1083,7 +1099,7 @@ export default function LandingPage() {
               <p>{tr("footer.tag")}</p>
             </div>
             <div className="footer-col">
-              <h5>{tr("footer.h1")}</h5>
+              <h3>{tr("footer.h1")}</h3>
               <ul>
                 <li><a href="#problem">{tr("nav.problem")}</a></li>
                 <li><a href="#services">{tr("nav.services")}</a></li>
@@ -1091,7 +1107,7 @@ export default function LandingPage() {
               </ul>
             </div>
             <div className="footer-col">
-              <h5>{tr("footer.h2")}</h5>
+              <h3>{tr("footer.h2")}</h3>
               <ul>
                 <li><a href="#how">{tr("nav.how")}</a></li>
                 <li><a href="#ai">{tr("footer.ai")}</a></li>
@@ -1100,7 +1116,7 @@ export default function LandingPage() {
               </ul>
             </div>
             <div className="footer-col">
-              <h5>{tr("footer.h3")}</h5>
+              <h3>{tr("footer.h3")}</h3>
               <ul>
                 <li><a href="#contact">{tr("footer.contact")}</a></li>
               </ul>

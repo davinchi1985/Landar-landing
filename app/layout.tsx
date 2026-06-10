@@ -149,9 +149,18 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           {`
             window.$crisp=[];
             window.CRISP_WEBSITE_ID="418b4a97-b152-4ace-a5d4-4b06230c5aae";
-            (function(){var d=document;var s=d.createElement("script");
-            s.src="https://client.crisp.chat/l.js";
-            s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();
+            (function(){
+              var loaded=false,evts=["pointerdown","keydown","touchstart","scroll"];
+              function load(){
+                if(loaded)return;loaded=true;
+                evts.forEach(function(e){window.removeEventListener(e,load)});
+                var d=document,s=d.createElement("script");
+                s.src="https://client.crisp.chat/l.js";s.async=1;
+                d.getElementsByTagName("head")[0].appendChild(s);
+              }
+              evts.forEach(function(e){window.addEventListener(e,load,{once:true,passive:true})});
+              (window.requestIdleCallback||function(cb){return setTimeout(cb,3500)})(function(){setTimeout(load,1200)});
+            })();
           `}
         </Script>
         <Analytics />

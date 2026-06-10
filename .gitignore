@@ -24,6 +24,10 @@
 .DS_Store
 *.pem
 
+# local QA artifacts (Lighthouse runs + screenshot harness output)
+/shots/
+lh*.json
+
 # debug
 npm-debug.log*
 yarn-debug.log*
