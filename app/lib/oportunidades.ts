@@ -74,6 +74,146 @@ export const tandas: Tanda[] = [
     fuente: {
       tipo: "curaduria",
       titulo:
+        "Aperturas estructurales para el capital extranjero — aviación, mercado de capitales y satelital",
+      canal: "Boletín Oficial / CNV / ENACOM",
+      fecha_publicacion: "2026-06-10",
+      ingesta_fecha: "2026-06-10",
+    },
+    medidas: [
+      {
+        id: "cielos-abiertos-aviacion-2024",
+        titulo: "Cielos abiertos: apertura del mercado aerocomercial",
+        sector: "aviacion_aerocomercial",
+        organismo_afectado:
+          "Transporte aéreo / fin de la exclusividad de Aerolíneas Argentinas",
+        instrumento:
+          "DNU 70/2023 + Decreto reglamentario 599/2024 (deroga la Ley 19.030/1971)",
+        estado: "vigente",
+        fecha: "2024-07",
+        resumen:
+          "Política de 'cielos abiertos': deroga la Ley 19.030 de 1971 y abre el mercado aerocomercial a operadores extranjeros. Desde diciembre de 2023 ya hay 27 países con acuerdos de cielos abiertos.",
+        que_cambia: [
+          "Deroga la Ley 19.030/1971 que reservaba el cabotaje a aerolíneas nacionales",
+          "Elimina la exclusividad de rutas y el piso del 50% de operaciones para Aerolíneas Argentinas",
+          "Habilita aeronaves y tripulación extranjeras bajo acuerdos de reciprocidad",
+          "Elimina las tarifas mínimas reguladas",
+          "27 países sumados a acuerdos desde dic 2023 + nuevas rutas internacionales desde las provincias",
+        ],
+        oportunidades: [
+          {
+            titulo: "Más conectividad y menor costo logístico aéreo",
+            descripcion:
+              "Más aerolíneas, rutas y carga aérea mejoran la logística para empresas que importan, exportan y mueven personal.",
+            tipo: "negocio",
+            perfil: "logistica / turismo / exportacion",
+          },
+        ],
+        tags: ["cielos-abiertos", "aviacion", "cabotaje", "dnu70", "logistica", "exportacion"],
+        fuentes: [
+          {
+            medio: "Chequeado",
+            url: "https://chequeado.com/el-explicador/el-dnu-de-javier-milei-que-es-la-politica-de-cielos-abiertos-y-como-impactara-en-los-viajes-en-avion/",
+          },
+          {
+            medio: "El Cronista",
+            url: "https://www.cronista.com/negocios/tres-aerolineas-internacionales-ya-estan-habilitadas-para-volar-en-los-cielos-abiertos-argentinos/",
+          },
+          {
+            medio: "Infobae",
+            url: "https://www.infobae.com/economia/2026/05/21/suman-nuevas-rutas-aereas-internacionales-desde-las-provincias-sin-pasar-por-buenos-aires-una-por-una-cuales-son/",
+          },
+        ],
+      },
+      {
+        id: "big-bang-mercado-capitales-cnv-2026",
+        titulo: "Big Bang del mercado de capitales: autorización automática de emisiones",
+        sector: "mercado_de_capitales",
+        organismo_afectado: "Comisión Nacional de Valores (CNV)",
+        instrumento:
+          "Resoluciones Generales 1132 a 1137 (en consulta pública previa a su publicación en el Boletín Oficial)",
+        estado: "en_proceso",
+        fecha: "2026-04",
+        resumen:
+          "Paquete 'Big Bang' de la CNV: reemplaza el régimen de aprobación previa de emisiones por un modelo de autorización automática (informar en vez de pedir permiso). Anunciado el 30/4/2026; en consulta pública antes de publicarse en el Boletín Oficial.",
+        que_cambia: [
+          "Reemplaza la aprobación previa de la CNV por autorización automática de oferta pública",
+          "Aplica a obligaciones negociables, acciones, fideicomisos financieros y fondos comunes de inversión",
+          "Emisiones por debajo de 100 millones de UVAs (~US$138M) con autorización automática para inversores no calificados",
+          "Extiende el sandbox de tokenización de activos hasta fines de 2027",
+        ],
+        oportunidades: [
+          {
+            titulo: "Financiamiento más ágil para empresas (y tokenización)",
+            descripcion:
+              "Emitir deuda o acciones sin meses de trámite, más una ventana regulatoria para estructuras on-chain / tokenización de activos.",
+            tipo: "inversion",
+            perfil: "finanzas / fintech / cripto",
+          },
+        ],
+        tags: ["mercado-de-capitales", "cnv", "obligaciones-negociables", "tokenizacion", "financiamiento"],
+        fuentes: [
+          {
+            medio: "La Nación",
+            url: "https://www.lanacion.com.ar/economia/la-cnv-lanza-una-fuerte-desregulacion-para-facilitar-las-emisiones-de-las-empresas-y-que-los-cfo-nid30042026/",
+          },
+          {
+            medio: "Infobae",
+            url: "https://www.infobae.com/economia/2026/04/30/big-bang-desregulador-el-gobierno-simplifica-la-emision-de-instrumentos-financieros-para-las-empresas/",
+          },
+          {
+            medio: "El Cronista",
+            url: "https://www.cronista.com/finanzas-mercados/cnv-anuncio-un-big-bang-normativo-para-el-mercado-de-capitales-cambia-el-modelo-de-aprobacion-de-emisiones/",
+          },
+        ],
+      },
+      {
+        id: "satelital-starlink-enacom-2026",
+        titulo: "Liberalización del mercado satelital (Starlink y competidores)",
+        sector: "telecomunicaciones",
+        organismo_afectado: "ENACOM / mercado de servicios satelitales",
+        instrumento:
+          "DNU 70/2023 (deroga art. 34 de la Ley 27.078) + ENACOM Resolución 372/2026",
+        estado: "vigente",
+        fecha: "2026",
+        resumen:
+          "Liberalización del mercado de servicios satelitales. El DNU 70/2023 derogó el artículo 34 de la Ley Argentina Digital y dispuso la libre provisión con solo registro; ENACOM (Res. 372/2026) autorizó a Starlink nuevas bandas. Argentina es el mercado de mayor crecimiento global de Starlink.",
+        que_cambia: [
+          "Deroga el art. 34 de la Ley Argentina Digital (27.078): libre provisión de servicios satelitales",
+          "Solo exige registro de operación para coordinar frecuencias (sin autorización discrecional previa)",
+          "ENACOM Res. 372/2026 habilita a Starlink nuevas bandas (Gateways v5)",
+          "Mercado abierto a competidores globales, no a un único operador",
+        ],
+        oportunidades: [
+          {
+            titulo: "Conectividad satelital para operar en cualquier punto del país",
+            descripcion:
+              "Internet de alta velocidad en zonas rurales y remotas habilita operaciones de agro, minería, energía y logística fuera de las ciudades.",
+            tipo: "negocio",
+            perfil: "tech / conectividad / agro",
+          },
+        ],
+        tags: ["telecomunicaciones", "satelital", "starlink", "enacom", "conectividad", "dnu70"],
+        fuentes: [
+          {
+            medio: "ENACOM (oficial)",
+            url: "https://www.enacom.gob.ar/institucional/enacom-autoriza-a-starlink-argentina-a-operar-en-nuevas-bandas-de-frecuencia-satelital_n4841",
+          },
+          {
+            medio: "Convergencia",
+            url: "https://www.convergencia.com/ultimas-noticias-telematica/starlink-y-la-desregulacion-del-mercado-de-servicios-satelitales-en-argentina/",
+          },
+          {
+            medio: "Infobae",
+            url: "https://www.infobae.com/economia/2026/04/08/locos-por-starlink-por-que-argentina-es-el-pais-donde-mas-crecio-la-internet-de-elon-musk-y-cual-es-el-nuevo-servicio-que-lanzaran/",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    fuente: {
+      tipo: "curaduria",
+      titulo:
         "Tanda desregulación junio 2026 — Boletín Oficial y prensa económica",
       canal:
         "Ministerio de Desregulación y Transformación del Estado / Boletín Oficial",
