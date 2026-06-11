@@ -68,6 +68,7 @@ const en: Dict = {
   "faro.eyebrow": "El Faro del Fin del Mundo",
   "faro.h2": "One light over Argentina.",
   "faro.panel": "Argentina to the world · USD returns by timeframe (indicative)",
+  "faro.markets": "<b>One base, 50+ markets within reach.</b> Set up once and sell to the world — through Mercosur and Argentina's trade agreements.",
 
   "how.eyebrow": "How it works",
   "how.h2": "Three steps. One team. Roughly six weeks.",
@@ -131,6 +132,9 @@ const en: Dict = {
   "footer.rights": "Pilot stage — building in Buenos Aires.",
   "footer.love": "Made with love for Argentina.",
   "final.love": "Because we believe in the Argentina that's coming.",
+  "footer.privacy": "Privacy",
+  "footer.disclaimer": "We coordinate legal, accounting, banking and hiring providers; regulated advice is provided by licensed professionals.",
+  "contact.privacy": "By sending, you agree to our <a href=\"/privacy\">privacy policy</a>.",
 };
 
 const es: Dict = {
@@ -178,6 +182,7 @@ const es: Dict = {
 
   "faro.eyebrow": "El Faro del Fin del Mundo",
   "faro.h2": "Una sola luz sobre toda la Argentina.",
+  "faro.markets": "<b>Una base, 50+ mercados al alcance.</b> Instalate una vez y vendé al mundo — vía Mercosur y los acuerdos comerciales de la Argentina.",
   "faro.panel": "De Argentina al mundo · retornos en USD por período (indicativo)",
 
   "how.eyebrow": "Cómo funciona",
@@ -242,6 +247,9 @@ const es: Dict = {
   "footer.rights": "Etapa piloto — construyendo en Buenos Aires.",
   "footer.love": "Hecho con amor por la Argentina.",
   "final.love": "Porque creemos en la Argentina que viene.",
+  "footer.privacy": "Privacidad",
+  "footer.disclaimer": "Coordinamos proveedores legales, contables, bancarios y de contratación; el asesoramiento regulado lo brindan profesionales matriculados.",
+  "contact.privacy": "Al enviar, aceptás nuestra <a href=\"/privacy\">política de privacidad</a>.",
 };
 
 const pt: Dict = {
@@ -289,6 +297,7 @@ const pt: Dict = {
 
   "faro.eyebrow": "O Farol do Fim do Mundo",
   "faro.h2": "Uma só luz sobre toda a Argentina.",
+  "faro.markets": "<b>Uma base, 50+ mercados ao alcance.</b> Estruture uma vez e venda para o mundo — via Mercosul e os acordos comerciais da Argentina.",
   "faro.panel": "Da Argentina para o mundo · retornos em USD por período (indicativo)",
 
   "how.eyebrow": "Como funciona",
@@ -353,6 +362,9 @@ const pt: Dict = {
   "footer.rights": "Fase piloto — construindo em Buenos Aires.",
   "footer.love": "Feito com amor pela Argentina.",
   "final.love": "Porque acreditamos na Argentina que vem aí.",
+  "footer.privacy": "Privacidade",
+  "footer.disclaimer": "Coordenamos prestadores jurídicos, contábeis, bancários e de contratação; a assessoria regulada é prestada por profissionais habilitados.",
+  "contact.privacy": "Ao enviar, você aceita nossa <a href=\"/privacy\">política de privacidade</a>.",
 };
 
 const de: Dict = {
@@ -400,6 +412,7 @@ const de: Dict = {
 
   "faro.eyebrow": "Der Leuchtturm am Ende der Welt",
   "faro.h2": "Ein Licht über ganz Argentinien.",
+  "faro.markets": "<b>Eine Basis, 50+ Märkte in Reichweite.</b> Einmal aufbauen und weltweit verkaufen — über den Mercosur und Argentiniens Handelsabkommen.",
   "faro.panel": "Von Argentinien in die Welt · USD-Renditen nach Zeitraum (indikativ)",
 
   "how.eyebrow": "So funktioniert's",
@@ -464,6 +477,9 @@ const de: Dict = {
   "footer.rights": "Pilotphase — wir bauen in Buenos Aires.",
   "footer.love": "Mit Liebe für Argentinien gemacht.",
   "final.love": "Weil wir an das Argentinien glauben, das gerade entsteht.",
+  "footer.privacy": "Datenschutz",
+  "footer.disclaimer": "Wir koordinieren Rechts-, Buchhaltungs-, Banken- und Hiring-Dienstleister; regulierte Beratung erfolgt durch zugelassene Fachleute.",
+  "contact.privacy": "Mit dem Absenden akzeptieren Sie unsere <a href=\"/privacy\">Datenschutzerklärung</a>.",
 };
 
 const zh: Dict = {
@@ -511,6 +527,7 @@ const zh: Dict = {
 
   "faro.eyebrow": "El Faro del Fin del Mundo",
   "faro.h2": "一束光，照亮阿根廷。",
+  "faro.markets": "<b>一个基地，50+个市场触手可及。</b>一次设立，销往全球——借助南方共同市场及阿根廷的贸易协定。",
   "faro.panel": "阿根廷面向世界 · 按时间区间的美元回报（示意）",
 
   "how.eyebrow": "服务流程",
@@ -575,6 +592,9 @@ const zh: Dict = {
   "footer.rights": "试点阶段——正在布宜诺斯艾利斯建设。",
   "footer.love": "为阿根廷，用心打造。",
   "final.love": "因为我们相信正在到来的阿根廷。",
+  "footer.privacy": "隐私政策",
+  "footer.disclaimer": "我们统筹法律、会计、银行及招聘服务机构；受监管的专业意见由持牌专业人士提供。",
+  "contact.privacy": "提交即表示您同意我们的<a href=\"/privacy\">隐私政策</a>。",
 };
 
 const DICT: Record<Lang, Dict> = { en, es, pt, de, zh };

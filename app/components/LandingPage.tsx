@@ -54,6 +54,8 @@ export default function LandingPage() {
   const [timeline, setTimeline] = useState("");
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  // honeypot anti-spam: campo invisible que solo los bots completan
+  const [hp, setHp] = useState("");
   const [status, setStatus] = useState<"idle" | "sending" | "error">("idle");
   const [err, setErr] = useState<string | null>(null);
   const countryRef = useRef<HTMLInputElement>(null);
@@ -440,7 +442,7 @@ export default function LandingPage() {
     // a clean click (no drag) follows the trade flow into the Export section
     const onClick = () => {
       if (moved) { moved = false; return; }
-      document.getElementById("network")?.scrollIntoView({ behavior: "smooth", block: "start" });
+      document.getElementById("faro")?.scrollIntoView({ behavior: "smooth", block: "start" });
     };
     const end = () => {
       if (!dragging) return;
@@ -480,6 +482,8 @@ export default function LandingPage() {
   async function next() {
     if (!validateStep()) return;
     if (step < 3) { track("wizard_step", { completed: step + 1 }); setStep(step + 1); return; }
+    // honeypot lleno = bot: fingimos éxito sin enviar nada
+    if (hp.trim()) { setDone(true); setStatus("idle"); return; }
     // submit
     setStatus("sending");
     const summary = `Services: ${services.join(", ") || "—"} · Timeline: ${timeline || "—"} · Country: ${country || "—"}`;
@@ -735,22 +739,9 @@ export default function LandingPage() {
           </div>
         </section>
 
-        {/* NETWORK / EXPORT */}
-        <section className="section" id="network">
-          <div className="wrap">
-            <div className="netband reveal">
-              <span className="eyebrow">{tr("network.eyebrow")}</span>
-              <h2 dangerouslySetInnerHTML={{ __html: tr("network.h2") }} />
-              <p className="lede">{tr("network.lede")}</p>
-              <div className="net-chips">
-                {["Brazil", "Uruguay", "Paraguay"].map((c) => <span className="net-chip is-core" key={c}>{c}</span>)}
-                {["Chile", "Bolivia", "Peru", "Colombia", "Mexico", "EU (pending)", "Israel", "Egypt", "South Africa", "India", "Singapore"].map((c) => <span className="net-chip" key={c}>{c}</span>)}
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* EL FARO — El Faro del Fin del Mundo: relief map + sweeping beam */}
+        {/* EL FARO — El Faro del Fin del Mundo: relief map + sweeping beam.
+            (La banda "One base. 50+ markets" se fusionó acá — decisión David
+            11 jun: misma historia, una sola sección. Chips abajo del scene.) */}
         <section className="section" id="faro">
           <div className="wrap">
             <div className="scene reveal" id="scene">
@@ -823,6 +814,15 @@ export default function LandingPage() {
                 <div className="panel__h">{tr("faro.panel")}</div>
                 <div className="sc-track sc-track--right"><div className="sc-track__in" id="trackA" /></div>
                 <div className="sc-track sc-track--left"><div className="sc-track__in" id="trackB" /></div>
+              </div>
+            </div>
+
+            {/* Mercados alcanzables — heredado de la ex banda "One base. 50+" */}
+            <div className="faro-markets reveal" id="network">
+              <p dangerouslySetInnerHTML={{ __html: tr("faro.markets") }} />
+              <div className="net-chips">
+                {["Brazil", "Uruguay", "Paraguay"].map((c) => <span className="net-chip is-core" key={c}>{c}</span>)}
+                {["Chile", "Bolivia", "Peru", "Colombia", "Mexico", "EU (pending)", "Israel", "Egypt", "South Africa", "India", "Singapore"].map((c) => <span className="net-chip" key={c}>{c}</span>)}
               </div>
             </div>
           </div>
@@ -990,6 +990,13 @@ export default function LandingPage() {
                           <input className="field" id="email" type="email" placeholder={tr("contact.emailph")}
                             value={email} onChange={(e) => { setEmail(e.target.value); setErr(null); }} style={err === "email" ? errStyle : undefined} />
                         </div>
+                        {/* honeypot: invisible para humanos, irresistible para bots */}
+                        <input type="text" name="website" value={hp} onChange={(e) => setHp(e.target.value)}
+                          tabIndex={-1} autoComplete="off" aria-hidden="true"
+                          style={{ position: "absolute", left: "-9999px", width: 1, height: 1, opacity: 0 }} />
+                      </div>
+                      <div>
+                        <p className="fstep__privacy" dangerouslySetInnerHTML={{ __html: tr("contact.privacy") }} />
                       </div>
                       {status === "error" && <p className="muted" style={{ color: "var(--accent)", marginTop: "1rem", fontSize: "var(--fs-body-s)" }}>{tr("contact.error")}</p>}
                     </div>
@@ -1066,6 +1073,7 @@ export default function LandingPage() {
             <div className="footer__brand">
               <Logo />
               <p>{tr("footer.tag")}</p>
+              <p className="footer-disclaimer">{tr("footer.disclaimer")}</p>
             </div>
             <div className="footer-col">
               <h3>{tr("footer.h1")}</h3>
@@ -1088,6 +1096,7 @@ export default function LandingPage() {
               <h3>{tr("footer.h3")}</h3>
               <ul>
                 <li><a href="#contact">{tr("footer.contact")}</a></li>
+                <li><a href="/privacy">{tr("footer.privacy")}</a></li>
               </ul>
             </div>
           </div>

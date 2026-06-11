@@ -1267,13 +1267,15 @@ body.hero-left .globe-stage { order: 1; }
   background: var(--surface);
 }
 .stat {
-  display: flex; align-items: baseline; gap: 0.7rem;
+  /* center en ambos ejes: el dot acompaña al bloque aunque el label
+     envuelva (ES/DE largos) y las celdas quedan parejas entre sí */
+  display: flex; align-items: center; gap: 0.8rem;
   padding: 1.05rem clamp(1rem, 1.8vw, 1.5rem);
   border-left: 1px solid var(--hairline);
 }
 .stat::before {
   content: ""; width: 6px; height: 6px; border-radius: 50%;
-  background: var(--sun); flex: none; align-self: center;
+  background: var(--sun); flex: none;
 }
 .stat:first-child { border-left: 0; }
 @media (max-width: 820px) {
@@ -1289,34 +1291,20 @@ body.hero-left .globe-stage { order: 1; }
 .stat__n { font-family: var(--font-display); font-size: 1.5rem; color: var(--ink); line-height: 1; letter-spacing: -0.01em; white-space: nowrap; }
 .stat__l { color: var(--muted); font-size: var(--fs-body-s); }
 
-/* Cinematic dark network section */
-.netband {
-  position: relative;
-  background:
-    radial-gradient(75% 120% at 82% 8%, rgba(42,111,168,0.24), transparent 55%),
-    radial-gradient(60% 90% at 8% 95%, rgba(42,111,168,0.10), transparent 60%),
-    #1C1B17;
-  color: #F4EFE6;
-  border-radius: var(--r-xl);
-  overflow: hidden;
-  padding: clamp(2.5rem, 6vw, 5.5rem);
-  box-shadow: var(--shadow-lg);
+/* Franja de mercados bajo El Faro (ex banda oscura "One base. 50+ markets" —
+   fusión 11 jun: una sola sección Export; el CSS .netband se retiró). */
+.faro-markets { margin-top: clamp(1.4rem, 2.5vw, 2rem); }
+.faro-markets p {
+  font-size: var(--fs-body-s); color: var(--muted); max-width: 70ch;
 }
-.netband::before {
-  content: ""; position: absolute; inset: 0; pointer-events: none;
-  background-image: radial-gradient(rgba(244,239,230,0.18) 1px, transparent 1.5px);
-  background-size: 24px 24px; opacity: 0.55;
-  -webkit-mask-image: radial-gradient(85% 80% at 72% 25%, #000, transparent 78%);
-  mask-image: radial-gradient(85% 80% at 72% 25%, #000, transparent 78%);
+.faro-markets p b { color: var(--ink); font-weight: 600; }
+.net-chips { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem; }
+.net-chip {
+  font-size: var(--fs-body-s); color: var(--muted);
+  border: 1px solid var(--hairline-strong); background: var(--surface-pure);
+  border-radius: var(--r-pill); padding: 0.4rem 0.9rem;
 }
-.netband > * { position: relative; z-index: 1; }
-.netband .eyebrow { color: rgba(244,239,230,0.6); }
-.netband .eyebrow::before { background: rgba(244,239,230,0.25); }
-.netband h2 { color: #FBF7EE; font-size: var(--fs-h2); line-height: 1.1; text-wrap: normal; margin: 1.1rem 0 1.5rem; }
-.netband .lede { color: rgba(244,239,230,0.72); max-width: 54ch; }
-.net-chips { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1.9rem; max-width: 60ch; }
-.net-chip { font-size: var(--fs-body-s); color: #F4EFE6; border: 1px solid rgba(244,239,230,0.18); background: rgba(244,239,230,0.05); border-radius: var(--r-pill); padding: 0.45rem 0.95rem; }
-.net-chip.is-core { border-color: rgba(42,111,168,0.55); color: #fff; background: rgba(42,111,168,0.16); }
+.net-chip.is-core { border-color: rgba(42,111,168,0.45); color: var(--accent-hover); background: var(--accent-soft); font-weight: 600; }
 
 
 /* ============================================================
@@ -1862,14 +1850,9 @@ body.hero-left .globe-stage { order: 1; }
 .logo__mark path { stroke: var(--sky); }
 .logo__mark circle { fill: var(--sun); }
 
-/* ---------- dark bands — slate-blue night, sun + celeste glows ---------- */
-.netband {
-  background:
-    radial-gradient(75% 120% at 82% 8%, rgba(246, 180, 14, 0.20), transparent 55%),
-    radial-gradient(60% 90% at 8% 95%, rgba(116, 172, 223, 0.14), transparent 60%),
-    #14202B;
-}
-.net-chip.is-core { border-color: rgba(246, 180, 14, 0.55); background: rgba(246, 180, 14, 0.13); }
+/* ---------- dark bands — slate-blue night, sun + celeste glows ----------
+   (.netband y su chip dorado se retiraron: la banda Export se fusionó con
+   El Faro el 11 jun) */
 .final-glow { background: radial-gradient(circle, rgba(246, 180, 14, 0.30), transparent 60%); }
 .contact-aside {
   background:
@@ -2079,3 +2062,32 @@ body.hero-left .globe-stage { order: 1; }
 }
 .radar .radar-guide__t { display: block; font-weight: 600; font-size: var(--fs-body); }
 .radar .radar-guide__cta { display: inline-block; margin-top: 0.5rem; color: var(--accent); font-weight: 600; font-size: var(--fs-body-s); }
+
+/* ============================================================
+   LEGAL — /privacy (y futuras paginas legales)
+   ============================================================ */
+.legal { max-width: 46rem; padding-block: clamp(3rem, 6vw, 5rem); }
+.legal-head { margin-bottom: clamp(1.5rem, 3vw, 2.5rem); }
+.legal-back {
+  display: inline-block; margin-bottom: 1.6rem;
+  font-size: var(--fs-body-s); font-weight: 600;
+  color: var(--accent); text-decoration: none;
+}
+.legal-back:hover { color: var(--accent-hover); }
+.legal h1 { font-size: var(--fs-h2); }
+.legal .lede { margin-top: 1rem; }
+.legal section { margin-top: clamp(1.6rem, 3vw, 2.2rem); }
+.legal h2 { font-size: var(--fs-h4); margin-bottom: 0.6rem; }
+.legal p, .legal li { color: var(--muted); font-size: var(--fs-body); line-height: 1.65; }
+.legal ul { padding-left: 1.2rem; display: grid; gap: 0.6rem; margin-top: 0.4rem; }
+.legal a { color: var(--accent); }
+.legal strong { color: var(--ink); }
+
+/* disclaimer de proveedores regulados (footer) */
+.footer-disclaimer {
+  margin-top: 0.8rem;
+  font-size: 0.78rem; color: var(--muted); opacity: 0.85;
+  max-width: 34rem;
+}
+.fstep__privacy { font-size: 0.78rem; color: var(--muted); margin-top: 0.9rem; }
+.fstep__privacy a { color: var(--accent); }
