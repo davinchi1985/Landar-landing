@@ -74,6 +74,53 @@ export const tandas: Tanda[] = [
     fuente: {
       tipo: "curaduria",
       titulo:
+        "Reforma laboral en marcha — renegociación masiva de convenios colectivos",
+      canal: "Ministerio de Capital Humano / Secretaría de Trabajo",
+      fecha_publicacion: "2026-06-11",
+      ingesta_fecha: "2026-06-11",
+    },
+    medidas: [
+      {
+        id: "reforma-laboral-convenios-colectivos-2026",
+        titulo: "Reforma laboral: 446 convenios colectivos vencidos a renegociar",
+        sector: "laboral",
+        organismo_afectado:
+          "Secretaría de Trabajo (Ministerio de Capital Humano) / convenios colectivos sectoriales",
+        instrumento:
+          "Decreto 407/2026 (reglamenta la Ley 27.802 de Modernización Laboral)",
+        estado: "vigente",
+        fecha: "2026-06",
+        resumen:
+          "El Gobierno amplió de 150 a 446 la cantidad de convenios colectivos vencidos que empresarios y sindicatos deberán renegociar, al reglamentar la Ley 27.802 de Modernización Laboral. La reforma termina con la 'ultraactividad': las cláusulas de aportes compulsivos caducan al vencer el convenio, y se abre la renegociación de condiciones de trabajo sector por sector.",
+        que_cambia: [
+          "446 convenios colectivos vencidos entran en proceso de renegociación obligatoria (antes eran 150)",
+          "Fin de la ultraactividad: las cláusulas obligacionales (cuotas solidarias y aportes compulsivos) caducan al vencer el convenio",
+          "Las condiciones de trabajo (cláusulas normativas) se renegocian entre empresarios y sindicatos",
+          "Alcanza a sectores clave como la construcción, entre muchas otras industrias",
+        ],
+        oportunidades: [
+          {
+            titulo: "Convenios modernos = contratar en Argentina con menos riesgo",
+            descripcion:
+              "La renegociación sectorial apunta a condiciones laborales más previsibles y flexibles — una ventana para empresas extranjeras que evalúan contratar o instalar operaciones con costos laborales más claros.",
+            tipo: "negocio",
+            perfil: "hiring / EOR / industria",
+          },
+        ],
+        tags: ["laboral", "convenios-colectivos", "modernizacion-laboral", "hiring", "ultraactividad"],
+        fuentes: [
+          {
+            medio: "Infobae",
+            url: "https://www.infobae.com/politica/2026/06/11/reforma-laboral-el-gobierno-amplio-a-446-la-cantidad-de-convenios-colectivos-que-deberan-renegociar-empresarios-y-sindicalistas/",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    fuente: {
+      tipo: "curaduria",
+      titulo:
         "Aperturas estructurales para el capital extranjero — aviación, mercado de capitales y satelital",
       canal: "Boletín Oficial / CNV / ENACOM",
       fecha_publicacion: "2026-06-10",
@@ -130,22 +177,24 @@ export const tandas: Tanda[] = [
         sector: "mercado_de_capitales",
         organismo_afectado: "Comisión Nacional de Valores (CNV)",
         instrumento:
-          "Resoluciones Generales 1132 a 1137 (en consulta pública previa a su publicación en el Boletín Oficial)",
-        estado: "en_proceso",
-        fecha: "2026-04",
+          "Resoluciones Generales CNV 1145 a 1150/2026 (Boletín Oficial, 11/6/2026)",
+        estado: "vigente",
+        fecha: "2026-06",
         resumen:
-          "Paquete 'Big Bang' de la CNV: reemplaza el régimen de aprobación previa de emisiones por un modelo de autorización automática (informar en vez de pedir permiso). Anunciado el 30/4/2026; en consulta pública antes de publicarse en el Boletín Oficial.",
+          "El 'Big Bang' de la CNV ya rige: las RG 1145-1150/2026 reemplazan la aprobación previa de emisiones por autorización automática (presentar un filing en vez de pedir permiso). La gran mayoría de las emisiones de deuda de hasta ~US$130-140M sale al mercado sin autorización previa, bajo el nuevo Régimen de Autorización Automática de Mediano Impacto Ampliado.",
         que_cambia: [
-          "Reemplaza la aprobación previa de la CNV por autorización automática de oferta pública",
-          "Aplica a obligaciones negociables, acciones, fideicomisos financieros y fondos comunes de inversión",
-          "Emisiones por debajo de 100 millones de UVAs (~US$138M) con autorización automática para inversores no calificados",
-          "Extiende el sandbox de tokenización de activos hasta fines de 2027",
+          "Reemplaza la aprobación previa de la CNV por autorización automática de oferta pública (modelo de filing + control posterior)",
+          "FCI abiertos: desaparece la aprobación previa sin importar el tamaño de la emisión",
+          "Acciones, obligaciones negociables, FCI cerrados y fideicomisos financieros hasta 100 millones de UVAs (~US$130-140M): autorización automática",
+          "Por encima de 100MM UVAs tampoco requieren aprobación previa si se dirigen a inversores calificados",
+          "Baja el umbral de inversor calificado de 350.000 a 200.000 UVAs (~US$300.000 en activos)",
+          "RG 1150: tokenización extendida a los regímenes automáticos + sandbox regulatorio prorrogado al 31/12/2027",
         ],
         oportunidades: [
           {
             titulo: "Financiamiento más ágil para empresas (y tokenización)",
             descripcion:
-              "Emitir deuda o acciones sin meses de trámite, más una ventana regulatoria para estructuras on-chain / tokenización de activos.",
+              "Emitir deuda o acciones en días y no meses, decidido por el CFO y no por un trámite; más una ventana regulatoria para estructuras on-chain / tokenización de activos.",
             tipo: "inversion",
             perfil: "finanzas / fintech / cripto",
           },
@@ -153,16 +202,16 @@ export const tandas: Tanda[] = [
         tags: ["mercado-de-capitales", "cnv", "obligaciones-negociables", "tokenizacion", "financiamiento"],
         fuentes: [
           {
-            medio: "La Nación",
-            url: "https://www.lanacion.com.ar/economia/la-cnv-lanza-una-fuerte-desregulacion-para-facilitar-las-emisiones-de-las-empresas-y-que-los-cfo-nid30042026/",
+            medio: "Argentina.gob.ar (oficial)",
+            url: "https://www.argentina.gob.ar/noticias/big-bang-regulatorio-desregulacion-de-aprobaciones-para-emisoras-ffs-y-fcis-regimen-de-0",
           },
           {
-            medio: "Infobae",
-            url: "https://www.infobae.com/economia/2026/04/30/big-bang-desregulador-el-gobierno-simplifica-la-emision-de-instrumentos-financieros-para-las-empresas/",
+            medio: "Ámbito",
+            url: "https://www.ambito.com/finanzas/mercado-capitales-la-cnv-oficializo-el-big-bang-regulatorio-y-se-agilizan-las-emisiones-autorizaciones-automaticas-n6287460",
           },
           {
             medio: "El Cronista",
-            url: "https://www.cronista.com/finanzas-mercados/cnv-anuncio-un-big-bang-normativo-para-el-mercado-de-capitales-cambia-el-modelo-de-aprobacion-de-emisiones/",
+            url: "https://www.cronista.com/finanzas-mercados/transformacion-financiera-cnv-aprobo-las-normas-que-traeran-un-cambio-radical-en-el-mercado-argentino/",
           },
         ],
       },
