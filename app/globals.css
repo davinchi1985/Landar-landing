@@ -390,7 +390,9 @@ section[id] { scroll-margin-top: clamp(4.5rem, 6vw, 5.5rem); }
 /* ============================================================
    HERO
    ============================================================ */
-.hero { min-height: 88svh; display: flex; align-items: center; padding-top: clamp(5rem, 9vw, 7.5rem); padding-bottom: clamp(1.5rem, 3vw, 2.5rem); position: relative; }
+/* Hero compacto: el alto lo define el contenido (no el viewport) — en
+   pantallas altas ya no quedan océanos de aire arriba y abajo del copy. */
+.hero { display: flex; align-items: center; padding-top: clamp(5.5rem, 8vw, 7rem); padding-bottom: clamp(1.25rem, 2.5vw, 2rem); position: relative; }
 .hero__grid { width: 100%; }
 .hero__grid {
   display: grid;
@@ -407,21 +409,8 @@ section[id] { scroll-margin-top: clamp(4.5rem, 6vw, 5.5rem); }
 .hero__sub { margin-top: 1.35rem; max-width: 32rem; }
 .hero__cta { margin-top: 1.7rem; display: flex; flex-wrap: wrap; gap: 0.9rem; }
 
-/* hero priority triptych — the three things, in order of relevance */
-.hero-modes { margin-top: 1.6rem; display: flex; flex-wrap: wrap; gap: 0.6rem; }
-.hero-mode {
-  display: inline-flex; align-items: baseline; gap: 0.5rem;
-  padding: 0.6rem 0.9rem; border: 1px solid var(--hairline); border-radius: var(--r-pill);
-  font-size: var(--fs-body-s); color: var(--ink); text-decoration: none; background: var(--surface-pure);
-  transition: border-color 0.25s var(--ease), background 0.25s var(--ease), transform 0.25s var(--ease);
-}
-.hero-mode:hover { border-color: var(--hairline-strong); transform: translateY(-1px); }
-.hero-mode .hm-no { font-family: var(--font-display); font-size: 0.95rem; color: var(--muted); line-height: 1; }
-.hero-mode .hm-label { font-weight: 600; letter-spacing: -0.01em; }
-.hero-mode.is-lead { border-color: var(--accent); background: var(--accent-soft); }
-.hero-mode.is-lead .hm-no { color: var(--accent-hover); }
-.hero-mode.is-lead .hm-label { color: var(--accent-hover); }
-@media (max-width: 520px) { .hero-mode { flex: 1 1 100%; justify-content: flex-start; } }
+/* (el "triptych" 01/02/03 del hero se voló — menos es más, pedido David
+   11 jun: la sub ya dice land · operate · export) */
 .hero__status {
   margin-top: 1.5rem;
   display: inline-flex;
@@ -489,9 +478,9 @@ section[id] { scroll-margin-top: clamp(4.5rem, 6vw, 5.5rem); }
 /* Order box — Argentina's live import/export flows, like a trade ticker. Draggable. */
 .trade-box {
   position: absolute;
-  /* Anclado al borde inferior-izquierdo del globo: no pisa los CTAs del copy
-     en ningún idioma (en DE el botón ghost llega más a la derecha). */
-  left: 40%; top: 80%;
+  /* Anclado abajo (no en % de alto: el hero ya no se estira con el viewport)
+     y corrido del copy: no pisa los CTAs en ningún idioma. */
+  left: 40%; top: auto; bottom: 4%;
   width: clamp(212px, 21vw, 252px);
   background: var(--surface-pure);
   border: 1px solid var(--hairline);
@@ -526,24 +515,11 @@ section[id] { scroll-margin-top: clamp(4.5rem, 6vw, 5.5rem); }
 .tb-product { font-size: 1.15rem; font-weight: 600; letter-spacing: -0.01em; color: var(--ink); line-height: 1.1; }
 .tb-route { font-size: 0.82rem; color: var(--muted); margin-top: 0.2rem; }
 @media (max-width: 920px) {
-  .trade-box { position: relative; left: auto; top: auto; margin: 1.4rem auto 0; width: min(280px, 90%); }
+  .trade-box { position: relative; left: auto; top: auto; bottom: auto; margin: 1.4rem auto 0; width: min(280px, 90%); }
 }
 
-/* Scroll cue — minimal, Starlink-style */
-.scroll-cue {
-  position: absolute;
-  left: 50%; bottom: clamp(1.2rem, 3vh, 2.2rem);
-  transform: translateX(-50%);
-  width: 26px; height: 44px;
-  border: 1px solid var(--hairline-strong);
-  border-radius: var(--r-pill);
-  display: grid; place-items: start center;
-  padding-top: 7px;
-}
-.scroll-cue__line { width: 2px; height: 9px; border-radius: 2px; background: var(--accent); animation: scrollcue 1.8s cubic-bezier(0.22,0.61,0.36,1) infinite; }
-@keyframes scrollcue { 0% { opacity: 0; transform: translateY(0); } 30% { opacity: 1; } 100% { opacity: 0; transform: translateY(12px); } }
-@media (prefers-reduced-motion: reduce) { .scroll-cue__line { animation: none; } }
-@media (max-width: 920px) { .scroll-cue { display: none; } }
+/* (el scroll-cue se voló — con el hero compacto la siguiente sección ya
+   asoma; el indicador flotaba huérfano en el medio. Pedido David 11 jun) */
 
 /* Tweakable hero layouts */
 body.hero-left .hero__grid { grid-template-columns: 0.95fr 1.05fr; }
@@ -1168,7 +1144,28 @@ body.hero-left .globe-stage { order: 1; }
 /* ============================================================
    FOOTER
    ============================================================ */
-.footer { padding-block: clamp(2rem, 3vw, 2.75rem) 2rem; border-top: 1px solid var(--hairline); margin-top: clamp(1rem, 2vw, 1.75rem); }
+/* Hairline albiceleste: la bandera como detalle de craft (celeste → sol → celeste). */
+.footer { padding-block: clamp(2rem, 3vw, 2.75rem) 2rem; border-top: 0; margin-top: clamp(1rem, 2vw, 1.75rem); position: relative; }
+.footer::before {
+  content: ""; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+  background: linear-gradient(90deg,
+    var(--hairline) 0%, var(--sky) 32%, var(--sun) 50%, var(--sky) 68%, var(--hairline) 100%);
+  opacity: 0.6;
+}
+
+/* Amor por Argentina — firma del footer y manifesto del final CTA */
+.footer-love { font-family: var(--font-display); font-style: italic; color: var(--accent); white-space: nowrap; }
+.footer-love::before {
+  content: ""; display: inline-block; width: 6px; height: 6px; border-radius: 50%;
+  background: var(--sun); margin: 0 0.55rem 0.1rem 0.2rem; vertical-align: middle;
+}
+.final-love {
+  position: relative;
+  font-family: var(--font-display); font-style: italic;
+  font-size: 1.08rem; letter-spacing: 0.005em;
+  color: rgba(116, 172, 223, 0.92);
+  margin-top: 1.6rem;
+}
 .footer__top { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 2rem; }
 @media (max-width: 760px) { .footer__top { grid-template-columns: 1fr 1fr; gap: 2rem 1rem; } }
 .footer__brand { max-width: 22rem; }

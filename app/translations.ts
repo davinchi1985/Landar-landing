@@ -126,6 +126,8 @@ const en: Dict = {
   "footer.h1": "Company", "footer.h2": "Resources", "footer.h3": "Get started",
   "footer.ai": "AI readiness", "footer.blog": "Journal", "footer.radar": "Opportunities radar", "footer.contact": "Contact",
   "footer.rights": "Pilot stage — building in Buenos Aires.",
+  "footer.love": "Made with love for Argentina.",
+  "final.love": "Because we believe in the Argentina that's coming.",
 };
 
 const es: Dict = {
@@ -235,6 +237,8 @@ const es: Dict = {
   "footer.h1": "Empresa", "footer.h2": "Recursos", "footer.h3": "Empezar",
   "footer.ai": "Preparación IA", "footer.blog": "Blog", "footer.radar": "Radar de oportunidades", "footer.contact": "Contacto",
   "footer.rights": "Etapa piloto — construyendo en Buenos Aires.",
+  "footer.love": "Hecho con amor por la Argentina.",
+  "final.love": "Porque creemos en la Argentina que viene.",
 };
 
 const pt: Dict = {
@@ -344,6 +348,8 @@ const pt: Dict = {
   "footer.h1": "Empresa", "footer.h2": "Recursos", "footer.h3": "Começar",
   "footer.ai": "Preparação IA", "footer.blog": "Blog", "footer.radar": "Radar de oportunidades", "footer.contact": "Contato",
   "footer.rights": "Fase piloto — construindo em Buenos Aires.",
+  "footer.love": "Feito com amor pela Argentina.",
+  "final.love": "Porque acreditamos na Argentina que vem aí.",
 };
 
 const de: Dict = {
@@ -453,6 +459,8 @@ const de: Dict = {
   "footer.h1": "Unternehmen", "footer.h2": "Ressourcen", "footer.h3": "Loslegen",
   "footer.ai": "KI-Bereitschaft", "footer.blog": "Journal", "footer.radar": "Chancen-Radar", "footer.contact": "Kontakt",
   "footer.rights": "Pilotphase — wir bauen in Buenos Aires.",
+  "footer.love": "Mit Liebe für Argentinien gemacht.",
+  "final.love": "Weil wir an das Argentinien glauben, das gerade entsteht.",
 };
 
 const DICT: Record<Lang, Dict> = { en, es, pt, de };

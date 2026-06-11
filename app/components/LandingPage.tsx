@@ -591,16 +591,11 @@ export default function LandingPage() {
             <div className="hero__copy">
               <h1 className="reveal" dangerouslySetInnerHTML={{ __html: tr("hero.h1") }} />
               <p className="hero__sub lede reveal" style={{ ["--reveal-delay" as string]: ".12s" }} dangerouslySetInnerHTML={{ __html: tr("hero.sub") }} />
-              <div className="hero-modes reveal" style={{ ["--reveal-delay" as string]: ".16s" }}>
-                <a className="hero-mode is-lead" href="#ai"><span className="hm-no">01</span><span className="hm-label">{tr("hero.m1")}</span></a>
-                <a className="hero-mode" href="#services"><span className="hm-no">02</span><span className="hm-label">{tr("hero.m2")}</span></a>
-                <a className="hero-mode" href="#network"><span className="hm-no">03</span><span className="hm-label">{tr("hero.m3")}</span></a>
-              </div>
-              <div className="hero__cta reveal" style={{ ["--reveal-delay" as string]: ".2s" }}>
+              <div className="hero__cta reveal" style={{ ["--reveal-delay" as string]: ".18s" }}>
                 <a className="btn btn--primary btn--lg" href="#contact" onClick={() => track("cta_click", { where: "hero" })}>{tr("hero.cta1")} <span className="arrow">→</span></a>
                 <a className="btn btn--ghost btn--lg" href="#how">{tr("hero.cta2")}</a>
               </div>
-              <div className="hero__status reveal" style={{ ["--reveal-delay" as string]: ".26s" }}>
+              <div className="hero__status reveal" style={{ ["--reveal-delay" as string]: ".24s" }}>
                 <span className="pill"><span className="dot"></span><span>{tr("hero.status")}</span></span>
               </div>
             </div>
@@ -608,9 +603,9 @@ export default function LandingPage() {
             <Globe />
           </div>
 
-          {/* Decorative live-trade ticker — a mouse shortcut into the Export section.
-              Hidden from AT (the hero "Export to the world" link reaches the same place),
-              so no role/tabindex and no name/content mismatch. */}
+          {/* Decorative live-trade ticker — a mouse shortcut into the Export
+              section (the section itself is reachable by scroll). Hidden from
+              AT, so no role/tabindex and no name/content mismatch. */}
           <div className="trade-box is-out" id="tradeBox" aria-hidden="true">
             <span className="tb-grip"><i></i><i></i></span>
             <div className="tb-top">
@@ -620,8 +615,6 @@ export default function LandingPage() {
             <div className="tb-product" id="tbProduct">Oil &amp; gas</div>
             <div className="tb-route" id="tbRoute">Neuquén → world markets</div>
           </div>
-
-          <a className="scroll-cue" href="#problem" aria-label="Scroll down"><span className="scroll-cue__line"></span></a>
         </section>
 
         {/* PROBLEM */}
@@ -1060,6 +1053,7 @@ export default function LandingPage() {
                 <a className="btn btn--primary btn--lg" href="#contact" onClick={() => track("cta_click", { where: "final" })}>{tr("final.cta1")} <span className="arrow">→</span></a>
                 <a className="btn btn--ghost btn--lg" href="#services">{tr("final.cta2")}</a>
               </div>
+              <p className="final-love">{tr("final.love")}</p>
             </div>
           </div>
         </section>
@@ -1098,7 +1092,7 @@ export default function LandingPage() {
             </div>
           </div>
           <div className="footer__bottom">
-            <span>© {new Date().getFullYear()} Inteligenci·AR. {tr("footer.rights")}</span>
+            <span>© {new Date().getFullYear()} Inteligenci·AR. {tr("footer.rights")} <em className="footer-love">{tr("footer.love")}</em></span>
             <LangMenu open={langFooterOpen} setOpen={setLangFooterOpen} idSuffix="Footer" />
           </div>
         </div>
