@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import { SITE_URL, SITE_NAME } from "../../lib/site";
 import { sectorLabel, ESTADO_LABEL, TIPO_LABEL, medidaFaqs } from "../../lib/oportunidades";
 import { getAllIds, getMedida, relacionadas, tandaDe } from "../../lib/radar";
+import { GUIA_DE_MEDIDA } from "../../lib/guias";
 
 export async function generateStaticParams() {
   const ids = await getAllIds();
@@ -239,6 +240,14 @@ export default async function MedidaPage({
               ))}
             </div>
           </section>
+        )}
+
+        {GUIA_DE_MEDIDA[id] && (
+          <Link className="radar-guide" href={`/blog/${GUIA_DE_MEDIDA[id].slug}`}>
+            <span className="radar-guide__k">Guía completa (EN)</span>
+            <span className="radar-guide__t">{GUIA_DE_MEDIDA[id].titulo}</span>
+            <span className="radar-guide__cta">Leer en el Journal →</span>
+          </Link>
         )}
 
         <section className="radar-cta">

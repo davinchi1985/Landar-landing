@@ -1,8 +1,9 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import { SITE_URL, SITE_NAME } from "../lib/site";
-import { ESTADO_LABEL, type Medida } from "../lib/oportunidades";
+import { ESTADO_LABEL, sectorLabel, type Medida } from "../lib/oportunidades";
 import { getMedidas, getTandas } from "../lib/radar";
+import { GUIA_DE_MEDIDA } from "../lib/guias";
 import { hasServiceClient } from "../lib/supabase/server";
 import Feed from "./Feed";
 import SubscribeBox from "./SubscribeBox";
@@ -135,6 +136,11 @@ export default async function OportunidadesPage() {
             anuncio</strong>, no normas vigentes: el estado figura en cada
             tarjeta. Es información, no asesoramiento legal.
           </p>
+          <div className="radar-counters" aria-label="Resumen del radar">
+            <span><b>{medidas.length}</b> medidas</span>
+            <span><b>{medidas.filter((m) => m.estado === "vigente").length}</b> vigentes</span>
+            <span><b>{medidas.filter((m) => m.estado !== "vigente").length}</b> en camino</span>
+          </div>
           {fuente && (
             <div className="radar-src">
               <span>
@@ -155,6 +161,22 @@ export default async function OportunidadesPage() {
         </header>
 
         <FreedomBand />
+
+        {/* Destacado: la medida más reciente del feed, con peso visual propio */}
+        {medidas[0] && (
+          <Link className="radar-featured" href={`/oportunidades/${medidas[0].id}`}>
+            <div className="radar-featured__head">
+              <span className="radar-featured__k">Destacado de la semana</span>
+              <span className={`radar-b estado is-${medidas[0].estado}`}>{ESTADO_LABEL[medidas[0].estado]}</span>
+              <span className="radar-b sector">{sectorLabel(medidas[0].sector)}</span>
+            </div>
+            <h2>{medidas[0].titulo}</h2>
+            <p>{medidas[0].resumen}</p>
+            <span className="radar-featured__cta">
+              Ver qué habilita{GUIA_DE_MEDIDA[medidas[0].id] ? " + guía completa" : ""} →
+            </span>
+          </Link>
+        )}
 
         <Feed medidas={medidas} />
 

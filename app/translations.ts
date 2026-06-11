@@ -1,20 +1,23 @@
 // ============================================================
 // Inteligenci·AR — copy / i18n
-// EN is the source. ES, PT y DE están traducidos por completo.
-// Los 4 idiomas coinciden con lo que el equipo declara (why.t1: EN·ES·PT·DE).
+// EN is the source. ES, PT, DE y ZH están traducidos por completo.
+// why.t1 declara los idiomas del EQUIPO (EN·ES·PT·DE) — el chino es
+// idioma de la WEB (decisión 11 jun 2026: China = mayor inversor
+// asiático en Argentina), no una promesa de atención en chino.
 // ============================================================
 
-export type Lang = "en" | "es" | "pt" | "de";
+export type Lang = "en" | "es" | "pt" | "de" | "zh";
 
 export const LANGS: { code: Lang; label: string; short: string }[] = [
   { code: "en", label: "English", short: "EN" },
   { code: "es", label: "Español", short: "ES" },
   { code: "pt", label: "Português", short: "PT" },
   { code: "de", label: "Deutsch", short: "DE" },
+  { code: "zh", label: "中文", short: "ZH" },
 ];
 
 export const LANG_CODE: Record<Lang, string> = {
-  en: "EN", es: "ES", pt: "PT", de: "DE",
+  en: "EN", es: "ES", pt: "PT", de: "DE", zh: "ZH",
 };
 
 type Dict = Record<string, string>;
@@ -463,7 +466,118 @@ const de: Dict = {
   "final.love": "Weil wir an das Argentinien glauben, das gerade entsteht.",
 };
 
-const DICT: Record<Lang, Dict> = { en, es, pt, de };
+const zh: Dict = {
+  "nav.problem": "问题所在", "nav.services": "我们的服务", "nav.how": "服务流程",
+  "nav.why": "为什么选我们", "nav.ai": "AI实体", "nav.radar": "雷达", "nav.cta": "联系我们",
+
+  "hero.h1": "在阿根廷设立您的<em>AI实体</em>。",
+  "hero.sub": "成为首批注册AI运营公司的先行者——一个合作伙伴，助您在布宜诺斯艾利斯落地、运营并出口全球。",
+  "hero.m1": "AI实体", "hero.m2": "落地与运营", "hero.m3": "出口全球",
+  "hero.cta1": "联系我们", "hero.cta2": "了解服务流程",
+  "hero.status": "正在接收首批试点客户",
+
+  "path.eyebrow": "评估您的路径",
+  "path.h2": "看看您能多快开始运营。",
+  "path.ph": "您从哪里拓展业务？",
+  "path.cta": "评估我的路径",
+
+  "problem.eyebrow": "问题所在",
+  "problem.h2": "五个互不沟通的服务商。",
+  "problem.lede": "公司注册、银行、会计、薪酬、合规——各有各的节奏，各说各的语言。",
+  "problem.v1": "公司注册与法律顾问", "problem.f1": "数周的反复沟通",
+  "problem.v2": "愿意为您开户的银行", "problem.f2": "不透明的要求",
+  "problem.v3": "本地会计师", "problem.f3": "仅有西班牙语的申报文件",
+  "problem.v4": "薪酬与社保", "problem.f4": "严苛的期限",
+  "problem.v5": "持续合规", "problem.f5": "不断变化的规则",
+  "problem.note": "数月耗费在协调上——却无人对结果负责。",
+  "freedom.fact": "阿根廷刚刚创下全球最大经济自由度增幅（2026年传统基金会指数，+3.2分）。",
+  "freedom.cta": "在雷达中追踪每一项放松管制",
+
+  "services.eyebrow": "我们的服务",
+  "services.h2": "四件事，一个伙伴。",
+  "services.p1.t": "公司注册与法律", "services.p1.d": "正确的架构，自第一天起即合规。",
+  "services.p2.t": "银行开户准备", "services.p2.d": "完整的开户材料。是准备就绪，而非空头承诺。",
+  "services.p3.t": "税务与会计", "services.p3.d": "AFIP税务、月度账簿与申报——以英文交付。",
+  "services.p4.t": "招聘与薪酬", "services.p4.d": "合同、薪酬与社保，端到端服务。",
+
+  "stats.s1": "天即可运营，而非数月",
+  "stats.s2": "项服务，一个对接人",
+  "stats.s3": "个贸易伙伴市场可达",
+  "stats.s4": "种语言，一支本地团队",
+
+  "network.eyebrow": "从阿根廷出口",
+  "network.h2": "一个基地。<br>50+个市场触手可及。",
+  "network.lede": "一次设立，销往全球——借助南方共同市场及阿根廷的贸易协定，从单一运营基地辐射区域内外。",
+
+  "faro.eyebrow": "El Faro del Fin del Mundo",
+  "faro.h2": "一束光，照亮阿根廷。",
+  "faro.panel": "阿根廷面向世界 · 按时间区间的美元回报（示意）",
+
+  "how.eyebrow": "服务流程",
+  "how.h2": "三步走。一支团队。约六周。",
+  "how.s1.t": "诊断与方案", "how.s1.d": "30分钟通话，随后交付书面方案。",
+  "how.s2.t": "我们搭建", "how.s2.d": "公司、税务与银行——并行推进，一人负责。",
+  "how.s3.t": "您运营，我们护航", "how.s3.d": "会计、薪酬与合规，每月持续。",
+  "how.tl.title": "参考时间表", "how.tl.days": "天即可运营",
+  "how.tl.n1": "启动与方案", "how.tl.n2": "公司注册递交", "how.tl.n3": "税务登记",
+  "how.tl.n4": "银行材料就绪", "how.tl.n5": "开始运营",
+  "how.tl.note": "仅供参考——首次通话时我们会给出具体评估。",
+
+  "why.eyebrow": "为什么选我们",
+  "why.h2": "本地运营者，而非服务商名录。",
+  "why.c1.t": "一个对接人", "why.c1.d": "一位项目负责人全程负责您的落地。",
+  "why.c2.t": "经过审核的网络，同一屋檐下", "why.c2.d": "律师、会计师与银行家，由我们亲自协调。",
+  "why.c3.t": "端到端负责", "why.c3.d": "助您落地的团队，持续保障您的合规。",
+  "why.t1": "团队语言 — 英语 · 西语 · 葡语 · 德语", "why.t2": "驻布宜诺斯艾利斯", "why.t3": "固定范围报价",
+
+  "trust.eyebrow": "信任", "trust.h2": "我们的工作方式，公开透明。",
+  "trust.k1": "方法论", "trust.c1.t": "书面方案，固定范围", "trust.c1.d": "范围、时间表与价格均以书面约定。无开放式计费。",
+  "trust.k2": "团队", "trust.c2.t": "真实的人，而非呼叫中心", "trust.c2.d": "布宜诺斯艾利斯的实名运营者，以您的语言服务。",
+  "trust.k3": "试点案例", "trust.c3.t": "起步阶段，坦诚相告", "trust.c3.d": "首批客户正在落地。匿名案例即将发布。",
+  "trust.note": "该板块随真实案例的落地而成长——在有真实内容可展示之前保持隐藏。",
+
+  "ai.badge": "AI实体 · 内置服务",
+  "ai.h3": "您距离注册AI实体还有多远？",
+  "ai.d": "阿根廷正向AI运营实体敞开大门。我们为您搭建公司——主体、档案与治理——确保框架生效之日，您即可注册并以AI实体运营。",
+  "ai.cta": "获取您的就绪方案",
+  "ai.note": "新兴法律框架——在其最终落地前，我们持续为您更新架构。是就绪，而非保证。",
+  "ai.hint": "勾选您已具备的条件",
+  "ai.c1": "已注册法律实体（SA / SRL）",
+  "ai.c2": "清晰且最新的公司档案",
+  "ai.c3": "明确的治理结构与签字人",
+  "ai.c4": "税务与合规状况良好",
+  "ai.s0": "刚刚起步", "ai.s2": "进展顺利", "ai.s3": "近在咫尺", "ai.s4": "随时可递交",
+  "ai.gap": "其余部分由我们补齐——通常数周内完成。",
+  "ai.gapDone": "您已具备递交条件。让我们确认细节。",
+
+  "contact.eyebrow": "从这里开始", "contact.h2": "告诉我们您从哪里来。",
+  "contact.lede": "四个问题。一份量身定制的方案，而非推销话术。",
+  "contact.ws1": "您的所在地", "contact.ws2": "您的需求", "contact.ws3": "您的时间表", "contact.ws4": "联系方式",
+  "contact.q1": "贵公司位于哪里？", "contact.q1h": "以便我们确定适用的协定与银行通道。",
+  "contact.country": "国家 / 地区", "contact.countryph": "例如：美国、西班牙、德国……",
+  "contact.q2": "您需要哪些方面的帮助？", "contact.q2h": "可多选——之后可随时调整。",
+  "contact.q3": "您希望何时开始运营？", "contact.q3h": "如实估计即可。",
+  "contact.t1": "越快越好", "contact.t2": "1–3个月内", "contact.t3": "3–6个月", "contact.t4": "仅在了解阶段",
+  "contact.q4": "我们如何联系您？", "contact.q4h": "我们将在一个工作日内回复。",
+  "contact.name": "姓名", "contact.nameph": "您的姓名", "contact.email": "工作邮箱", "contact.emailph": "you@company.com",
+  "contact.back": "返回", "contact.next": "继续", "contact.send": "发送", "contact.sending": "发送中……",
+  "contact.doneT": "感谢您——我们会尽快联系。", "contact.doneD": "我们将评估您的情况，并在一天内发送书面方案。",
+  "contact.error": "出了点问题——请发邮件给我们或重试。",
+
+  "final.eyebrow": "随时恭候",
+  "final.h2": "让您的阿根廷落地之旅轻松无忧。",
+  "final.lede": "告诉我们您的情况，一天内即可收到书面方案。",
+  "final.cta1": "联系我们", "final.cta2": "回顾我们的服务",
+
+  "footer.tag": "在阿根廷即刻运营。公司注册、银行、会计与招聘——由布宜诺斯艾利斯的一个对接人统筹协调。",
+  "footer.h1": "公司", "footer.h2": "资源", "footer.h3": "开始",
+  "footer.ai": "AI就绪评估", "footer.blog": "专栏", "footer.radar": "机会雷达", "footer.contact": "联系",
+  "footer.rights": "试点阶段——正在布宜诺斯艾利斯建设。",
+  "footer.love": "为阿根廷，用心打造。",
+  "final.love": "因为我们相信正在到来的阿根廷。",
+};
+
+const DICT: Record<Lang, Dict> = { en, es, pt, de, zh };
 
 export function t(lang: Lang, key: string): string {
   const d = DICT[lang];
