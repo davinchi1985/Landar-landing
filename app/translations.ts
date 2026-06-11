@@ -43,6 +43,8 @@ const en: Dict = {
   "problem.v4": "Payroll & social security", "problem.f4": "Strict deadlines",
   "problem.v5": "Ongoing compliance", "problem.f5": "Rules that shift",
   "problem.note": "Months lost to coordination — and no one to hold accountable.",
+  "freedom.fact": "Argentina just posted the world's largest economic-freedom gain (Heritage Index 2026, +3.2 pts).",
+  "freedom.cta": "Track every deregulation in the Radar",
 
   "services.eyebrow": "What we do",
   "services.h2": "Four things. One partner.",
@@ -150,6 +152,8 @@ const es: Dict = {
   "problem.v4": "Nómina y seguridad social", "problem.f4": "Plazos estrictos",
   "problem.v5": "Cumplimiento continuo", "problem.f5": "Reglas que cambian",
   "problem.note": "Meses perdidos en coordinar — y nadie a quien responsabilizar.",
+  "freedom.fact": "Argentina acaba de lograr la mayor suba de libertad económica del mundo (Índice Heritage 2026, +3,2 pts).",
+  "freedom.cta": "Seguí cada desregulación en el Radar",
 
   "services.eyebrow": "Qué hacemos",
   "services.h2": "Cuatro cosas. Un socio.",
@@ -257,6 +261,8 @@ const pt: Dict = {
   "problem.v4": "Folha e previdência social", "problem.f4": "Prazos rígidos",
   "problem.v5": "Compliance contínuo", "problem.f5": "Regras que mudam",
   "problem.note": "Meses perdidos em coordenação — e ninguém a quem responsabilizar.",
+  "freedom.fact": "A Argentina acaba de registrar o maior ganho de liberdade econômica do mundo (Índice Heritage 2026, +3,2 pts).",
+  "freedom.cta": "Acompanhe cada desregulação no Radar",
 
   "services.eyebrow": "O que fazemos",
   "services.h2": "Quatro coisas. Um parceiro.",
@@ -364,6 +370,8 @@ const de: Dict = {
   "problem.v4": "Lohn & Sozialversicherung", "problem.f4": "Strenge Fristen",
   "problem.v5": "Laufende Compliance", "problem.f5": "Regeln, die sich ändern",
   "problem.note": "Monate verloren durch Koordination — und niemand, der verantwortlich ist.",
+  "freedom.fact": "Argentinien verzeichnete den weltweit größten Zugewinn an Wirtschaftsfreiheit (Heritage-Index 2026, +3,2 Pkt.).",
+  "freedom.cta": "Jede Deregulierung im Radar verfolgen",
 
   "services.eyebrow": "Was wir tun",
   "services.h2": "Vier Dinge. Ein Partner.",

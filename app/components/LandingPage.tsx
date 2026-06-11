@@ -28,37 +28,6 @@ const Check = () => (
   </svg>
 );
 
-// Animated stat number — counts up once when scrolled into view.
-// Only pure numbers (with optional ~ / + decoration) animate; mixed values
-// like "4 → 1" render static. SSR/no-JS show the final value.
-function StatNum({ value }: { value: string }) {
-  const ref = useRef<HTMLDivElement>(null);
-  const [display, setDisplay] = useState(value);
-  useEffect(() => {
-    const m = value.match(/^(\D*)(\d+)(\D*)$/);
-    const el = ref.current;
-    if (!m || !el || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    const target = parseInt(m[2], 10);
-    let started = false;
-    const io = new IntersectionObserver((entries) => {
-      if (!entries[0].isIntersecting || started) return;
-      started = true;
-      io.disconnect();
-      const dur = 1100, t0 = performance.now();
-      const tick = (now: number) => {
-        const p = Math.min(1, (now - t0) / dur);
-        const eased = 1 - Math.pow(1 - p, 3);
-        setDisplay(m[1] + Math.round(target * eased) + m[3]);
-        if (p < 1) requestAnimationFrame(tick);
-      };
-      requestAnimationFrame(tick);
-    }, { threshold: 0.6 });
-    io.observe(el);
-    return () => io.disconnect();
-  }, [value]);
-  return <div className="stat__n" ref={ref}>{display}</div>;
-}
-
 export default function LandingPage() {
   const [lang, setLang] = useState<Lang>("en");
   const tr = (k: string) => t(lang, k);
@@ -680,6 +649,16 @@ export default function LandingPage() {
           </div>
         </section>
 
+        {/* FREEDOM INDEX — proof strip + interlink al radar */}
+        <section className="section--tight" id="freedom">
+          <div className="wrap">
+            <a className="freedom-strip reveal" href="/oportunidades" onClick={() => track("cta_click", { where: "freedom_strip" })}>
+              <span className="fstrip__fact"><b>#1</b><span>{tr("freedom.fact")}</span></span>
+              <span className="fstrip__cta">{tr("freedom.cta")} <span className="arrow">→</span></span>
+            </a>
+          </div>
+        </section>
+
         {/* AI-ENTITY */}
         <section className="section section--tight" id="ai">
           <div className="wrap">
@@ -734,16 +713,13 @@ export default function LandingPage() {
             </div>
             <div className="pillars-v2">
               {[
-                { no: "01", d: ".0s", icon: <path d="M6 3h9l3 3v15H6z" />, extra: <path d="M9 9h6M9 13h6M9 17h3" /> },
-                { no: "02", d: ".06s", icon: <path d="M3 10l9-5 9 5" />, extra: <path d="M5 10v8M19 10v8M9 10v8M15 10v8M3 21h18" /> },
-                { no: "03", d: ".12s", icon: <path d="M6 3h12v18l-3-2-3 2-3-2-3 2z" />, extra: <path d="M9 8h6M9 12h6" /> },
-                { no: "04", d: ".18s", icon: <><circle cx="9" cy="8" r="3" /><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6" /></>, extra: <path d="M16 5.5a3 3 0 010 5M18 14c2.2.7 3.5 2.6 3.5 4.8" /> },
+                { no: "01", d: ".0s" },
+                { no: "02", d: ".06s" },
+                { no: "03", d: ".12s" },
+                { no: "04", d: ".18s" },
               ].map((p, i) => (
                 <article className="pcol reveal" key={p.no} style={{ ["--reveal-delay" as string]: p.d }}>
-                  <div className="pcol__top">
-                    <div className="pcol__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.6}>{p.icon}{p.extra}</svg></div>
-                    <span className="pcol__no">{p.no}</span>
-                  </div>
+                  <span className="pcol__no">{p.no}</span>
                   <h3>{tr(`services.p${i + 1}.t`)}</h3>
                   <p>{tr(`services.p${i + 1}.d`)}</p>
                 </article>
@@ -758,8 +734,8 @@ export default function LandingPage() {
             <div className="stats">
               {[{ n: "~45", k: "stats.s1" }, { n: "4 → 1", k: "stats.s2" }, { n: "15+", k: "stats.s3" }, { n: "4", k: "stats.s4" }].map((s, i) => (
                 <div className="stat reveal" key={s.k} style={{ ["--reveal-delay" as string]: `.${i * 6}s` }}>
-                  <StatNum value={s.n} />
-                  <div className="stat__l">{tr(s.k)}</div>
+                  <span className="stat__n">{s.n}</span>
+                  <span className="stat__l">{tr(s.k)}</span>
                 </div>
               ))}
             </div>
@@ -876,7 +852,6 @@ export default function LandingPage() {
             <div className="timeline reveal" id="timeline">
               <div className="timeline__head">
                 <h3>{tr("how.tl.title")}</h3>
-                <div className="days">~45 <small>{tr("how.tl.days")}</small></div>
               </div>
               <div className="track" id="track">
                 <div className="track__line"></div>
