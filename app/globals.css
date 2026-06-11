@@ -488,7 +488,9 @@ section[id] { scroll-margin-top: clamp(4.5rem, 6vw, 5.5rem); }
 /* Order box — Argentina's live import/export flows, like a trade ticker. Draggable. */
 .trade-box {
   position: absolute;
-  left: 34%; top: 75%;
+  /* Anclado al borde inferior-izquierdo del globo: no pisa los CTAs del copy
+     en ningún idioma (en DE el botón ghost llega más a la derecha). */
+  left: 40%; top: 80%;
   width: clamp(212px, 21vw, 252px);
   background: var(--surface-pure);
   border: 1px solid var(--hairline);

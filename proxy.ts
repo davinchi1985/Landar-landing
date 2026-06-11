@@ -4,7 +4,8 @@ import type { NextRequest } from "next/server";
 // Red de seguridad para el login admin: si Supabase manda el `code` de
 // auth a la raíz (fallback al Site URL en vez de a /auth/callback), lo
 // reencaminamos al callback que lo procesa.
-export function middleware(request: NextRequest) {
+// (Convención `proxy` de Next 16; era `middleware` hasta Next 15.)
+export function proxy(request: NextRequest) {
   const { searchParams, pathname } = request.nextUrl;
   const code = searchParams.get("code");
   if (code && pathname === "/") {

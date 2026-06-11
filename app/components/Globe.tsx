@@ -558,8 +558,9 @@ export default function Globe() {
     }
 
     function loadLand() {
-      fetch("https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json")
-        .then((r) => r.json())
+      // Self-hosted (mismo origen, sin DNS/TLS extra); CDN solo como fallback.
+      fetch("/world/countries-110m.json")
+        .then((r) => { if (!r.ok) throw new Error(String(r.status)); return r.json(); })
         .then((topo) => {
           if (disposed) return;
           const fc: any = feature(topo, topo.objects.countries);
@@ -572,9 +573,19 @@ export default function Globe() {
           start();
         })
         .catch(() => {
-          fetch("https://cdn.jsdelivr.net/npm/world-atlas@2/land-110m.json")
+          fetch("https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json")
             .then((r) => r.json())
-            .then((t2) => { if (disposed) return; landFeature = feature(t2, (t2 as any).objects.land); start(); })
+            .then((topo) => {
+              if (disposed) return;
+              const fc: any = feature(topo, topo.objects.countries);
+              landFeature = fc;
+              for (let i = 0; i < fc.features.length; i++) {
+                const f = fc.features[i];
+                if (String(f.id) === "032" || (f.properties && f.properties.name === "Argentina")) { argFeature = f; break; }
+              }
+              if (argFeature) buildArgRings();
+              start();
+            })
             .catch(() => { buildArcs(); start(); });
         });
     }

@@ -138,6 +138,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={`${inter.variable} ${newsreader.variable}`}>
       <head>
+        {/* Crisp se carga diferido (primera interacción); el preconnect deja
+            el handshake DNS+TLS ya hecho para cuando dispare. */}
+        <link rel="preconnect" href="https://client.crisp.chat" crossOrigin="anonymous" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
