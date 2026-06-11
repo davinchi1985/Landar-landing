@@ -11,6 +11,147 @@ export interface Post {
 
 export const posts: Post[] = [
   {
+    slug: "argentina-capital-markets-big-bang-2026",
+    title: "Argentina's Capital-Markets 'Big Bang': What the 2026 CNV Reform Means for Foreign Companies and Investors",
+    metaDescription: "Argentina's securities regulator (CNV) replaced prior approval of securities issuance with automatic authorization — General Resolutions 1145–1150/2026, in force since June 11, 2026. What changed, the UVA thresholds, the tokenization sandbox, and what it means for foreign companies financing operations in Argentina.",
+    date: "2026-06-11",
+    readingTime: "8 min read",
+    category: "banking",
+    excerpt: "Since June 11, 2026, most securities issuances in Argentina no longer need prior regulatory approval — a filing replaces the permission slip. Here's what the 'Big Bang' actually changes, and for whom.",
+    content: `
+<p>On June 11, 2026, Argentina's securities regulator — the Comisión Nacional de Valores (CNV) — brought into force what its own president calls the market's <strong>"Big Bang"</strong>: General Resolutions <strong>1145 through 1150/2026</strong>, published in the Official Gazette, which replace the decades-old regime of prior approval for securities issuance with <strong>automatic authorization</strong>. A company files; it does not ask permission. The deliberate echo of London's 1986 "Big Bang" deregulation is the government's own framing — and structurally, the comparison is not absurd. (Official announcement: <a href="https://www.argentina.gob.ar/noticias/big-bang-regulatorio-desregulacion-de-aprobaciones-para-emisoras-ffs-y-fcis-regimen-de-0" target="_blank" rel="noopener noreferrer">Argentina.gob.ar</a>; coverage: <a href="https://www.ambito.com/finanzas/mercado-capitales-la-cnv-oficializo-el-big-bang-regulatorio-y-se-agilizan-las-emisiones-autorizaciones-automaticas-n6287460" target="_blank" rel="noopener noreferrer">Ámbito</a>, <a href="https://www.cronista.com/finanzas-mercados/transformacion-financiera-cnv-aprobo-las-normas-que-traeran-un-cambio-radical-en-el-mercado-argentino/" target="_blank" rel="noopener noreferrer">El Cronista</a>.)</p>
+
+<p>This guide explains what actually changed, the thresholds that matter, and what it means for a foreign company operating — or financing operations — in Argentina. The sourced, always-current entry lives on our <a href="/oportunidades/big-bang-mercado-capitales-cnv-2026">regulatory radar</a>.</p>
+
+<h2>What changed on June 11, 2026?</h2>
+
+<p>The reform's core is a switch of regulatory philosophy: from <em>review before approval</em> to <em>filing, issuer responsibility, and supervision afterwards</em>. Under the new <strong>"Régimen de Autorización Automática de Mediano Impacto Ampliado"</strong> (expanded medium-impact automatic-authorization regime):</p>
+
+<ul>
+  <li><strong>Open-end mutual funds (FCI abiertos):</strong> prior approval disappears entirely, regardless of size or target investor. File and launch.</li>
+  <li><strong>Shares, corporate bonds (obligaciones negociables), closed-end funds and financial trusts up to 100 million UVAs</strong> (roughly US$130–140 million at mid-2026 values): automatic authorization — no prior CNV approval.</li>
+  <li><strong>Above 100 million UVAs:</strong> still no prior approval needed when the instruments are offered to <em>qualified investors</em>.</li>
+  <li><strong>The qualified-investor threshold drops</strong> from 350,000 to 200,000 UVAs — roughly US$300,000 in assets or deposits. A much wider pool of investors can now be offered any instrument without prior authorization.</li>
+  <li><strong>Tokenization (RG 1150/2026):</strong> digital representation of securities is extended to the automatic-authorization regimes, and the regulatory sandbox runs until <strong>December 31, 2027</strong>.</li>
+  <li><strong>SME relief:</strong> small and mid-size issuers are exempted from requirements such as the statutory audit committee and IFRS reporting under the new regime.</li>
+</ul>
+
+<h2>Why it matters for foreign companies</h2>
+
+<h3>1. Local financing becomes a real option, on a CFO's timeline</h3>
+<p>Until now, financing an Argentine subsidiary through the local market meant months of regulatory queue. With automatic authorization, the timing of a bond or equity issuance is a treasury decision, not an administrative one. For a foreign company with revenue in pesos, issuing locally — instead of funding everything with intercompany dollars — becomes materially easier. (On the banking rails you still need first, see <a href="/blog/how-to-open-a-bank-account-in-argentina-foreign-company">opening a bank account in Argentina as a foreign company</a>.)</p>
+
+<h3>2. Real-estate and project structures unlock</h3>
+<p>Closed-end funds and financial trusts up to ~US$130–140M with automatic authorization change the math for real-estate development, agriculture and infrastructure vehicles — the structures most used to pool local capital for hard assets.</p>
+
+<h3>3. A regulated on-ramp for tokenized structures</h3>
+<p>RG 1150 extends tokenization to the automatic regimes inside a sandbox that runs to end-2027. For fintech and digital-asset operators, Argentina now offers something rare: a large market with an explicit, time-boxed regulatory framework for tokenized securities.</p>
+
+<h2>What has not changed</h2>
+
+<p>Supervision still exists — it moves <em>after</em> issuance: filings, issuer responsibility and subsequent oversight replace prior review, they do not abolish it. Macro volatility, currency rules and tax treatment are separate questions, unchanged by these resolutions. And this reform is about <em>securities issuance</em>; it does not alter company formation, which still follows its own process (see <a href="/blog/how-to-set-up-a-company-in-argentina">how to set up a company in Argentina</a>). None of this is legal or investment advice.</p>
+
+<h2>How to position</h2>
+
+<p>The reform rewards companies that already have their Argentine structure in order — entity, banking, accounting — because those are the rails any local issuance runs on. That is what Inteligenci·AR sets up, with the regulatory tracking included. <a href="/#contact">Get in touch</a> to map what this opens for your sector, or follow the measure on the <a href="/oportunidades">radar</a>.</p>
+
+<h2>Frequently asked questions</h2>
+
+<div class="faq-item">
+<h3>What is Argentina's capital-markets "Big Bang"?</h3>
+<p>A package of CNV General Resolutions (1145–1150/2026), in force since June 11, 2026, that replaces prior approval of securities issuance with automatic authorization based on filings. Open-end mutual funds need no prior approval at all; shares, bonds, closed-end funds and financial trusts get automatic authorization up to 100 million UVAs (~US$130–140M), and above that when offered to qualified investors.</p>
+</div>
+
+<div class="faq-item">
+<h3>Is the CNV reform already in force?</h3>
+<p>Yes. The resolutions were approved by the CNV board on June 10, 2026, published in the Official Gazette, and the automatic-authorization mechanisms apply since June 11, 2026. Procedures already in progress were automatically authorized without further filings.</p>
+</div>
+
+<div class="faq-item">
+<h3>What is a qualified investor in Argentina after the 2026 reform?</h3>
+<p>The threshold dropped from 350,000 to 200,000 UVAs — roughly US$300,000 in assets or deposits in the financial system. Qualified investors can be offered instruments of any size without prior CNV authorization of the offering.</p>
+</div>
+
+<div class="faq-item">
+<h3>Can foreign companies issue bonds or shares in Argentina under the new regime?</h3>
+<p>The automatic-authorization regime applies to issuers in the Argentine market, including local subsidiaries of foreign companies that have an Argentine entity and meet the filing requirements. Issuances up to ~US$130–140M get automatic authorization; larger ones do too when targeted at qualified investors. Specific eligibility should be confirmed case by case — this is not legal advice.</p>
+</div>
+
+<div class="faq-item">
+<h3>What happened with tokenization in Argentina's 2026 reform?</h3>
+<p>General Resolution 1150/2026 extends the digital representation (tokenization) of securities to the automatic-authorization regimes and extends Argentina's tokenization regulatory sandbox until December 31, 2027.</p>
+</div>
+`,
+  },
+  {
+    slug: "hiring-in-argentina-2026-labor-reform",
+    title: "Hiring in Argentina After the 2026 Labor Reform: 446 Collective Agreements Head to Renegotiation",
+    metaDescription: "Argentina's government expanded from 150 to 446 the expired collective bargaining agreements that employers and unions must renegotiate, under Decree 407/2026 implementing the Labor Modernization Law (27.802). What changes for foreign companies hiring in Argentina: ultraactivity, solidarity dues, and sector-by-sector modernization.",
+    date: "2026-06-11",
+    readingTime: "7 min read",
+    category: "hiring",
+    excerpt: "Argentina just put 446 expired collective agreements on the renegotiation table and ended the automatic survival of union-dues clauses. For foreign employers, the labor framework is being rewritten sector by sector.",
+    content: `
+<p>On June 11, 2026, Argentina's Secretariat of Labor expanded from <strong>150 to 446</strong> the number of expired collective bargaining agreements (convenios colectivos) that employers and unions must renegotiate, implementing the <strong>Labor Modernization Law (Ley 27.802)</strong> through <strong>Decree 407/2026</strong> (<a href="https://www.infobae.com/politica/2026/06/11/reforma-laboral-el-gobierno-amplio-a-446-la-cantidad-de-convenios-colectivos-que-deberan-renegociar-empresarios-y-sindicalistas/" target="_blank" rel="noopener noreferrer">Infobae</a>). For foreign companies that hire — or plan to hire — in Argentina, this is the most consequential labor development of 2026: the agreements that define working conditions in sector after sector are being reopened for the first time in decades.</p>
+
+<p>The sourced, always-current entry for this measure lives on our <a href="/oportunidades/reforma-laboral-convenios-colectivos-2026">regulatory radar</a>.</p>
+
+<h2>What is "ultraactivity", and why does ending it matter?</h2>
+
+<p>Under Argentina's traditional regime, a collective agreement that expired <em>never really expired</em> — its clauses survived automatically until a new agreement replaced them. This "ultraactividad" froze working conditions negotiated decades ago (many agreements date from the 1970s–1990s) and removed any incentive to renegotiate.</p>
+
+<p>The reform splits an expired agreement in two:</p>
+
+<ul>
+  <li><strong>Normative clauses</strong> — actual working conditions (hours, categories, tasks) — remain in force until renegotiated.</li>
+  <li><strong>Obligational clauses</strong> — solidarity dues and compulsory employer contributions to unions — <strong>lapse when the agreement expires</strong>.</li>
+</ul>
+
+<p>That second point changes the bargaining table itself: the cost structure that made expired agreements comfortable for incumbents now has an expiry date, and both sides have a reason to sit down.</p>
+
+<h2>What exactly happens with the 446 agreements?</h2>
+
+<p>The 446 expired agreements — spanning industries from construction to services — enter a renegotiation procedure between employer chambers and unions covering two fronts: <strong>working conditions</strong> and <strong>solidarity dues / compulsory contributions</strong>. The Secretariat of Labor (Ministry of Human Capital) runs the procedure. The decree opens the door to renegotiating every clause that can be renegotiated within this process.</p>
+
+<h2>What it means for foreign employers</h2>
+
+<h3>1. More predictable hiring costs — eventually, sector by sector</h3>
+<p>Modernized agreements mean job categories and conditions that match how work is actually done today, and an end to legacy contribution clauses an employer never negotiated. The transition is gradual: each sector renegotiates on its own timeline, so the practical picture depends on <em>your</em> collective agreement. Mapping which one applies to your activity is step one — it determines salary floors, categories and contributions before you make your first hire (see <a href="/blog/hiring-employees-argentina-foreign-company">hiring employees in Argentina as a foreign company</a>).</p>
+
+<h3>2. A window to enter while the framework modernizes</h3>
+<p>Argentina's labor law had been the most-cited deterrent for foreign employers. A framework being rewritten in favor of firm-level flexibility — together with the <a href="/blog/argentina-deregulation-2026-foreign-companies">broader 2026 deregulation wave</a> — shifts the calculus for setting up a local team now rather than later.</p>
+
+<h3>3. EOR first, entity when ready</h3>
+<p>If you want talent before navigating a renegotiating sector, an <a href="/blog/employer-of-record-argentina">Employer of Record</a> lets you hire compliantly while the new agreements settle, then migrate to your own entity.</p>
+
+<h2>Status and caveats</h2>
+
+<p>Decree 407/2026 is in force and the renegotiation procedure is underway — but renegotiations themselves will take time, and outcomes will differ by sector. Existing normative clauses remain binding until replaced. As always on these topics: this is regulatory information, not legal advice, and the status of each measure is tracked on our <a href="/oportunidades">radar</a>.</p>
+
+<h2>Frequently asked questions</h2>
+
+<div class="faq-item">
+<h3>What is Argentina's 2026 labor reform?</h3>
+<p>The Labor Modernization Law (Ley 27.802), implemented by Decree 407/2026, ends the automatic survival ("ultraactivity") of expired collective agreements' obligational clauses and sends 446 expired agreements to renegotiation between employers and unions, covering working conditions and solidarity dues.</p>
+</div>
+
+<div class="faq-item">
+<h3>How many collective agreements must be renegotiated in Argentina?</h3>
+<p>446. The government initially listed 150 expired agreements and expanded the list to 446 on June 11, 2026, spanning sectors from construction to services.</p>
+</div>
+
+<div class="faq-item">
+<h3>Do union solidarity dues still apply after an agreement expires?</h3>
+<p>Under the reform, obligational clauses — solidarity dues and compulsory employer contributions — lapse when the collective agreement expires. Normative clauses (working conditions) remain in force until a new agreement replaces them.</p>
+</div>
+
+<div class="faq-item">
+<h3>Is it safer to hire in Argentina through an EOR during the labor reform?</h3>
+<p>An Employer of Record is a practical way to hire compliantly while your sector's collective agreement is being renegotiated: the EOR carries the employment relationship under current rules, and you can migrate the team to your own entity once the new framework settles. Which route is better depends on headcount and timeline.</p>
+</div>
+`,
+  },
+  {
     slug: "argentina-deregulation-2026-foreign-companies",
     title: "Argentina's 2026 Deregulation Wave: What the World's Biggest Economic-Freedom Gain Means for Foreign Companies",
     metaDescription: "Argentina recorded the largest economic-freedom gain of any country in the 2026 Heritage Index (score 57.4, +3.2 pts, rank #106). Here's what's being deregulated — real estate, imports, professions, exports — and what it means for foreign companies entering Argentina.",
